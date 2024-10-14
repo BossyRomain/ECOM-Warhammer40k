@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
       # Étape 2 : Configure Java et Maven pour compiler le projet JHipster
       - name: Set up JDK 17
         uses: actions/setup-java@v1
