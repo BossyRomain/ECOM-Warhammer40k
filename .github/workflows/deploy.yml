@@ -45,8 +45,7 @@ jobs:
           HOST: ${{ secrets.EC2_HOST }}
           PRIVATE_KEY: ${{ secrets.EC2_KEY }}
         run: |
-          echo "$PRIVATE_KEY" > github-key.pem
-          chmod 400 github-key.pem
+          echo "$PRIVATE_KEY" > key.pem
           # Copie du fichier JAR sur l'instance EC2
           # scp -i github-key.pem ./target/jhipsterlearn-0.0.1-SNAPSHOT.jar ec2-user@${HOST}:/home/ec2-user/
 
