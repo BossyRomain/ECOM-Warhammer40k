@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Étape 1 : Checkout le code source de la branche main
-      - name: Checkout source code
-        uses: actions/checkout@v2
-
       # Étape 2 : Configure Java et Maven pour compiler le projet JHipster
       - name: Set up JDK 17
         uses: actions/setup-java@v1
