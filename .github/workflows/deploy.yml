@@ -1,0 +1,66 @@
+name: Deploy JHipster App to EC2
+
+# Exécute le pipeline à chaque push sur la branche 'main'
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Checkout le code source de la branche main
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      # Étape 2 : Configure Java et Maven pour compiler le projet JHipster
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+
+      - name: Build with Maven
+        run: ./mvnw clean package -DskipTests
+
+      # Étape 3 : Préparation pour transférer le fichier JAR vers l'instance EC2
+      - name: Prepare JAR file
+        run: |
+          echo "Jar file ready to be deployed"
+          ls -l ./target/*.jar
+
+      # Étape 4 : Copie du fichier .jar sur l'instance EC2 via SSH
+      - name: Deploy to EC2
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_KEY: ${{ secrets.EC2_KEY }}
+          APP_JAR_NAME: ${{ secrets.APP_JAR_NAME }}
+          REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
+        run: |
+          echo "${EC2_KEY}" > ec2_key.pem
+          chmod 400 ec2_key.pem
+
+          # Copie du fichier JAR sur l'instance EC2
+          scp -i ec2_key.pem -o StrictHostKeyChecking=no ./target/${APP_JAR_NAME} ${EC2_USER}@${EC2_HOST}:${REMOTE_PATH}
+
+      # Étape 5 : Connexion SSH et redémarrage de l'application sur l'instance EC2
+      - name: Restart application on EC2
+        run: |
+          ssh -i ec2_key.pem -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} << 'EOF'
+          # Arrêt de l'application s'il y a un processus en cours
+          PID=$(pgrep -f ${REMOTE_PATH}/${APP_JAR_NAME})
+          if [ ! -z "$PID" ]; then
+            echo "Stopping existing application with PID: $PID"
+            kill -9 $PID
+          fi
+
+          # Redémarrage de l'application
+          nohup java -jar ${REMOTE_PATH}/${APP_JAR_NAME} > app.log 2>&1 &
+          echo "Application restarted successfully"
+          EOF
+
+      # Nettoyage de la clé privée après utilisation
+      - name: Clean up
+        run: rm ec2_key.pem
