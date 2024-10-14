@@ -31,7 +31,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: ./mvnw clean package -Pprod -PskipTests
+        run: ./mvnw clean package -Pprod
 
       # Étape 3 : Préparation pour transférer le fichier JAR vers l'instance EC2
       - name: Prepare JAR file
