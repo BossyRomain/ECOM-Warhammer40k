@@ -48,16 +48,16 @@ jobs:
           APP_JAR_NAME: ${{ secrets.APP_JAR_NAME }}
           REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
         run: |
-          echo "$EC2_KEY" > ec2_key.pem
-          chmod 600 ec2_key.pem
+          echo "$EC2_KEY" > github-key.pem
+          chmod 400 github-key.pem
 
           # Copie du fichier JAR sur l'instance EC2
-          scp -o StrictHostKeyChecking=no ./target/${APP_JAR_NAME} ec2-user@${EC2_HOST}:/home/ec2-user/
+          scp -i github-key.pem ./target/${APP_JAR_NAME} ec2-user@${EC2_HOST}:/home/ec2-user/
 
       # Étape 5 : Connexion SSH et redémarrage de l'application sur l'instance EC2
       - name: Restart application on EC2
         run: |
-          ssh -i ec2_key.pem -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} << 'EOF'
+          ssh -i github-key.pem -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST}
           # Arrêt de l'application s'il y a un processus en cours
           PID=$(pgrep -f ${REMOTE_PATH}/${APP_JAR_NAME})
           if [ ! -z "$PID" ]; then
