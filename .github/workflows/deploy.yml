@@ -39,6 +39,9 @@ jobs:
           echo "Jar file ready to be deployed"
           ls -l ./target/*.jar
 
+      - name: configure AWS access
+        uses: aws
+
       # Étape 4 : Copie du fichier .jar sur l'instance EC2 via SSH
       - name: Deploy to EC2
         env:
@@ -48,12 +51,11 @@ jobs:
           APP_JAR_NAME: ${{ secrets.APP_JAR_NAME }}
           REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
         run: |
-          echo ${EC2_KEY}
-          echo "${EC2_KEY}" > ec2_key.pem
-          chmod 400 ec2_key.pem
+          echo "$EC2_KEY" > ec2_key.pem
+          chmod 600 ec2_key.pem
 
           # Copie du fichier JAR sur l'instance EC2
-          scp -i ec2_key.pem ./target/${APP_JAR_NAME} ec2-user@${EC2_HOST}:${REMOTE_PATH}
+          scp -o StrictHostKeyChecking=no -i ec2_key.pem ./target/${APP_JAR_NAME} ec2-user@${EC2_HOST}:/home/ec2-user/
 
       # Étape 5 : Connexion SSH et redémarrage de l'application sur l'instance EC2
       - name: Restart application on EC2
