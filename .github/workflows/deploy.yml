@@ -44,29 +44,17 @@ jobs:
         env:
           HOST: ${{ secrets.EC2_HOST }}
           PRIVATE_KEY: ${{ secrets.EC2_KEY }}
-          APP_JAR_NAME: ${{ secrets.APP_JAR_NAME }}
         run: |
           echo "$PRIVATE_KEY" > github-key.pem
           chmod 400 github-key.pem
-
           # Copie du fichier JAR sur l'instance EC2
-          scp -i github-key.pem ./target/${APP_JAR_NAME} ec2-user@${HOST}:/home/ec2-user/
+          # scp -i github-key.pem ./target/jhipsterlearn-0.0.1-SNAPSHOT.jar ec2-user@${HOST}:/home/ec2-user/
 
       # Étape 5 : Connexion SSH et redémarrage de l'application sur l'instance EC2
       - name: Restart application on EC2
         run: |
-          ssh -i github-key.pem -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST}
-          # Arrêt de l'application s'il y a un processus en cours
-          PID=$(pgrep -f ${REMOTE_PATH}/${APP_JAR_NAME})
-          if [ ! -z "$PID" ]; then
-            echo "Stopping existing application with PID: $PID"
-            kill -9 $PID
-          fi
-
-          # Redémarrage de l'application
-          nohup java -jar ${REMOTE_PATH}/${APP_JAR_NAME} > app.log 2>&1 &
-          echo "Application restarted successfully"
-          EOF
+          ssh -i github-key.pem -o StrictHostKeyChecking=no ec2-user@${EC2_HOST}
+          exit
 
       # Nettoyage de la clé privée après utilisation
       - name: Clean up
