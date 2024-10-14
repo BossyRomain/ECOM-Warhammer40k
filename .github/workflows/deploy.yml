@@ -54,6 +54,7 @@ jobs:
       - name: Restart application on EC2
         run: |
           ssh -i github-key.pem -o StrictHostKeyChecking=no ec2-user@${EC2_HOST}
+          # test
           exit
 
       # Nettoyage de la clé privée après utilisation
