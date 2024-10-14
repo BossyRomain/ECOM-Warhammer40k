@@ -48,11 +48,12 @@ jobs:
           APP_JAR_NAME: ${{ secrets.APP_JAR_NAME }}
           REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
         run: |
+          echo ${EC2_KEY}
           echo "${EC2_KEY}" > ec2_key.pem
           chmod 400 ec2_key.pem
 
           # Copie du fichier JAR sur l'instance EC2
-          scp -i ec2_key.pem -o StrictHostKeyChecking=no ./target/${APP_JAR_NAME} ${EC2_USER}@${EC2_HOST}:${REMOTE_PATH}
+          scp -i ec2_key.pem ./target/${APP_JAR_NAME} ec2-user@${EC2_HOST}:${REMOTE_PATH}
 
       # Étape 5 : Connexion SSH et redémarrage de l'application sur l'instance EC2
       - name: Restart application on EC2
