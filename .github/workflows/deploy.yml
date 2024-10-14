@@ -53,7 +53,7 @@ jobs:
       - name: Restart application on EC2
         run: |
           ssh -i github-key.pem -o StrictHostKeyChecking=no ec2-user@ec2-13-60-71-207.eu-north-1.compute.amazonaws.com
-          # test
+          # test test
           exit
 
       - name: try copy
