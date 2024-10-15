@@ -12,19 +12,16 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      # Step 2: Setup Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Specify the Node.js version you need
+          node-version: '20'
 
-      # Step 3: Install dependencies and build front-end (if necessary)
       - name: Install npm depedencies
         run: npm install
 
-      # Étape 2 : Configure Java et Maven pour compiler le projet JHipster
       - name: Set up JDK 17
         uses: actions/setup-java@v1
         with:
@@ -33,20 +30,18 @@ jobs:
       - name: Build with Maven
         run: ./mvnw clean package -Pprod -DskipTests
 
-      # Étape 3 : Préparation pour transférer le fichier JAR vers l'instance EC2
-      - name: Prepare JAR file
-        run: |
-          echo "Jar file ready to be deployed"
-          ls -l ./target/*.jar
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ecom-app
+          path: ./target/jhipsterlearn-0.0.1-SNAPSHOT.jar
 
-      - name: Get EC2 Key
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          echo "$SSH_PRIVATE_KEY" > private-key.pem
-          chmod 600 private-key.pem
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ecom-app
+          path: ./
 
-      - name: EC2 Deploy
+      - name: Copy jar to EC2
         run: |
-          scp -v -i private-key.pem -o StrictHostKeyChecking=no ./target/jhipsterlearn-0.0.1-SNAPSHOT.jar ec2-user@ec2-13-60-71-207.eu-north-1.compute.amazonaws.com:/home/ec2-user/
-          rm private-key.pem
+          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ./jhipsterlearn-0.0.1-SNAPSHOT.jar ec2-user@ec2-13-60-71-207.eu-north-1.compute.amazonaws.com:/home/ec2-user/jhipsterlearn-0.0.1-SNAPSHOT.jar
