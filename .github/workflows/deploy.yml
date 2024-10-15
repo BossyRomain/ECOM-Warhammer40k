@@ -32,4 +32,4 @@ jobs:
 
       - name: Copy jar to EC2
         run: |
-          scp -i ./ecom-ssh-key.pem ./target/jhipsterlearn-0.0.1-SNAPSHOT.jar ec2-user@13.60.71.207:/home/ec2-user/
+          scp -i ./ecom-ssh-key.pem -o StrictHostKeyChecking=no ./target/jhipsterlearn-0.0.1-SNAPSHOT.jar ec2-user@13.60.71.207:/home/ec2-user/
