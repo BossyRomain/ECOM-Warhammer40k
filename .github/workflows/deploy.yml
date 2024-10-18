@@ -32,5 +32,6 @@ jobs:
 
       - name: Copy jar to EC2
         run: |
+          touch ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           scp -v -o StrictHostKeyChecking=no ./jhipsterlearn-0.0.1-SNAPSHOT.jar ec2-user@13.60.71.207:/home/ec2-user/
