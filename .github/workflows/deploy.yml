@@ -30,7 +30,7 @@ jobs:
       - name: Build with Maven
         run: ./mvnw clean verify -Pprod -DSkipTests
 
-      - name Setup SSH:
+      - name: Setup SSH
         uses: webfactory/ssh-agent@v0.8.1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
