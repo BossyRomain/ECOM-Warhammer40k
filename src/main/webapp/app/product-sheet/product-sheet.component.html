@@ -1,0 +1,10 @@
+<mat-card appearance="outlined" >
+    <h2><b>{{productName}}</b></h2>
+    <img src={{mainImg}} alt="Italian Trulli">
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+        <div *ngFor="let i of allImages">
+            <mat-tab label="First"><img src=i style="width:48px;height:48px;"></mat-tab>
+        </div>
+    </mat-tab-group>
+
+</mat-card>
