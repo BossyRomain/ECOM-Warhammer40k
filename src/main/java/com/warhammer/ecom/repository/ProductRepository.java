@@ -1,12 +1,11 @@
 package com.warhammer.ecom.repository;
 
-import com.warhammer.ecom.domain.Product;
-import org.springframework.data.jpa.repository.*;
+import com.warhammer.ecom.model.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Spring Data JPA repository for the Product entity.
- */
-@SuppressWarnings("unused")
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {}
+@Transactional
+public interface ProductRepository extends JpaRepository<Product, Long> {
+}

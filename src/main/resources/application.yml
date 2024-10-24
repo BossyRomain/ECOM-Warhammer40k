@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: ecom-warhammer40k
+
+  server:
+    port: 8080
+
+  # Data Source Configuration
+  datasource:
+    url: jdbc:h2:mem:testdb  # In-memory H2 database
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+
+  # Entity Scanning and JPA Repository
+  data:
+    jpa:
+      repositories:
+        enabled: true  # Enable JPA repositories
+
+  # Scan Packages for Components and Entities
+  component-scan:
+    base-packages:
+      - com.warhammer.ecom.repository
+      - com.warhammer.ecom.business
+      - com.warhammer.ecom.controller
+
+  security:
+    user:
+      name: user  # Default user name
+      password: password  # Default password (for testing only)
+
+# Transaction Management
+transaction:
+  management:
+    enabled: true

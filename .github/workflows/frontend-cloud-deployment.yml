@@ -1,0 +1,51 @@
+name: Deploy the Angular application in the cloud
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install npm depedencies
+        working-directory: ./src/main/angular/
+        run: npm install
+
+      - name: Build the application
+        working-directory: ./src/main/angular/
+        run: npm run build
+
+      - name: Copy to EC2
+        working-directory: ./src/main/angular/
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_KEY: ${{ secrets.EC2_KEY }}
+        run: |
+          ls
+          echo "$EC2_KEY" > key.pem
+          chmod 600 key.pem
+          scp -r -i key.pem -o StrictHostKeyChecking=no ./dist/ $EC2_USER@$EC2_HOST:/home/ec2-user/front-end/
+
+      - name: Restart Application on EC2
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_KEY: ${{ secrets.EC2_KEY }}
+        run: |
+          echo "$EC2_KEY" > key.pem
+          chmod 600 key.pem
+          ssh -i key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
+          sudo cp -rf ~/front-end /usr/share/nginx/html/
+          EOF
