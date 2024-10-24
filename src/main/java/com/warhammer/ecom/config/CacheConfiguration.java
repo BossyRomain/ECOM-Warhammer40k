@@ -50,6 +50,15 @@ public class CacheConfiguration {
             createCache(cm, com.warhammer.ecom.domain.User.class.getName());
             createCache(cm, com.warhammer.ecom.domain.Authority.class.getName());
             createCache(cm, com.warhammer.ecom.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.warhammer.ecom.domain.Client.class.getName());
+            createCache(cm, com.warhammer.ecom.domain.Client.class.getName() + ".carts");
+            createCache(cm, com.warhammer.ecom.domain.Cart.class.getName());
+            createCache(cm, com.warhammer.ecom.domain.Cart.class.getName() + ".commandLines");
+            createCache(cm, com.warhammer.ecom.domain.CommandLine.class.getName());
+            createCache(cm, com.warhammer.ecom.domain.Product.class.getName());
+            createCache(cm, com.warhammer.ecom.domain.Product.class.getName() + ".images");
+            createCache(cm, com.warhammer.ecom.domain.Allegiance.class.getName());
+            createCache(cm, com.warhammer.ecom.domain.ProductImage.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

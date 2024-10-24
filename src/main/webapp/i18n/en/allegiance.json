@@ -1,0 +1,25 @@
+{
+  "ecomApp": {
+    "allegiance": {
+      "home": {
+        "title": "Allegiances",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Allegiance",
+        "createOrEditLabel": "Create or edit a Allegiance",
+        "notFound": "No Allegiances found"
+      },
+      "created": "A new Allegiance is created with identifier {{ param }}",
+      "updated": "A Allegiance is updated with identifier {{ param }}",
+      "deleted": "A Allegiance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Allegiance {{ id }}?"
+      },
+      "detail": {
+        "title": "Allegiance"
+      },
+      "id": "ID",
+      "group": "Group",
+      "faction": "Faction"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (product(); as productRef) {
+      <div>
+        <h2 data-cy="productDetailsHeading"><span jhiTranslate="ecomApp.product.detail.title">Product</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ productRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.product.name">Name</span></dt>
+          <dd>
+            <span>{{ productRef.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.product.stock">Stock</span></dt>
+          <dd>
+            <span>{{ productRef.stock }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.product.price">Price</span></dt>
+          <dd>
+            <span>{{ productRef.price }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.product.description">Description</span></dt>
+          <dd>
+            <span>{{ productRef.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.product.type">Type</span></dt>
+          <dd>
+            <span [jhiTranslate]="'ecomApp.ProductType.' + (productRef.type ?? 'null')">{{
+              { null: '', Decor: 'Decor', Dice: 'Dice', Book: 'Book', Paint: 'Paint', Figurine: 'Figurine' }[productRef.type ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.product.releaseDate">Release Date</span></dt>
+          <dd>
+            <span>{{ productRef.releaseDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.product.imageCatalogue">Image Catalogue</span></dt>
+          <dd>
+            @if (product()!.imageCatalogue) {
+              <div>
+                <a [routerLink]="['/product-image', product()!.imageCatalogue?.id, 'view']">{{ productRef.imageCatalogue?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="ecomApp.product.allegiance">Allegiance</span></dt>
+          <dd>
+            @if (product()!.allegiance) {
+              <div>
+                <a [routerLink]="['/allegiance', product()!.allegiance?.id, 'view']">{{ productRef.allegiance?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/product', productRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

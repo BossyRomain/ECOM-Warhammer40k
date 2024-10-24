@@ -1,0 +1,21 @@
+{
+  "annotations": {
+    "changelogDate": "20241024143242"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "group",
+      "fieldType": "Group",
+      "fieldValues": "Xenos"
+    },
+    {
+      "fieldName": "faction",
+      "fieldType": "Faction",
+      "fieldValues": "Space_Marine"
+    }
+  ],
+  "name": "Allegiance",
+  "relationships": [],
+  "searchEngine": "no"
+}

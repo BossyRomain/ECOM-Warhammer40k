@@ -1,0 +1,49 @@
+{
+  "annotations": {
+    "changelogDate": "20241024143241"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stock",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "ProductType",
+      "fieldValues": "Decor,Dice,Book,Paint,Figurine"
+    },
+    {
+      "fieldName": "releaseDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Product",
+  "relationships": [
+    {
+      "otherEntityName": "productImage",
+      "relationshipName": "imageCatalogue",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "allegiance",
+      "relationshipName": "allegiance",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

@@ -1,0 +1,122 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-product-heading" data-cy="ProductCreateUpdateHeading" jhiTranslate="ecomApp.product.home.createOrEditLabel">
+        Create or edit a Product
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="ecomApp.product.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_name" jhiTranslate="ecomApp.product.name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_stock" jhiTranslate="ecomApp.product.stock">Stock</label>
+          <input type="number" class="form-control" name="stock" id="field_stock" data-cy="stock" formControlName="stock" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_price" jhiTranslate="ecomApp.product.price">Price</label>
+          <input type="number" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_description" jhiTranslate="ecomApp.product.description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_type" jhiTranslate="ecomApp.product.type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'ecomApp.ProductType.null' | translate }}</option>
+            @for (productType of productTypeValues; track $index) {
+              <option [value]="productType">{{ 'ecomApp.ProductType.' + productType | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_releaseDate" jhiTranslate="ecomApp.product.releaseDate">Release Date</label>
+          <div class="d-flex">
+            <input
+              id="field_releaseDate"
+              data-cy="releaseDate"
+              type="datetime-local"
+              class="form-control"
+              name="releaseDate"
+              formControlName="releaseDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_imageCatalogue" jhiTranslate="ecomApp.product.imageCatalogue">Image Catalogue</label>
+          <select
+            class="form-control"
+            id="field_imageCatalogue"
+            data-cy="imageCatalogue"
+            name="imageCatalogue"
+            formControlName="imageCatalogue"
+            [compareWith]="compareProductImage"
+          >
+            <option [ngValue]="null"></option>
+            @for (productImageOption of imageCataloguesCollection; track $index) {
+              <option [ngValue]="productImageOption">{{ productImageOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_allegiance" jhiTranslate="ecomApp.product.allegiance">Allegiance</label>
+          <select
+            class="form-control"
+            id="field_allegiance"
+            data-cy="allegiance"
+            name="allegiance"
+            formControlName="allegiance"
+            [compareWith]="compareAllegiance"
+          >
+            <option [ngValue]="null"></option>
+            @for (allegianceOption of allegiancesSharedCollection; track $index) {
+              <option [ngValue]="allegianceOption">{{ allegianceOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

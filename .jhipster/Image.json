@@ -1,0 +1,27 @@
+{
+  "annotations": {
+    "changelogDate": "20241024141231"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "url",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Image",
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "images",
+      "relationshipName": "product",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

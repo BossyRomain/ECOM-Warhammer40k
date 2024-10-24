@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (commandLine(); as commandLineRef) {
+      <div>
+        <h2 data-cy="commandLineDetailsHeading"><span jhiTranslate="ecomApp.commandLine.detail.title">Command Line</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ commandLineRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.commandLine.quanity">Quanity</span></dt>
+          <dd>
+            <span>{{ commandLineRef.quanity }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.commandLine.product">Product</span></dt>
+          <dd>
+            @if (commandLine()!.product) {
+              <div>
+                <a [routerLink]="['/product', commandLine()!.product?.id, 'view']">{{ commandLineRef.product?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="ecomApp.commandLine.cart">Cart</span></dt>
+          <dd>
+            @if (commandLine()!.cart) {
+              <div>
+                <a [routerLink]="['/cart', commandLine()!.cart?.id, 'view']">{{ commandLineRef.cart?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/command-line', commandLineRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

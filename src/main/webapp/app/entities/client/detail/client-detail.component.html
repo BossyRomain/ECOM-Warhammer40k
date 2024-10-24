@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (client(); as clientRef) {
+      <div>
+        <h2 data-cy="clientDetailsHeading"><span jhiTranslate="ecomApp.client.detail.title">Client</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ clientRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.client.firstName">First Name</span></dt>
+          <dd>
+            <span>{{ clientRef.firstName }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.client.lastName">Last Name</span></dt>
+          <dd>
+            <span>{{ clientRef.lastName }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.client.birthDay">Birth Day</span></dt>
+          <dd>
+            <span>{{ clientRef.birthDay | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.client.newsLetter">News Letter</span></dt>
+          <dd>
+            <span>{{ clientRef.newsLetter }}</span>
+          </dd>
+          <dt><span jhiTranslate="ecomApp.client.user">User</span></dt>
+          <dd>
+            <span>{{ clientRef.user?.id }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/client', clientRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

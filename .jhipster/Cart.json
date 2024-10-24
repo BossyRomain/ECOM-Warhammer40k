@@ -1,0 +1,26 @@
+{
+  "annotations": {
+    "changelogDate": "20241024143239"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "buyingDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "paid",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "Cart",
+  "relationships": [
+    {
+      "otherEntityName": "commandLine",
+      "relationshipName": "commandLines",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}
