@@ -122,3 +122,5 @@ jhipster:
 # ===================================================================
 
 # application:
+app:
+  images-path: https://ecom-images-storage.s3.amazonaws.com/
