@@ -20,6 +20,7 @@ public class SecurityConfig {
             .csrf(crsf -> crsf.disable())
             .authorizeHttpRequests(authz ->
                 authz.requestMatchers("/api/products/**").permitAll()
+                .requestMatchers("/api/images/**").permitAll()
                 .anyRequest().authenticated());
         return http.build();
     }

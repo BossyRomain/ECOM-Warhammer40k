@@ -3,7 +3,7 @@ package com.warhammer.ecom.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"group", "faction"}))
+//@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"group", "faction"}))
 @SequenceGenerator(name="allegianceIdSeq", initialValue=1, allocationSize=100)
 public class Allegiance {
 
@@ -11,7 +11,7 @@ public class Allegiance {
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="allegianceIdSeq")
     private Long id;
 
-    private Group group;
+    private Group m_group;
 
     private Faction faction;
 
@@ -24,11 +24,11 @@ public class Allegiance {
     }
 
     public Group getGroup() {
-        return group;
+        return m_group;
     }
 
     public void setGroup(Group group) {
-        this.group = group;
+        this.m_group = group;
     }
 
     public Faction getFaction() {

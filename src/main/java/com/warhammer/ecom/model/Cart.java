@@ -18,8 +18,8 @@ public class Cart {
     private Boolean paid;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_FK")
-    private User user;
+    @JoinColumn(name = "CLIENT_FK")
+    private Client client;
 
     public Long getId() {
         return id;
@@ -45,11 +45,11 @@ public class Cart {
         this.paid = paid;
     }
 
-    public User getUser() {
-        return user;
+    public Client getClient() {
+        return client;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

@@ -1,5 +1,6 @@
 package com.warhammer.ecom.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,8 +17,9 @@ public class ProductImage {
     @Column(nullable = false)
     private String description;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PRODUCT_FK")
+    @JsonIgnore
     private Product product;
 
     public Long getId() {
