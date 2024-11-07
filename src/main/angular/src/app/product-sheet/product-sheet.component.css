@@ -1,0 +1,78 @@
+.image-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+     /* Full viewport height to center in the middle */
+  }
+  
+  .image-container img {
+    /* Scale the image if it's too large */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .description-container{
+    display: flex;
+    justify-content: left;
+  }
+  
+  .row-container {
+    display: flex;
+    justify-content: center; /* Adjust alignment */
+    align-items: center; /* Center vertically if elements have different heights */
+  }
+  
+  .element {
+    min-width: 3em;
+    max-width: 3em;
+  }
+  
+  .price-container {
+    margin: 0.5em;
+  }
+  
+  .product-name {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+  }
+  
+  .add-button {
+    border: none;
+    display: flex;
+    border-radius: 10px;
+    height: 2em;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    background-color: goldenrod;
+    
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    border: 10px grey;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px black;
+  }
+
+  .image-gallery {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    white-space: nowrap;           /* Garde tout sur une seule ligne */
+    overflow-x: auto;              /* Active le défilement horizontal */
+    max-width: 100%;               /* Limite la largeur du conteneur */
+    padding: 10px;                 /* Marge interne pour un meilleur style */
+  }
+  
+  .image-gallery img {
+    flex: 0 0 calc(25% - 10px);
+            /* Affiche chaque image en ligne */
+    width: calc(20vw - 10px);       /* Limite chaque image à environ 25% de la largeur, en tenant compte de l'espacement */
+    max-width: calc(20vw - 10px);              /* Fixe une largeur max pour limiter la taille des images */
+    margin-right: 10px;            /* Espace entre les images */
+    border-radius: 8px;            /* Ajoute des bords arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère pour l'esthétique */
+  }
