@@ -2,9 +2,6 @@ package com.warhammer.ecom.controller.dto;
 
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.model.ProductImage;
-import com.warhammer.ecom.model.ProductType;
-
-import java.sql.Timestamp;
 
 public class ProductCatalogueDTO {
 
@@ -15,12 +12,6 @@ public class ProductCatalogueDTO {
     private Integer stock;
 
     private Float unitPrice;
-
-    private String description;
-
-    private ProductType productType;
-
-    private Timestamp releaseDate;
 
     private ProductImage catalogueImg;
 
@@ -56,30 +47,6 @@ public class ProductCatalogueDTO {
         this.unitPrice = unitPrice;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public ProductType getProductType() {
-        return productType;
-    }
-
-    public void setProductType(ProductType productType) {
-        this.productType = productType;
-    }
-
-    public Timestamp getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Timestamp releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
     public ProductImage getCatalogueImg() {
         return catalogueImg;
     }
@@ -88,15 +55,17 @@ public class ProductCatalogueDTO {
         this.catalogueImg = catalogueImg;
     }
 
-    public static ProductCatalogueDTO from(Product product) {
+    public static ProductCatalogueDTO fromProduct(Product product) {
+        if(product == null) {
+            return null;
+        }
+
         ProductCatalogueDTO dto = new ProductCatalogueDTO();
+
         dto.setId(product.getId());
         dto.setName(product.getName());
         dto.setStock(product.getStock());
         dto.setUnitPrice(product.getUnitPrice());
-        dto.setDescription(product.getDescription());
-        dto.setProductType(product.getProductType());
-        dto.setReleaseDate(product.getReleaseDate());
         dto.setCatalogueImg(product.getCatalogueImg());
 
         return dto;

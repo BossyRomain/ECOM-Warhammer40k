@@ -1,12 +1,9 @@
 package com.warhammer.ecom.controller;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import com.warhammer.ecom.controller.dto.ProductCatalogueDTO;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +11,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/products")
@@ -23,12 +21,11 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/catalogue")
-    @JsonView(Product.ProductCatalogue.class)
-    public List<Product> getProductsCatalogue(
+    public List<ProductCatalogueDTO> getProductsCatalogue(
         @RequestParam(name = "page", defaultValue = "0") int page,
         @RequestParam(name = "size", defaultValue = "10") int size
     ) {
-        return productService.getProducts(page, size);
+        return productService.getProducts(page, size).stream().map(p -> ProductCatalogueDTO.fromProduct(p)).collect(Collectors.toList());
     }
 
     @GetMapping("")
@@ -40,7 +37,6 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
-    @JsonView(Product.ProductCatalogue.class)
     public ResponseEntity<Product> getProduct(@PathVariable("productId") Long productId) {
         Product product = productService.getProduct(productId);
         if (product != null) {

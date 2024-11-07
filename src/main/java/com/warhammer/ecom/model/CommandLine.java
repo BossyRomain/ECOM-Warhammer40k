@@ -1,5 +1,8 @@
 package com.warhammer.ecom.model;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.warhammer.ecom.controller.dto.ProductCatalogueDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,9 +17,10 @@ public class CommandLine {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "COMMAND_FK")
+    @JsonIgnore
     private Cart command;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_FK")
     private Product product;
 
@@ -46,6 +50,11 @@ public class CommandLine {
 
     public Product getProduct() {
         return product;
+    }
+
+    @JsonGetter("product")
+    public ProductCatalogueDTO getProductJSON() {
+        return ProductCatalogueDTO.fromProduct(product);
     }
 
     public void setProduct(Product product) {
