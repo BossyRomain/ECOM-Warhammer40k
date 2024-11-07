@@ -1,0 +1,74 @@
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Espacement entre les boutons */
+    gap: 10px; /* Espacement entre les boutons */
+    width: 100%; /* Largeur complète */
+    max-width: 100vh; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centrer horizontalement */
+    height: 15vh; /* Hauteur fixe */
+    margin-bottom: 20px;
+    
+  }
+  
+  /* Boutons carrés avec image de fond */
+  .image-burger, .image-cart, .image-compte {
+    width: 15vh; /* Largeur et hauteur égales pour un carré */
+    height: 15vh;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    background-size: cover; /* Remplit le bouton avec l'image */
+    background-repeat: no-repeat; /* Pas de répétition de l'image */
+    background-position: center; /* Centre l'image */
+  }
+  
+  .header{
+    padding: 10px;
+  }
+  
+  /* Image centrale prenant le reste de l'espace */
+  .image-warHammer {
+    flex-grow: 1; /* Permet à cette image de prendre tout l’espace restant */
+    height: 100%; /* Hauteur égale au conteneur */
+    object-fit: cover;
+  }
+  
+  
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Icône de loupe avec image */
+  .search-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('https://material.angular.io/assets/img/examples/shiba2.jpg'); /* Image de loupe */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Champ de recherche */
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    background-color: transparent;
+  }
+  
+  /* Bouton "Go" avec image */
+  .search-button {
+    width: 24px;
+    height: 24px;
+    background-image: url('https://material.angular.io/assets/img/examples/shiba2.jpg'); /* Image du bouton "Go" */
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
