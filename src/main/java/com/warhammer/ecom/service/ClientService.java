@@ -11,6 +11,7 @@ import com.warhammer.ecom.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 @Service
@@ -46,6 +47,7 @@ public class ClientService {
         cart.setClient(client);
         cart.setPurchaseDate(null);
         cart.setPaid(false);
+        cart.setCommandLines(new ArrayList<>());
         cartRepository.save(cart);
 
         client.setCurrentCart(cart);
