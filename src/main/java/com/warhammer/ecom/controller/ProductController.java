@@ -4,8 +4,6 @@ import com.warhammer.ecom.controller.dto.ProductCatalogueDTO;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +11,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/products")
@@ -22,17 +21,15 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/catalogue")
-    public Page<ProductCatalogueDTO> getProductsCatalogue(
+    public List<ProductCatalogueDTO> getProductsCatalogue(
         @RequestParam(name = "page", defaultValue = "0") int page,
         @RequestParam(name = "size", defaultValue = "10") int size
     ) {
-        Page<Product> productsPage = productService.getProducts(page, size);
-        List<ProductCatalogueDTO> catalogue = productsPage.getContent().stream().map(ProductCatalogueDTO::from).toList();
-        return new PageImpl<>(catalogue, productsPage.getPageable(), productsPage.getTotalElements());
+        return productService.getProducts(page, size).stream().map(p -> ProductCatalogueDTO.fromProduct(p)).collect(Collectors.toList());
     }
 
     @GetMapping("")
-    public Page<Product> getProducts(
+    public List<Product> getProducts(
         @RequestParam(name = "page", defaultValue = "0") int page,
         @RequestParam(name = "size", defaultValue = "10") int size
     ) {

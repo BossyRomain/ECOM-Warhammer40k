@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import {provideHttpClient} from '@angular/common/http';
 import { ProductSheetComponent } from './product-sheet/product-sheet.component';
 
+import { CatalogItemComponent } from './catalog-item/catalog-item.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CatalogItemComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
