@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -61,21 +63,25 @@ public class CartService {
 
     /**
      * When a client pay its current unpaid cart
-     * @param cartId the id of the current unpaid cart
+     * @param clientId a client id
      */
-    public void pay(Long cartId) {
-        cartRepository.pay(cartId, Timestamp.valueOf(LocalDate.now().atStartOfDay()));
+    public void pay(Long clientId) {
+        Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
+        cartRepository.pay(client.getCurrentCart().getId(), Timestamp.valueOf(LocalDate.now().atStartOfDay()));
+        cartRepository.save(client.getCurrentCart());
 
         // Create a new unpaid cart
-        Cart c = cartRepository.getReferenceById(cartId);
-        Client client = c.getClient();
-
         Cart unpaidCart = new Cart();
         unpaidCart.setClient(client);
         unpaidCart.setPaid(false);
         unpaidCart.setPurchaseDate(null);
+        unpaidCart.setCommandLines(new ArrayList<>());
         unpaidCart = cartRepository.save(unpaidCart);
         client.setCurrentCart(unpaidCart);
         clientRepository.save(client);
+    }
+
+    public List<Cart> getClientCommands(Long clientId) {
+        return cartRepository.getClientCommands(clientId).stream().toList();
     }
 }
