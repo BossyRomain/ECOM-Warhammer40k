@@ -19,9 +19,7 @@ public class SecurityConfig {
             .cors(Customizer.withDefaults())
             .csrf(crsf -> crsf.disable())
             .authorizeHttpRequests(authz ->
-                authz.requestMatchers("/api/products/**").permitAll()
-                .requestMatchers("/api/images/**").permitAll()
-                .anyRequest().authenticated());
+                authz.anyRequest().permitAll());
         return http.build();
     }
 }
