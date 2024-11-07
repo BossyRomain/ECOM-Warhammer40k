@@ -1,5 +1,6 @@
 package com.warhammer.ecom.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -17,9 +18,11 @@ public class Client {
     private User user;
 
     @OneToOne
+    @JoinColumn(name = "CURRENT_CART_FK", referencedColumnName = "id")
     private Cart currentCart;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "client")
+    @JsonIgnore
     private Collection<Cart> carts;
 
     @Column(nullable = false)

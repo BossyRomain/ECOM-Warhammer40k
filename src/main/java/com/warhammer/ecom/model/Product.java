@@ -1,6 +1,5 @@
 package com.warhammer.ecom.model;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -10,39 +9,28 @@ import java.util.Collection;
 @SequenceGenerator(name="productIdSeq", initialValue=1, allocationSize=100)
 public class Product {
 
-    public static class ProductCatalogue {}
-
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="productIdSeq")
-    @JsonView(ProductCatalogue.class)
     private Long id;
 
     @Column(nullable = false)
-    @JsonView(ProductCatalogue.class)
     private String name;
 
-    @JsonView(ProductCatalogue.class)
     private Integer stock;
 
-    @JsonView(ProductCatalogue.class)
     private Float unitPrice;
 
-    @JsonView(ProductCatalogue.class)
     private String description;
 
-    @JsonView(ProductCatalogue.class)
     private ProductType productType;
 
-    @JsonView(ProductCatalogue.class)
     private Timestamp releaseDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ALLEGIANCE_FK")
-    @JsonView(ProductCatalogue.class)
     private Allegiance allegiance;
 
     @OneToOne
-    @JsonView(ProductCatalogue.class)
     private ProductImage catalogueImg;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "product")
