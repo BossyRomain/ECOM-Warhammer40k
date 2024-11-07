@@ -2,8 +2,10 @@ package com.warhammer.ecom.service;
 
 import com.warhammer.ecom.controller.dto.ClientSignUpDTO;
 import com.warhammer.ecom.model.Authority;
+import com.warhammer.ecom.model.Cart;
 import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.model.User;
+import com.warhammer.ecom.repository.CartRepository;
 import com.warhammer.ecom.repository.ClientRepository;
 import com.warhammer.ecom.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
 
+    @Autowired
+    private CartRepository cartRepository;
+
     public Client create(ClientSignUpDTO clientSignUpDTO) {
         User user = new User();
         user.setUsername(clientSignUpDTO.getEmail());
@@ -34,6 +39,16 @@ public class ClientService {
         client.setBirthday(clientSignUpDTO.getBirthday());
         client.setNewsletter(clientSignUpDTO.isNewsLetter());
         client.setUser(user);
+
+        client = clientRepository.save(client);
+
+        Cart cart = new Cart();
+        cart.setClient(client);
+        cart.setPurchaseDate(null);
+        cart.setPaid(false);
+        cartRepository.save(cart);
+
+        client.setCurrentCart(cart);
 
         return clientRepository.save(client);
     }

@@ -1,8 +1,10 @@
 package com.warhammer.ecom.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.util.Collection;
 
 @Entity
 @SequenceGenerator(name="cartIdSeq", initialValue=1, allocationSize=100)
@@ -12,14 +14,19 @@ public class Cart {
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="cartIdSeq")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
+    @JsonIgnore
     private Timestamp purchaseDate;
 
+    @JsonIgnore
     private Boolean paid;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CLIENT_FK")
+    @JsonIgnore
     private Client client;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "command")
+    private Collection<CommandLine> commandLines;
 
     public Long getId() {
         return id;
@@ -51,5 +58,13 @@ public class Cart {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Collection<CommandLine> getCommandLines() {
+        return commandLines;
+    }
+
+    public void setCommandLines(Collection<CommandLine> commandLines) {
+        this.commandLines = commandLines;
     }
 }
