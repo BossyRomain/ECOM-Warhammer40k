@@ -54,4 +54,10 @@ public class CartController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/pay")
+    public ResponseEntity<Void> payCurrentCart(@PathVariable Long clientId) {
+        cartService.pay(clientId);
+        return ResponseEntity.ok().build();
+    }
 }
