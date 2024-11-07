@@ -1,5 +1,6 @@
 package com.warhammer.ecom.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.warhammer.ecom.controller.dto.ProductCatalogueDTO;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.service.ProductService;
@@ -22,17 +23,16 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/catalogue")
-    public Page<ProductCatalogueDTO> getProductsCatalogue(
+    @JsonView(Product.ProductCatalogue.class)
+    public List<Product> getProductsCatalogue(
         @RequestParam(name = "page", defaultValue = "0") int page,
         @RequestParam(name = "size", defaultValue = "10") int size
     ) {
-        Page<Product> productsPage = productService.getProducts(page, size);
-        List<ProductCatalogueDTO> catalogue = productsPage.getContent().stream().map(ProductCatalogueDTO::from).toList();
-        return new PageImpl<>(catalogue, productsPage.getPageable(), productsPage.getTotalElements());
+        return productService.getProducts(page, size);
     }
 
     @GetMapping("")
-    public Page<Product> getProducts(
+    public List<Product> getProducts(
         @RequestParam(name = "page", defaultValue = "0") int page,
         @RequestParam(name = "size", defaultValue = "10") int size
     ) {
@@ -40,6 +40,7 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
+    @JsonView(Product.ProductCatalogue.class)
     public ResponseEntity<Product> getProduct(@PathVariable("productId") Long productId) {
         Product product = productService.getProduct(productId);
         if (product != null) {
