@@ -12,10 +12,11 @@ export interface Article{
 
 @Component({
   selector: 'app-catalog-item',
+  standalone:false,
   templateUrl: './catalog-item.component.html',
   styleUrl: './catalog-item.component.css',
 })
-  
+
 export class CatalogItemComponent {
   @Input() article!: Article;
 }

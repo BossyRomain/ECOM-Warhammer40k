@@ -9,17 +9,21 @@ import { ProductSheetComponent } from './product-sheet/product-sheet.component';
 import { CatalogItemComponent } from './catalog-item/catalog-item.component';
 import { HeaderComponent } from './header/header.component';
 import { BankDetailsComponent } from './bank-details/bank-details.component';
+import { FooterComponent } from './footer/footer.component';
+import { ConnectionComponent } from './connection/connection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CatalogItemComponent,
-    HeaderComponent,
     BankDetailsComponent
   ],
   imports: [
     BrowserModule,
+    FooterComponent,
     AppRoutingModule,
+    HeaderComponent,
+    ConnectionComponent,
     ProductSheetComponent
 ],
   providers: [

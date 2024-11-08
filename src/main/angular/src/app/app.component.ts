@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { BankDetailsComponent } from "./bank-details/bank-details.component";
+import { HeaderComponent } from "./header/header.component";
 
 @Component({
   selector: 'app-root',
+  standalone:false,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
