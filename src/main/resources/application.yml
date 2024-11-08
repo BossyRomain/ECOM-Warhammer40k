@@ -37,3 +37,7 @@ spring:
 transaction:
   management:
     enabled: true
+
+jwt:
+  secret: 1e5g8et58bte84ge4818gb681bte684bet6gZregnetzgebg5
+  expiration: 604800000
