@@ -1,5 +1,6 @@
 package com.warhammer.ecom.controller;
 
+import com.warhammer.ecom.controller.dto.AddProductImageDTO;
 import com.warhammer.ecom.model.ProductImage;
 import com.warhammer.ecom.service.ProductImageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,10 @@ public class ProductImageController {
     @PostMapping("")
     public ResponseEntity<Long> addImage(
         @PathVariable("productId") Long productId,
-        @RequestParam("description") String description,
-        @RequestParam(name = "isCatalogueImage", defaultValue = "false") boolean isCatalogueImage,
-        @RequestParam("file") MultipartFile file
-    ) {
-        ProductImage pi = productImageService.create(file, productId, description, isCatalogueImage);
+        @RequestBody AddProductImageDTO productImageDTO,
+        @RequestPart MultipartFile file
+        ) {
+        ProductImage pi = productImageService.create(file, productId, productImageDTO.getDescription(), productImageDTO.isCatalogueImage());
         try {
             URI uri = new URI("/api/products/" + productId + "/images");
             return ResponseEntity.created(uri).body(pi.getId());
