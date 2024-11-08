@@ -17,6 +17,7 @@ export class ProductSheetComponent {
     public id:number = 0;
     public productName:string = "Capitaine des Blood Angels";
     public price:number = 34.00;
+    public stock:number = 0;
     public allImages:string[] = [
       "https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png",  
       "https://www.warhammer.com/app/resources/catalog/product/920x950/99120101416_BACaptain01.jpg?fm=webp&w=1200&h=1237",
@@ -38,8 +39,22 @@ export class ProductSheetComponent {
 
     public addArticleToCart(htmlInput:HTMLInputElement):void{
       console.log("Achat");
-      this.numberOfArticle = 0;
-      htmlInput.value = "0";
+      let amountOfProduct = Number(htmlInput.value);
+      if(amountOfProduct == 0){
+        console.log("No object selected");
+      }else{
+        this.productService.getProductById(amountOfProduct).subscribe(
+          value => {
+            this.id = value.id;
+            this.productName = value.name;
+            this.price = value.price;
+            this.stock = value.stock;
+          }
+        )
+        this.numberOfArticle = 0;
+        htmlInput.value = "0";
+      }
+
     }
 
     public mockGet(htmlInput:HTMLInputElement){
