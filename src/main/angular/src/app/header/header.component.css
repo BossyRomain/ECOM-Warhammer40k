@@ -1,74 +1,85 @@
+/* Global reset pour les marges et paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Conteneur principal de l'entête */
+.header {
+  padding: 10px;
+  width: 100%;
+}
+
+/* Conteneur des boutons */
 .button-container {
-    display: flex;
-    justify-content: space-between; /* Espacement entre les boutons */
-    gap: 10px; /* Espacement entre les boutons */
-    width: 100%; /* Largeur complète */
-    max-width: 100vh; /* Largeur maximale du conteneur */
-    margin: 0 auto; /* Centrer horizontalement */
-    height: 15vh; /* Hauteur fixe */
-    margin-bottom: 20px;
-    
-  }
-  
-  /* Boutons carrés avec image de fond */
-  .image-burger, .image-cart, .image-compte {
-    width: 15vh; /* Largeur et hauteur égales pour un carré */
-    height: 15vh;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    background-size: cover; /* Remplit le bouton avec l'image */
-    background-repeat: no-repeat; /* Pas de répétition de l'image */
-    background-position: center; /* Centre l'image */
-  }
-  
-  .header{
-    padding: 10px;
-  }
-  
-  /* Image centrale prenant le reste de l'espace */
-  .image-warHammer {
-    flex-grow: 1; /* Permet à cette image de prendre tout l’espace restant */
-    height: 100%; /* Hauteur égale au conteneur */
-    object-fit: cover;
-  }
-  
-  
-  .search-bar-container {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  /* Icône de loupe avec image */
-  .search-icon {
-    width: 24px;
-    height: 24px;
-    background-image: url('https://material.angular.io/assets/img/examples/shiba2.jpg'); /* Image de loupe */
-    background-size: cover;
-    background-position: center;
-  }
-  
-  /* Champ de recherche */
-  .search-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 5px;
-    font-size: 16px;
-    background-color: transparent;
-  }
-  
-  /* Bouton "Go" avec image */
-  .search-button {
-    width: 24px;
-    height: 24px;
-    background-image: url('https://material.angular.io/assets/img/examples/shiba2.jpg'); /* Image du bouton "Go" */
-    background-size: cover;
-    background-position: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Espacement entre les boutons */
+  width: 100%; /* Largeur complète */
+  margin: 0 auto; /* Centrer horizontalement */
+
+  height: 5vh; /* Hauteur de l'entête */
+  margin-bottom: 10px; /* Espacement sous l'entête */
+}
+
+/* Boutons carrés avec image de fond */
+.image-burger, .image-cart, .image-compte {
+  width: 5vh; /* Largeur de chaque bouton égale à 20% de la largeur de l'écran */
+  height: 4vh; /* Hauteur égale à la largeur pour un bouton carré */
+  padding-top: 45px;
+  border: none;
+  cursor: pointer;
+  background-size: cover; /* Remplir le bouton avec l'image */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Image centrale (Warhammer) */
+.image-warHammer {
+  flex-grow: 1; /* Permet à cette image de prendre l'espace restant */
+  height: 100%; /* Hauteur égale à celle du conteneur */
+  object-fit: cover; /* Redimensionne l'image sans déformer l'aspect */
+}
+
+/* Conteneur de la barre de recherche */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  padding: 5px 10px;
+  width: 100%; /* Largeur complète */
+}
+
+/* Icône de loupe */
+.search-icon {
+  width: 5vw; /* Taille de l'icône de la loupe en fonction de la largeur de l'écran */
+  height: 5vw;
+  background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/loupe.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Champ de recherche */
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 4vw; /* Taille de la police en fonction de la largeur de l'écran */
+  background-color: transparent;
+}
+
+/* Bouton "Go" avec image */
+.search-button {
+  width: 5vw;
+  height: 5vw;
+  background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/croix.png');
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
