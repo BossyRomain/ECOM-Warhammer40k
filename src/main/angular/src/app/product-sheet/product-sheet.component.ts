@@ -1,10 +1,6 @@
 import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductServiceService } from '../service/product-service.service';
-import { Observable } from 'rxjs';
-import { Console, error } from 'console';
-
-
 
 @Component({
   selector: 'product-sheet',
@@ -49,6 +45,7 @@ export class ProductSheetComponent {
             this.productName = value.name;
             this.price = value.price;
             this.stock = value.stock;
+            this.description = value.description;
           }
         )
         this.numberOfArticle = 0;

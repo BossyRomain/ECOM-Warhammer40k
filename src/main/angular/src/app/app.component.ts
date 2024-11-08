@@ -1,26 +1,17 @@
 import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { ProductServiceService } from './service/product-service.service';
+import { ProductSheetComponent } from './product-sheet/product-sheet.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  imports: [ProductSheetComponent]  
 })
 export class AppComponent {
   title = 'angular';
 
-  constructor(private http: HttpClient) {
-  }
-
-  getCount(): Observable<any> {
-    return this.http.get("http://localhost:8080/api/products");
-  }
-
-  onClick(): void {
-    console.log("click");
-    this.getCount().subscribe(response => {
-      console.log(response)
-    });
-  }
 }
