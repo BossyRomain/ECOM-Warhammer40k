@@ -19,6 +19,7 @@ body {
   background-color: #e6e6e6;
   height: auto; /* Laisse la hauteur s'adapter au contenu */
   margin: 20px auto; /* Centrage du card */
+  
 }
 
 .product-header {

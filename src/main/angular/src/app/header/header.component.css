@@ -1,46 +1,118 @@
-/* Global reset pour les marges et paddings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Conteneur principal de l'entête */
-.header {
-  padding: 10px;
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+.header{
+  background-color: #E6E6E6;
+  margin: none;
+  padding-bottom: 10px;
+}
+.header-container {
   width: 100%;
+  height: 10%; /* Ajuste la hauteur du bandeau ici */
+  background-color: #333; /* Couleur de fond du bandeau */
+  white-space: nowrap; /* Empêche le passage à la ligne */
 }
 
-/* Conteneur des boutons */
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px; /* Espacement entre les boutons */
-  width: 100%; /* Largeur complète */
-  margin: 0 auto; /* Centrer horizontalement */
+/* Bouton menu à gauche */
+.menu-button {
+  float: left;
+  margin: 5px;
+  width: 40px;
+  height: 40px;
 
-  height: 5vh; /* Hauteur de l'entête */
-  margin-bottom: 10px; /* Espacement sous l'entête */
-}
-
-/* Boutons carrés avec image de fond */
-.image-burger, .image-cart, .image-compte {
-  width: 5vh; /* Largeur de chaque bouton égale à 20% de la largeur de l'écran */
-  height: 4vh; /* Hauteur égale à la largeur pour un bouton carré */
-  padding-top: 45px;
+  max-width: 40px;  /* Limite la taille du bouton compte */
+  max-height: 40px;
+  
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/menu_burger.png");
+  background-size: cover;
+  background-color: #E5E5E5;
   border: none;
   cursor: pointer;
-  background-size: cover; /* Remplir le bouton avec l'image */
-  background-repeat: no-repeat;
-  background-position: center;
+  vertical-align: middle;
+  left:auto;
+  
 }
 
-/* Image centrale (Warhammer) */
-.image-warHammer {
-  flex-grow: 1; /* Permet à cette image de prendre l'espace restant */
-  height: 100%; /* Hauteur égale à celle du conteneur */
-  object-fit: cover; /* Redimensionne l'image sans déformer l'aspect */
+.menu-button:hover,
+.cart-button:hover,
+.account-button:hover {
+  opacity: 0.5; /* Change l’opacité pour rendre l’image plus pâle */
 }
+
+/* Logo central */
+.logo {
+  float: left;
+  height: 100%; /* Garde une taille réduite pour le logo */
+  vertical-align: middle;
+  margin-left: 10px; /* Espace entre le bouton menu et le logo */
+  max-width: 300px;  /* Limite la taille du bouton compte */
+  max-height: 50px;
+}
+
+/* Bouton panier, positionné à droite */
+.cart-button {
+  float: right;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  vertical-align: middle;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  cursor: pointer;
+}
+
+/* Bouton compte, positionné tout à droite */
+.account-button {
+  float: right;
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* Conteneur de chaque bouton avec texte */
+.boutontext {
+  float: right;
+  text-align: center;
+  width: 40px; 
+  margin: 5px;
+}
+
+/* Pour le texte sous le bouton */
+.boutontext p {
+  margin-top: 40px;
+  font-size: 6px; 
+  color: rgb(0, 0, 0); /* Couleur du texte (ajustable) */
+}
+
+/* Ajustement des boutons pour rester dans les dimensions définies */
+.cart-button, .account-button {
+  display: block; 
+  margin: 0 auto; 
+}
+
+
+
+
+
+
 
 /* Conteneur de la barre de recherche */
 .search-bar-container {
@@ -50,13 +122,16 @@
   border-radius: 5px;
   background-color: #f9f9f9;
   padding: 5px 10px;
-  width: 100%; /* Largeur complète */
+  margin-top: 10px;
+  width: 100%;
 }
 
 /* Icône de loupe */
 .search-icon {
-  width: 5vw; /* Taille de l'icône de la loupe en fonction de la largeur de l'écran */
-  height: 5vw;
+  width: 4vw;
+  height: 4vw;
+  max-width: 25px;
+  max-height: 25px;
   background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/loupe.png');
   background-size: cover;
   background-position: center;
@@ -68,14 +143,16 @@
   border: none;
   outline: none;
   padding: 5px;
-  font-size: 4vw; /* Taille de la police en fonction de la largeur de l'écran */
+  font-size: 4vw;
   background-color: transparent;
 }
 
 /* Bouton "Go" avec image */
 .search-button {
-  width: 5vw;
-  height: 5vw;
+  width: 4vw;
+  height: 4vw;
+  max-width: 25px;
+  max-height: 25px;
   background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/croix.png');
   background-size: cover;
   background-position: center;
