@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductServiceService } from '../service/product-service.service';
+import { ProductServiceService } from '../../service/product-service.service';
 
 @Component({
   selector: 'product-sheet',
