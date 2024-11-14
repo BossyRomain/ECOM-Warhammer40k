@@ -1,18 +1,23 @@
 package com.warhammer.ecom.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
 //@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"group", "faction"}))
 @SequenceGenerator(name="allegianceIdSeq", initialValue=1, allocationSize=100)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Allegiance {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="allegianceIdSeq")
     private Long id;
 
-    private Group m_group;
+    @Column(name = "GROUP_NAME")
+    @Enumerated(EnumType.STRING)
+    private Group group;
 
+    @Enumerated(EnumType.STRING)
     private Faction faction;
 
     public Long getId() {
@@ -24,11 +29,11 @@ public class Allegiance {
     }
 
     public Group getGroup() {
-        return m_group;
+        return group;
     }
 
     public void setGroup(Group group) {
-        this.m_group = group;
+        this.group = group;
     }
 
     public Faction getFaction() {
