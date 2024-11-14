@@ -12,11 +12,11 @@ Pour compiler le projet :
 
 Sur Linux:
 
-      java -jar /chemin/vers/le/jar -Dspring.profiles.active=dev -DDEV_FOLDER_PATH=/chemin absolu vers le dossier dev-resources -DANGULAR_ASSETS_PATH=/chemin absolu vers le dossier assets de l'application angular
+      java -Dspring.profiles.active=dev -Ddev.resources=/chemin absolu vers le dossier dev-resources -Dangular.assets=/chemin absolu vers le dossier assets de l'application angular -jar /chemin/vers/le/jar
 
 Sur Windows:
 
-      java -jar /chemin/vers/le/jar --spring.profiles.active=dev --DEV_FOLDER_PATH=/chemin absolu vers le dossier dev-resources --ANGULAR_ASSETS_PATH=/chemin absolu vers le dossier assets de l'application angular
+      java --spring.profiles.active=dev --dev.resources=/chemin absolu vers le dossier dev-resources --angular.assets=/chemin absolu vers le dossier assets de l'application angular -jar /chemin/vers/le/jar
 
 ### Environnement de production
 

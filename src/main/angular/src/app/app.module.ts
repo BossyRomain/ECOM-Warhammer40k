@@ -5,6 +5,7 @@ import { ProductSheetComponent } from './component/product-sheet/product-sheet.c
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import HeaderComponent from "./component/header/header.component";
+import { CatalogComponent } from './component/catalog/catalog.component';
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +13,8 @@ import HeaderComponent from "./component/header/header.component";
   imports: [
     BrowserModule,
     ProductSheetComponent,
-    HeaderComponent
+    HeaderComponent,
+    CatalogComponent
 ],
   providers: [
     provideClientHydration(),

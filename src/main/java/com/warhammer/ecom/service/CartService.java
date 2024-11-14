@@ -5,9 +5,8 @@ import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.model.CommandLine;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.repository.CartRepository;
-import com.warhammer.ecom.repository.ClientRepository;
 import com.warhammer.ecom.repository.CommandLineRepository;
-import com.warhammer.ecom.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,24 +18,25 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
+@Transactional
 public class CartService {
 
     @Autowired
     private CartRepository cartRepository;
 
     @Autowired
-    private ClientRepository clientRepository;
-
-    @Autowired
     private CommandLineRepository commandLineRepository;
 
-    @Autowired
-    private ProductRepository productRepository;
+    public Cart create(Client client) {
+        Cart cart = new Cart();
+        cart.setClient(client);
+        cart.setPurchaseDate(null);
+        cart.setPaid(false);
+        cart.setCommandLines(new ArrayList<>());
+        return cartRepository.save(cart);
+    }
 
-    public CommandLine addProduct(Long clientId, Long productId) throws NoSuchElementException {
-        Product product = productRepository.findById(productId).orElseThrow(NoSuchElementException::new);
-        Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
-
+    public CommandLine addProduct(Client client, Product product) {
         CommandLine commandLine = new CommandLine();
         commandLine.setProduct(product);
         commandLine.setCommand(client.getCurrentCart());
@@ -45,14 +45,14 @@ public class CartService {
         return commandLineRepository.save(commandLine);
     }
 
-    public void setProductQuantity(Long clientId, Long productId, int quantity) throws NoSuchElementException {
-        CommandLine commandLine = commandLineRepository.findByClientAndProduct(clientId, productId).orElseThrow(NoSuchElementException::new);
+    public void setProductQuantity(Client client, Product product, int quantity) throws NoSuchElementException {
+        CommandLine commandLine = commandLineRepository.findByClientAndProduct(client.getId(), product.getId()).orElseThrow(NoSuchElementException::new);
         commandLine.setQuantity(quantity);
         commandLineRepository.save(commandLine);
     }
 
-    public void removeProduct(Long clientId, Long productId) throws NoSuchElementException {
-        CommandLine commandLine = commandLineRepository.findByClientAndProduct(clientId, productId).orElseThrow(NoSuchElementException::new);
+    public void removeProduct(Client client, Product product) throws NoSuchElementException {
+        CommandLine commandLine = commandLineRepository.findByClientAndProduct(client.getId(), product.getId()).orElseThrow(NoSuchElementException::new);
 
         Collection<CommandLine> lines = commandLine.getCommand().getCommandLines();
         lines.remove(commandLine);
@@ -61,27 +61,23 @@ public class CartService {
         commandLineRepository.delete(commandLine);
     }
 
-    /**
-     * When a client pay its current unpaid cart
-     * @param clientId a client id
-     */
-    public void pay(Long clientId) {
-        Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
-        cartRepository.pay(client.getCurrentCart().getId(), Timestamp.valueOf(LocalDate.now().atStartOfDay()));
-        cartRepository.save(client.getCurrentCart());
+    public void pay(Client client) throws NoSuchElementException {
+        Cart currentCart = client.getCurrentCart();
+
+        cartRepository.pay(currentCart.getId(), Timestamp.valueOf(LocalDate.now().atStartOfDay()));
+        cartRepository.save(currentCart);
 
         // Create a new unpaid cart
-        Cart unpaidCart = new Cart();
-        unpaidCart.setClient(client);
-        unpaidCart.setPaid(false);
-        unpaidCart.setPurchaseDate(null);
-        unpaidCart.setCommandLines(new ArrayList<>());
-        unpaidCart = cartRepository.save(unpaidCart);
-        client.setCurrentCart(unpaidCart);
-        clientRepository.save(client);
+        Cart newCart = new Cart();
+        newCart.setClient(client);
+        newCart.setPaid(false);
+        newCart.setPurchaseDate(null);
+        newCart.setCommandLines(new ArrayList<>());
+        newCart = cartRepository.save(newCart);
+        client.setCurrentCart(newCart);
     }
 
-    public List<Cart> getClientCommands(Long clientId) {
-        return cartRepository.getClientCommands(clientId).stream().toList();
+    public List<Cart> getClientCommands(Client client) throws NoSuchElementException {
+        return client.getCarts().stream().toList();
     }
 }

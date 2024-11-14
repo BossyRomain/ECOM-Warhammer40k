@@ -17,9 +17,13 @@ public abstract class ProductImageService {
     @Autowired
     private ProductService productService;
 
+    public ProductImage get(Long productImageId) throws NoSuchElementException {
+        return productImageRepository.findById(productImageId).orElseThrow(NoSuchElementException::new);
+    }
+
     public ProductImage create(MultipartFile imgFile, Long productId, String description, boolean isCatalogueImg) throws NoSuchElementException {
         ProductImage productImage = new ProductImage();
-        Product product = productService.getProduct(productId);
+        Product product = productService.get(productId);
         if (product == null) {
             throw new NoSuchElementException("No product with the id " + productId);
         }
@@ -31,38 +35,22 @@ public abstract class ProductImageService {
 
         if (isCatalogueImg) {
             product.setCatalogueImg(productImage);
-            productService.createProduct(product);
         }
 
         return productImageRepository.save(productImage);
     }
 
-    public void delete(Long productImageId) throws NoSuchElementException {
-        ProductImage productImage = productImageRepository.findById(productImageId)
-            .orElseThrow(() -> new NoSuchElementException("No product image with the id " + productImageId));
-
-        final String URL = productImage.getUrl();
-        productImageRepository.delete(productImage);
-        deleteImage(URL);
+    public void delete(ProductImage productImage) {
+        if(productImage != null) {
+            final String URL = productImage.getUrl();
+            productImageRepository.delete(productImage);
+            if(URL != null) {
+                deleteImage(URL);
+            }
+        }
     }
 
     protected abstract String uploadImage(MultipartFile imgFile);
 
     protected abstract void deleteImage(String URL);
-
-    @Profile("dev")
-        public ProductImage create(String url, String description, boolean isCatalogueImg, Product product) {
-        ProductImage productImage = new ProductImage();
-        productImage.setUrl(url);
-        productImage.setDescription(description);
-        productImage.setProduct(product);
-
-        productImage = productImageRepository.save(productImage);
-        if(isCatalogueImg) {
-            product.setCatalogueImg(productImage);
-            productService.createProduct(product);
-        }
-
-        return productImage;
-    }
 }

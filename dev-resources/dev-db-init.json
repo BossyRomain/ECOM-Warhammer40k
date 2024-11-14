@@ -18,6 +18,7 @@
       "name": "Dice cube",
       "description": "A set of 20 12mm dice for your games of Warhammer. Each dice features a skull icon in place of the ‘1’.",
       "unitPrice": 9.5,
+      "stock": 1001,
       "releaseDate": "2015-01-01",
       "productType": "DICE"
     },
@@ -25,6 +26,7 @@
       "name": "Kill Team: Phobos Strike Team",
       "description": "Phobos Strike Teams wear a lighter variant of Mark X armour, designed for stealth and agility. Armed with a variety of specialised wargear, these lethal squads use surprise and overwhelming force to end any skirmish as quickly as possible.\n\nThis multipart plastic kit builds a squad of 10 Space Marines clad in Phobos armour, each skilled in the art of hit-and-run, guerrilla warfare. These miniatures can be used as Phobos Strike Team operatives in games of Kill Team or fielded in games of Warhammer 40,000 as either Incursors or Infiltrators. This incredibly versatile kit includes a massive assortment of weapons, heads, and accessories to build specialists like the Voxbreaker, Saboteur, Helix Adept, and Marksman – as well as two Haywire Mine tokens on their own bases.\n\nInside the box, you will also find a set of 38 Phobos Strike Team tokens, so you can easily keep track of your equipment and in-game effects in the heat of battle.\n\nThis set comprises 299 plastic components and is supplied with 10x Citadel 32mm Round Bases and 2x Citadel 25mm Round Bases. This set also includes 1x Space Marines Transfer Sheet containing 758 high-quality waterslide transfers for you to use to decorate your models.\n\nThese miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
       "unitPrice": 75.0,
+      "stock": 1500,
       "releaseDate": "2017-10-18",
       "productType": "FIGURINE",
       "allegianceIndex": 0
@@ -33,6 +35,7 @@
       "name": "Romain Blood Angels Captain",
       "description": "Blood Angels Captains are mighty warriors, possessed of tactical and strategic genius. In keeping with their Chapter's culture, they go to war clad in finely wrought artificer armour and wielding an array of deadly relic weapons drawn from the Chapter's armoury.\n\nThis multipart plastic kit builds a Captain clad in the distinctive finery of the Blood Angels. The left arm wields a power fist, chainsword, or relic weapon. The right can hold a heavy bolt pistol or inferno pistol. There's an optional cloak, three head options, three sculpted shoulder pad icons, and two different toppers for the backpack. No matter how you've themed the rest of your army, this Captain is sure to look the part leading them.\n\nThis kit contains 29 plastic components, and 1x Citadel 40mm Round Base. This miniature is supplied unassembled and unpainted – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
       "unitPrice": 42.0,
+      "stock": 1,
       "releaseDate": "2001-10-18",
       "productType": "FIGURINE",
       "allegianceIndex": 2
@@ -41,6 +44,7 @@
       "name": "Lion El'Jonson",
       "description": "The First. The Son of the Forest. The Master of Caliban. The Primarch of the Dark Angels.\n\nLion El'Jonson stalks from mist-wreathed shadow realms like an ancient questing knight, hunting the galaxy's myriad terrors. With his immense blade, Fealty, the Primarch cleaves apart the most heinous of monstrosities, while the Emperor's Shield erupts in blazes of light and force in response to his foes' savage blows.\n\nThis is a jaw-dropping miniature befitting the legendary status of a Primarch, striding over battlefield rubble in ornate, knightly armour adorned with personal heraldry and the symbols of the Dark Angels. He's joined by a pair of mysterious Watchers in the Dark, and can be built with one of four different head options – a bare head, a hooded head, a crested helm, and a hooded helm.\n\nThis miniature makes an incredible centrepiece for any Dark Angels army. Painters will enjoy the level of detail and the different textures that make up his robes, armour, and weapons. Meanwhile, gamers will enjoy setting the Lion upon the enemies of the Imperium and proving his prowess as a duelist.\n\nThis kit comprises 43 plastic components, and is supplied with a 60mm Citadel Round base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
       "unitPrice": 70.0,
+      "stock": 10,
       "releaseDate": "2005-06-04",
       "productType": "FIGURINE",
       "allegianceIndex": 1
@@ -94,7 +98,8 @@
     {
       "productIndex": 1,
       "url": "assets/dev/images/phobos_team_c.jpg",
-      "description": ""
+      "description": "",
+      "catalogueImg": true
     },
     {
       "productIndex": 1,
@@ -139,7 +144,8 @@
     {
       "productIndex": 2,
       "url": "assets/dev/images/bloods_angels_capitain_c.jpg",
-      "description": ""
+      "description": "",
+      "catalogueImg": true
     },
     {
       "productIndex": 2,
@@ -164,7 +170,8 @@
     {
       "productIndex": 3,
       "url": "assets/dev/images/lion_el_jonson_c.jpg",
-      "description": ""
+      "description": "",
+      "catalogueImg": true
     },
     {
       "productIndex": 3,
@@ -204,7 +211,8 @@
     {
       "productIndex": 4,
       "url": "assets/dev/images/sanguinius_c.jpg",
-      "description": ""
+      "description": "",
+      "catalogueImg": true
     },
     {
       "productIndex": 4,
@@ -230,6 +238,13 @@
       "productIndex": 4,
       "url": "assets/dev/images/sanguinius_5.jpg",
       "description": ""
+    }
+  ],
+  "users": [
+    {
+      "username": "bossyr",
+      "password": "1234",
+      "authority": "ADMIN"
     }
   ]
 }
