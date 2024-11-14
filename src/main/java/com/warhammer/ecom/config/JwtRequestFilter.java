@@ -18,6 +18,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Filtre les requêtes HTTP reçues par l'API en fonction des autorisations requises pour les routes.
+ */
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 

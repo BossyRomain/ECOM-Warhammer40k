@@ -231,5 +231,12 @@
       "url": "assets/dev/images/sanguinius_5.jpg",
       "description": ""
     }
+  ],
+  "users": [
+    {
+      "username": "bossyr",
+      "password": "1234",
+      "authority": "ADMIN"
+    }
   ]
 }
