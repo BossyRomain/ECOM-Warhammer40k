@@ -4,6 +4,7 @@ import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.model.ProductImage;
 import com.warhammer.ecom.repository.ProductImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.NoSuchElementException;
@@ -30,6 +31,7 @@ public abstract class ProductImageService {
 
         if (isCatalogueImg) {
             product.setCatalogueImg(productImage);
+            productService.createProduct(product);
         }
 
         return productImageRepository.save(productImage);
@@ -47,4 +49,20 @@ public abstract class ProductImageService {
     protected abstract String uploadImage(MultipartFile imgFile);
 
     protected abstract void deleteImage(String URL);
+
+    @Profile("dev")
+        public ProductImage create(String url, String description, boolean isCatalogueImg, Product product) {
+        ProductImage productImage = new ProductImage();
+        productImage.setUrl(url);
+        productImage.setDescription(description);
+        productImage.setProduct(product);
+
+        productImage = productImageRepository.save(productImage);
+        if(isCatalogueImg) {
+            product.setCatalogueImg(productImage);
+            productService.createProduct(product);
+        }
+
+        return productImage;
+    }
 }

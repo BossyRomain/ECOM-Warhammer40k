@@ -20,6 +20,7 @@ public class Product {
 
     private Float unitPrice;
 
+    @Column(length = 2048)
     private String description;
 
     private ProductType productType;
