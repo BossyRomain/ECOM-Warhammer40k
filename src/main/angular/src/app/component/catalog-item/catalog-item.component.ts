@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
-import { Product } from '../../model/product';
+import { Product } from '../../model/Product';
 import { CommonModule } from '@angular/common';
 
 export interface Article{

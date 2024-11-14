@@ -1,6 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductServiceService } from '../../service/product-service.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { error } from 'console';
 
 @Component({
   selector: 'product-sheet',
@@ -9,7 +11,7 @@ import { ProductServiceService } from '../../service/product-service.service';
   templateUrl: './product-sheet.component.html',
   styleUrl: './product-sheet.component.css'
 })
-export class ProductSheetComponent {
+export class ProductSheetComponent implements OnInit {
     public id:number = 0;
     public productName:string = "Capitaine des Blood Angels";
     public price:number = 34.00;
@@ -26,7 +28,15 @@ export class ProductSheetComponent {
     description:string = "Une figurine de puissant capitaine Blood Angels. Il est capable de s'adapter à toutes les situations avec un arsenal varié d'armes et de reliques.";
     numberOfArticle:number = 0;
 
-    constructor(private productService: ProductServiceService) {}
+    constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute) {}
+
+    ngOnInit(){
+      this.activatedRoute.params.subscribe((params: Params) => {
+        let userId = params['id'];
+        this.getObjectById(userId);
+        });
+        
+    }
 
     public validateNumber(event: Event):void{
       const inputValue = (event.target as HTMLInputElement).valueAsNumber;
@@ -66,6 +76,10 @@ export class ProductSheetComponent {
           this.productName = value.name;
           this.price = value.price;
           this.mainImg = value.url;
+          this.allImages = value.images;
+        },
+        error => {
+          console.log("A problem occured when Accessing to object " + id);
         }
       )      
     }

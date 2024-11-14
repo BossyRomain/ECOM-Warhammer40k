@@ -64,6 +64,7 @@
     white-space: nowrap;           /* Garde tout sur une seule ligne */
     overflow-x: auto;              /* Active le défilement horizontal */
     max-width: 100%;               /* Limite la largeur du conteneur */
+    margin-top: 5%;
                      /* Marge interne pour un meilleur style */
   }
   

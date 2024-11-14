@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { Product } from '../model/product';
+import { Product } from '../model/Product';
 import { environment } from '../../environment/environment';
 
 @Injectable({
@@ -23,7 +23,7 @@ export class ProductServiceService {
         {
           console.log("The body is");
           console.log(body);
-          const product = {id:body.id, name:body.name, stock: body.stock, price: body.price, url:body.url, description:body.description};
+          const product = {id:body.id, name:body.name, stock: body.stock, price: body.price, url:body.url, description:body.description, images:body.images};
           return product ;
         }
       )      
