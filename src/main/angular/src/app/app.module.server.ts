@@ -9,6 +9,6 @@ import { AppComponent } from './app.component';
     AppModule,
     ServerModule,
   ],
-  bootstrap: [],
+  bootstrap: [AppComponent],
 })
 export class AppServerModule {}
