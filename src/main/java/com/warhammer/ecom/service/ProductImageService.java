@@ -35,7 +35,7 @@ public abstract class ProductImageService {
 
         if (isCatalogueImg) {
             product.setCatalogueImg(productImage);
-            productService.create(product);
+            productService.update(product);
         }
 
         return productImageRepository.save(productImage);
@@ -65,7 +65,7 @@ public abstract class ProductImageService {
         productImage = productImageRepository.save(productImage);
         if(isCatalogueImg) {
             product.setCatalogueImg(productImage);
-            productService.create(product);
+            productService.update(product);
         }
 
         return productImage;
