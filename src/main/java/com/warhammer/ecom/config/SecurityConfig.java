@@ -5,6 +5,7 @@ import com.warhammer.ecom.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -34,7 +35,10 @@ public class SecurityConfig {
             .authorizeHttpRequests(authz ->
                 authz.
                     requestMatchers("/api/clients/signup", "/api/clients/login").permitAll()
-                    .requestMatchers("/api/products").hasAuthority(Authority.ADMIN.getAuthority())
+                    .requestMatchers(HttpMethod.POST, "/api/products").hasAuthority(Authority.ADMIN.getAuthority())
+                    .requestMatchers(HttpMethod.PUT, "/api/products").hasAuthority(Authority.ADMIN.getAuthority())
+                    .requestMatchers(HttpMethod.DELETE, "/api/products").hasAuthority(Authority.ADMIN.getAuthority())
+                    .requestMatchers(HttpMethod.GET, "/api/products/catalogue", "api/products", "api/products/*").permitAll()
                     .anyRequest().authenticated());
 
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

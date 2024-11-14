@@ -12,7 +12,7 @@ import java.util.UUID;
 @Profile("dev")
 public class ProductImageServiceDev extends ProductImageService {
 
-    private static final String DIR_PATH = System.getenv("ANGULAR_ASSETS_PATH") + "/images/";
+    private static final String DIR_PATH = System.getProperty("ANGULAR_ASSETS_PATH") + "/dev/images/";
 
     @Override
     protected String uploadImage(MultipartFile imgFile) {
@@ -26,7 +26,7 @@ public class ProductImageServiceDev extends ProductImageService {
 
             imgFile.transferTo(file);
 
-            return "assets/images/" + fileName;
+            return "assets/dev/images/" + fileName;
         } catch (IOException e) {
             return null;
         }

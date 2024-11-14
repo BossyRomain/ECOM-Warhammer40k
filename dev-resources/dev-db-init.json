@@ -1,0 +1,235 @@
+{
+  "allegiances": [
+    {
+      "group": "IMPERIUM",
+      "faction": "SPACE_MARINES"
+    },
+    {
+      "group": "IMPERIUM",
+      "faction": "DARK_ANGELS"
+    },
+    {
+      "group": "IMPERIUM",
+      "faction": "BLOOD_ANGELS"
+    }
+  ],
+  "products": [
+    {
+      "name": "Dice cube",
+      "description": "A set of 20 12mm dice for your games of Warhammer. Each dice features a skull icon in place of the ‘1’.",
+      "unitPrice": 9.5,
+      "releaseDate": "2015-01-01",
+      "productType": "DICE"
+    },
+    {
+      "name": "Kill Team: Phobos Strike Team",
+      "description": "Phobos Strike Teams wear a lighter variant of Mark X armour, designed for stealth and agility. Armed with a variety of specialised wargear, these lethal squads use surprise and overwhelming force to end any skirmish as quickly as possible.\n\nThis multipart plastic kit builds a squad of 10 Space Marines clad in Phobos armour, each skilled in the art of hit-and-run, guerrilla warfare. These miniatures can be used as Phobos Strike Team operatives in games of Kill Team or fielded in games of Warhammer 40,000 as either Incursors or Infiltrators. This incredibly versatile kit includes a massive assortment of weapons, heads, and accessories to build specialists like the Voxbreaker, Saboteur, Helix Adept, and Marksman – as well as two Haywire Mine tokens on their own bases.\n\nInside the box, you will also find a set of 38 Phobos Strike Team tokens, so you can easily keep track of your equipment and in-game effects in the heat of battle.\n\nThis set comprises 299 plastic components and is supplied with 10x Citadel 32mm Round Bases and 2x Citadel 25mm Round Bases. This set also includes 1x Space Marines Transfer Sheet containing 758 high-quality waterslide transfers for you to use to decorate your models.\n\nThese miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 75.0,
+      "releaseDate": "2017-10-18",
+      "productType": "FIGURINE",
+      "allegianceIndex": 0
+    },
+    {
+      "name": "Romain Blood Angels Captain",
+      "description": "Blood Angels Captains are mighty warriors, possessed of tactical and strategic genius. In keeping with their Chapter's culture, they go to war clad in finely wrought artificer armour and wielding an array of deadly relic weapons drawn from the Chapter's armoury.\n\nThis multipart plastic kit builds a Captain clad in the distinctive finery of the Blood Angels. The left arm wields a power fist, chainsword, or relic weapon. The right can hold a heavy bolt pistol or inferno pistol. There's an optional cloak, three head options, three sculpted shoulder pad icons, and two different toppers for the backpack. No matter how you've themed the rest of your army, this Captain is sure to look the part leading them.\n\nThis kit contains 29 plastic components, and 1x Citadel 40mm Round Base. This miniature is supplied unassembled and unpainted – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 42.0,
+      "releaseDate": "2001-10-18",
+      "productType": "FIGURINE",
+      "allegianceIndex": 2
+    },
+    {
+      "name": "Lion El'Jonson",
+      "description": "The First. The Son of the Forest. The Master of Caliban. The Primarch of the Dark Angels.\n\nLion El'Jonson stalks from mist-wreathed shadow realms like an ancient questing knight, hunting the galaxy's myriad terrors. With his immense blade, Fealty, the Primarch cleaves apart the most heinous of monstrosities, while the Emperor's Shield erupts in blazes of light and force in response to his foes' savage blows.\n\nThis is a jaw-dropping miniature befitting the legendary status of a Primarch, striding over battlefield rubble in ornate, knightly armour adorned with personal heraldry and the symbols of the Dark Angels. He's joined by a pair of mysterious Watchers in the Dark, and can be built with one of four different head options – a bare head, a hooded head, a crested helm, and a hooded helm.\n\nThis miniature makes an incredible centrepiece for any Dark Angels army. Painters will enjoy the level of detail and the different textures that make up his robes, armour, and weapons. Meanwhile, gamers will enjoy setting the Lion upon the enemies of the Imperium and proving his prowess as a duelist.\n\nThis kit comprises 43 plastic components, and is supplied with a 60mm Citadel Round base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 70.0,
+      "releaseDate": "2005-06-04",
+      "productType": "FIGURINE",
+      "allegianceIndex": 1
+    },
+    {
+      "name": "Sanguinius, Primarch of the Blood Angels Legion",
+      "description": "Often considered to be the greatest of his kin, Sanguinius is a peerless warrior, masterful strategist and beloved hero of the Imperium. Among the primarchs, there were few who would speak ill of him, with even grim figures such as Perturabo and Ferrus Manus offering grudging praise of their winged brother.\n\nMany among that legendary brotherhood were surprised to find that the Emperor named Horus as Warmaster, rather than choosing Sanguinius, and those who survived the Age of Darkness have been known to speculate that this was their father’s great mistake. For even as the wars of the Horus Heresy tore the Imperium apart and set even the noblest of his brothers on dark paths, Sanguinius remained untarnished and resolute, a beacon of hope that outshone even the darkness of that age.\n\nSanguinius is sculpted in the midst of battle, wings spread as he swoops down to deliver a killing blow to an unseen enemy. The model is held aloft by a spire of stone, giving the illusion of flight. Sanguinius' ornately designed armour, and the animal pelt he wears draped over it, provide a variety of textures and designs sure to delight painters, while his face is a mix of majesty and fury that perfectly reflects the duality of the Blood Angels Legion. A choice of weapons – the Blade Encarmine and the Spear of Telesto – allow the model to be customised as you choose.\n\nSanguinius, Primarch of the Blood Angels, is supplied in 26 resin components, including a choice of two weapons and a 40mm gaming base.\n\nRules for using Sanguinius in your games of Warhammer: The Horus Heresy can be found in Liber Astartes – Loyalist Legiones Astartes Army Book. This miniature is supplied unpainted and requires assembly – we recommend using Citadel paints.\n\nThis resin modelling kit is not a toy – it is a collectible item and construction should only be undertaken by expert Warhammer hobbyists aged 15 years and over.",
+      "unitPrice": 155.0,
+      "releaseDate": "2001-08-08",
+      "productType": "FIGURINE",
+      "allegianceIndex": 2
+    }
+  ],
+  "productsImages": [
+    {
+      "productIndex": 0,
+      "url": "assets/dev/images/dicecube_c.jpg",
+      "description": "",
+      "catalogueImg": true
+    },
+    {
+      "productIndex": 0,
+      "url": "assets/dev/images/dicecube_1.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 0,
+      "url": "assets/dev/images/dicecube_2.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 0,
+      "url": "assets/dev/images/dicecube_3.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 0,
+      "url": "assets/dev/images/dicecube_4.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 0,
+      "url": "assets/dev/images/dicecube_5.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 0,
+      "url": "assets/dev/images/dicecube_6.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 1,
+      "url": "assets/dev/images/phobos_team_c.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 1,
+      "url": "assets/dev/images/phobos_team_1.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 1,
+      "url": "assets/dev/images/phobos_team_2.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 1,
+      "url": "assets/dev/images/phobos_team_3.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 1,
+      "url": "assets/dev/images/phobos_team_4.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 1,
+      "url": "assets/dev/images/phobos_team_5.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 1,
+      "url": "assets/dev/images/phobos_team_6.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 1,
+      "url": "assets/dev/images/phobos_team_7.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 1,
+      "url": "assets/dev/images/phobos_team_8.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 2,
+      "url": "assets/dev/images/bloods_angels_capitain_c.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 2,
+      "url": "assets/dev/images/bloods_angels_capitain_1.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 2,
+      "url": "assets/dev/images/bloods_angels_capitain_2.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 2,
+      "url": "assets/dev/images/bloods_angels_capitain_3.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 2,
+      "url": "assets/dev/images/bloods_angels_capitain_4.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 3,
+      "url": "assets/dev/images/lion_el_jonson_c.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 3,
+      "url": "assets/dev/images/lion_el_jonson_1.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 3,
+      "url": "assets/dev/images/lion_el_jonson_2.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 3,
+      "url": "assets/dev/images/lion_el_jonson_3.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 3,
+      "url": "assets/dev/images/lion_el_jonson_4.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 3,
+      "url": "assets/dev/images/lion_el_jonson_5.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 3,
+      "url": "assets/dev/images/lion_el_jonson_6.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 3,
+      "url": "assets/dev/images/lion_el_jonson_7.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 4,
+      "url": "assets/dev/images/sanguinius_c.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 4,
+      "url": "assets/dev/images/sanguinius_1.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 4,
+      "url": "assets/dev/images/sanguinius_2.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 4,
+      "url": "assets/dev/images/sanguinius_3.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 4,
+      "url": "assets/dev/images/sanguinius_4.jpg",
+      "description": ""
+    },
+    {
+      "productIndex": 4,
+      "url": "assets/dev/images/sanguinius_5.jpg",
+      "description": ""
+    }
+  ]
+}
