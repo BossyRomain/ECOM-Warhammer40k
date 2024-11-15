@@ -29,6 +29,14 @@ public class ClientService {
         return clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
     }
 
+    public Client getByUserId(Long userId) throws NoSuchElementException {
+        return clientRepository.findByUserId(userId).orElseThrow(NoSuchElementException::new);
+    }
+
+    public Client getByEmail(String email) throws NoSuchElementException {
+        return clientRepository.findByEmail(email).orElseThrow(NoSuchElementException::new);
+    }
+
     public Client create(ClientSignUpDTO clientSignUpDTO) {
         User user = userService.create(clientSignUpDTO.getEmail(), clientSignUpDTO.getPassword(), Authority.CLIENT);
 

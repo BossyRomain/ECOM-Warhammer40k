@@ -2,11 +2,11 @@ package com.warhammer.ecom.controller;
 
 import com.warhammer.ecom.config.JwtUtil;
 import com.warhammer.ecom.controller.dto.ClientLoginDTO;
+import com.warhammer.ecom.controller.dto.ClientLoginResponseDTO;
 import com.warhammer.ecom.controller.dto.ClientSignUpDTO;
-import com.warhammer.ecom.model.Authority;
 import com.warhammer.ecom.model.Client;
-import com.warhammer.ecom.model.User;
 import com.warhammer.ecom.service.ClientService;
+import com.warhammer.ecom.service.SecurityService;
 import com.warhammer.ecom.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +33,9 @@ public class ClientController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
+    private SecurityService securityService;
+
+    @Autowired
     private JwtUtil jwtUtil;
 
     @PostMapping("/signup")
@@ -41,7 +44,7 @@ public class ClientController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody ClientLoginDTO clientLoginDTO) {
+    public ClientLoginResponseDTO login(@RequestBody ClientLoginDTO clientLoginDTO) {
         if(!userService.login(clientLoginDTO.getEmail(), clientLoginDTO.getPassword())) {
             throw new AccessDeniedException("Invalid email or password");
         }
@@ -54,20 +57,29 @@ public class ClientController {
             userDetails.getUsername(),
             List.copyOf(userDetails.getAuthorities())
         );
-        return ResponseEntity.ok(token);
+
+        Client client = clientService.getByEmail(clientLoginDTO.getEmail());
+
+        ClientLoginResponseDTO response = new ClientLoginResponseDTO();
+        response.setId(client.getId());
+        response.setUser(client.getUser());
+        response.setFirstName(client.getFirstName());
+        response.setLastName(client.getLastName());
+        response.setBirthday(client.getBirthday());
+        response.setNewsletter(client.isNewsletter());
+        response.setCurrentCart(client.getCurrentCart());
+        response.setAuthToken(token);
+
+        return response;
     }
 
     @DeleteMapping("/{clientId}")
     public ResponseEntity<Void> deleteClient(
-        @RequestHeader("Authorization") String authToken,
+        Authentication authentication,
         @PathVariable Long clientId
-    ) throws AccessDeniedException {
-        User requestUser = userService.get(jwtUtil.extractUsername(authToken.substring(7)));
-        if(requestUser.getId().equals(clientId) || requestUser.getAuthority() == Authority.ADMIN) {
-            clientService.delete(clientService.getById(clientId));
-            return ResponseEntity.noContent().build();
-        } else {
-            throw new AccessDeniedException("Access denied");
-        }
+    ) {
+        securityService.isAdminOrOwner(clientId, authentication);
+        clientService.delete(clientService.getById(clientId));
+        return ResponseEntity.noContent().build();
     }
 }
