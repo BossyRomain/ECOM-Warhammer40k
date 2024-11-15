@@ -1,0 +1,25 @@
+.item-cart {
+    display: flex;
+    width: 100vw;
+}
+
+.item-cart img {
+    height: 10vw;
+    width: 10vw;
+}
+
+.item-cart div.name{
+    padding-left: 2ch;
+}
+
+.item-cart div.quantity{
+    text-align: right;
+    padding-left: 2ch;
+}
+
+.item-cart div.price{
+    text-align: right;
+    padding-left: 2ch;
+}
+
+

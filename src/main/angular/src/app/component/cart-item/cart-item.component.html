@@ -1,3 +1,9 @@
-<div>
+<div class="item-cart" *ngIf="commandLine != undefined; else other_content">
+
+    <img src={{commandLine.product.images[0].url}} />
+    <div class="name">{{commandLine.product.name}}</div>
+    <div class="quantity">{{commandLine.quantity}}</div>
+    <div class="price">{{commandLine.product.price}}</div>
     
 </div>
+<ng-template #other_content>other content here...</ng-template>

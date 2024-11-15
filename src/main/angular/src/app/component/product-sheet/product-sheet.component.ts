@@ -47,9 +47,9 @@ export class ProductSheetComponent implements OnInit {
     }
 
     public addArticleToCart():void{
-      console.log("Achat");
+      console.log("Achat " + this.numberOfArticle);
       if(this.numberOfArticle != 0){
-        this.cartService.addProductToCart(this.numberOfArticle, this.id);
+        this.cartService.addProductToCart(0, this.id, this.numberOfArticle);
       }
       
     }
