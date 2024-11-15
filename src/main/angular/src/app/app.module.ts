@@ -25,6 +25,7 @@ import { RegisterComponent } from './component/register/register.component';
     ProductSheetComponent,
     HeaderComponent,
     CatalogComponent,
+    AppRoutingModule,
     BankDetailsComponent,
     FooterComponent,
     RegisterComponent,
