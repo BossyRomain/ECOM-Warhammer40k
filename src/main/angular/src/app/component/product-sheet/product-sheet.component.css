@@ -51,10 +51,12 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100%;
+    margin: 5px;
     border: 10px grey;
     border-radius: 10px;
     box-shadow: 0 0 0 3px black;
+    margin-top: 35%;
+    
   }
 
   .image-gallery {

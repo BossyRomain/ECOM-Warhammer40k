@@ -68,10 +68,11 @@
 .on-stock {
     position: absolute;
     width: 40%;
-    height: 8%;
+    height: 7%;
     top: 0;
     left: 0;
     background-color: #cdfaae; /* Vert pour "en stock" */
+    border: 1px solid #375337;
     color: #000000;
     padding: 5px;
     font-size: 0.5rem; /* Taille de texte fixe, ajustez selon votre besoin */
@@ -83,10 +84,11 @@
   .out-of-stock {
       position: absolute;
       width: 40%;
-      height: 8%;
+      height: 7%;
       top: 0;
       left: 0;
       background-color: #f36666;
+      border: 1px solid #642525;
       color: #fff;
       padding: 5px;
       font-size: 0.5rem; /* Taille de texte fixe, ajustez selon votre besoin */

@@ -12,11 +12,15 @@ body {
 .header{
   background-color: #E6E6E6;
   margin: none;
-  padding-bottom: 10px;
+  margin-top: -10px;
+  padding-top: 20px;
+  position: fixed;
+  top: 0%;
+  z-index: 10;
+  width: 100%;
 }
 .header-container {
-  width: 100%;
-  height: 10%; /* Ajuste la hauteur du bandeau ici */
+  width: 96%;
   background-color: #333; /* Couleur de fond du bandeau */
   white-space: nowrap; /* Empêche le passage à la ligne */
 }
@@ -25,8 +29,8 @@ body {
 .menu-button {
   float: left;
   margin: 5px;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 
   max-width: 40px;  /* Limite la taille du bouton compte */
   max-height: 40px;
@@ -60,8 +64,8 @@ body {
 /* Bouton panier, positionné à droite */
 .cart-button {
   float: right;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   margin: 5px;
   vertical-align: middle;
   background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier.png");
@@ -76,8 +80,8 @@ body {
 .account-button {
   float: right;
   margin: 5px;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png");
   background-size: cover;
   background-position: center;
@@ -123,7 +127,7 @@ body {
   background-color: #f9f9f9;
   padding: 5px 10px;
   margin-top: 10px;
-  width: 100%;
+  width: 96%;
 }
 
 /* Icône de loupe */

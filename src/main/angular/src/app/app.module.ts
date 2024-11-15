@@ -4,7 +4,7 @@ import {provideHttpClient} from '@angular/common/http';
 import { ProductSheetComponent } from './component/product-sheet/product-sheet.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import HeaderComponent from "./component/header/header.component";
+import { HeaderComponent } from "./component/header/header.component";
 import { CatalogComponent } from './component/catalog/catalog.component';
 @NgModule({
   declarations: [
@@ -14,7 +14,8 @@ import { CatalogComponent } from './component/catalog/catalog.component';
     BrowserModule,
     ProductSheetComponent,
     HeaderComponent,
-    CatalogComponent
+    CatalogComponent,
+    AppRoutingModule
 ],
   providers: [
     provideClientHydration(),
