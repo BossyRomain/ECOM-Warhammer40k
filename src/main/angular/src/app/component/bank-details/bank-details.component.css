@@ -19,7 +19,7 @@ body {
   background-color: #e6e6e6;
   height: auto; /* Laisse la hauteur s'adapter au contenu */
   margin: 20px auto; /* Centrage du card */
-  
+
 }
 
 .product-header {
@@ -108,6 +108,13 @@ body {
 .submit-btn input:active {
   background-color: #003f7f;
 }
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
 
 /* Media query pour les écrans larges (tablettes et ordinateurs) */
 @media (min-width: 768px) {

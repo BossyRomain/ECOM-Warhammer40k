@@ -1,4 +1,3 @@
-
 <div class="product-card">
   <!-- Titre principal -->
   <div class="product-header">
@@ -8,47 +7,47 @@
   <!-- Moyens de paiement -->
   <div class="payment-method">
     <h2>Moyens de paiement :</h2>
-      <img class="masterCardVisa" src="https://api.adnews.galitt.com/uploads/posts/images/6605906f801c8399626600.jpg" alt="MasterCard Visa">
+    <img class="masterCardVisa" src="https://api.adnews.galitt.com/uploads/posts/images/6605906f801c8399626600.jpg" alt="MasterCard Visa">
   </div>
 
   <!-- Formulaire de paiement -->
   <div class="payment-details">
+    <!-- Numéro de carte -->
     <div class="form-group">
       <label for="card-number">Numéro de carte</label>
-      <input type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX" required maxlength="19">
+      <input type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX" required maxlength="19"
+        [(ngModel)]="cardNumber" (input)="formatCardNumber()" (ngModelChange)="cardNumberError = ''">
+      <div *ngIf="cardNumberError" class="error-message">{{ cardNumberError }}</div>
     </div>
 
+
+    <!-- Nom sur la carte -->
     <div class="form-group">
       <label for="cardholder-name">Nom sur la carte</label>
-      <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Nom complet" required>
+      <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Nom complet" required
+        [(ngModel)]="cardholderName" (ngModelChange)="cardholderNameError = ''">
+      <div *ngIf="cardholderNameError" class="error-message">{{ cardholderNameError }}</div>
     </div>
 
+    <!-- Date d'expiration -->
     <div class="form-group">
       <label for="expiration-date">Date d’expiration (MM/AA)</label>
-      <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/AA" maxlength="5" required>
-      <script>
-        // Format MM/AA (mois/année)
-        document.getElementById('expiration-date').addEventListener('input', function (e) {
-          let value = e.target.value.replace(/[^0-9\/]/g, '');
-          if (value.length > 2 && value[2] !== '/') {
-            value = value.slice(0, 2) + '/' + value.slice(2, 4);
-          }
-          if (value.length > 5) {
-            value = value.slice(0, 5);
-          }
-          e.target.value = value;
-        });
-      </script>
+      <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/AA" maxlength="5" required
+        [(ngModel)]="expirationDate" (input)="formatExpirationDate()" (ngModelChange)="expirationDateError = ''">
+      <div *ngIf="expirationDateError" class="error-message">{{ expirationDateError }}</div>
     </div>
 
+    <!-- CVV -->
     <div class="form-group">
       <label for="cvv">Cryptogramme de sécurité</label>
-      <input type="text" id="cvv" name="cvv" required minlength="3" maxlength="3" placeholder="CVV" size="5">
+      <input type="text" id="cvv" name="cvv" required minlength="3" maxlength="3" placeholder="CVV" size="5"
+        [(ngModel)]="cvv" (ngModelChange)="cvvError = ''">
+      <div *ngIf="cvvError" class="error-message">{{ cvvError }}</div>
     </div>
 
     <!-- Bouton de paiement -->
     <div class="submit-btn">
-      <input type="button" value="Valider le paiement">
+      <input type="button" value="Valider le paiement" (click)="onSubmit()">
     </div>
   </div>
 </div>
