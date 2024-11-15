@@ -23,4 +23,11 @@ export class HeaderComponent {
     this.router.navigate(["/product", 0]);
   }
 
+  public accesToCart() {
+    
+  }
+  public search(searchText: string) {
+    
+  }
+
 }

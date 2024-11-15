@@ -54,6 +54,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -10%;
 }
 
 .form-group {
@@ -88,8 +89,8 @@ body {
   width: 100%;
   max-width: 450px; /* Largeur maximale du bouton */
   text-align: center;
-  margin-top: 40%;
-  margin-bottom: 16%;
+  margin-top: 5%;
+  margin-bottom: 61%;
 }
 
 .submit-btn input {
@@ -171,3 +172,10 @@ body {
     width: 40%; /* Réduit encore la largeur de la card */
   }
 }
+  /* Style pour les messages d'erreur */
+  .error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+  }
+

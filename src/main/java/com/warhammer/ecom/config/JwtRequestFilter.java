@@ -1,7 +1,6 @@
 package com.warhammer.ecom.config;
 
 import com.warhammer.ecom.service.UserService;
-import io.jsonwebtoken.MalformedJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,7 +27,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private JwtUtil jwtUtil;
 
     @Autowired
-    private UserService userDetailsService;
+    private UserService userService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -41,7 +40,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 final List<GrantedAuthority> authorities = List.copyOf(jwtUtil.extractAuthorities(token));
 
                 if(jwtUtil.isTokenValid(token) && username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                    UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                    UserDetails userDetails = userService.loadUserByUsername(username);
 
                     UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails.getUsername(), null, userDetails.getAuthorities()
@@ -49,7 +48,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                     authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
-            } catch (MalformedJwtException e) {
+            } catch (Exception e) {
                 response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                 return;
             }

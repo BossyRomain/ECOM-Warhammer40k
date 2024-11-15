@@ -1,5 +1,6 @@
 package com.warhammer.ecom.service;
 
+import com.warhammer.ecom.config.JwtUtil;
 import com.warhammer.ecom.model.Authority;
 import com.warhammer.ecom.model.User;
 import com.warhammer.ecom.repository.UserRepository;
@@ -18,6 +19,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private JwtUtil jwtUtil;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

@@ -3,11 +3,13 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
      /* Full viewport height to center in the middle */
+    
   }
   
   .image-container img {
     /* Scale the image if it's too large */
     height: auto; /* Maintain aspect ratio */
+    width: 50%;
   }
   
   .description-container{
@@ -31,9 +33,11 @@
   }
   
   .product-name {
+    padding-left: 3%;
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center;
+    text-align: center;
   }
   
   .add-button {
@@ -66,6 +70,8 @@
     white-space: nowrap;           /* Garde tout sur une seule ligne */
     overflow-x: auto;              /* Active le défilement horizontal */
     max-width: 100%;               /* Limite la largeur du conteneur */
+    margin-top: 5%;
+    margin-bottom: 5%;
                      /* Marge interne pour un meilleur style */
   }
   

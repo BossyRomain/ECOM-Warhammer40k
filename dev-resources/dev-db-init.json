@@ -53,6 +53,7 @@
       "name": "Sanguinius, Primarch of the Blood Angels Legion",
       "description": "Often considered to be the greatest of his kin, Sanguinius is a peerless warrior, masterful strategist and beloved hero of the Imperium. Among the primarchs, there were few who would speak ill of him, with even grim figures such as Perturabo and Ferrus Manus offering grudging praise of their winged brother.\n\nMany among that legendary brotherhood were surprised to find that the Emperor named Horus as Warmaster, rather than choosing Sanguinius, and those who survived the Age of Darkness have been known to speculate that this was their father’s great mistake. For even as the wars of the Horus Heresy tore the Imperium apart and set even the noblest of his brothers on dark paths, Sanguinius remained untarnished and resolute, a beacon of hope that outshone even the darkness of that age.\n\nSanguinius is sculpted in the midst of battle, wings spread as he swoops down to deliver a killing blow to an unseen enemy. The model is held aloft by a spire of stone, giving the illusion of flight. Sanguinius' ornately designed armour, and the animal pelt he wears draped over it, provide a variety of textures and designs sure to delight painters, while his face is a mix of majesty and fury that perfectly reflects the duality of the Blood Angels Legion. A choice of weapons – the Blade Encarmine and the Spear of Telesto – allow the model to be customised as you choose.\n\nSanguinius, Primarch of the Blood Angels, is supplied in 26 resin components, including a choice of two weapons and a 40mm gaming base.\n\nRules for using Sanguinius in your games of Warhammer: The Horus Heresy can be found in Liber Astartes – Loyalist Legiones Astartes Army Book. This miniature is supplied unpainted and requires assembly – we recommend using Citadel paints.\n\nThis resin modelling kit is not a toy – it is a collectible item and construction should only be undertaken by expert Warhammer hobbyists aged 15 years and over.",
       "unitPrice": 155.0,
+      "stock": 1,
       "releaseDate": "2001-08-08",
       "productType": "FIGURINE",
       "allegianceIndex": 2
@@ -143,28 +144,28 @@
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/bloods_angels_capitain_c.jpg",
+      "url": "assets/dev/images/blood_angels_capitain_c.jpg",
       "description": "",
       "catalogueImg": true
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/bloods_angels_capitain_1.jpg",
+      "url": "assets/dev/images/blood_angels_capitain_1.jpg",
       "description": ""
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/bloods_angels_capitain_2.jpg",
+      "url": "assets/dev/images/blood_angels_capitain_2.jpg",
       "description": ""
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/bloods_angels_capitain_3.jpg",
+      "url": "assets/dev/images/blood_angels_capitain_3.jpg",
       "description": ""
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/bloods_angels_capitain_4.jpg",
+      "url": "assets/dev/images/blood_angels_capitain_4.jpg",
       "description": ""
     },
     {
@@ -245,6 +246,29 @@
       "username": "bossyr",
       "password": "1234",
       "authority": "ADMIN"
+    }
+  ],
+  "clients": [
+    {
+      "email": "alban.fauri@gmail.com",
+      "password": "1234",
+      "firstName": "Alban",
+      "lastName": "Fauri",
+      "newsLetter": false
+    },
+    {
+      "email": "gaetan.combe@gmail.com",
+      "password": "1234",
+      "firstName": "Gaetan",
+      "lastName": "Combe",
+      "newsLetter": false
+    },
+    {
+      "email": "fabien.vial@gmail.com",
+      "password": "1234",
+      "firstName": "Fabien",
+      "lastName": "Vial",
+      "newsLetter": false
     }
   ]
 }

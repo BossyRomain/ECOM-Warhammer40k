@@ -58,16 +58,14 @@ public abstract class ProductImageService {
     @Profile("dev")
     public ProductImage create(String url, String description, boolean isCatalogueImg, Product product) {
         ProductImage productImage = new ProductImage();
-        productImage.setUrl(url);
         productImage.setDescription(description);
         productImage.setProduct(product);
+        productImage.setUrl(url);
 
-        productImage = productImageRepository.save(productImage);
-        if(isCatalogueImg) {
+        if (isCatalogueImg) {
             product.setCatalogueImg(productImage);
-            productService.update(product);
         }
 
-        return productImage;
+        return productImageRepository.save(productImage);
     }
 }
