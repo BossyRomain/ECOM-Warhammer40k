@@ -1,3 +1,5 @@
+import { Image } from "./image";
+
 export interface Product {
     id:number;
     name:string;
@@ -5,4 +7,5 @@ export interface Product {
     price:number;
     description:string;
     url:string;
+    images:Image[];
 }

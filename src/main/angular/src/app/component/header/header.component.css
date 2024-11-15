@@ -13,6 +13,8 @@ body {
   background-color: #E6E6E6;
   margin: none;
   padding-bottom: 10px;
+  top: 0;
+  z-index: 10;
 }
 .header-container {
   width: 100%;
@@ -30,7 +32,7 @@ body {
 
   max-width: 40px;  /* Limite la taille du bouton compte */
   max-height: 40px;
-  
+
   background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/menu_burger.png");
   background-size: cover;
   background-color: #E5E5E5;
@@ -38,7 +40,7 @@ body {
   cursor: pointer;
   vertical-align: middle;
   left:auto;
-  
+
 }
 
 .menu-button:hover,
@@ -91,27 +93,22 @@ body {
 .boutontext {
   float: right;
   text-align: center;
-  width: 40px; 
+  width: 40px;
   margin: 5px;
 }
 
 /* Pour le texte sous le bouton */
 .boutontext p {
   margin-top: 40px;
-  font-size: 6px; 
+  font-size: 6px;
   color: rgb(0, 0, 0); /* Couleur du texte (ajustable) */
 }
 
 /* Ajustement des boutons pour rester dans les dimensions définies */
 .cart-button, .account-button {
-  display: block; 
-  margin: 0 auto; 
+  display: block;
+  margin: 0 auto;
 }
-
-
-
-
-
 
 
 /* Conteneur de la barre de recherche */

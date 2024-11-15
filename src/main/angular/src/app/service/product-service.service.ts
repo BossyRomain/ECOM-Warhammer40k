@@ -5,6 +5,7 @@ import { Product } from '../model/product';
 import { environment } from '../../environment/environment';
 import { ProductCatalog } from '../model/product-catalog';
 
+import { Image } from '../model/image';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,9 +23,19 @@ export class ProductServiceService {
     .pipe(
       map((body:any) => 
         {
-          console.log("The body is");
-          console.log(body);
-          const product = {id:body.id, name:body.name, stock: body.stock, price: body.price, url:body.url, description:body.description};
+          let array: Image[] = [];
+          body.images.forEach((element:Image) => {
+            array.push(element);
+          });
+          const product = {
+            id:body.id, 
+            name:body.name, 
+            stock: body.stock, 
+            price: body.price, 
+            url:body.url, 
+            description:body.description, 
+            images:array
+          };
           return product ;
         }
       )      

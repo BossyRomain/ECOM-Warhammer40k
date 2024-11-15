@@ -8,14 +8,14 @@
           <p>Compte</p>
       </div>
       <div class="boutontext">
-          <button class="cart-button"></button>
+          <button class="cart-button" (click)="accesToCart()"></button>
           <p>&nbsp;&nbsp;&nbsp;Panier</p>
       </div>
   </div>
 
   <div class="search-bar-container">
       <div class="search-icon"></div> <!-- Icône de loupe -->
-      <input type="text" class="search-input" placeholder="Rechercher...">
-      <button class="search-button"></button> <!-- Bouton "Go" avec image -->
+      <input #research type="text" class="search-input" placeholder="Rechercher...">
+      <button class="search-button" (click)="onClick(research.value)"></button> <!-- Bouton "Go" avec image -->
   </div>
 </div>
