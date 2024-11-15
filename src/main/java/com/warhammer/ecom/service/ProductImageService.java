@@ -53,4 +53,18 @@ public abstract class ProductImageService {
     protected abstract String uploadImage(MultipartFile imgFile);
 
     protected abstract void deleteImage(String URL);
+
+    @Profile("dev")
+    public ProductImage create(String url, String description, boolean isCatalogueImg, Product product) {
+        ProductImage productImage = new ProductImage();
+        productImage.setDescription(description);
+        productImage.setProduct(product);
+        productImage.setUrl(url);
+
+        if (isCatalogueImg) {
+            product.setCatalogueImg(productImage);
+        }
+
+        return productImageRepository.save(productImage);
+    }
 }
