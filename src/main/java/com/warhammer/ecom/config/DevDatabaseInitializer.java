@@ -38,8 +38,8 @@ public class DevDatabaseInitializer {
 
     @PostConstruct
     public void initDB() {
-        final String devResPath = System.getProperty("DEV_FOLDER_PATH");
-        final String angularAssetsPath = System.getProperty("ANGULAR_ASSETS_PATH");
+        final String devResPath = System.getProperty("dev.resources");
+        final String angularAssetsPath = System.getProperty("angular.assets");
 
         try(InputStream inputStream = new FileInputStream(devResPath + "/dev-db-init.json")) {
             if(inputStream == null) {
@@ -96,7 +96,7 @@ public class DevDatabaseInitializer {
     @PreDestroy
     public void onShutDown() {
         try {
-            final String angularAssetsPath = System.getProperty("ANGULAR_ASSETS_PATH");
+            final String angularAssetsPath = System.getProperty("angular.assets");
             Path directoryPath = Paths.get(angularAssetsPath + "/dev/images/");
             Files.walkFileTree(directoryPath, new SimpleFileVisitor<Path>() {
                 @Override

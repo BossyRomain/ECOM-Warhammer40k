@@ -1,8 +1,10 @@
 import { Component, input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductServiceService } from '../../service/product-service.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { error } from 'console';
+import { CartServiceService } from '../../service/cart-service.service';
+
 
 @Component({
   selector: 'product-sheet',
@@ -28,9 +30,10 @@ export class ProductSheetComponent implements OnInit {
     description:string = "Une figurine de puissant capitaine Blood Angels. Il est capable de s'adapter à toutes les situations avec un arsenal varié d'armes et de reliques.";
     numberOfArticle:number = 0;
 
-    constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute) {}
+    constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute, private route:Router, private cartService:CartServiceService) {}
 
     ngOnInit(){
+      
       this.activatedRoute.params.subscribe((params: Params) => {
         let userId = params['id'];
         this.getObjectById(userId);
@@ -43,25 +46,12 @@ export class ProductSheetComponent implements OnInit {
       this.numberOfArticle = inputValue;
     }
 
-    public addArticleToCart(htmlInput:HTMLInputElement):void{
+    public addArticleToCart():void{
       console.log("Achat");
-      let amountOfProduct = Number(htmlInput.value);
-      if(amountOfProduct == 0){
-        console.log("No object selected");
-      }else{
-        this.productService.getProductById(amountOfProduct).subscribe(
-          value => {
-            this.id = value.id;
-            this.productName = value.name;
-            this.price = value.price;
-            this.stock = value.stock;
-            this.description = value.description;
-          }
-        )
-        this.numberOfArticle = 0;
-        htmlInput.value = "0";
+      if(this.numberOfArticle != 0){
+        this.cartService.addProductToCart(this.numberOfArticle, this.id);
       }
-
+      
     }
 
     public mockGet(htmlInput:HTMLInputElement){
@@ -70,18 +60,25 @@ export class ProductSheetComponent implements OnInit {
 
     public getObjectById(id:number): void{
       console.log("Get object " + id);
+      this.allImages = [];
       this.productService.getProductById(id).subscribe( 
         value => {
           this.id = value.id;
           this.productName = value.name;
           this.price = value.price;
-          this.mainImg = value.url;
-          this.allImages = value.images;
+          this.mainImg = value.images[0].url;
+          this.description= value.description;
+          value.images.forEach(element => {
+            this.allImages.push(element.url)
+          });
+          console.log(this.allImages); 
         },
         error => {
           console.log("A problem occured when Accessing to object " + id);
         }
-      )      
+      );    
+      
+       
     }
 
     public changeIndex(id:number){

@@ -12,7 +12,7 @@ import java.util.UUID;
 @Profile("dev")
 public class ProductImageServiceDev extends ProductImageService {
 
-    private static final String DIR_PATH = System.getProperty("ANGULAR_ASSETS_PATH") + "/dev/images/";
+    private static final String DIR_PATH = System.getProperty("angular.assets") + "/dev/images/";
 
     @Override
     protected String uploadImage(MultipartFile imgFile) {

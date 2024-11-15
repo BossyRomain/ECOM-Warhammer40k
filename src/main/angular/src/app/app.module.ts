@@ -5,15 +5,20 @@ import { ProductSheetComponent } from './component/product-sheet/product-sheet.c
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HeaderComponent } from './component/header/header.component';
+import { CartComponent } from './component/cart/cart.component';
+import { CartItemComponent } from './component/cart-item/cart-item.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProductSheetComponent,
-    HeaderComponent
+    HeaderComponent,
+    CartComponent,
+    CartItemComponent
 ],
   providers: [
     provideClientHydration(),

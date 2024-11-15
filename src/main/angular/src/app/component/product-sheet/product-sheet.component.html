@@ -2,11 +2,14 @@
 
     <h2 class="product-name"><b>{{ productName }}</b></h2>
     <div class="image-container">
-        <img class="main-image" src={{mainImg}} style="width: 128px; height: 128px;"/>
+        <img class="main-image" src={{mainImg}}/>
     </div> 
 
     <div class="image-gallery" >
-        <img *ngFor="let x of allImages; index as i" src={{x}} (click)="changeIndex(i)"/>
+        <div *ngFor="let x of allImages; index as i" >
+            <img src={{x}} (click)="changeIndex(i)"/>
+        </div>
+        
     </div>
         
     
@@ -22,7 +25,7 @@
             <h4 class="price-container"> {{ price | number: '1.2-2'}} €</h4>
         </div>
         
-        <button class="add-button" (click)="addArticleToCart(inputNumberOfElement)" > 
+        <button class="add-button" (click)="addArticleToCart()" > 
             Ajouter au Panier
         </button>
         

@@ -15,4 +15,8 @@ export class HeaderComponent {
     let x = parseInt(text);
     this.router.navigate(['/product', x]);
   }
+
+  accesToCart(){
+    this.router.navigate(['/cart', 0])
+  }
 }
