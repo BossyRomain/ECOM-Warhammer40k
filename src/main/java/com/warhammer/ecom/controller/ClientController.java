@@ -17,6 +17,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -39,8 +41,29 @@ public class ClientController {
     private JwtUtil jwtUtil;
 
     @PostMapping("/signup")
-    public Client singUp(@RequestBody ClientSignUpDTO clientSignUpDTO) {
-        return clientService.create(clientSignUpDTO);
+    public ResponseEntity<ClientLoginResponseDTO> singUp(@RequestBody ClientSignUpDTO clientSignUpDTO) throws URISyntaxException {
+        Client client = clientService.create(clientSignUpDTO);
+
+        Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(client.getUser().getUsername(), client.getUser().getPassword())
+        );
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String token = jwtUtil.generateToken(
+            userDetails.getUsername(),
+            List.copyOf(userDetails.getAuthorities())
+        );
+
+        ClientLoginResponseDTO response = new ClientLoginResponseDTO();
+        response.setId(client.getId());
+        response.setUser(client.getUser());
+        response.setFirstName(client.getFirstName());
+        response.setLastName(client.getLastName());
+        response.setBirthday(client.getBirthday());
+        response.setNewsletter(client.isNewsletter());
+        response.setCurrentCart(client.getCurrentCart());
+        response.setAuthToken(token);
+
+        return ResponseEntity.created(new URI("/api/clients/signup")).body(response);
     }
 
     @PostMapping("/login")
