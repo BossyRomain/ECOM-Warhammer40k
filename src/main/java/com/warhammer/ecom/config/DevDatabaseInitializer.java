@@ -101,15 +101,12 @@ public class DevDatabaseInitializer {
                 userService.create(user);
             }
 
-            ClientSignUpDTO clientSignUpDTO = new ClientSignUpDTO();
-            clientSignUpDTO.setEmail("alban.fauri@gmail.com");
-            clientSignUpDTO.setPassword("1234");
-            clientSignUpDTO.setBirthday(LocalDate.now());
-            clientSignUpDTO.setFirstName("Alban");
-            clientSignUpDTO.setLastName("Fauri");
-            clientSignUpDTO.setNewsLetter(false);
-
-            clientService.create(clientSignUpDTO);
+            // Chargement des clients
+            List<ClientSignUpDTO> ClientSignUpDTOs = objectMapper.convertValue(rootNode.get("clients"), new TypeReference<List<ClientSignUpDTO>>() {});
+            for(ClientSignUpDTO clientSignUpDTO : ClientSignUpDTOs) {
+                clientSignUpDTO.setBirthday(LocalDate.now());
+                clientService.create(clientSignUpDTO);
+            }
 
             // Copie des fichiers des images des produits dans le dossier assets de l'application Angular
             DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(DEV_RES_PATH + "/productImages"));
