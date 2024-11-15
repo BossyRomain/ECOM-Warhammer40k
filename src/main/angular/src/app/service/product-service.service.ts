@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Product } from '../model/product';
 import { environment } from '../../environment/environment';
+import { ProductCatalog } from '../model/product-catalog';
+
 import { Image } from '../model/image';
 @Injectable({
   providedIn: 'root'
@@ -37,6 +39,18 @@ export class ProductServiceService {
           return product ;
         }
       )      
+    );
+  }
+
+  public getProductsCatalogue(page: number = 0, size: number = 10): Observable<ProductCatalog[]> {
+    const url = `${this.apiUrl}/api/products/catalogue?page=${page}&size=${size}`;
+    console.log(`Appel de l'API : ${url}`);
+    
+    return this.http.get<ProductCatalog[]>(url).pipe(
+      map((response: any) => {
+        console.log('Réponse de l\'API:', response);
+        return response;
+      })
     );
   }
 }

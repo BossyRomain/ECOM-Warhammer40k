@@ -1,5 +1,6 @@
 package com.warhammer.ecom.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,6 +11,7 @@ import java.util.UUID;
 
 @Service
 @Profile("dev")
+@Transactional
 public class ProductImageServiceDev extends ProductImageService {
 
     private static final String DIR_PATH = System.getProperty("angular.assets") + "/dev/images/";

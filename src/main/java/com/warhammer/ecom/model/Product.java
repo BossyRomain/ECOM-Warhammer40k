@@ -34,7 +34,7 @@ public class Product {
     @OneToOne
     private ProductImage catalogueImg;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "product")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private Collection<ProductImage> images;
 
     @ManyToOne(fetch = FetchType.LAZY)

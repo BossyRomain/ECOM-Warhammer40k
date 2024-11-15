@@ -1,8 +1,9 @@
 .copyright-container {
   background-color: black;
   padding: 10px 20px;  /* Ajustez les valeurs de padding pour le confort visuel */
-  display: inline block;
+  display: flex;  /* Utilisation de flexbox pour aligner horizontalement */
   justify-content: space-between; /* Espacement entre le texte et l'image */
+  align-items: center;  /* Centrage vertical des éléments */
   bottom: 0;  /* Positionne le footer tout en bas */
   left: 0;  /* Assure que le footer prend toute la largeur */
   width: 100%;  /* Assure que le footer prend toute la largeur de la fenêtre */
@@ -14,21 +15,20 @@
   color: white;
   font-family: Arial, sans-serif;
   font-size: 12px;  /* Augmenté pour plus de lisibilité */
-  text-align: center;
   line-height: 1.5;
   margin: 0;
   word-wrap: break-word;
   overflow: hidden;
   flex-grow: 1; /* Permet au texte de prendre toute l'espace restant */
-  padding: 0 10px; /* Un peu de padding pour espacer le texte des bords */
+  padding-left: 10px;  /* Un peu de padding pour espacer le texte des bords */
 }
 
 .logo-footer {
   height: 50px;  /* Hauteur de l'image du logo */
   object-fit: contain;  /* Garde les proportions de l'image sans la déformer */
   margin-right: 10px;  /* Un petit espacement entre le texte et l'image */
-  vertical-align: middle;
 }
+
 @media (max-width: 768px) {
   .copyright-text {
     font-size: 7px;  /* Réduit la taille de la police sur les petits écrans */

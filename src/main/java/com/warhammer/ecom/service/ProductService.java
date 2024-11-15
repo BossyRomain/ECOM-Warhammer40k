@@ -2,8 +2,8 @@ package com.warhammer.ecom.service;
 
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -11,29 +11,33 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
+@Transactional
 public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> getProducts(int page, int size) {
+    public List<Product> getAll(int page, int size) {
         return productRepository.findAll(PageRequest.of(page, size)).getContent();
     }
 
-    public Product getProduct(Long id) {
-        return productRepository.findById(id).orElse(null);
+    public Product get(Long id) throws NoSuchElementException {
+        return productRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
-    public Product createProduct(Product product) {
+    public Product create(Product product) {
         return productRepository.save(product);
     }
 
-    public void deleteProduct(Long id) throws NoSuchElementException {
-        Product product = getProduct(id);
-        if (product == null) {
-            throw new NoSuchElementException("There is no product with id " + id);
+    public Product update(Product product) throws NoSuchElementException {
+        if(productRepository.existsById(product.getId())) {
+            return productRepository.save(product);
         } else {
-            productRepository.delete(product);
+            throw new NoSuchElementException();
         }
+    }
+
+    public void delete(Product product) {
+        productRepository.delete(product);
     }
 }

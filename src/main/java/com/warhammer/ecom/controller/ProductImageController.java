@@ -10,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/products/{productId}/images")
@@ -36,12 +35,7 @@ public class ProductImageController {
 
     @DeleteMapping("/{productImageId}")
     public ResponseEntity<Void> deleteImage(@PathVariable("productImageId") Long productImageId) {
-        try {
-            productImageService.delete(productImageId);
-        } catch (NoSuchElementException e) {
-            return ResponseEntity.notFound().build();
-        }
-
+        productImageService.delete(productImageService.get(productImageId));
         return ResponseEntity.noContent().build();
     }
 }

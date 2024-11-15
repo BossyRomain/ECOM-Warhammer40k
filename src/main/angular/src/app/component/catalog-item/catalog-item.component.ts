@@ -1,15 +1,8 @@
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
-import { Product } from '../../model/Product';
 import { CommonModule } from '@angular/common';
+import { ProductCatalog } from '../../model/product-catalog';
 
-export interface Article{
-  name: string;
-  stock: number;
-  price: number;
-  description: string;
-  urlImage: string;
-};
 
 @Component({
   selector: 'app-catalog-item',
@@ -20,5 +13,6 @@ export interface Article{
 })
 
 export class CatalogItemComponent {
-  @Input() article!: Article;
+  
+  @Input() article!: ProductCatalog;
 }

@@ -20,14 +20,11 @@ public class User implements UserDetails {
     @Column(unique=true, nullable=false)
     private String username;
 
-    @Column(unique=true, nullable=false)
+    @Column(nullable=false)
     private String password;
 
     @Column(nullable = false)
     private Authority authority;
-
-    @Transient
-    private String jwtToken;
 
     public Long getId() {
         return id;
@@ -88,14 +85,11 @@ public class User implements UserDetails {
     @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(this.authority);
-    }
-
-    public String getJwtToken() {
-        return jwtToken;
-    }
-
-    public void setJwtToken(String jwtToken) {
-        this.jwtToken = jwtToken;
+        switch (this.authority) {
+            case ADMIN:
+                return List.of(Authority.ADMIN, Authority.CLIENT);
+            default:
+                return List.of(Authority.CLIENT);
+        }
     }
 }

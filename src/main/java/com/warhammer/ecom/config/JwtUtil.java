@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.List;
 
+/***
+ * Classe regroupant des méthodes utiles pour la gestion des tokens dans l'application.
+ */
 @Component
 public class JwtUtil {
 

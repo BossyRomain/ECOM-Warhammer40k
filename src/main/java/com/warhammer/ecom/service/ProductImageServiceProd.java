@@ -1,5 +1,6 @@
 package com.warhammer.ecom.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Profile("prod")
+@Transactional
 public class ProductImageServiceProd extends ProductImageService {
 
     @Autowired

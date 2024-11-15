@@ -5,34 +5,40 @@ import com.warhammer.ecom.model.Authority;
 import com.warhammer.ecom.model.Cart;
 import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.model.User;
-import com.warhammer.ecom.repository.CartRepository;
 import com.warhammer.ecom.repository.ClientRepository;
-import com.warhammer.ecom.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 @Service
+@Transactional
 public class ClientService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Autowired
     private ClientRepository clientRepository;
 
     @Autowired
-    private CartRepository cartRepository;
+    private CartService cartService;
+
+    public Client getById(Long clientId) throws NoSuchElementException {
+        return clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
+    }
+
+    public Client getByUserId(Long userId) throws NoSuchElementException {
+        return clientRepository.findByUserId(userId).orElseThrow(NoSuchElementException::new);
+    }
+
+    public Client getByEmail(String email) throws NoSuchElementException {
+        return clientRepository.findByEmail(email).orElseThrow(NoSuchElementException::new);
+    }
 
     public Client create(ClientSignUpDTO clientSignUpDTO) {
-        User user = new User();
-        user.setUsername(clientSignUpDTO.getEmail());
-        user.setPassword(clientSignUpDTO.getPassword());
-        user.setAuthority(Authority.CLIENT);
-
-        user = userRepository.save(user);
+        User user = userService.create(clientSignUpDTO.getEmail(), clientSignUpDTO.getPassword(), Authority.CLIENT);
 
         Client client = new Client();
         client.setFirstName(clientSignUpDTO.getFirstName());
@@ -43,31 +49,21 @@ public class ClientService {
 
         client = clientRepository.save(client);
 
-        Cart cart = new Cart();
-        cart.setClient(client);
-        cart.setPurchaseDate(null);
-        cart.setPaid(false);
-        cart.setCommandLines(new ArrayList<>());
-        cartRepository.save(cart);
-
+        Cart cart = cartService.create(client);
         client.setCurrentCart(cart);
 
         return clientRepository.save(client);
     }
 
-    public Client login(String email, String password) throws NoSuchElementException, IllegalArgumentException {
-        Client client = clientRepository.findByEmail(email).orElseThrow(NoSuchElementException::new);
-        if(client.getUser().getPassword().equals(password)) {
-            return client;
+    public Client update(Client client) throws NoSuchElementException {
+        if(clientRepository.existsById(client.getId())) {
+            return clientRepository.save(client);
         } else {
-            throw new IllegalArgumentException("Wrong password");
+            throw new NoSuchElementException();
         }
     }
 
-    public void delete(Long clientId) throws NoSuchElementException {
-        if(clientRepository.findById(clientId).orElse(null) == null) {
-            throw new NoSuchElementException("No client with the client id " + clientId);
-        }
-        clientRepository.deleteById(clientId);
+    public void delete(Client client) {
+        clientRepository.delete(client);
     }
 }
