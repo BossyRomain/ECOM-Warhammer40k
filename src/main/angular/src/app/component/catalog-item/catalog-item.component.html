@@ -1,11 +1,11 @@
 <div class="product-card">
     <div class="image-container">
-      <img class = "productImage" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <img class = "productImage" src={{article.catalogueImg.url}} alt="Photo of a Shiba Inu">
       @if(article.stock == 0){
-        <div class="out-of-stock">Stock: {{ article.stock }}</div>
+        <div class="out-of-stock">En stock: {{ article.stock }}</div>
       }
       @else {
-        <div class="on-stock"> Stock: {{ article.stock }}</div>
+        <div class="on-stock"> En stock: {{ article.stock }}</div>
       }
     </div>
   
@@ -14,7 +14,7 @@
     </div>
   
     <div class="price-image-container">
-      <span class="product-price">{{ article.price}} €</span>
+      <span class="product-price"> {{ article.unitPrice}}€</span>
       <button class="cart-button" onClick="Click()"></button>
     </div>
   </div>

@@ -1,0 +1,6 @@
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crée deux colonnes de même largeur */
+    gap: 20px; /* Espacement entre les éléments */
+}

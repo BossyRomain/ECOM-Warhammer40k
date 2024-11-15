@@ -7,9 +7,9 @@ import { ProductSheetComponent } from './component/product-sheet/product-sheet.c
 
 @Component({
   selector: 'app-root',
+  standalone:false,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  standalone: false 
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'angular';
