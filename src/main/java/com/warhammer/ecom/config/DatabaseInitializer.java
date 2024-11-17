@@ -48,6 +48,7 @@ public class DatabaseInitializer {
     @PostConstruct
     public void initDB() {
         try {
+            LoggerFactory.getLogger(DatabaseInitializer.class).info("Start initialize database");
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("dev/dev-db-init.json");
 
             JsonNode rootNode = objectMapper.readTree(inputStream);
