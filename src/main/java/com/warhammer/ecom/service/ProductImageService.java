@@ -34,7 +34,6 @@ public abstract class ProductImageService {
 
         if (isCatalogueImg) {
             product.setCatalogueImg(productImage);
-            productService.update(product);
         }
 
         productImage = productImageRepository.save(productImage);

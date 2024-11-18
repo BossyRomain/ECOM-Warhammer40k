@@ -6,11 +6,11 @@ import java.sql.Timestamp;
 import java.util.Collection;
 
 @Entity
-@SequenceGenerator(name="productIdSeq", initialValue=1, allocationSize=100)
+@SequenceGenerator(name = "productIdSeq", initialValue = 1, allocationSize = 100)
 public class Product {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="productIdSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "productIdSeq")
     private Long id;
 
     @Column(nullable = false)
@@ -20,7 +20,7 @@ public class Product {
 
     private Float unitPrice;
 
-    @Column(length = 2048)
+    @Column(length = 8000)
     private String description;
 
     private ProductType productType;
