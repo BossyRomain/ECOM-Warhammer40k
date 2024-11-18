@@ -10,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.UUID;
 
 @Service
 @Profile("prod")
@@ -26,8 +25,7 @@ public class S3ImageService {
     }
 
     public String upload(MultipartFile file) {
-        UUID uuid = UUID.randomUUID();
-        final String fileName = uuid.toString() + ".jpg";
+        final String fileName = "pi_" + file.getName();
 
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentLength(file.getSize());

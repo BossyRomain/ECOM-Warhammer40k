@@ -20,32 +20,19 @@ jobs:
 
       - name: Install npm depedencies
         working-directory: ./src/main/angular/
-        run: npm install
+        run: npm install && npm install -g @angular/cli@18.2.10
 
       - name: Build the application
         working-directory: ./src/main/angular/
-        run: npm run build
+        run: ng build --configuration production
 
       - name: Copy to EC2
         working-directory: ./src/main/angular/
-        env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USER: ${{ secrets.EC2_USER }}
-          EC2_KEY: ${{ secrets.EC2_KEY }}
         run: |
-          ls
-          echo "$EC2_KEY" > key.pem
+          echo "${{ secrets.EC2_KEY }}" > key.pem
           chmod 600 key.pem
-          scp -r -i key.pem -o StrictHostKeyChecking=no ./dist/ $EC2_USER@$EC2_HOST:/home/ec2-user/front-end/
-
-      - name: Restart Application on EC2
-        env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USER: ${{ secrets.EC2_USER }}
-          EC2_KEY: ${{ secrets.EC2_KEY }}
-        run: |
-          echo "$EC2_KEY" > key.pem
-          chmod 600 key.pem
-          ssh -i key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
-          sudo cp -rf ~/front-end /usr/share/nginx/html/
+          sudo scp -r -i key.pem -o StrictHostKeyChecking=no ./dist/angular/browser/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ secrets.EC2_FRONTEND_PATH }}
+          ssh -i key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          sudo cp -r ${{ secrets.EC2_FRONTEND_PATH }} /var/www/
+          exit
           EOF

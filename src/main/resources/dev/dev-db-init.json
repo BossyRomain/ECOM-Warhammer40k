@@ -62,182 +62,182 @@
   "productsImages": [
     {
       "productIndex": 0,
-      "url": "assets/dev/images/dicecube_c.jpg",
+      "name": "dicecube_0.jpg",
       "description": "",
       "catalogueImg": true
     },
     {
       "productIndex": 0,
-      "url": "assets/dev/images/dicecube_1.jpg",
+      "name": "dicecube_1.jpg",
       "description": ""
     },
     {
       "productIndex": 0,
-      "url": "assets/dev/images/dicecube_2.jpg",
+      "name": "dicecube_2.jpg",
       "description": ""
     },
     {
       "productIndex": 0,
-      "url": "assets/dev/images/dicecube_3.jpg",
+      "name": "dicecube_3.jpg",
       "description": ""
     },
     {
       "productIndex": 0,
-      "url": "assets/dev/images/dicecube_4.jpg",
+      "name": "dicecube_4.jpg",
       "description": ""
     },
     {
       "productIndex": 0,
-      "url": "assets/dev/images/dicecube_5.jpg",
+      "name": "dicecube_5.jpg",
       "description": ""
     },
     {
       "productIndex": 0,
-      "url": "assets/dev/images/dicecube_6.jpg",
+      "name": "dicecube_6.jpg",
       "description": ""
     },
     {
       "productIndex": 1,
-      "url": "assets/dev/images/phobos_team_c.jpg",
+      "name": "phobos_team_0.jpg",
       "description": "",
       "catalogueImg": true
     },
     {
       "productIndex": 1,
-      "url": "assets/dev/images/phobos_team_1.jpg",
+      "name": "phobos_team_1.jpg",
       "description": ""
     },
     {
       "productIndex": 1,
-      "url": "assets/dev/images/phobos_team_2.jpg",
+      "name": "phobos_team_2.jpg",
       "description": ""
     },
     {
       "productIndex": 1,
-      "url": "assets/dev/images/phobos_team_3.jpg",
+      "name": "phobos_team_3.jpg",
       "description": ""
     },
     {
       "productIndex": 1,
-      "url": "assets/dev/images/phobos_team_4.jpg",
+      "name": "phobos_team_4.jpg",
       "description": ""
     },
     {
       "productIndex": 1,
-      "url": "assets/dev/images/phobos_team_5.jpg",
+      "name": "phobos_team_5.jpg",
       "description": ""
     },
     {
       "productIndex": 1,
-      "url": "assets/dev/images/phobos_team_6.jpg",
+      "name": "phobos_team_6.jpg",
       "description": ""
     },
     {
       "productIndex": 1,
-      "url": "assets/dev/images/phobos_team_7.jpg",
+      "name": "phobos_team_7.jpg",
       "description": ""
     },
     {
       "productIndex": 1,
-      "url": "assets/dev/images/phobos_team_8.jpg",
+      "name": "phobos_team_8.jpg",
       "description": ""
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/blood_angels_capitain_c.jpg",
+      "name": "blood_angels_capitain_0.jpg",
       "description": "",
       "catalogueImg": true
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/blood_angels_capitain_1.jpg",
+      "name": "blood_angels_capitain_1.jpg",
       "description": ""
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/blood_angels_capitain_2.jpg",
+      "name": "blood_angels_capitain_2.jpg",
       "description": ""
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/blood_angels_capitain_3.jpg",
+      "name": "blood_angels_capitain_3.jpg",
       "description": ""
     },
     {
       "productIndex": 2,
-      "url": "assets/dev/images/blood_angels_capitain_4.jpg",
+      "name": "blood_angels_capitain_4.jpg",
       "description": ""
     },
     {
       "productIndex": 3,
-      "url": "assets/dev/images/lion_el_jonson_c.jpg",
+      "name": "lion_el_jonson_0.jpg",
       "description": "",
       "catalogueImg": true
     },
     {
       "productIndex": 3,
-      "url": "assets/dev/images/lion_el_jonson_1.jpg",
+      "name": "lion_el_jonson_1.jpg",
       "description": ""
     },
     {
       "productIndex": 3,
-      "url": "assets/dev/images/lion_el_jonson_2.jpg",
+      "name": "lion_el_jonson_2.jpg",
       "description": ""
     },
     {
       "productIndex": 3,
-      "url": "assets/dev/images/lion_el_jonson_3.jpg",
+      "name": "lion_el_jonson_3.jpg",
       "description": ""
     },
     {
       "productIndex": 3,
-      "url": "assets/dev/images/lion_el_jonson_4.jpg",
+      "name": "lion_el_jonson_4.jpg",
       "description": ""
     },
     {
       "productIndex": 3,
-      "url": "assets/dev/images/lion_el_jonson_5.jpg",
+      "name": "lion_el_jonson_5.jpg",
       "description": ""
     },
     {
       "productIndex": 3,
-      "url": "assets/dev/images/lion_el_jonson_6.jpg",
+      "name": "lion_el_jonson_6.jpg",
       "description": ""
     },
     {
       "productIndex": 3,
-      "url": "assets/dev/images/lion_el_jonson_7.jpg",
+      "name": "lion_el_jonson_7.jpg",
       "description": ""
     },
     {
       "productIndex": 4,
-      "url": "assets/dev/images/sanguinius_c.jpg",
+      "name": "sanguinius_0.jpg",
       "description": "",
       "catalogueImg": true
     },
     {
       "productIndex": 4,
-      "url": "assets/dev/images/sanguinius_1.jpg",
+      "name": "sanguinius_1.jpg",
       "description": ""
     },
     {
       "productIndex": 4,
-      "url": "assets/dev/images/sanguinius_2.jpg",
+      "name": "sanguinius_2.jpg",
       "description": ""
     },
     {
       "productIndex": 4,
-      "url": "assets/dev/images/sanguinius_3.jpg",
+      "name": "sanguinius_3.jpg",
       "description": ""
     },
     {
       "productIndex": 4,
-      "url": "assets/dev/images/sanguinius_4.jpg",
+      "name": "sanguinius_4.jpg",
       "description": ""
     },
     {
       "productIndex": 4,
-      "url": "assets/dev/images/sanguinius_5.jpg",
+      "name": "sanguinius_5.jpg",
       "description": ""
     }
   ],
