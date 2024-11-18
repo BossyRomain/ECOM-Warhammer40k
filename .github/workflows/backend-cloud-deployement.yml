@@ -19,27 +19,18 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: ./mvnw clean package
+        run: mvn clean package
 
       - name: Copy jar to EC2
-        env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USER: ${{ secrets.EC2_USER }}
-          EC2_KEY: ${{ secrets.EC2_KEY }}
-          APP_JAR_NAME: ${{ secrets.APP_JAR_NAME }}
         run: |
-          echo "$EC2_KEY" > key.pem
+          echo "${{ secrets.EC2_KEY }}" > key.pem
           chmod 600 key.pem
-          scp -i key.pem -o StrictHostKeyChecking=no ./target/"$APP_JAR_NAME" $EC2_USER@$EC2_HOST:/home/ec2-user/back-end/
+          scp -i key.pem -o StrictHostKeyChecking=no ./target/${{ secrets.APP_JAR_NAME }} ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ secrets.EC2_BACKEND_PATH }}
 
       - name: Restart Application on EC2
-        env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USER: ${{ secrets.EC2_USER }}
-          EC2_KEY: ${{ secrets.EC2_KEY }}
-          APP_JAR_NAME: ${{ secrets.APP_JAR_NAME }}
         run: |
-          ssh -i key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
+          ssh -i key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
           sudo pkill -f 'java -jar'
-          nohup java -jar ./back-end/"$APP_JAR_NAME" > ./app.log 2>&1 &
+          nohup java -jar -Dspring.profiles.active=prod ${{ secrets.EC2_BACKEND_PATH }}${{ secrets.APP_JAR_NAME }} > ${{ secrets.EC2_BACKEND_PATH }}/app.log 2>&1 &
+          exit
           EOF

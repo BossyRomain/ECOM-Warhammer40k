@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.UUID;
 
 @Service
 @Profile("dev")
@@ -19,16 +18,14 @@ public class ProductImageServiceDev extends ProductImageService {
     @Override
     protected String uploadImage(MultipartFile imgFile) {
         try {
-            UUID uuid = UUID.randomUUID();
-            final String fileName = uuid.toString() + ".png";
             new File(DIR_PATH).mkdirs();
 
-            File file = new File(DIR_PATH + fileName);
+            File file = new File(DIR_PATH + imgFile.getName());
             file.createNewFile();
 
             imgFile.transferTo(file);
 
-            return "assets/dev/images/" + fileName;
+            return "assets/dev/images/" + imgFile.getName();
         } catch (IOException e) {
             return null;
         }
