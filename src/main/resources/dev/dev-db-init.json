@@ -11,6 +11,50 @@
     {
       "group": "IMPERIUM",
       "faction": "BLOOD_ANGELS"
+    },
+    {
+      "group": "XENOS",
+      "faction": "TAU_EMPIRE"
+    },
+    {
+      "group": "XENOS",
+      "faction": "ELDARS"
+    },
+    {
+      "group": "CHAOS",
+      "faction": "CHAOS_SPACE_MARINES"
+    },
+    {
+      "group": "IMPERIUM",
+      "faction": "ASTRA_MILITARUM"
+    },
+    {
+      "group": "XENOS",
+      "faction": "TYRANID"
+    },
+    {
+      "group": "CHAOS",
+      "faction": "CHAOS_KNIGHTS"
+    },
+    {
+      "group": "IMPERIUM",
+      "faction": "IMPERIAL_KNIGHTS"
+    },
+    {
+      "group": "XENOS",
+      "faction": "NECRONS"
+    },
+    {
+      "group": "XENOS",
+      "faction": "ORKS"
+    },
+    {
+      "group": "CHAOS",
+      "faction": "THOUSAND_SONS"
+    },
+    {
+      "group": "CHAOS",
+      "faction": "CHAOS_DAEMONS"
     }
   ],
   "products": [
@@ -20,7 +64,8 @@
       "unitPrice": 9.5,
       "stock": 1001,
       "releaseDate": "2015-01-01",
-      "productType": "DICE"
+      "productType": "DICE",
+      "imgsPrefix": "dicecube"
     },
     {
       "name": "Kill Team: Phobos Strike Team",
@@ -29,7 +74,8 @@
       "stock": 1500,
       "releaseDate": "2017-10-18",
       "productType": "FIGURINE",
-      "allegianceIndex": 0
+      "allegianceIndex": 0,
+      "imgsPrefix": "phobos_team"
     },
     {
       "name": "Romain Blood Angels Captain",
@@ -38,7 +84,8 @@
       "stock": 1,
       "releaseDate": "2001-10-18",
       "productType": "FIGURINE",
-      "allegianceIndex": 2
+      "allegianceIndex": 2,
+      "imgsPrefix": "blood_angels_capitain"
     },
     {
       "name": "Lion El'Jonson",
@@ -47,7 +94,8 @@
       "stock": 10,
       "releaseDate": "2005-06-04",
       "productType": "FIGURINE",
-      "allegianceIndex": 1
+      "allegianceIndex": 1,
+      "imgsPrefix": "lion_el_jonson"
     },
     {
       "name": "Sanguinius, Primarch of the Blood Angels Legion",
@@ -56,189 +104,662 @@
       "stock": 1,
       "releaseDate": "2001-08-08",
       "productType": "FIGURINE",
-      "allegianceIndex": 2
-    }
-  ],
-  "productsImages": [
+      "allegianceIndex": 2,
+      "imgsPrefix": "sanguinius"
+    },
     {
-      "productIndex": 0,
-      "name": "dicecube_0.jpg",
+      "name": "Commander Farsight",
+      "description": "Aggressive and rebellious, Commander O'Shovah is an undisputed master of Mont'ka, the T'au metastrategy of the Killing Blow. Piloting his crimson battlesuit, he carves a bloody path into the enemy, leading his separatist Fire Caste forces from the front as he wields the enigmatic Dawn Blade with such strength and skill that no foe can stand against him.\n\nThis multipart plastic kit builds Commander Farsight, leader to the breakaway Farsight Enclaves of the T'au Empire. His custom XV-86 Supernova battlesuit features advanced technology that provides greater agility and mobility, allowing him to put his prodigious skills with the blade to good use. Farsight wields the mysterious Dawn Blade in one hand, with a plasma rifle and shield generator mounted to his other arm. This legendary figure's wargear is loaded with details, from the ritual bonding knife strapped on his leg to the Farsight Enclaves icon worked into his shield's surface. His heroic pose atop a dramatic scenic base make Commander Farsight an eye-catching centrepiece for any collection or army.\n\nThis kit comprises 48 plastic components, and comes with a Citadel 60mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 65.0,
+      "stock": 120,
+      "releaseDate": "2021-12-02",
+      "productType": "FIGURINE",
+      "allegianceIndex": 3,
+      "imgsPrefix": "commander_farsight"
+    },
+    {
+      "name": "Vashtorr the Arkifane",
+      "description": "Vashtorr is the Soul Forge King, a daemonic demigod of unrestrained invention and abominable artifice. When the Arkifane takes physical form, it is as a horror of pallid flesh stretched over infernal mechanisms, soaring to battle amidst a cloud of lightning and smog. Vashtorr deals destruction with every whirring step, unleashing techno gheist curses upon his foes even as he fashions enhancements for his indentured daemon engines from the raw stuff of realspace.\n\nThis multipart plastic kit builds Vashtorr the Arkifane, master of daemon forges and manufactorums. This looming, otherworldly figure is covered in sinister cybernetic details – from the daemonic exhausts and chimneys clustered on his hunched back to the mechadendrites that squirm through the rubble of his scenic base. He wields a twisted blacksmith's hammer in one hand, while the other extends into a vicious machine claw with a built-in flame weapon. Vashtorr wears an armoured carapace with a segmented metal apron – he can alternatively be built without this armour, exposing more of the grotesque form beneath.\n\nStanding roughly five inches tall from his metal-shod hooves to the tips of his spindly wings, Vashtorr is an eye-catching figure on the battlefield – and a worthy player in the Great Game of the Chaos Gods.\n\nThis kit comprises 47 plastic components, and comes with a Citadel 80mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 105.0,
+      "stock": 46,
+      "releaseDate": "2010-01-29",
+      "productType": "FIGURINE",
+      "allegianceIndex": 5,
+      "imgsPrefix": "vashtorr_the_arkifane"
+    },
+    {
+      "name": "Khârn the Betrayer",
+      "description": "Kill! Maim! Burn! This is Khârn the Betrayer’s mantra, and it has become infamous across the Imperium as a harbinger of carnage to follow. Khârn embodies the eightfold path of Khorne – as the ancient captain of the World Eaters sprints into battle, bellowing war cries, friend and foe alike are left broken, twitching and torn apart in his wake.\n\nThis multipart plastic kit builds Khârn the Betrayer, an iconic champion of the Blood God and his World Eaters Legion. Toting a destructive plasma pistol of ancient design, Khârn swings Gorechild, the savage chainaxe once wielded by his father Angron. His terrifying war-helm sports the classic Berzerker crests, while swinging chains, skull-trophies, and tassels convey the sheer ferocity of his charge. Khârn leads by frenzied example, his very presence inspiring his warriors to even greater feats of bloodshed – if he doesn't slay them himself...\n\nThis kit comprises eight plastic components (of course), and comes with a Citadel 40mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 42.0,
+      "stock": 154,
+      "releaseDate": "2012-04-15",
+      "productType": "FIGURINE",
+      "allegianceIndex": 5,
+      "imgsPrefix": "kharn_the_betrayer"
+    },
+    {
+      "name": "Cadian Castellan",
+      "description": "Cadian Castellans are strategic senior officers, often formally ranked as Captains or Colonels. These authoritative leaders of the Astra Militarum's forces bear a panoply of armaments and insignia that mark their high office, wielding their array of weapons as skilfully as they command the countless soldiers beneath them.\n\nThis multipart plastic kit builds a Cadian Castellan – a senior leader of the Astra Militarum. This hugely customisable miniature can be armed with a las pistol, bolt pistol, or plasma pistol in one hand, or instead point sternly forward. In the other hand, they can wield a chainsword, power sword, boltgun, or a power fist with a back-mounted generator. The kit also includes a variety of aesthetic options, including a choice of two torso poses, various arm poses, four distinctive heads, and accessories such as pistol holsters, purity seals, pouches, and a sheathed sword.\n\nThe miniature also features a scenic base, allowing the Castellan to be posed in an appropriately commanding and heroic manner.\n\nThis kit comprises 38 plastic components and comes with 1x Citadel 28.5mm Round Base. This miniature is supplied unassembled and unpainted – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 37.0,
+      "stock": 784,
+      "releaseDate": "1987-05-24",
+      "productType": "FIGURINE",
+      "allegianceIndex": 6,
+      "imgsPrefix": "cadian_castellan"
+    },
+    {
+      "name": "Commissar",
+      "description": "Commissars are ruthless officers embedded throughout the Astra Militarum, charged with maintaining the morale, discipline, and loyalty of their regiment. With the power to summarily execute any soldier found wanting in their duties, they are feared, brooding figures. A Commissar's devotion to the Imperium is without doubt, and they fight with fanatical bravery – inspiring the same fervour in those who fall under their watchful gaze.\n\nThis multipart plastic kit builds a Commissar – a disciplinary officer of the Officio Prefectus. Clad in the ominous longcoat and signature high-peaked cap of his station, this miniature is armed with a bolt pistol for delivering the Emperor's justice – to friend or foe – and can be built with either a vicious chainsword or single-edged power sword, both with a wrist-mounted power pack. A scenic rubble base is also included, to elevate this grim overseer above the rank and file.\n\nThis kit comprises 12 plastic components, and is supplied with a Citadel 28.5mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 37.0,
+      "stock": 468,
+      "releaseDate": "2000-11-05",
+      "productType": "FIGURINE",
+      "allegianceIndex": 6,
+      "imgsPrefix": "commissar"
+    },
+    {
+      "name": "Chaos Lord with Jump Pack",
+      "description": "Chaos Lords have spent countless mortal life spans leading their traitorous warriors, demanding nothing but utter ruthlessness from those they command. Some go to war equipped with jump packs, favouring the mobility these devices provide. These savage hunters bear an array of accursed weapons as they relentlessly pursue their quarry across the battlefield.\n\nThis kit builds one Chaos Lord with Jump Pack miniature – a nimble airborne leader for Chaos Space Marine armies in Warhammer 40,000. The fearsome hero comes with a range of customisation options, including a choice of helmeted or unhelmeted head, plus multiple weapon options. Their right hand can be built with either a bolt or plasma pistol, and their left hand can be built with a power fist or an accursed weapon. Alternatively, the Chaos Lord can be equipped with twin lightning claws.\n\nThis multipart kit comprises 26 plastic components and a Citadel 40mm Round Base. The miniature is supplied unassembled and unpainted – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 42.0,
+      "stock": 174,
+      "releaseDate": "2005-12-01",
+      "productType": "FIGURINE",
+      "allegianceIndex": 5,
+      "imgsPrefix": "chaos_lord_with_jump_pack"
+    },
+    {
+      "name": "Armoured Sentinel",
+      "description": "Sentinels are all-terrain bipedal vehicles, employed by the Astra Militarum to patrol rough ground or deploy rapid-response firepower. Armoured Sentinels are modified with extra protective panelling, making them superb front-line hunters. Carrying deadly heavy weapons into warzones too dense for battle tanks, these mobile hunter-killers excel in destroying vehicles, fortified bunkers, and xenos monstrosities.\n\nThis multipart plastic kit builds one Armoured Sentinel – a light walker toting heavy firepower on an sturdy frame. There are loads of options in the kit, allowing you to arm your Sentinel for any battlefield role with an autocannon, heavy flamer, missile launcher, multi-laser, or plasma cannon. You can additionally equip your walker with a poseable Sentinel chainsaw for more melee punch, and a hunter-killer missile for extra firepower. You'll also find plenty of cosmetic options, including a searchlight and smoke launchers, stowage and spare equipment racks, and extra fuel canisters.\n\nThis kit can alternatively build a Scout Sentinel with an open cockpit, which trades durability for extra speed in warzones where mobility is essential.\n\nThis kit comprises 91 plastic components and is supplied with 1x Citadel 80mm Round Base. Also included is an Astra Militarum Vehicle Transfer Sheet, with 475 transfers featuring numerals, sigils, and a variety of regimental heraldry. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 45.0,
+      "stock": 47,
+      "releaseDate": "2004-03-14",
+      "productType": "FIGURINE",
+      "allegianceIndex": 6,
+      "imgsPrefix": "armoured_sentinel"
+    },
+    {
+      "name": "Stormsword",
+      "description": "A Stormsword is ideal for clearing enemy-held choke points. The shells fired by its siege cannon release a concentrated concussive wave on detonation. Those not pulverised outright are torn apart by slivers of the cover they cowered behind, turning barricades to lacerating shards and battlements to storms of razor-edged fragments.\n\nThis gargantuan multipart plastic kit builds a super heavy Stormsword, a thundering tank that wields a full arsenal and is able to absorb punishment that would annihilate a small army. If you’re looking for a lynchpin around which a mighty armoured column can be built, a super heavy tank is a fine choice that can shock your foes and soak up incredible amounts of firepower, sparing the rest of your army. This massive tank is armed with a mighty stormsword siege cannon on the turret, 2 lascannons on side turrets, twin heavy bolters on a forward hull turret, and 2 twin heavy flamers in sponson mounts. The sponson flamers can be replaced with another 2 twin heavy bolters, and extra sponsons can be added with additional lascannons and either twin heavy bolters or twin heavy flamers. That’s a LOT of firepower.\n\nYou’ll also find cosmetic options included, like extra stowage, additional armour plating on the treads, tow hooks, fuel, and options for gunners and tank commanders in the hatches, including a choice of different heads. You can alternatively build the tank commander on foot, armed with a bolt pistol or laspistol in one hand, and a power sword or pointing hand in the other. No matter how you build it, your bits box will appreciate all the extra plastic left over.\n\nThis massive kit can alternatively build a variety of other super-heavy tanks:\n- Baneblade – armed with a baneblade cannon for maximum versatility\n- Banesword – armed with a quake cannon to punish vehicles and fortifications at extreme range\n- Shadowsword– armed with a tank-slagging volcano cannon\n- Doomhammer – armed with a titan-slaying magma cannon and troop-carrying capacity\n- Banehammer – armed with a tremor cannon to slow down an aggressive opponent\n- Stormlord – armed with a vulcan mega-bolter and large troop-carrying capacity\n- Hellhammer – armed with a hellhammer cannon for close-quarters warfare\n\nThis kit is comprised of staggering 381 plastic components and one Baneblade Transfer Sheet with 253 transfers. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 185.0,
+      "stock": 126,
+      "releaseDate": "2003-08-15",
+      "productType": "FIGURINE",
+      "allegianceIndex": 6,
+      "imgsPrefix": "stormsword"
+    },
+    {
+      "name": "Hellhammer",
+      "description": "The Hellhammer is optimised for close-quarters warfare, its armour proof against most infantry seeking to attack from nearby. The tank's multiple rapid-firing guns shred exposed targets, while the concussive blast radius of its primary cannon pounds dug-in enemy positions to dust.\n\nThis gargantuan multipart plastic kit builds a super heavy Hellhammer, a thundering tank that wields a full arsenal and can absorb punishment that would annihilate a small army. If you’re looking for a lynchpin around which a mighty armoured column can be built, a super heavy tank is a fine choice that can shock your foes and soak up incredible amounts of firepower, sparing the rest of your army. This enormous tank is armed with a hellhammer cannon and coaxial autocannon on the turret, plus a demolisher cannon on the forward hull, 2 lascannons on side turrets, twin heavy bolters on a forward hull turret, 2 twin heavy flamers in sponson mounts, and a heavy stubber in a pintle mount atop the turret. That’s a LOT of firepower.\n\nYou’ll also find cosmetic options included, like extra stowage, additional armour plating on the treads, tow hooks, fuel, and options for gunners and tank commanders in the hatches, including a choice of different heads. You can alternatively build the tank commander on foot, armed with a bolt pistol or laspistol in one hand, and a power sword or pointing hand in the other. No matter how you build it, your bits box will appreciate all the extra plastic left over.\n\nThis massive kit can alternatively build a variety of other super-heavy tanks:\n- Baneblade – armed with a baneblade cannon for maximum versatility\n- Banesword – armed with a quake cannon to punish vehicles and fortifications at extreme range\n- Shadowsword– armed with a tank-slagging volcano cannon\n- Doomhammer – armed with a titan-slaying magma cannon and troop-carrying capacity\n- Stormsword – armed with a bunker-busting stormsword siege cannon\n- Banehammer – armed with a tremor cannon to slow down an aggressive opponent\n- Stormlord – armed with a vulcan mega-bolter and large troop-carrying capacity\n\nThis kit is comprised of staggering 381 plastic components and one Baneblade Transfer Sheet with 253 transfers. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 185.0,
+      "stock": 153,
+      "releaseDate": "2005-05-25",
+      "productType": "FIGURINE",
+      "allegianceIndex": 6,
+      "imgsPrefix": "hellhammer"
+    },
+    {
+      "name": "Cadian Command Squad",
+      "description": "Cadia's officer class are exceptional leaders, serving in perhaps the Imperium's most outstanding regiments. Trained to be the very best and surrounded by a cadre of hand-picked guards and aides, these uncompromising veterans expect no less from the troops under their command. Some are as inspiring as the regimental standards carried in their wake, while others are as motivational as the curt orders issued by their vox operators.\n\nThis multipart plastic kit builds a Cadian Command Squad, made up of a Cadian Commander and four Veteran Guardsmen. The Cadian Commander is armed with your choice of a laspistol, bolt pistol, or plasma pistol in one hand, and a chainsword, power sword, or power fist for the other. Each of the accompanying Veterans is equipped differently – one field medic with a lasgun and medi-pack, one vox operator with a laspistol and master vox system, one bodyguard with a laspistol and your choice of chainsword, power sword, or power fist, and one standard bearer carrying a lasgun alongside a regimental standard. The bodyguard and banner bearer can each instead be built as weapons specialists, armed with your choice of a flamer, grenade launcher, meltagun, or plasma gun.\n\nThe kit includes even more cosmetic choices to make your Command Squad stand out, like magnoculars, slung and stowed weapons, three finials for the regimental standard, and loads of different head and basing options than can be mixed and matched around the squad – enough to ensure that each Command Squad in your army looks like the unique veterans they are.\n\nThis kit comprises 123 plastic components, and is supplied with 5x Citadel 28.5mm Round Bases. Also included is an Astra Militarum Infantry Transfer Sheet, with 597 transfers featuring numerals, squad markings, and Cadian regimental heraldry. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 45.0,
+      "stock": 765,
+      "releaseDate": "2006-10-05",
+      "productType": "FIGURINE",
+      "allegianceIndex": 6,
+      "imgsPrefix": "cadian_command_squad"
+    },
+    {
+      "name": "Heavy Weapons Squad",
+      "description": "While massed infantry can overwhelm the foe, it often falls to Heavy Weapons Squads to deliver the killing blow. These teams of gun crews swiftly set up their mobile heavy weapons as their comrades advance, providing the firepower to bolster battle lines. With access to an arsenal of portable armaments, they can offer close fire support with adaptable loadouts of precise – or indiscriminate – firepower.\n\nThis multipart plastic kit builds three Heavy Weapons Teams – paired infantry soldiers crewing a portable gun. Each team can be armed with your choice of a heavy bolter, missile launcher, mortar, autocannon, or lascannon. The kit includes plenty of cosmetic options to mix things up – extra ammo, seven different heads, a variety of poses, and equipment such as vox-sets and magnoculars for spotters and loaders – so no two teams ever need look alike. These teams can be fielded together as Heavy Weapons Squads, or combined with the Cadian Shock Troops kit to form Infantry Squads with attached Heavy Weapons Teams.\n\nThis kit comprises 127 plastic components, and is supplied with 3x Citadel 50mm Round Bases. Also included is an Astra Militarum Infantry Transfer Sheet, with 597 transfers featuring numerals, squad markings, and Cadian regimental heraldry. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 52.0,
+      "stock": 246,
+      "releaseDate": "2015-12-08",
+      "productType": "FIGURINE",
+      "allegianceIndex": 6,
+      "imgsPrefix": "heavy_weapons_squad"
+    },
+    {
+      "name": "Primaris Psyker",
+      "description": "The empyrically attuned minds of Primaris Psykers are steeled against the manifold dangers risked by unsanctioned wielders of the warp's power. These battle-trained psykers support the Astra Militarum's soldiers with eerie prognostication, wards against enemy witchcraft, and tempests of their own psychic might. Though rarely trusted by their peers, few generals would go to battle without a psyker's aid.\n\nThis multipart plastic kit builds a Primaris Psyker – a powerful sanctioned witch fielded by the Astra Militarum. Marked by the symbols of the Scholastica Psykana and equipped with a variety of psy-enhancing gear, this psychic powerhouse is armed with a force stave to channel their mental might, with a laspistol holstered on their belt. The Primaris Psyker is posed striding forwards, long coat and sash whipping in an eldritch wind, one hand extended to focus a terrifying psychic manifestation.\n\nThis kit comprises 4 plastic components and is supplied with 1x Citadel 32mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 35.0,
+      "stock": 245,
+      "releaseDate": "2015-10-09",
+      "productType": "FIGURINE",
+      "allegianceIndex": 6,
+      "imgsPrefix": "primaris_psyker"
+    },
+    {
+      "name": "Lord Solar Leontus",
+      "description": "Arcadian Leontus is the Lord Commander Solar of the Astra Militarum, wielding vast armies against apocalyptic invasions, sector-wide insurgencies, and even distant campaigns beyond the Segmentum Solar. A master tactician and peerless scholar of military history, he is guided in his strategic decisions by an entourage of seers, advisors, and priests. On the battlefield, the Lord Solar strikes a figure akin to the heroes of old atop his cybernetic stallion, Konstantin. Levelling his blade at the foe, Leontus bellows orders that see the dutiful soldiers of the Imperial Guard achieve victory after victory.\n\nThis multipart plastic kit builds Lord Solar Leontus – a supreme commander of the Astra Militarum, riding his heavily-augmented steed Konstantin. Stood atop the wreckage of a fallen Titan, the Lord Solar proudly brandishes his relic power sword, Conquest, with his arcane pistol – dubbed Sol's Righteous Gaze – holstered at his side. His commanding pose is further accented by his flowing cape and exquisite armour. The kit includes a choice of two heads – one with a stoic expression and closed mouth, the other bellowing orders to his troops, both clad in an impressive helm with a solar halo. If you’re looking for a truly impressive centrepiece for your Astra Militarum collection, look no further – Lord Solar Leontus is as high-ranking an officer as you’ll find.\n\nThis kit comprises 36 plastic components and is supplied with 1x Citadel 80mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 62.5,
+      "stock": 89,
+      "releaseDate": "2020-10-18",
+      "productType": "FIGURINE",
+      "allegianceIndex": 6,
+      "imgsPrefix": "lord_solar_leontus"
+    },
+    {
+      "name": "Hive Tyrant",
       "description": "",
-      "catalogueImg": true
+      "unitPrice": 62.5,
+      "stock": 351,
+      "releaseDate": "2018-03-25",
+      "productType": "FIGURINE",
+      "allegianceIndex": 7,
+      "imgsPrefix": "hive_tyrant"
     },
     {
-      "productIndex": 0,
-      "name": "dicecube_1.jpg",
-      "description": ""
+      "name": "Accursed Cultists",
+      "description": "Accursed Cultists have diverse and terrifying origins – whether born of dark ritual, empyric experimentation, or the predation of malign entities, these abberations are herded into battle as lurching shock troops, their tainted flesh reknitting grievous wounds with unnatural vigour. Once they reach close quarters, Mutants flail and lash at the enemy with claws or tendrils, while the horribly-warped Torments pounce with bestial hunger.\n\nThis multipart plastic kit builds eight Accursed Cultists – five twisted Mutants and three horrifying Torments. These stunningly grotesque models are loaded with vile details and unique mutations, from writhing tentacles to bladed talons. Each Mutant lurches forward, a human-sized nightmare clad in the ragged shreds of cultist robes, while the Torments are looming, warped creatures marked with scarified runes and binding seals, boasting only vestigial remains of their once-human form.\n\nThis set comprises 36 plastic components and is supplied with 5x Citadel 25mm Round Bases and 3x Citadel 40mm Round Bases.\n\nThese miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 58.0,
+      "stock": 124,
+      "releaseDate": "2005-07-28",
+      "productType": "FIGURINE",
+      "allegianceIndex": 5,
+      "imgsPrefix": "accursed_cultists"
     },
     {
-      "productIndex": 0,
-      "name": "dicecube_2.jpg",
-      "description": ""
+      "name": "War Dog Executioners",
+      "description": "Nimble and responsive combat walkers, War Dog-class Knights act as hunting packs for their Dread Household. Stalking ahead of the terrible shadow cast by the larger Knights, the corrupt War Dogs guard flanks and devastate enemy scouts to keep their colossal masters from being surrounded, desperate to kill for the Ruinous Powers. Among these vicious engines, War Dog Executioners employ long-barrelled autocannons to maximise their kills at a distance, hammering the foe into submission as they compete to reap ever-greater murderous tallies.\n\nThis multipart plastic kit builds two War Dog-class Knights – either War Dog Executioners or War Dog Huntsmen. War Dog Executioners are a long-ranged Lords of War choice that can provide vital fire support to your Chaos Knights army – or be taken as a wandering Dreadblade pack for other Imperium forces. Armed with a pair of long-ranged autocannons and your choice of a carapace-mounted diabolus heavy stubber or daemonbreath meltagun, each War Dog Executioner can be further customised with a variety of articulated poses, armour plating, and six unique faceplates, with large carapaces making for a perfect painting project. This kit can also be assembled as a pair of Armiger Warglaives or Armiger Helverins for Imperial Knights armies.\n\nThis kit comprises 148 plastic components, and is supplied with 2x Citadel 100mm Round Bases. Also included is an Armiger transfer sheet featuring heraldry for Imperial Knights, ripe for corruption. These miniatures are unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 94.5,
+      "stock": 78,
+      "releaseDate": "2017-01-30",
+      "productType": "FIGURINE",
+      "allegianceIndex": 8,
+      "imgsPrefix": "war_dog_executioners"
     },
     {
-      "productIndex": 0,
-      "name": "dicecube_3.jpg",
-      "description": ""
+      "name": "Knight Desecrator",
+      "description": "Knights Desecrator spare no living thing from their attacks. They possess potent long and close range armaments, allowing them to cut down enemy war engines and monstrous beasts at great distances, or annihilate hordes of lesser foes that swarm around them. They are also cruel taskmasters, snarling commands to the War Dog followers that lope forward at their sides.\n\nThis multipart plastic kit builds one Knight Desecrator, a titanic Lords of War choice for your Chaos Knights army – or a wandering Dreadblade for your other Chaos armies. This super-heavy walker is armed with a Desecrator laser destructor that can kill almost anything at range, as well as a carapace-mounted diabolus heavy stubber, and either a reaper chainsword or warpstrike claw for melee combat. The Knight Desecrator towers over most models on the tabletop, and makes for a fantastic painting project. It offers a huge degree of customisation, with detailed components such as vicious faceplates and optional chains, pipes, spikes, and horns allowing you to create a truly unique engine of malice.\n\nThis kit can also be assembled as a Knight Abominant or Knight Rampager – any remaining weapons, faceplates, or accessories can be used as spares for your other Knight kits.\n\nThis kit comprises 176 plastic components, and is supplied with a Citadel 170mm Oval Base. Also included is a Chaos Knights transfer sheet featuring 339 runes, sigils, and iconography various Dread Households. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 194.0,
+      "stock": 15,
+      "releaseDate": "2014-05-34",
+      "productType": "FIGURINE",
+      "allegianceIndex": 8,
+      "imgsPrefix": "knight_desecrator"
     },
     {
-      "productIndex": 0,
-      "name": "dicecube_4.jpg",
-      "description": ""
+      "name": "Knight Castellan",
+      "description": "Dominus-class Knights are among the largest available to any Knight house. These walking fortresses march relentlessly into the fight, armed with weapons capable of levelling entire armies, gunfire scattering uselessly off their ion shields. The Knight Castellan's dual plasma core fuels a frightening array of weapon systems, sufficient to make it a mobile artillery battery. Its awesome plasma decimator gouges the heart out of an enemy army, while the firepower of its volcano lance is comparable to an Imperial Navy warship.\n\nThis multipart plastic kit builds one Knight Castellan, a titanic long range Lords of War choice for your Imperial Knights army – or a wandering Freeblade for other Imperium forces. This super-heavy walker is armed with a blast-unleashing plasma decimator, an armour-melting volcano lance, and an array of carapace-mounted meltaguns, shieldbreaker cannons, and missiles. The Knight Castellan makes a fantastic painting project and centrepiece, and offers a range of poses, face plates, and armour pieces, allowing you to create a truly unique engine of war. This kit can also be assembled as a Knight Valiant, as well as a Knight Tyrant for Chaos Knights.\n\nThis kit comprises 172 plastic components, and is supplied with a Citadel 170mm Oval Base. Also included is a Dominus transfer sheet, featuring heraldry for Imperial Knights. This miniature is unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 194.0,
+      "stock": 30,
+      "releaseDate": "2004-12-10",
+      "productType": "FIGURINE",
+      "allegianceIndex": 9,
+      "imgsPrefix": "knight_castellan"
     },
     {
-      "productIndex": 0,
-      "name": "dicecube_5.jpg",
-      "description": ""
+      "name": "Necrons Battleforce: Hypercrypt Legion",
+      "description": "Clad in self-repairing bodies of living metal and armed with weapons that harness the devastating energies of the cosmos, the Necrons are a terrifying enemy. Unburdened by fear or mercy, they are soulless warriors who advance in eerie lockstep to lay down an annihilating storm.\n\nThe C'tan Shard of the Void Dragon is dragged into battle by this Necron force led by a noble Overlord, clad in a mysterious Translocation Shroud. Behind them march an immaculate phalanx of Lychguard, unthinking Warriors, and skittering Canoptek Scarab Swarms, all seeking to reclaim the galaxy they believe to be rightfully theirs.\n\nThis box contains 25 plastic miniatures with various build options and will save you money compared to buying the contents separately. It's an ideal way to start an army of Necrons or add to an existing collection.\n\nThis set contains:\n– 1x C'tan Shard of the Void Dragon\n– 1x Overlord with Translocation Shroud\n– 10x Lychguard, which can also be built as Triarch Praetorians\n– 10x Necron Warriors\n– 3x Canoptek Scarab Swarms\n\nThese miniatures are supplied with 1x Citadel 80mm Round Base, 11x Citadel 40mm Round Base, 3x Citadel 40mm Round Hex Hole Bases, and 10x Citadel 32mm Round Hex Hole Bases. The miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.\n\nThe miniatures in this set are also available separately.",
+      "unitPrice": 240.0,
+      "stock": 39,
+      "releaseDate": "2003-11-29",
+      "productType": "FIGURINE",
+      "allegianceIndex": 10,
+      "imgsPrefix": "necrons_battleforce_hypercrypt_legion"
     },
     {
-      "productIndex": 0,
-      "name": "dicecube_6.jpg",
-      "description": ""
-    },
-    {
-      "productIndex": 1,
-      "name": "phobos_team_0.jpg",
+      "name": "Barbgaunts",
       "description": "",
-      "catalogueImg": true
+      "unitPrice": 45,
+      "stock": 88,
+      "releaseDate": "2002-05-17",
+      "productType": "FIGURINE",
+      "allegianceIndex": 7,
+      "imgsPrefix": "barbgaunts"
     },
     {
-      "productIndex": 1,
-      "name": "phobos_team_1.jpg",
-      "description": ""
+      "name": "Boss Snikrot",
+      "description": "Boss Snikrot is no mere Ork cutthroat – he is a murderous legend whose obsession with guerilla warfare has seen him hone the kunnin' taktiks of the Blood Axe clan into an almost supernatural mastery of infiltration. Snikrot is an unseen terror, leading his Red Skull Kommandos deep behind enemy lines – by the time his terrified foes realise he is upon them, the Boss is already opening their throats with his rip-toothed blades.\n\nThis multipart plastic kit builds Boss Snikrot, an infamous Kommando leader and Ork assassin. He’s armed with a pair of combat blades known as Mork's Teeth, perfect for close quarters fighting behind enemy lines, as well as a custom silenced slugga. The kit includes loads of cosmetic details shared with Ork Kommandos, such as a backpack festooned with extra gear, a smoke grenade to decorate his base, and a choice of three head builds – one bare, one with Snikrot's trademark night-vision goggles over his eyes, and one with the goggles lifted onto his forehead.\n\nThis kit comprises 17 plastic components and comes with a Citadel 40mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 42.0,
+      "stock": 125,
+      "releaseDate": "2003-11-27",
+      "productType": "FIGURINE",
+      "allegianceIndex": 11,
+      "imgsPrefix": "boss_snikrot"
     },
     {
-      "productIndex": 1,
-      "name": "phobos_team_2.jpg",
-      "description": ""
+      "name": "Parasite of Mortrex",
+      "description": "Swooping on leathery wings, Parasites of Mortrex use their barbed ovipositors to drive Ripper gestation pods deep into their victims’ bodies. These swiftly-growing creatures soon chew themselves free from their unfortunate hosts. Such was the fate of the defenders of Imperial planet of Mortrex, the world first cursed by the Parasites’ onslaught. Now they wreak havoc on the foes of the Hive Fleet by soaring over defences and seeding unlucky souls with nascent Rippers.\n\nThis kit builds one Parasite of Mortrex. Armed with clawed limbs and a barbed ovipositor, this winged beast is a mobile incubation organism housing hundreds of Ripper pods. With a host of horrifying abilities, this unique biomorph adds disruptive tactical options to the already unpredictable tendrils of the Hive Fleet.\n\nThis set comprises 12 plastic components and is supplied with a Citadel 40mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 42.0,
+      "stock": 210,
+      "releaseDate": "2005-03-24",
+      "productType": "FIGURINE",
+      "allegianceIndex": 7,
+      "imgsPrefix": "parasite_of_mortrex"
     },
     {
-      "productIndex": 1,
-      "name": "phobos_team_3.jpg",
-      "description": ""
+      "name": "Darkstrider",
+      "description": "Darkstrider is as much a maverick as he is a master of covert operations, renowned – despite his occasional insubordination – as a formidable leader of stealth and sabotage missions. His structural analyser allows him to pinpoint the weak spots of even the most indomitable enemies. Meanwhile, his expertise in guerilla warfare renders his forces all the more deadly.\n\nThis multipart plastic kit builds Darkstrider – a canny Pathfinder and near-legendary leader from the T'au Empire. He's armed with his customised pulse carbine, Shade, and equipped with a variety of jamming and analysis technology, including advanced drone familiars – befitting the T'au Empire's foremost stealth expert.\n\nThis kit includes 11 plastic components and a Citadel 32mm Round Base.\n\nThis miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 37.0,
+      "stock": 54,
+      "releaseDate": "2016-05-14",
+      "productType": "FIGURINE",
+      "allegianceIndex": 3,
+      "imgsPrefix": "darkstrider"
     },
     {
-      "productIndex": 1,
-      "name": "phobos_team_4.jpg",
-      "description": ""
+      "name": "Battlewagon",
+      "description": "No two Battlewagons are the same, for the Meks that build them can never resist cobbling on armour plates, ramming spikes, assorted dakka, and random gubbinz. However, all are rugged transport tanks with the capacity to bear a vast number of angry Orks into battle while shrugging off the worst the enemy can throw at them.\n\nGet your Boyz into battle in style with a Battlewagon, the last word in mobile fortresses for any discerning Warboss. As well as being an amazing transport choice, you can also take loads of weapons options so that you can shoot, smash, and crush your enemies as you get your Boyz to exactly where they need to be.\n\nThis 135-piece plastic kit makes one Battlewagon. The kit includes options for a big shoota, kannon, killkannon, lobba, zzap gun, deff rolla, grabbin' klaw, and wreckin' ball and can alternatively be assembled as a Gunwagon or a Bonebreaka.\n\nThis miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 75.0,
+      "stock": 150,
+      "releaseDate": "2020-10-03",
+      "productType": "FIGURINE",
+      "allegianceIndex": 11,
+      "imgsPrefix": "battlewagon"
     },
     {
-      "productIndex": 1,
-      "name": "phobos_team_5.jpg",
-      "description": ""
+      "name": "Ork Warbiker Mob",
+      "description": "A Warbiker treats his personal steed with real care, because a warbike is not only a thing of great prestige but also a direct conduit to the adrenaline-rich thrill of speed. Nothing short of dive-bombing the foe in a fighta-bomma can compare to the raw excitement of hurtling towards the enemy on a warbike with all guns blazing.\n\nThis boxed set contains 3 multi-part plastic Ork Warbikes, and includes options for an Ork Nob on Warbike, a variety of wargear options and extra details. Models supplied with 75 mm oval bases.",
+      "unitPrice": 34.0,
+      "stock": 187,
+      "releaseDate": "1998-11-20",
+      "productType": "FIGURINE",
+      "allegianceIndex": 11,
+      "imgsPrefix": "ork_warbiker_mob"
     },
     {
-      "productIndex": 1,
-      "name": "phobos_team_6.jpg",
-      "description": ""
+      "name": "Ork Boyz",
+      "description": "Boyz are the rank and file of an Ork army. Orks are tough, determined fighters who fall upon the enemy in great tides of howling violence. Generally armed with the heavy, solid-shot, slugga and brutal, edged choppas, they blow great gouges from the enemy before hacking them apart.\n\nThis boxed set contains 11 multi-part plastic Ork Boyz, and includes options for sluggas, choppas, shootas, heavy weapons and stikk bombz. Models supplied with 32 mm round bases.",
+      "unitPrice": 28.0,
+      "stock": 124,
+      "releaseDate": "1999-05-14",
+      "productType": "FIGURINE",
+      "allegianceIndex": 11,
+      "imgsPrefix": "orks_boyz"
     },
     {
-      "productIndex": 1,
-      "name": "phobos_team_7.jpg",
-      "description": ""
+      "name": "Deffkoptas",
+      "description": "Most Orks take a dim view of muckin’ about in the sky, and would much rather go to war with their feet firmly on the ground. Deffkopta pilots are one of few exceptions, hurtling into the sky to spy out enemy forces for their warband, and give those same enemies a good strafing run or three in the meantime.\n\nThis kit builds three Deffkoptas – fast, ramshackle vehicles bristling with all sorts of crude but effective ork weaponry. These airborne brutes harrass their enemies with salvos of shells and high-powered explosions, before closing in to hack at their foes with hand weapons and deadly rotor blades. Two of the Deffkoptas are armed with kopta rokkits, spinning blades, a slugga, and stikkbombs, with the third trading its kopta rokkitz for a kustom mega-blasta and a big bomb.\n\nThis kit comprises 37 plastic components and is supplied with 3x Citadel 75mm Oval Bases. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 42.5,
+      "stock": 132,
+      "releaseDate": "2005-08-24",
+      "productType": "FIGURINE",
+      "allegianceIndex": 11,
+      "imgsPrefix": "deffkoptas"
     },
     {
-      "productIndex": 1,
-      "name": "phobos_team_8.jpg",
-      "description": ""
+      "name": "Big Mek",
+      "description": "Big Meks are the most ingenious inventors of Ork-kind, who build all sorts of powerful weapons and bizarre devices. They readily bring their favourite contraptions into battle to test them out, even donning self-made bionik exoskeletons to help them carry the biggest gadgets possible. So equipped, a Big Mek can unleash mechanical violence and blasts of energy, or wrenches open warp tunnels through which he and his followers pile into the fight..\n\nThis multipart plastic kit builds one Big Mek, an imposing Ork engineer absolutely covered with mechanical gubbins. This bionik brute is fitted with a teleporting shokk-boosta harness, and laden with kustom weaponry. The kit includes two weapon options for each 'arm' of the suit – the shooty side can take either a kustom mega-blasta or a traktor blasta, while the krumpin' side can wield a power klaw or a drilla. You'll also find two distinct head options, meaning you can build different Big Meks to tend to your teknologikal needs.\n\nThis kit contains 32 plastic components, and a Citadel 50mm Round base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 31.5,
+      "stock": 45,
+      "releaseDate": "1994-12-01",
+      "productType": "FIGURINE",
+      "allegianceIndex": 11,
+      "imgsPrefix": "big_mek"
     },
     {
-      "productIndex": 2,
-      "name": "blood_angels_capitain_0.jpg",
-      "description": "",
-      "catalogueImg": true
+      "name": "Magnus the Red",
+      "description": "The air screams as Magnus the Red descends from the skies, and stone runs molten beneath his shadow. Cyclopean son of the Emperor of Mankind, his very presence is anathema to logic. To look upon him is to surrender sanity, and when the Crimson King gazes back, destruction is loosed in unimaginable measure. Second only to the Emperor in terms of psychic ability, he rends asunder reality with a sweep of his blade, annihilating even super-heavy vehicles with the sheer intensity of his ire. Then, with a flex of mighty pinions, Magnus the Red is borne aloft, glorying in his unnatural power as he brings fresh calamity to the weaklings who oppose him.\n\nThis multi-part plastic kit contains the components necessary to assemble Magnus the Red, Daemon Primarch of Tzeentch. An imposing winged model whose size is appropriate to his power, he comes with a selection of 3 different faces (cyclopean, open helm and closed helm), is clad in armour dating from before the dark days of the Horus Heresy and has an array of modelling options: accessories include magical tomes, scrolls and daggers. He’s armed with the frankly ostentatious Blade of Magnus, modelled as a choice of glaive or sword. Supplied with a Citadel 100mm Round based, and a crushed Space Wolf Dreadnought for a base detail!",
+      "unitPrice": 102.5,
+      "stock": 34,
+      "releaseDate": "2003-11-01",
+      "productType": "FIGURINE",
+      "allegianceIndex": 12,
+      "imgsPrefix": "magnus_the_red"
     },
     {
-      "productIndex": 2,
-      "name": "blood_angels_capitain_1.jpg",
-      "description": ""
+      "name": "Rubric Marines",
+      "description": "Stepping out from the fog of war come the Rubricae. Many of these undying warriors were psykers in their own right, before an ancient curse damned them to an eternity as living husks – their baroque power armour now contains nothing but sparkling dust. In battle, a malevolent witch-light crackles around the eyes of these traitor Space Marines as they open fire on those they would have once called brothers. Their infernal weaponry spits plumes of warpfire into the ranks of the foe, flesh and molten armour exploding in all directions as salvo after salvo hits home.\n\nThis multi-part plastic kit contains all the parts necessary to assemble 10 Rubric Marines, armed with either Inferno boltguns or warpflamers. One model can be armed with a soulreaper cannon, one can carry an Icon of Flame, and one can be assembled as an Aspiring Sorcerer, who is armed with a force stave and either an Inferno bolt pistol or warpflame pistol. Supplied with 10 Citadel 32mm Round bases.",
+      "unitPrice": 40.0,
+      "stock": 215,
+      "releaseDate": "2004-07-25",
+      "productType": "FIGURINE",
+      "allegianceIndex": 12,
+      "imgsPrefix": "rubric_marines"
     },
     {
-      "productIndex": 2,
-      "name": "blood_angels_capitain_2.jpg",
-      "description": ""
+      "name": "Infernal Master",
+      "description": "Infernal Masters forge pacts with daemonic entities, referred to in the lore of Prospero as tutelaries. Chanting jagged syllables and making promises of blood and souls, they unleash the powers of these malign familiars to engulf their foes in swarms of momentarily corporeal terrors, to divine whispers of the future, or to master the currents of the warp itself.\n\nThe Infernal Master empowers your Thousand Sons force through a variety of potent Infernal Pacts, enhancing allies and debilitating foes with the trickery and insight of his daemonic familiars. A psyker himself, the Infernal Master can also wield powerful sorcery and challenge enemies leaders to combat with his coruscating force stave.\n\nThis plastic kit builds one Infernal Master. It is supplied in 15 pieces, and comes with one 40mm Citadel Round Base.\n\nThis miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 26.0,
+      "stock": 142,
+      "releaseDate": "2002-10-02",
+      "productType": "FIGURINE",
+      "allegianceIndex": 12,
+      "imgsPrefix": "infernal_master"
     },
     {
-      "productIndex": 2,
-      "name": "blood_angels_capitain_3.jpg",
-      "description": ""
+      "name": "Scarab Occult Terminators",
+      "description": "Scarab Occult Terminators were once the finest psykers in the Thousand Sons Legion, bodyguards to Magnus the Red himself. Reduced to dust along with their brethren, they now possess only an echo of their previous intellect. They stride into battle at the behest of their sorcerous masters, advancing with an eerie, stoic calm; clad in ornate armour, they bear down on the foe in near-silence until their weaponry is unleashed. Then, the sickening sound of khopesh blades and Inferno combi-bolters tearing into flesh rings out, delivering death to those who insult the warriors of Prospero with their resistance.\n\nThis multi-part plastic kit contains the components necessary to assemble 5 Scarab Occult Terminators, armed with Inferno combi-bolters and khopesh blades. One model can be assembled with an included heavy warpflamer, soulreaper cannon or hellfyre missile rack. One model can be assembled as a Scarab Occult Sorcerer, who can exchange his combi-bolter for an included power sword. Supplied with 5 Citadel 40mm Round bases.",
+      "unitPrice": 40.0,
+      "stock": 251,
+      "releaseDate": "2003-11-20",
+      "productType": "FIGURINE",
+      "allegianceIndex": 12,
+      "imgsPrefix": "scarab_occult_terminators"
     },
     {
-      "productIndex": 2,
-      "name": "blood_angels_capitain_4.jpg",
-      "description": ""
+      "name": "Knight Rampager",
+      "description": "Knights Rampager storm into battle with maddened, metallic howls. They are bereft of discipline or restraint, and plough into the thickest fighting of a war zone with insane ferocity. With swipes of their monstrous reaper chainswords and warpstrike claws, they fight more like frenzied daemons than machines.\n\nThis multipart plastic kit builds one Knight Rampager, a titanic Lords of War choice for your Chaos Knights army – or a wandering Dreadblade for your other Chaos armies. This super-heavy walker is armed with a reaper chainsword and warpstrike claw, ensuring that little can survive its wrath in close combat, as well as a carapace-mounted diabolus heavy stubber. The Knight Rampager towers over most models on the tabletop, and makes for a fantastic painting project. It offers a huge degree of customisation, with detailed components such as vicious faceplates and optional chains, pipes, spikes, and horns allowing you to create a truly unique engine of malice.\n\nThis kit can also be assembled as a Knight Abominant or Knight Desecrator – any remaining weapons, faceplates, or accessories can be used as spares for your other Knight kits.\n\nThis kit comprises 176 plastic components, and is supplied with a Citadel 170mm Oval Base. Also included is a Chaos Knights transfer sheet featuring 339 runes, sigils, and iconography various Dread Households. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 115.0,
+      "stock": 15,
+      "releaseDate": "2009-05-16",
+      "productType": "FIGURINE",
+      "allegianceIndex": 9,
+      "imgsPrefix": "knight_rampager"
     },
     {
-      "productIndex": 3,
-      "name": "lion_el_jonson_0.jpg",
-      "description": "",
-      "catalogueImg": true
+      "name": "Questoris Knight Magaera",
+      "description": "Magaera type Knights are most often used as shock assault units, breaching the most heavily defended enemy positions, while shrugging off heavy weapons fire and self-repairing even devastating weapon strikes in a few minutes. To aid in this role it is armed with a complex lightning cannon, using focussed electro-magnetic beams to vaporise infantry and blast apart armour.\n\nThe Questoris Knight Magaera is a complete multi-part resin and plastic kit.",
+      "unitPrice": 157.5,
+      "stock": 60,
+      "releaseDate": "2003-06-15",
+      "productType": "FIGURINE",
+      "allegianceIndex": 9,
+      "imgsPrefix": "questoris_knigh_mageara"
     },
     {
-      "productIndex": 3,
-      "name": "lion_el_jonson_1.jpg",
-      "description": ""
+      "name": "Knight Abominant",
+      "description": "Seen as especially blessed by the Dark Gods, the Knights Abominant are suffused with the power of the warp. They unleash this eldritch force in deadly waves, corrupting and mutating those nearby, and incinerating distant foes with blasts of volkite energy. In combat they thrash coiling, warp-wrought appendages, crushing anything that remains untainted.\n\nThis multipart plastic kit builds one Knight Abominant, a titanic Lords of War choice for your Chaos Knights army – or a wandering Dreadblade for your other Chaos armies. This super-heavy walker is armed with a volkite combustor and writhing electroscourge, as well as a swinging balemace tail and a carapace-mounted diabolus heavy stubber. The Knight Abominant towers over most models on the tabletop, monstrous tusks jutting forward as avian pterrorshades perch atop its hull, and makes for a fantastic painting project. It offers a huge degree of customisation, with detailed components such as vicious faceplates and optional chains, pipes, spikes, and horns allowing you to create a truly unique engine of malice.\n\nThis kit can also be assembled as a Knight Abominant or Knight Rampager – any remaining weapons, faceplates, or accessories can be used as spares for your other Knight kits.\n\nThis kit comprises 176 plastic components, and is supplied with a Citadel 170mm Oval Base. Also included is a Chaos Knights transfer sheet featuring 339 runes, sigils, and iconography various Dread Households. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 115.0,
+      "stock": 75,
+      "releaseDate": "2001-02-28",
+      "productType": "FIGURINE",
+      "allegianceIndex": 9,
+      "imgsPrefix": "knight_abominant"
     },
     {
-      "productIndex": 3,
-      "name": "lion_el_jonson_2.jpg",
-      "description": ""
+      "name": "Knight Tyrant",
+      "description": "Tyrant-class Knights loom even over other Chaos Knights. These walking bastions of corruption carry some of the heaviest armaments available to the Fallen houses, hammering foes from the moment the fight begins as they lumber ominously into battle, incoming fire splashing off their ion shields. Blessed with an armoury of accursed weapons suited to unleashing a long range barrage or tearing out the heart of the enemy army, the Knights Tyrant punish any who would hide behind armoured walls or lesser warriors – there is no escape from the vengeance of the Dark Gods.\n\nThis multipart plastic kit builds one Knight Tyrant, a titanic and versatile Lords of War choice for your Chaos Knights army – or a wandering Dreadblade for other Chaos forces. This super-heavy walker can be armed with a blast-unleashing ectoplasma decimator and an armour-melting brimstone volcano lance, or an infantry-incinerating darkflame cannon and a tank-puncturing warpshock harpoon – plus an array of carapace-mounted daemonbreath meltaguns, desecrator cannons, and gheiststrike missiles. The Knight Tyrant makes a fantastic painting project and centrepiece, and offers a range of poses, face plates, and armour pieces, allowing you to create a truly unique engine of war. This kit can also be assembled as a Knight Valiant or Knight Castellan for Imperial Knights.\n\nThis kit comprises 172 plastic components, and is supplied with a Citadel 170mm Oval Base. Also included is a Dominus transfer sheet featuring heraldry for Imperial Knights, ripe for corruption. This miniature is unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 115.0,
+      "stock": 141,
+      "releaseDate": "1999-03-18",
+      "productType": "FIGURINE",
+      "allegianceIndex": 9,
+      "imgsPrefix": "knight_tyrant"
     },
     {
-      "productIndex": 3,
-      "name": "lion_el_jonson_3.jpg",
-      "description": ""
+      "name": "Nurglings",
+      "description": "The rotting bowels of the Great Unclean Ones swell with pus and contagion, and within each such swelling there grows a tiny and malevolent Daemon called a Nurgling. As the Nurgling matures it feeds upon the filth of the Great Unclean One and pops out; the very personification of a boil or pustule. Their tiny teeth are as sharp as razors, leaving festering bites upon their victims, but rarely killing them outright – although such an attack can prove the beginning of a long, disease-ridden demise.\n\nThis kit contains – quite literally – stacks of Nurglings. In fact, with this kit you can make three tottering towers of them. Every swarm has front, back and middle ranks; each is comprised of wriggling little horned beasts that are saturated in sores, cuts, lumps and opened orifices. They also come in a variety of characterful poses - most of them sickening. Though you can actually make 27 combinations of Nurgling towers, there are loads of individual Nurglings for using on bases for the rest of your army.\n\nThis multi-part plastic boxed set contains 16 components with which to build 3 varying towers of Nurglings. Supplied with 3 Citadel 40mm Round bases.",
+      "unitPrice": 24.0,
+      "stock": 239,
+      "releaseDate": "1991-05-30",
+      "productType": "FIGURINE",
+      "allegianceIndex": 13,
+      "imgsPrefix": "nurglings"
     },
     {
-      "productIndex": 3,
-      "name": "lion_el_jonson_4.jpg",
-      "description": ""
+      "name": "Yvraine",
+      "description": "Yvraine, known as the Daughter of Shades, is a fearsome warrior and psyker. She was once brought back to life by the power of the Aeldari God of the Dead and now operates as their emissary. In battle she wields the Cronesword Kha-vir, the Sword of Sorrows, which can turn an enemy to ash with the slightest touch. The power of Ynnead manifests when she fights, lending strength to the warriors around her such that they appear as blurs of violence.\n\nThis kit builds Yvraine and her Gyrinx familiar. Formidable in combat and an exemplary psyker, her poise and grace mask her merciless nature in battle. When her allies fall, she gains strength from them, thanks to her pact with Ynnead, the Aeldari God of the Dead.",
+      "unitPrice": 26.0,
+      "stock": 164,
+      "releaseDate": "1989-04-15",
+      "productType": "FIGURINE",
+      "allegianceIndex": 4,
+      "imgsPrefix": "yvraine"
     },
     {
-      "productIndex": 3,
-      "name": "lion_el_jonson_5.jpg",
-      "description": ""
+      "name": "Dark Reapers",
+      "description": "The skull-helmed visage of the Dark Reapers is a spine-chilling sight in itself. These Aspect Warriors exemplify the War God as Destroyer, and their formidable warsuits echo that of their founder, Maugan Ra. Dark Reapers unleash blistering firestorms with their long-range Reaper Launchers, whether using infantry-shredding starswarm missiles or armour-piercing starshot variants. These salvoes are chillingly accurate, thanks not only to advanced targeting systems, but also to the Dark Reapers' armour, which anchors them firmly to the ground while they fire, allowing them to devastate their foes from the safety of cover.\n\nThis kit builds one unit of Dark Reapers armed with reaper launchers, complete with their Exarch who can be built with a reaper launcher, shuriken cannon, aeldari missile launcher, or tempest launcher. The Exarch can be built holding a skull in their off-hand, and has a choice of four heads, while each Dark Reaper has a choice of helmeted or unhelmeted heads. Also included is a small miniature representing a Dark Reaper shrine.\n\nThis set comprises 82 plastic components and is supplied with 5x Citadel 28.5mm Round Bases and 1x Citadel 25mm Round Base. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 40.0,
+      "stock": 241,
+      "releaseDate": "1989-05-10",
+      "productType": "FIGURINE",
+      "allegianceIndex": 4,
+      "imgsPrefix": "dark_reapers"
     },
     {
-      "productIndex": 3,
-      "name": "lion_el_jonson_6.jpg",
-      "description": ""
+      "name": "Warlocks",
+      "description": "Seers who once trained as Aspect Warriors find it easier to develop destructive psychic powers. These Aeldari are known as Warlocks, and frequently band together in conclaves to pool their eldritch power, or else guide other Aeldari squads such as Guardians from the front. The warlocks bolster their warhost and wreak havoc on the foe by casting the Runes of Battle, and are equally skilled in combat, whether carving up enemies with their elegant witchblades or unleashing bolts of energy with their singing spears.\n\nWarlocks are versatile psychic warriors, capable of supporting allies, cursing enemies, and lending power to allied Farseers. They can be included in your Aeldari army as individual characters, or taken as a unit of multiple psykers. This kit allows you to build one Warlock with an elegant witchblade, and one Warlock with a energy-infused singing spear, with a variety of arm options letting you create unique poses, plus a choice of two helmeted and two unhelmeted heads.\n\nThis set comprises 26 plastic components and is supplied with 2x Citadel 32mm Round Bases. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 37.0,
+      "stock": 83,
+      "releaseDate": "1992-04-25",
+      "productType": "FIGURINE",
+      "allegianceIndex": 4,
+      "imgsPrefix": "warlocks"
     },
     {
-      "productIndex": 3,
-      "name": "lion_el_jonson_7.jpg",
-      "description": ""
+      "name": "Jain Zar",
+      "description": "Jain Zar is the most active of all the Phoenix Lords in the war against the forces of the Great Enemy. To watch her in combat is to watch an exquisite dance, amidst leg sweeps, dodging twists and graceful pirouettes, the glowing polearm scythes and darts until only Jain Zair is left standing.\n\nArmed with The Silent Death and The Blade of Destruction, Jain Zar is swift and deadly, able to easily cut down any foe in combat. This stunning model captures her speed and agility and would be a perfect addition to any Aeldari army or an incredible painting challenge.\n\nThis kit is supplied in 16 plastic components and comes with a 40mm round base. Rules for using Jain Zar in games of Warhammer 40,000 can be found in Psychic Awakening: Phoenix Rising.",
+      "unitPrice": 28.0,
+      "stock": 287,
+      "releaseDate": "1997-03-15",
+      "productType": "FIGURINE",
+      "allegianceIndex": 4,
+      "imgsPrefix": "jain_zar"
     },
     {
-      "productIndex": 4,
-      "name": "sanguinius_0.jpg",
-      "description": "",
-      "catalogueImg": true
+      "name": "Dire Avengers",
+      "description": "The Dire Avengers are first amongst the Aspect Warriors of the Aeldari. They represent the War God's unending thirst for vengeance upon a galaxy of woe, and as such they are merciless to their foes and unstinting in their devotion to their people.\n\nThe Dire Avengers in this kit are all armed with Avenger shuriken catapults, as well an enough extra parts for each to be equipped with their own ammunition pouches. There are optional parts to make an Exarch who can be armed with a shuriken catapult, two shuriken catapults, a diresword and a shuriken pistol, or a power weapon and shimmershield. Also included is a choice of two Exarch heads (1 helmeted, the other bare) and an optional back banner to further distinguish the unit's leader. As well as this, there is a small statue of Asurmen included on the frame.\n\nThis multi-part plastic kit contains 42 components and an Aeldari Transfer Sheet with which to make five Aeldari Dire Avengers, or four Dire Avengers and one Dire Avenger Exarch. Add more boxes to your cart to build up a bigger core of infantry for your collection.",
+      "unitPrice": 28.0,
+      "stock": 325,
+      "releaseDate": "2004-07-15",
+      "productType": "FIGURINE",
+      "allegianceIndex": 4,
+      "imgsPrefix": "dire_avengers"
     },
     {
-      "productIndex": 4,
-      "name": "sanguinius_1.jpg",
-      "description": ""
+      "name": "Harlequin Troupe",
+      "description": "In battle, Harlequin Troupes move fast and hit hard, relying on speed and skill to annihilate the enemy before they even have time to raise their guns. Once in combat, the Harlequins are in their element, performing a lethal dance of death while their masks shimmer with their foe’s worst fears.\n\nThis box contains everything you need to make a 6-man Harlequin Troupe armed with sword and shuriken pistol, including the option to include a Troupe Master. There are 6 sets of legs, all perched on outcrops of rock, with which to form the base of your miniatures. You have the choice of 7 different torso fronts and 5 torso backs, along with 3 extra backs sporting Harlequin jackets. You also get 6 swords of two distinct designs, 6 shuriken pistols, 6 harlequin’s kisses, 2 harlequin’s embraces, 2 harlequin’s caresses, 2 neuro disruptors and 2 fusion pistols. There is a power sword as well should you wish to upgrade your Troupe Master.\n\nAlongside all of these weapon options there are 2 complete masked heads as well as a further 5 heads with space to add one of the 13 individually designed face masks. Also included are 6 weapons pouches.\n\nThere is a huge amount of variety for both posing and choosing weapons options and all of the components in this kit are fully interchangeable with the other Harlequin plastic kits.\n\nThis multi-part plastic kit contains 80 components with which to make a 6-man Harlequin Troupe. Also included are 6 x 25mm round bases and a Harlequins transfer sheet.",
+      "unitPrice": 28.0,
+      "stock": 365,
+      "releaseDate": "2009-11-27",
+      "productType": "FIGURINE",
+      "allegianceIndex": 4,
+      "imgsPrefix": "harlequin_troupe"
     },
     {
-      "productIndex": 4,
-      "name": "sanguinius_2.jpg",
-      "description": ""
+      "name": "Avatar of Khaine",
+      "description": "An Avatar of Khaine is an ancient deity incarnate – a burning shard of Khaela Mensha Khaine, the Bloody-Handed God of the Aeldari. Awakened for battle, he marches through enemy fire without breaking stride, laughing cruelly as his weapon – the Wailing Doom – cleaves flesh and tastes the blood of his foes with each strike. The Avatar's mere presence incites a merciless rage in the Asuryani around him, his fearsome aura eradicating fear or hesitation in favour of a nigh insatiable murderlust. In these moments, the Aeldari seem transformed into a vision of the glorious and terrible conquerors who once ruled the galaxy.\n\nThis kit builds one Avatar of Khaine, who can be constructed with a choice of three different heads – a classic helmet with plume and headdress, a more martial helm with an ornate crest, or a bare head with a wild mane and flowing topknot. The Avatar's divine weapon, the Wailing Doom, can also be built in one of three forms – a gigantic sword, a vicious axe, or a sweeping spear, each marked with eldritch runes of power.\n\nThis set comprises 53 plastic components and is supplied with 1x 80mm Citadel round base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints",
+      "unitPrice": 67.5,
+      "stock": 367,
+      "releaseDate": "1999-09-10",
+      "productType": "FIGURINE",
+      "allegianceIndex": 4,
+      "imgsPrefix": "avatar_of_khaine"
     },
     {
-      "productIndex": 4,
-      "name": "sanguinius_3.jpg",
-      "description": ""
+      "name": "Imotekh the Stormlord",
+      "description": "Imotekh is a sublimely skilled Necron strategist, wielding his armies with hyperlogical skill and deadly strategic insight. In battle, the Stormlord incinerates enemies with his Gauntlet of Fire, blasts them with pan-dimensional energies from the Staff of the Destroyer, and humbles them in punishing one-on-one duels. As phaeron of the Sautekh Dynasty, with over eighty tomb worlds under his command, Imotekh marches to expand his deathless empire.\n\nThis multipart plastic kit builds Imotekh the Stormlord, the supreme leader of the Sautekh Dynasty. This imposing phaeron stands tall atop a dais of unearthed Necron architecture, his billowing cloak crawling with scarab-constructs. His left hand is encased in a Gauntlet of Fire, which generates waves of viridian flame, while his right grips the Staff of the Destroyer – his dynasty's deadly icon of office. Imotekh's armoured chestplate and metal brow sport lordly glyphs of Sautekh, while other Necrontyr sigils decorate his ornate mechanical body, proclaiming his rank as ruler of an unliving empire.\n\nThis kit comprises 15 plastic components and comes with a Citadel 40mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 28.0,
+      "stock": 210,
+      "releaseDate": "1997-03-14",
+      "productType": "FIGURINE",
+      "allegianceIndex": 10,
+      "imgsPrefix": "imotekh_the_stormlord"
     },
     {
-      "productIndex": 4,
-      "name": "sanguinius_4.jpg",
-      "description": ""
+      "name": "Orikan the Diviner",
+      "description": "Orikan is a master astromancer, a Necron Cryptek who uses his knowledge of astral conjunctions to predict the tides of battle and empower himself with cosmic energies. He supplements these skills with chronomantic abilities that allow him to see events before they happen and alter the patterns of the past, helping him evade harm and aim his blows to devastating effect. Through careful study and scrutiny, the Diviner has meddled in monumental events and insignificant occurences throughout history, guiding the Necrons toward a future of his choosing.\n\nThis multipart plastic kit builds Orikan the Diviner, the greatest Chronomancer across all the Necron dynasties. Held eerily aloft by his prehensile spine, this legendary figure clutches an active chronometron alongside the Staff of Tomorrow, a temporal instrument that exists half a second ahead of 'now', striking before he even moves. Orikan is festooned with eldritch spheres to drive his divinatory calculations, and draped in a segmented mantle and striking headdress befitting a high Cryptek.\n\nThis kit comprises 15 plastic components and comes with a Citadel 40mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 28.0,
+      "stock": 14,
+      "releaseDate": "2015-05-11",
+      "productType": "FIGURINE",
+      "allegianceIndex": 10,
+      "imgsPrefix": "orikan_the_diviner"
     },
     {
-      "productIndex": 4,
-      "name": "sanguinius_5.jpg",
-      "description": ""
+      "name": "Chronomancer",
+      "description": "Chronomancers are Crypteks who harness temporal energies, their aeonstaves and entropic lances slowing down or speeding up weaponised time. Their timesplinter mantles use crystallised moments to confound enemy blows while their chronometrons hasten allies through time itself.\n\nCommand time with the Chronomancer and ensure victory for your Necrons. This stunning kit comes with a choice of three heads, two different left hand options, and can be armed with either an aeonstave or an entropic lance.\n\nThis 17-part plastic kit makes one Chronomancer for use in games of Warhammer 40,000 and is supplied with a Citadel 40mm Round base.",
+      "unitPrice": 26.0,
+      "stock": 227,
+      "releaseDate": "2014-07-23",
+      "productType": "FIGURINE",
+      "allegianceIndex": 10,
+      "imgsPrefix": "chronomancer"
+    },
+    {
+      "name": "Flayed Ones",
+      "description": "Flayed Ones keen shrill hunting cries as they fall upon the foe, talons flashing. Infected with the gruesome flayer virus, the Flayed Ones attempt to gorge themselves upon the flesh and blood of their butchered foes, gore drizzling through their mechanical forms as they seek to slake a thirst they can never quench.\n\nCovered in the macabre remains of their latest victims, the Flayed Ones stalk into battle, striking swiftly from the darkness to slice their next target to shreds. Their hunched stature, long claws, and flayed skin make them stand out against other Necron units, making them an ideal addition to any collection.\n\nThis 55-part plastic kit makes five Flayed Ones for use in games of Warhammer 40,000 and is supplied with five Citadel 28.5mm Round Bases.",
+      "unitPrice": 34.0,
+      "stock": 1578,
+      "releaseDate": "2020-04-15",
+      "productType": "FIGURINE",
+      "allegianceIndex": 10,
+      "imgsPrefix": "flayed_ones"
+    },
+    {
+      "name": "Necrons Royal Court",
+      "description": "Across the galaxy, Necrons awaken in their tomb worlds, ready to rise up and reclaim their long-lost empire. Towering metal monstrosities stride to battle alongside calculating Crypteks, leading legions of undying warriors in their final, inevitable conquest.\n\nThis set provides you with reinforcements for your Necrons collection. A Skorpekh Lord can lead your force from the front, powerful weapons bringing ruin to your enemies. At his side, a Plasmancer can channel raw energy into searing blasts of firepower, while enslaved Cryptothralls protect their Cryptek master. Should any of them be damaged by impertinent foes, the towering Canoptek Reanimator can repair them, ready to battle on in the name of the Silent King.\n\nThis 38-piece plastic kit builds 5 Necrons models:\n\n– 1x Skorpekh Lord\n– 1x Canoptek Reanimator\n– 1x Plasmancer\n– 2x Cryptothralls\n\nThe set also includes three 32mm round bases and two 60mm round bases.\n\nThe models in this set are push-fit and can be assembled without glue. Rules for them can be found in Codex: Necrons.",
+      "unitPrice": 77.5,
+      "stock": 687,
+      "releaseDate": "2022-03-05",
+      "productType": "FIGURINE",
+      "allegianceIndex": 10,
+      "imgsPrefix": "necrons_royal_court"
+    },
+    {
+      "name": "Hexmark Destroyer",
+      "description": "Hexmark Destroyers were once Deathmarks. Bursting from their dimensional oubliettes like ambush predators, these hunchbacked monsters unleash inescapable hails of enmitic fire. Independent ocular targeting and optimised firing patterns leave their prey with no escape.\n\nAll but unrivalled in close-range firepower, each Hexmark Destroyer is like a mobile gun battery, able to blast its way through hordes of enemy infantry with impunity. If you're looking to support your advance or shore up a flank with some formidable fire support, a Hexmark Destroyer will serve you well.\n\nThis kit builds a single Hexmark Destroyer, armed with six enmitic disintegrator pistols, and comes with a choice of two heads. The kit is supplied in 19 plastic components and one Citadel 50mm Round Base.",
+      "unitPrice": 24.0,
+      "stock": 321,
+      "releaseDate": "2023-06-12",
+      "productType": "FIGURINE",
+      "allegianceIndex": 10,
+      "imgsPrefix": "hexmark_destroyer"
+    },
+    {
+      "name": "Skorpekh Destroyers",
+      "description": "Striding forward in a rush of ungainly steps, their weaponised limbs sweeping in a whirlwind of gore, Skorpekh Destroyers feed their need to kill whenever they are unleashed upon the battlefield. Nothing else can override the hard-wired desire to kill that empowers these deranged Necrons.\n\nCanoptek Plasmacytes use their monomolecular proboscis to inject an infectious, sentient energy into the degranged members of the Destroyer Cults. This hateful substance – as dangerous as it is powerful – heightens their nihilistic insanity and drives their mindless annihilation to new heights.\n\nSkorpekh Destroyers are among the most lethal close-combat killers within the ranks of the Necron legions. If tearing the enemy army asunder is what you seek, then look no further than these gloriously insane slaughterers, whose killing prowess you can amplify even further with the attention of the Plasmacyte!\n\nThis kit builds three Skorpekh Destroyers – two armed with hyperphase threshers and one with a hyperphase reap-blade – as well as a Plasmacyte. Push-fit construction means you won't need any glue to build it. The kit is supplied in 29 plastic components and comes with three Citadel 50mm Hex Hole Round Bases and one Citadel 28.5mm Hex Hole Round Base.",
+      "unitPrice": 40.0,
+      "stock": 16,
+      "releaseDate": "2024-04-02",
+      "productType": "FIGURINE",
+      "allegianceIndex": 10,
+      "imgsPrefix": "skorpekh_destroyers"
+    },
+    {
+      "name": "Warhammer 40,000 Boarding Actions Terrain Set",
+      "description": "The Arks of Omen series introduces rules for Boarding Actions – tightly-fought games of Warhammer 40,000 that recreate oppressive assaults on the claustrophobic confines of voidcraft and space hulks. It's a fresh way to play Warhammer 40,000 using your existing collections.\n\nThis hugely modular Boarding Actions Terrain Set includes everything you need to set up this pulse-pounding game mode, including detailed corridor walls, hatchway doors that can open and close mid-game, and loads of pillars to connect them all, plus two double-sided gaming boards to bring your battlefield to life. The box includes two full sets of Gallowdark terrain, which you can combine and arrange in a huge variety of ways to build a dense and deadly environment.\n\nThis box includes:\n- 2x 704mm by 607mm foldable card gaming boards, printed with a different design on each side\n- 2x Gallowdark modular terrain sets, comprising a total of:\n– 8x Short Walls with Hatchway and Pillars (2 different designs)\n– 4x Short Walls with Hatchway\n– 4x Long Walls with Hatchway and Pillars\n– 4x Long Walls with Hatchway\n– 4x Long Walls with Pillars\n– 4x Long Walls\n– 4x Short Walls\n– 32x Pillars\n– 4x Wall Ends\n\nThese miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.\n\nRules for playing Boarding Action games of Warhammer 40,000 are found in the Arks of Omen: Abaddon supplement.",
+      "unitPrice": 135.0,
+      "stock": 14,
+      "releaseDate": "2003-05-15",
+      "productType": "TERRAIN",
+      "imgsPrefix": "boarding_actions_terrain_set"
+    },
+    {
+      "name": "Battlezone: Fronteris – Landing Pad",
+      "description": "Build an immersive battlefield and wage war on a hotly contested frontier world with terrain pieces representing rugged Imperial structures – such as the Landing Pad. An aeronautical access point and cargo hold in times of peace, when border worlds become battlegrounds this large structure acts as a vital logistics hub, allowing beleaguered troops to resupply in the heat of combat.\n\nSuggested terrain traits and additional Narrative Play abilities for this terrain piece can be found in War Zone Nachmund: Vigilus Alone, adding further strategic depth to your games.\n\nThis kit is comprised of 11 plastic components, with which you can assemble one Landing Pad.\n\nThis miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 47.5,
+      "stock": 378,
+      "releaseDate": "1991-01-03",
+      "productType": "TERRAIN",
+      "imgsPrefix": "battlezone_fronteris_landing_pad"
+    },
+    {
+      "name": "Battlezone: Fronteris – Vox-Antenna and Auspex Shrine",
+      "description": "Build an immersive battlefield and wage war on a hotly contested frontier world with terrain pieces representing rugged Imperial structures – such as a Vox-Antenna and Auspex Shrine. These robust arrays are a vital source of communication for frontier worlds, and are easily repurposed by the forces that fight over them – whether they bolster their spirits by downloading propaganda from an Auspex Shrine, or coordinate a devastating assault with the help of a Vox-Antenna broadcast.\n\nSuggested terrain traits and additional Narrative Play abilities for these terrain pieces can be found in War Zone Nachmund: Vigilus Alone, adding further strategic depth to your games.\n\nThis kit is comprised of 36 plastic components, with which you can assemble one Vox-Antenna and one Auspex Shrine.\n\nThese miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel paints.",
+      "unitPrice": 47.5,
+      "stock": 251,
+      "releaseDate": "1992-04-16",
+      "productType": "TERRAIN",
+      "imgsPrefix": "battlezone_fronteris_vox_antenna_and_auspex_shrine"
+    },
+    {
+      "name": "Aegis Defence Line",
+      "description": "Aegis Defence Lines are barricades comprising crenellated armoured panels that link together in a solid shield-wall. Thanks to their simple design they can be built and deployed at great speed, and are thus ideal for establishing defensive perimeters before more permanent structures can be erected.\n\nThis multipart plastic kit builds two Aegis Defence Lines – modular defensive structures that can be assembled and reconfigured to suit your battlefield. Each Aegis Defence Line is made up of six barricade sections – one with a distinct 'broken' appearance – and a single firing platform, plus a variety of connecting pillars and end sections. The core platform can be built with a choice of two different barriers, and the kit's modular design allows you to rearrange each component as you see fit. You can even position multiple Aegis Defence Lines to create an unbroken wall suited to seeing off foes of any size.\n\nThis kit comprises 64 plastic components. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+      "unitPrice": 50.00,
+      "stock": 4154,
+      "releaseDate": "1989-05-15",
+      "productType": "TERRAIN",
+      "imgsPrefix": "ageis_defence_line"
+    },
+    {
+      "name": "Warhammer 40,000 Core Book",
+      "description": "In the grim darkness of the far future, there is only war.\n\nThe galaxy writhes in the mailed fist of all-consuming war. The Imperium teeters on the brink of annihilation, beset upon all sides by heretic warlords, daemon-summoning witches, and rapacious alien empires. The Great Rift sunders the void, a ragged wound torn through the heart of the Emperor's realm and bleeding madness and mutation across all.\n\nIn every star system and upon every planet, battle rages more fiercely than ever before as loyalists, heretics, and aliens tear reality itself apart in their war dominance. Every day the flames rise higher – this is a more terrible era than ever before, for there is no peace amongst the stars…\n\nThe Book\nThis 220-page hardback book is an essential guide to Warhammer 40,000, and contains everything you need to know to collect, build, paint, and play with Citadel miniatures in the grim darkness of the 41st Millennium.\n\nYou'll find an overview of the Warhammer 40,000 hobby in all its aspects, core rules for playing out battles that range from small skirmishes to massive Onslaught games, and an in-depth introduction to this rich and ruinous setting through immersive lore, stunning illustrations and photography, and an evocative look at each of the factions waging war in the far future.\n\nTHE WARHAMMER 40,000 HOBBY\nThe book opens with an introduction to this amazing hobby through its four keys – Collect, Build, Paint, and Play. You'll find out how to start your collection of Citadel miniatures, learn how people build and paint their models, and get suggestions to tools and guides that will help further. You'll also begin your journey as a commander with a look at how, where, and why players engage in dynamic tabletop battles of Warhammer 40,000, an example Battle Report between two armies, and an explanation of different styles of play – self-contained Combat Patrols, competitive Chapter Approved games, and narrative Crusade campaigns.\n\nDARK IMPERIUM\nThis expansive lore section provides a doorway into the grim darkness of the 41st Millennium. It is a far-distant future dominated by an oppressive and corrupt Human empire, its crumbling borders defended by doomed heroes and imperiled by threats from both without and within, its history marked by ignorance and carnage and the laughter of thirsting gods.\n\nThe first part of this guide explores the decaying Imperium and the galaxy in which it resides – the long-dead God-Emperor who sits eternal on his Golden Throne, the High Lords and Adeptus bureaucracies that rule in his name, the fanatical Ecclesiarchy which preaches the Imperial faith, the secretive Ordos of the all-seeing Inquisition, and the post-human Space Marines who fight battles no other could endure. You'll also discover the hellish dimension known as the warp, which fuels psychic mutation and interstellar travel, the mad Gods of Chaos who rule its infinite depths, the blasphemous cults that serve them, and the Great Rift that splits realspace itself in two.\n\nThere's also a double-page galactic map, highlighting vital planets, systems, war zones, and warp storms.\n\nThe second half delves into the history of the setting, from its myth-shrouded past to the apocalyptic clashes of its present. You'll find a timeline of Humanity's development through the Ages of Terra and Technology, the Ages of Strife and Darkness, all the way to the Age of the Imperium. You'll explore the superstitions that fuelled the Imperium's worship of lost technology and its fearful hatred of aliens and mutants, the Great Crusade through which the Emperor sought to unite Humanity, the Horus Heresy that set the galaxy aflame, and the millennia of war and loss that shaped the Imperium.\n\nFinally, you'll enter the Era Indomitus – marked by the opening of the Great Rift, the birth of a new God of Death, and the revival of the Primarch Roboute Guilliman. Even as the new Lord Regent's Indomitus Crusade strives to reunite the dying Imperium, a psychic awakening heralds a terrifying Age of Witches, and Abaddon the Despoiler plagues the galaxy with aid of the daemonic demigod Vashtorr and their Arks of Omen. The return of Lion El'Jonson, the First Primarch of the Emperor, only forestalls total disaster – and with the resurgence of Hive Fleet Leviathan, the galaxy may be reduced to nothing but food for an alien swarm.\n\nFACTIONS\nExplore each of the factions waging war in Warhammer 40,000, with detailed background information plus tactical descriptions and a miniature showcase of their Combat Patrols. The mustered Armies of the Imperium include mighty Space Marine Chapters, the ranks of the Astra Militarum, the fanatical cults of the Adeptus Mechanicus and Adepta Sororitas, and the golden guardians known as the Adeptus Custodes. The blasphemous Forces of Chaos feature ancient Traitor Legions and more recent Heretic Astartes, as well as the otherworldly Chaos Daemons. Finally, the insidious Xenos Threat ranges from the brutish Orks, mercenary Leagues of Votann, and expansionist T'au Empire to the ancient branches of Aeldari and Drukhari, the deathless Necrons, and the ravening Tyranids and their Genestealer Cults.\n\nCORE RULES\nThe Warhammer 40,000 Core Rules contain everything you need to know in order to wage glorious battle across the war-torn galaxy of the 41st Millennium. These basic rules are used for games of all sizes and styles, and provide a foundation for use with other supplements.\n\nYou'll learn the general principles and core concepts of Warhammer 40,000, the datasheets and characteristics used by your models, and the rules that apply to the five phases of the game: the Command phase, the Movement phase, the Shooting phase, the Charge phase, and the Fight phase. You'll also find Stratagems and abilities used by all armies, as well as additional rules for elements like Strategic Reserves, terrain features, and aircraft.\n\nLastly, there are rules for mustering an army, setting up your models for a game, controlling objectives to claim victory, and a mission – Only War – to get you started playing right away.\n\nCOMBAT PATROL\nCombat Patrol is the ideal starting point for playing Warhammer 40,000. Fast-paced and quick to learn, it uses the Core Rules to play out tactical clashes that should last up to one hour, using only the contents of Combat Patrol boxes. These forces each have bespoke, self-contained rules which are presented online and in other publications, and provide everything you need to get playing. This section provides an introduction to the Combat Patrol game mode, an explanation of the Battle Ready standard of painting for games, and six different Combat Patrol missions – Clash of Patrols, Archeotech Recovery, Forward Outpost, Scorched Earth, Sweeping Raid, and Display of Might – each with their own objectives, mission rules, and deployment maps for a variety of game experiences.\n\nThe book concludes with a separate index for the Core Rules, acting as a handy reference for use while playing games.",
+      "unitPrice": 42.5,
+      "stock": 142,
+      "releaseDate": "2010-05-15",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "w40k_core_book"
+    },
+    {
+      "name": "Index: Chaos Daemons",
+      "description": "The immortal daemonic legions of the Chaos Gods spill from the warp to corrupt and slaughter, driven by their dark masters to plunge all of reality into endless insanity and unending nightmare.\n\nThis deck of Index: Chaos Daemons cards will enhance your games from the moment you start playing Warhammer 40,000, giving you hands-on references to all the rules for your faction. The deck includes individual datasheets for every Chaos Daemons unit, detailing their profiles, wargear, options, and special abilities. You'll also find reference cards for the Chaos Daemons army rule – The Shadow of Chaos – as well as Daemonic Pact rules for including Chaos Daemons units in other Chaos armies, and the Daemonic Incursion Detachment, which includes four Enhancements, six Stratagems, and the Warp Rifts rule.\n\nContents:\n- 55x Chaos Daemons Datasheet Cards:\nBe’lakor\nBeasts of Nurgle\nBloodcrushers\nBloodletters\nBloodmaster\nBloodthirster\nBlue Horrors\nBurning Chariot\nChangecaster\nContorted Epitome\nDaemon Prince of Chaos\nDaemon Prince of Chaos with Wings\nDaemonettes\nEpidemius\nExalted Flamer\nExalted Seeker Chariot\nFateskimmer\nFeculent Gnarlmaw\nFiends\nFlamers\nFlesh Hounds\nFluxmaster\nGreat Unclean One\nHellflayer\nHorticulous Slimux\nInfernal Enrapturess\nKairos Fateweaver\nKaranak\nKeeper of Secrets\nLord of Change\nNurglings\nPink Horrors\nPlague Drones\nPlaguebearers\nPoxbringer\nRendmaster on Blood Throne\nRotigus\nScreamers\nSeeker Chariot\nSeekers\nShalaxi Helbane\nSkarbrand\nSkull Altar\nSkull Cannon\nSkullmaster\nSkulltaker\nSloppity Bilepiper\nSoul Grinder\nSpoilpox Scrivener\nSyll’esske\nThe Blue Scribes\nThe Changeling\nThe Masque of Slaanesh\nTormentbringer on Exalted Seeker Chariot\nTranceweaver\n\n- 3x Chaos Daemons Index Cards, detailing the faction's army rule and the Daemonic Incursion Detachment\n\nAll cards are 190mm x 126mm.",
+      "unitPrice": 15.5,
+      "stock": 124,
+      "releaseDate": "2010-11-15",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "index_chaos_daemons"
+    },
+    {
+      "name": "Index: Knight Households",
+      "description": "Knights are colossal suits of armour bristling with heavy weapons, employed both by noble houses of the lmperium and those fallen to Chaos. Regardless of their allegiance, they are capable of laying waste to entire enemy armies.\n\nThis deck of Index: Knight Households cards will enhance your games from the moment you start playing Warhammer 40,000, giving you hands-on references to all the rules for your faction. The deck includes individual datasheets for each of the Imperial Knights and Chaos Knights models, detailing their profiles, wargear, options, and special abilities. You'll also find reference cards covering the army rules for both Imperial Knights and Chaos Knights – Code Chivalric and Harbingers of Dread, respectively – and rules for including Knights in other Imperium and Chaos armies, as well as the Noble Lance Detachment for Imperial Knights and the Traitoris Lance Detachment for Chaos Knights, which each include unique Enhancements, Stratagems, and a Detachment rule.\n\nContents:\n- 11x Imperial Knights Datasheet Cards:\nArmiger Helverin\nArmiger Warglaive\nCanis Rex\nKnight Castellan\nKnight Crusader\nKnight Errant\nKnight Gallant\nKnight Paladin\nKnight Preceptor\nKnight Valiant\nKnight Warden\n\u200B\n- 3x Imperial Knights Index Cards, detailing the faction's army rule and the Noble Lance Detachment\n\n- 10x Chaos Knights Datasheet Cards:\nKnight Abominant\nKnight Desecrator\nKnight Despoiler\nKnight Rampager\nKnight Tyrant\nWar Dog Brigand\nWar Dog Executioner\nWar Dog Huntsman\nWar Dog Karnivore\nWar Dog Stalker\n\n- 3x Chaos Knights Index Cards, detailing the faction's army rule and the Traitoris Lance Detachment\n\nPlease note this product does not include cards for Knight Households products from Forge World.\n\nAll cards are 190mm x 126mm.",
+      "unitPrice": 12.75,
+      "stock": 25,
+      "releaseDate": "2010-11-21",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "index_knight_households"
+    },
+    {
+      "name": "Index: Aeldari",
+      "description": "The Aeldari are an ancient and dying people, their fractured factions each finding ways to survive in a hostile galaxy. All depend on the insight of their seers, the skill of their warriors, and the sleek superiority of their weapons of war.\n\nThis deck of Index: Aeldari cards will enhance your games from the moment you start playing Warhammer 40,000, giving you hands-on references to all the rules for your faction. The deck includes individual datasheets for every Aeldari, Ynnari, and Harlequins unit, detailing their profiles, wargear, options, and special abilities. You'll also find reference cards for the Aeldari army rule – Strands of Fate – as well as army-building rules for Corsairs, Travelling Players, and Ynnari, and the Battle Host Detachment, which includes four Enhancements, six Stratagems, and the Unparalled Foresight rule.\n\nContents:\n- 49x Aeldari Datasheet Cards:\nAsurmen\nAutarch\nAutarch Skyrunner\nAutarch wayleaper\nAvatar of Khaine\nBaharroth\nCorsair Voidreavers\nCorsair Voidscarred\nCrimson Hunter\nDark Reapers\nDire Avengers\nEldrad Ulthran\nFalcon\nFarseer\nFarseer Skyrunner\nFire Dragons\nFire Prism\nFuegan\nGuardian Defenders\nHemlock Wraithfighter\nHowling Banshees\nIllic Nightspear\nJain Zar\nKarandras\nMaugan Ra\nNight Spinner\nPrince Yriel\nRangers\nShining Spears\nShroud Runners\nSpiritseer\nStorm Guardians\nStriking Scorpions\nSupport Weapons\nSwooping Hawks\nVypers\nWar Walkers\nWarlock\nWarlock Conclave\nWarlock Skyrunner\nWarlock Skyrunner Conclave\nWarp Spiders\nWave Serpent\nWebway Gate\nWindriders\nWraithblades\nWraithguard\nWraithknight\nWraithlord\n\n- 8x Harlequins Datasheet Cards:\nDeath Jester\nShadowseer\nSkyweavers\nSolitaire\nStarweaver\nTroupe\nTroupe Master\nVoidweaver\n\n- 3x Ynnari Datasheet Cards:\nThe Visarch\nThe Yncarne\nYvraine\n\n- 3x Aeldari Index Cards, detailing the faction's army rules and the Battle Host Detachment\n\nPlease note this product does not include cards for Aeldari products from Forge World.\n\nAll cards are 190mm x 126mm.",
+      "unitPrice": 15.5,
+      "stock": 134,
+      "releaseDate": "2010-04-15",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "index_aeldari"
+    },
+    {
+      "name": "Index: Astra Militarum",
+      "description": "The Astra Militarum are the backbone of the lmperium's largest armies. Their massed infantry and tank regiments form a bulwark that stands between Humanity and a nightmarish galaxy of horrors.\n\nThis deck of Index: Astra Militarum cards will enhance your games from the moment you start playing Warhammer 40,000, giving you hands-on references to all the rules for your faction. The deck includes individual datasheets for every Astra Militarum unit, detailing their profiles, wargear, options, and special abilities. You'll also find reference cards for the Astra Militarum army rule – Voice of Command – as well as the Combined Regiment Detachment, which includes four Enhancements, six Stratagems, and the Born Soldiers rule.\n\nContents:\n- 60x Astra Militarum Datasheet Cards:\n‘Iron Hand’ Straken\nAegis Defence Line\nArmoured Sentinels\nAttilan Rough Riders\nBaneblade\nBanehammer\nBanesword\nBasilisk\nBullgryn squad\nCadian Castellan\nCadian Command Squad\nCadian Shock Troops\nCatachan Jungle Fighters\nChimera\nCommissar\nDeath Korps of Krieg\nDeathstrike\nDoomhammer\nField Ordnance Battery\nGaunt’s Ghosts\nHeavy Weapons Squad\nHellhammer\nHellhound\nHydra\nInfantry squad\nKasrkin\nLeman Russ Battle Tank\nLeman Russ Demolisher\nLeman Russ Eradicator\nLeman Russ Executioner\nLeman Russ Exterminator\nLeman Russ Punisher\nLeman Russ Vanquisher\nLord Solar Leontus\nManticore\nMilitarum Tempestus Command Squad\nMunitorum Servitors\nNork Deddog\nOgryn Bodyguard\nOgryn squad\nPlatoon Command Squad\nPrimaris Psyker\nRatling snipers\nRegimental Attachés\nRegimental Enginseer\nRegimental Preacher\nRogal Dorn Battle Tank\nScout Sentinels\nSergeant Harker\nShadowsword\nSly Marbo\nStormlord\nStormsword\nTank Commander\nTaurox\nTaurox Prime\nTempestus Scions\nUrsula Creed\nValkyrie\nWyvern\n\n- 3x Astra Militarum Index Cards, detailing the faction's army rule and the Combined Regiment Detachment\n- 1x Astra Militarum Armoury Card\n\nPlease note this product does not include cards for Astra Militarum products from Forge World.\n\nAll cards are 190mm x 126mm.",
+      "unitPrice": 15.5,
+      "stock": 154,
+      "releaseDate": "2009-11-14",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "index_astra_militarum"
+    },
+    {
+      "name": "Codex Supplement: Blood Angels",
+      "description": "The Blood Angels are one of the most revered of all the original Space Marine Legions, but are also the bearers of a terrible curse caused by the death of their beloved Primarch, Sanguinius. As one of the oldest and most successful Chapters, they have a proud heritage, culture, and aesthetic that diverges from what is now considered standard. They celebrate their beauty, but do not shy away from their savage nature in the heat of battle.\n\nCodex Supplement: Blood Angels is your essential guide to using the Sons of Sanguinius and their successor Chapters in your games of Warhammer 40,000, as well as collecting, building, and painting them. When combined with the contents of Codex: Space Marines, you’ll be able to build an army with their own fighting style, specialised units, and unique formations. You'll also find everything you need to use them in narrative Crusade games and games of Combat Patrol. The book is loaded with artwork, stunning examples of painted miniatures, and fascinating background material to inspire you.\n\nInside this 104-page hardback book, you'll find:\n– History and background of the Sons of Sanguinius, starting with their glorious origins in the Age of Darkness, to the death of their beloved Primarch, and its effects on the current Chapter\n– Beautiful artwork, shedding light on both their glorious record of deeds, and the secret darkness at the heart of their bloodline\n– 15 datasheets to add to those found in Codex: Space Marines, including the Death Company, Baal Predators, and Sanguinary Guard\n– Three themed Detachments – the Lost Brethren, Liberator Assault Group, and the Angelic Host – each with their own special rules\n– Crusade rules to show how your characters either ascend to the Sanguinary Guard, or succumb to the Black Rage\n– Combat Patrol rules to take command of the Sanguinary Spearhead in fast-paced games\n– An 'Eavy Metal showcase of expertly-painted Citadel miniatures to inspire you\n\nYou'll need a copy of Codex: Space Marines, available separately, to use the contents of this book fully.\n\nThis book also contains a one-use code to unlock Codex Supplement: Blood Angels content in Warhammer 40,000: The App.",
+      "unitPrice": 20.5,
+      "stock": 142,
+      "releaseDate": "2010-02-15",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "codex_supplement_blood_angels"
+    },
+    {
+      "name": "Codex: Chaos Space Marines",
+      "description": "Chaos Space Marines are genetically augmented transhumans who seek only to conquer, slaughter, and despoil. Clad in baroque power armour bedecked in macabre trophies and infernal iconography, Chaos Space Marines do battle alongside growling battle tanks, monstrous Daemon Engines, and thronging masses of cultist thralls. Some are possessed by daemonic allies, others bear Chaos-tainted artefacts or wield warp sorcery. No matter what form they take, they pursue their Long War with pitiless brutality, slaughtering any who stand in their path in an ever-escalating campaign of vengeance, conquest and apocalyptic violence.\n\nCodex: Chaos Space Marines is an essential tome for building and painting a collection of Heretic Astartes, and using them in games of Warhammer 40,000. Inside this book you'll find an infernal hoard of inspirational background material and art to inspire you, along with rules for waging your own galactic war with narrative Crusade campaigns, skirmish-sized Combat Patrol games, and plenty of rules for matched play games. This grimoire is also packed with photography to evoke the horror of facing down this terrible foe, as well as more detailed examples of single miniatures.\n\nInside this 160-page hardback book, you'll find:\n– Background material about the many hosts of Chaos Space Marines, including some of the most notorious warlords of the Black Legion\n– Macabre artwork revealing the horrible truth of these infernal soldiers at war, including their daemonic allies and insane, gibbering cultists\n– 48 datasheets detailing each unit, including their wargear, profiles, and unique abilities, from nightmare Spawn to immortal Daemon Princes\n– A massive eight themed Detachments, each with their own detachments rules, Enhancements and Stratagems\n– Crusade rules to lead your warband on a furious campaign to seek the favour of the Dark Gods\n– Combat Patrol rules to use Zarkan’s Daemonkin in fast-paced skirmish games\n– An ‘Easy Metal showcase of stunning Citadel miniatures from the incredible Chaos Space Marines range",
+      "unitPrice": 37.0,
+      "stock": 114,
+      "releaseDate": "2010-06-14",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "codex_chaos_space_marines"
+    },
+    {
+      "name": "Codex: T'au Empire",
+      "description": "The T'au Empire is amongst the most dynamic and determined powers in the 41st Millenium. Their technology is advanced and ever-improving, from grav-skimming gunships and artificial intelligence, to potent energy weapons and formidable battlesuits. Their territories expand with every victory, be it military or diplomatic. Yet the T'au Empire's greatest strength is its unifying philosophy – they believe it is their duty to spread the doctrine of the Greater Good to every corner and culture of this dark galaxy, and will let none stop them from bringing enlightenment to the stars.\n\nCodex: T'au Empire is a vital guide for collecting and playing games with the T'au Empire and its alien allies in Warhammer 40,000. You'll find an absolute treasure trove of information to help you muster, paint, and command your armies – including rules for narrative Crusade campaigns, Combat Patrol skirmishes, and matched play games. There's also a stunning spread of painted miniatures, evocative artwork, and immersive background material to inspire you for the Greater Good.\n\nInside this 136-page hardback book, you'll find:\n– Background material detailing the T'au Empire, including its rigid caste system, varied sept worlds, and meteoric expansion, as well its long-time allies amongst the Kroot\n– Inspiring artwork that sheds light on the sleek aesthetic, complex technology, and alien auxiliaries of the T'au Empire\n– 38 datasheets detailing the profiles, wargear, and unique abilities of every T'au Empire unit, from Stealth Battlesuits to savage Krootox Rampagers\n– Four themed Detachments, including the Kauyon and Mont'ka metastrategies, as well as dedicated Kroot Hunting Packs, each with their own set of special rules\n– Crusade rules to launch a Sphere Expansion of your own, as you assimilate new systems through diplomacy and conquest\n– Combat Patrol rules and a painting guide for playing fast-paced games with the Sudden Dawn Cadre\n– An 'Eavy Metal showcase of superbly-painted Citadel miniatures to inspire you, featuring different T'au septs and Kroot kindreds\n\nThis book also contains a one-use code to unlock Codex: T'au Empire content in Warhammer 40,000: The App.",
+      "unitPrice": 37.0,
+      "stock": 210,
+      "releaseDate": "2010-03-11",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "codex_tau_empire"
+    },
+    {
+      "name": "Codex: Orks",
+      "description": "Orks are brutal and violent aliens who love nothing more than to fight. They are tough, with hulking physiques, thick skulls, and toothy maws. When gathered in an excitable crush of noise and death, Orks become infused with a strange energy that drives them to even greater acts of unrestrained ferocity. They gleefully pile into the fight, bellowing their deafening war cry – ‘Waaagh!’.\n\nThis 152-page book contains a trove of background information covering prominent Ork conflicts from the past and present, accompanied by spectacular artwork and galleries of painted miniatures. Codex: Orks grants you a detailed look into the organisation of Ork armies, be they small planetary raiding forces or monstrous Waaagh!s, as well as the troops, leaders, and war machines that fight among them. The book also contains the rules for leading a brutally effective Orks army in Combat Patrol, Crusade, and Matched Play games of Warhammer 40,000.\n\nInside this hardback codex, you'll find:\n– Thrilling tales of legendary Ork escapades, from war on a galactic scale to smaller, more 'covert' operations\n– All of the army rules you need to play games of Warhammer 40,000 with your Ork miniatures\n– Lore on the Ork kulturs and how they structure their armies\n– Detailed matched play rules, including dedicated secondary objectives\n– A full suite of rules for playing narrative Crusade campaigns and intense Combat Patrol games\n\nThis book also contains a one-use code to unlock Codex: Orks content in Warhammer 40,000: The App.",
+      "unitPrice": 37.0,
+      "stock": 131,
+      "releaseDate": "2010-03-25",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "codex_orks"
+    },
+    {
+      "name": "Codex: Space Marines",
+      "description": "Space Marines are genetically augmented warriors, created as Humanity’s ultimate shock troops. Formally known as the Adeptus Astartes, the Space Marines have defended the Imperium for over ten thousand years. They go to war armed and armoured with the best wargear the Imperium can provide, complementing their enhanced strength, agility, and resilience. They are steeled in mind, body and soul to endure ceaseless war, facing the most monstrous threats throughout the galaxy and knowing no fear.\n\nThese steadfast warrior knights each belong to a Chapter – a close-knit brotherhood that dispatches strike forces of Space Marines across the galaxy. Supported by transport vehicles, battle tanks, combat walkers, attack craft, and powerful artillery, they execute lightning assaults of blistering speed and power. The Space Marines are the Emperor’s fury made manifest, and all his enemies fear them as the Angels of Death.\n\nCodex: Space Marines is an essential guide for anyone who collects the Adeptus Astartes and wants to claim glory in tabletop battles. In this book you'll find all the rules you need to play a Space Marines army in games of Warhammer 40,000 – including narrative Crusade campaigns and Combat Patrol skirmishes – as well as pages of background material and artwork detailing how Space Marines are made, wage war, mark their ranks and decorate their armour, and the dizzying variety of different Chapters.\n\nInside this 216-page hardback book, you'll find:\n– Extensive background information regarding the Imperium's Space Marines, ranging from their genetic enhancements to the deeds of famous Chapters\n– Exhilarating artwork depicting the Adeptus Astartes in epic battles against innumerable enemies\n– 93 datasheets detailing the profiles, wargear, and unique abilities of every Space Marines unit, from newly-recruited Scouts to mighty Dreadnoughts\n– Seven themed Detachments, such as the Anvil Siege Force and Vanguard Spearhead, each with their own set of special rules\n– Crusade rules that will see your heroes fulfil mighty oaths as they defeat Humanity’s enemies, earning glory and honour\n– Self-contained Combat Patrol rules and a painting guide, allowing you to play fast-paced games with Strike Force Octavius\n– An 'Eavy Metal showcase of superbly-painted Citadel miniatures to inspire you, featuring a variety of Space Marines Chapters\n\nThis book also contains a one-use code to unlock Codex: Space Marines content in Warhammer 40,000: The App.",
+      "unitPrice": 37.0,
+      "stock": 78,
+      "releaseDate": "2010-07-15",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "codex_space_marines"
+    },
+    {
+      "name": "Codex: Tyranids",
+      "description": "The Tyranids are an all-consuming alien swarm from beyond the known galaxy. Driven by the vast and ineffable intellect of the Hive Mind, their tendrils drive into fresh systems with every passing hour. These single-minded metapredators cannot be reasoned with, bought off, or put to flight. They seek only to strip each new world they encounter, devouring every shred of biomass to feed the relentless advance of the hive fleets and leaving dead, airless husks in their wake.\n\nEndlessly adaptable, the Tyranids possess no mechanical technology. Instead, their weapons and wargear are symbiotic or parasitic organisms, bonded with their wielders and capable of annihilating prey with hails of bio-acid, living projectiles, and ravaging psionic energies. From seething masses of warrior organisms to malevolent leader-beasts and walking battle-tank-sized monsters, the Tyranid swarms are as nightmarish as they are unstoppable.\n\nThis book is an essential guide for anyone who wants to collect Tyranids and unleash the power of the Hive Mind on the tabletop. Inside these pages, you’ll find all the rules you need to play a Tyranids army in games of Warhammer 40,000 – including Crusade and Combat Patrol rules – along with detailed accounts of their rapacious behaviour, divergent hive fleets, horrifying biotechnology, and invasions past and present.\n\nInside this 120-page hardback book, you'll find:\n– In-depth background information exploring the alien nature and murky origins of the Tyranids, from their nightmarish biology to the history of the Tyrannic Wars\n– Stunning artwork highlighting the horrifying variety and vast scope of these ever-evolving xenos swarms\n– 47 datasheets detailing the profiles, wargear, and unique abilities of every Tyranids unit, from swarming Termagants to the mighty Norn Emissary\n– Six themed Detachments for Tyranids armies, such as the Invasion Fleet and Crusher Stampede, each with their own set of special rules\n– Crusade rules for infesting and consuming entire planets in your narrative campaigns, as your army feasts on its victims and develops new adaptations\n– Self-contained Combat Patrol rules and a painting guide, allowing you to play fast-paced games with the Vardenghast Swarm\n– An 'Eavy Metal showcase of superbly-painted Citadel miniatures to inspire you, featuring a variety of Tyranid hive fleet colour schemes\n\nThis book also contains a one-use code to unlock Codex: Tyranids content in Warhammer 40,000: The App.",
+      "unitPrice": 37.0,
+      "stock": 78,
+      "releaseDate": "2010-04-15",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "codex_tyranids"
+    },
+    {
+      "name": "Codex: necrons",
+      "description": "The Necrons are a deathless species of alien androids who dominated the galaxy in ages past. After millions of years in self-imposed slumber, they are rising from their hidden tomb complexes to march in conquest once more. Clad in self-repairing bodies of living metal, armed with weapons that harness the devastating energies of the cosmos, the Necrons are a terrifying enemy. They are without fear or mercy, soulless mechanoids who advance in eerie lockstep to lay down an annihilating storm.\n\nThese phalanxes are joined by techno-sorcerous war engines, scuttling constructs, and shards of shattered star gods, led to war by undying nobles with wills and bodies of unyielding metal, driven by the absolute conviction that they are the rightful rulers of the galaxy. Ravaged by their long sleep, many Necrons have been reduced to murderous monsters or delusional demigods. Yet their madness only makes them an even greater and more inescapable threat.\n\nCodex: Necrons is an essential guide for anyone who wants to collect Necrons and display the might of their phaeron on the tabletop. In this book you'll find the rules you need to play a Necrons army in games of Warhammer 40,000 – including narrative Crusade campaigns and Combat Patrol skirmishes – as well as detailed background material and stunning art showcasing their ancient origins, impossibly advanced technology, and dynastic courts.\n\nInside this 136-page hardback book, you’ll find:\n– Terrifying background information exploring the awakened Necrons, from their unfathomably ancient history to the structure of the tyrannical dynasties\n– Stunning artwork that brings these undying legions and ancient tomb worlds to life (of a sort)\n– 47 datasheets detailing the profiles, wargear, and unique abilities of every Necrons unit, from mindless Necron Warriors to Imotekh the Stormlord\n– Five themed Detachments for Necrons armies, such as the Annihilation Legion and Canoptek Court, each with their own set of special rules\n– Crusade rules for steadily awakening the systems of your slumbering tomb world, earning ever-greater mechanical powers\n– Self-contained Combat Patrol rules and a painting guide, allowing you to play fast-paced games with Amonhotekh's Guard\n– An 'Eavy Metal showcase of superbly-painted Citadel miniatures to inspire you, featuring a variety of Necron dynasty colour schemes\n\nThis book also contains a one-use code to unlock Codex: Necrons content in Warhammer 40,000: The App.",
+      "unitPrice": 37.0,
+      "stock": 78,
+      "releaseDate": "2010-04-15",
+      "productType": "RULES_AND_CODEX",
+      "imgsPrefix": "codex_necrons"
     }
   ],
   "users": [
