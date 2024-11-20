@@ -1,15 +1,15 @@
 {
   "allegiances": [
     {
-      "group": "IMPERIUM",
+      "group": "SPACE_MARINES",
       "faction": "SPACE_MARINES"
     },
     {
-      "group": "IMPERIUM",
+      "group": "SPACE_MARINES",
       "faction": "DARK_ANGELS"
     },
     {
-      "group": "IMPERIUM",
+      "group": "SPACE_MARINES",
       "faction": "BLOOD_ANGELS"
     },
     {
@@ -669,6 +669,7 @@
       "stock": 124,
       "releaseDate": "2010-11-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 13,
       "imgsPrefix": "index_chaos_daemons"
     },
     {
@@ -678,6 +679,7 @@
       "stock": 25,
       "releaseDate": "2010-11-21",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 9,
       "imgsPrefix": "index_knight_households"
     },
     {
@@ -687,6 +689,7 @@
       "stock": 134,
       "releaseDate": "2010-04-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 4,
       "imgsPrefix": "index_aeldari"
     },
     {
@@ -696,6 +699,7 @@
       "stock": 154,
       "releaseDate": "2009-11-14",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 6,
       "imgsPrefix": "index_astra_militarum"
     },
     {
@@ -705,6 +709,7 @@
       "stock": 142,
       "releaseDate": "2010-02-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 2,
       "imgsPrefix": "codex_supplement_blood_angels"
     },
     {
@@ -714,6 +719,7 @@
       "stock": 114,
       "releaseDate": "2010-06-14",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 5,
       "imgsPrefix": "codex_chaos_space_marines"
     },
     {
@@ -723,6 +729,7 @@
       "stock": 210,
       "releaseDate": "2010-03-11",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 3,
       "imgsPrefix": "codex_tau_empire"
     },
     {
@@ -732,6 +739,7 @@
       "stock": 131,
       "releaseDate": "2010-03-25",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 11,
       "imgsPrefix": "codex_orks"
     },
     {
@@ -741,6 +749,7 @@
       "stock": 78,
       "releaseDate": "2010-07-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 0,
       "imgsPrefix": "codex_space_marines"
     },
     {
@@ -748,8 +757,9 @@
       "description": "The Tyranids are an all-consuming alien swarm from beyond the known galaxy. Driven by the vast and ineffable intellect of the Hive Mind, their tendrils drive into fresh systems with every passing hour. These single-minded metapredators cannot be reasoned with, bought off, or put to flight. They seek only to strip each new world they encounter, devouring every shred of biomass to feed the relentless advance of the hive fleets and leaving dead, airless husks in their wake.\n\nEndlessly adaptable, the Tyranids possess no mechanical technology. Instead, their weapons and wargear are symbiotic or parasitic organisms, bonded with their wielders and capable of annihilating prey with hails of bio-acid, living projectiles, and ravaging psionic energies. From seething masses of warrior organisms to malevolent leader-beasts and walking battle-tank-sized monsters, the Tyranid swarms are as nightmarish as they are unstoppable.\n\nThis book is an essential guide for anyone who wants to collect Tyranids and unleash the power of the Hive Mind on the tabletop. Inside these pages, you’ll find all the rules you need to play a Tyranids army in games of Warhammer 40,000 – including Crusade and Combat Patrol rules – along with detailed accounts of their rapacious behaviour, divergent hive fleets, horrifying biotechnology, and invasions past and present.\n\nInside this 120-page hardback book, you'll find:\n– In-depth background information exploring the alien nature and murky origins of the Tyranids, from their nightmarish biology to the history of the Tyrannic Wars\n– Stunning artwork highlighting the horrifying variety and vast scope of these ever-evolving xenos swarms\n– 47 datasheets detailing the profiles, wargear, and unique abilities of every Tyranids unit, from swarming Termagants to the mighty Norn Emissary\n– Six themed Detachments for Tyranids armies, such as the Invasion Fleet and Crusher Stampede, each with their own set of special rules\n– Crusade rules for infesting and consuming entire planets in your narrative campaigns, as your army feasts on its victims and develops new adaptations\n– Self-contained Combat Patrol rules and a painting guide, allowing you to play fast-paced games with the Vardenghast Swarm\n– An 'Eavy Metal showcase of superbly-painted Citadel miniatures to inspire you, featuring a variety of Tyranid hive fleet colour schemes\n\nThis book also contains a one-use code to unlock Codex: Tyranids content in Warhammer 40,000: The App.",
       "unitPrice": 37.0,
       "stock": 78,
-      "releaseDate": "2010-04-15",
+      "releaseDate": "2010-04-17",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 7,
       "imgsPrefix": "codex_tyranids"
     },
     {
@@ -757,8 +767,9 @@
       "description": "The Necrons are a deathless species of alien androids who dominated the galaxy in ages past. After millions of years in self-imposed slumber, they are rising from their hidden tomb complexes to march in conquest once more. Clad in self-repairing bodies of living metal, armed with weapons that harness the devastating energies of the cosmos, the Necrons are a terrifying enemy. They are without fear or mercy, soulless mechanoids who advance in eerie lockstep to lay down an annihilating storm.\n\nThese phalanxes are joined by techno-sorcerous war engines, scuttling constructs, and shards of shattered star gods, led to war by undying nobles with wills and bodies of unyielding metal, driven by the absolute conviction that they are the rightful rulers of the galaxy. Ravaged by their long sleep, many Necrons have been reduced to murderous monsters or delusional demigods. Yet their madness only makes them an even greater and more inescapable threat.\n\nCodex: Necrons is an essential guide for anyone who wants to collect Necrons and display the might of their phaeron on the tabletop. In this book you'll find the rules you need to play a Necrons army in games of Warhammer 40,000 – including narrative Crusade campaigns and Combat Patrol skirmishes – as well as detailed background material and stunning art showcasing their ancient origins, impossibly advanced technology, and dynastic courts.\n\nInside this 136-page hardback book, you’ll find:\n– Terrifying background information exploring the awakened Necrons, from their unfathomably ancient history to the structure of the tyrannical dynasties\n– Stunning artwork that brings these undying legions and ancient tomb worlds to life (of a sort)\n– 47 datasheets detailing the profiles, wargear, and unique abilities of every Necrons unit, from mindless Necron Warriors to Imotekh the Stormlord\n– Five themed Detachments for Necrons armies, such as the Annihilation Legion and Canoptek Court, each with their own set of special rules\n– Crusade rules for steadily awakening the systems of your slumbering tomb world, earning ever-greater mechanical powers\n– Self-contained Combat Patrol rules and a painting guide, allowing you to play fast-paced games with Amonhotekh's Guard\n– An 'Eavy Metal showcase of superbly-painted Citadel miniatures to inspire you, featuring a variety of Necron dynasty colour schemes\n\nThis book also contains a one-use code to unlock Codex: Necrons content in Warhammer 40,000: The App.",
       "unitPrice": 37.0,
       "stock": 78,
-      "releaseDate": "2010-04-15",
+      "releaseDate": "2010-01-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 10,
       "imgsPrefix": "codex_necrons"
     }
   ],

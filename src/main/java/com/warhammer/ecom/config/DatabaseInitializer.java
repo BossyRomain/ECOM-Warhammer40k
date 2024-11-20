@@ -73,6 +73,8 @@ public class DatabaseInitializer {
                 Product product = objectMapper.convertValue(productJson, Product.class);
                 if (allegianceIndex > -1) {
                     product.setAllegiance(allegiances.get(allegianceIndex));
+                } else {
+                    product.setAllegiance(allegianceService.getEmptyAllegiance());
                 }
                 product.setImages(new ArrayList<>());
                 products.add(productService.create(product));
