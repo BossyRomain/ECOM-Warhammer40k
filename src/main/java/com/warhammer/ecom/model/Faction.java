@@ -1,6 +1,7 @@
 package com.warhammer.ecom.model;
 
 public enum Faction {
+    NONE,
     SPACE_MARINES,
     BLOOD_ANGELS,
     DARK_ANGELS,

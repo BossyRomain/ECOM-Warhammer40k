@@ -24,7 +24,7 @@ public class AllegianceService {
     }
 
     public Allegiance update(Allegiance allegiance) throws NoSuchElementException {
-        if(allegianceRepository.existsById(allegiance.getId())) {
+        if (allegianceRepository.existsById(allegiance.getId())) {
             return allegianceRepository.save(allegiance);
         } else {
             throw new NoSuchElementException();

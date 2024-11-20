@@ -4,6 +4,7 @@ import com.warhammer.ecom.controller.dto.ProductCatalogueDTO;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,15 +22,27 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/catalogue")
-    public List<ProductCatalogueDTO> getProductsCatalogue(
+    public Page<ProductCatalogueDTO> getProductsCatalogue(
         @RequestParam(name = "page", defaultValue = "0") int page,
-        @RequestParam(name = "size", defaultValue = "10") int size
+        @RequestParam(name = "size", defaultValue = "10") int size,
+        @RequestParam(name = "minprice", defaultValue = "0.0") float minprice,
+        @RequestParam(name = "maxprice", defaultValue = "999999.0") float maxprice,
+        @RequestParam(name = "faction", required = false) List<String> factions,
+        @RequestParam(name = "type", required = false) List<String> productTypes
     ) {
-        return productService.getAll(page, size).stream().map(p -> ProductCatalogueDTO.fromProduct(p)).collect(Collectors.toList());
+        if (factions != null) {
+            factions = factions.stream().map(String::toUpperCase).collect(Collectors.toList());
+        }
+
+        if (productTypes != null) {
+            productTypes = productTypes.stream().map(String::toUpperCase).collect(Collectors.toList());
+        }
+
+        return productService.getAllWithFilters(page, size, minprice, maxprice, productTypes, factions).map(ProductCatalogueDTO::fromProduct);
     }
 
     @GetMapping("")
-    public List<Product> getProducts(
+    public Page<Product> getProducts(
         @RequestParam(name = "page", defaultValue = "0") int page,
         @RequestParam(name = "size", defaultValue = "10") int size
     ) {
