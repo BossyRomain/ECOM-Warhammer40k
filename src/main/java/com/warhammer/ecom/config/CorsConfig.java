@@ -17,9 +17,6 @@ public class CorsConfig implements WebMvcConfigurer {
     @Value("${cors.allowed-headers}")
     private String[] allowedHeaders;
 
-    @Value("${cors.exposed-headers}")
-    private String[] exposedHeaders;
-
     @Value("${cors.allow-credentials}")
     private boolean allowCredentials;
 
@@ -32,6 +29,7 @@ public class CorsConfig implements WebMvcConfigurer {
             .allowedOrigins(allowedOrigins) // Angular app's origin
             .allowedMethods(allowedMethods) // HTTP methods
             .allowedHeaders(allowedHeaders) // Allow all headers
-            .allowCredentials(allowCredentials);
+            .allowCredentials(allowCredentials)
+            .maxAge(maxAge);
     }
 }
