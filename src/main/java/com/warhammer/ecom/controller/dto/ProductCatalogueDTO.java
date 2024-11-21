@@ -2,7 +2,12 @@ package com.warhammer.ecom.controller.dto;
 
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.model.ProductImage;
+import com.warhammer.ecom.model.ProductType;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class ProductCatalogueDTO {
 
     private Long id;
@@ -13,50 +18,12 @@ public class ProductCatalogueDTO {
 
     private Float unitPrice;
 
+    private ProductType productType;
+
     private ProductImage catalogueImg;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public Float getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(Float unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public ProductImage getCatalogueImg() {
-        return catalogueImg;
-    }
-
-    public void setCatalogueImg(ProductImage catalogueImg) {
-        this.catalogueImg = catalogueImg;
-    }
-
     public static ProductCatalogueDTO fromProduct(Product product) {
-        if(product == null) {
+        if (product == null) {
             return null;
         }
 
@@ -66,6 +33,7 @@ public class ProductCatalogueDTO {
         dto.setName(product.getName());
         dto.setStock(product.getStock());
         dto.setUnitPrice(product.getUnitPrice());
+        dto.setProductType(product.getProductType());
         dto.setCatalogueImg(product.getCatalogueImg());
 
         return dto;

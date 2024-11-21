@@ -22,6 +22,8 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 
 @Component
@@ -64,35 +66,36 @@ public class DatabaseInitializer {
             // Chargement des produits
             JsonNode jsonProductsArray = rootNode.get("products");
             List<Product> products = new ArrayList<>();
+            Hashtable<String, Product> productsImgsPrefixs = new Hashtable<>();
             for (JsonNode productJson : jsonProductsArray) {
                 int allegianceIndex = productJson.has("allegianceIndex") ? productJson.get("allegianceIndex").asInt() : -1;
 
                 Product product = objectMapper.convertValue(productJson, Product.class);
                 if (allegianceIndex > -1) {
                     product.setAllegiance(allegiances.get(allegianceIndex));
+                } else {
+                    product.setAllegiance(allegianceService.getEmptyAllegiance());
                 }
                 product.setImages(new ArrayList<>());
                 products.add(productService.create(product));
+                productsImgsPrefixs.put(productJson.get("imgsPrefix").asText(), product);
             }
 
             // Chargement des images des produits
-            JsonNode productsImagesArray = rootNode.get("productsImages");
-            Path tempFile = Files.createTempFile("productImage", ".jpg");
-            for (JsonNode productImageNode : productsImagesArray) {
-                int productIndex = productImageNode.get("productIndex").asInt();
-                Product product = products.get(productIndex);
-                String name = productImageNode.get("name").asText();
-                String description = productImageNode.get("description").asText();
-                boolean isCatalogueImage = productImageNode.has("catalogueImg") && productImageNode.get("catalogueImg").asBoolean();
+            Path productImgsDirPath = Path.of(getClass().getClassLoader().getResource("dev/productImages").toURI());
+            Iterator<Path> paths = Files.list(productImgsDirPath).iterator();
+            while (paths.hasNext()) {
+                Path path = paths.next();
+                String filename = path.getFileName().toString();
+                String name = filename.substring(0, filename.indexOf('.'));
+                String prefix = name.substring(0, name.lastIndexOf('_'));
 
-                InputStream imgInputStream = getClass().getClassLoader().getResourceAsStream("dev/productImages/" + name);
-                Files.copy(imgInputStream, tempFile, StandardCopyOption.REPLACE_EXISTING);
-                inputStream.close();
+                Product p = productsImgsPrefixs.get(prefix);
+                boolean isCatalogueImage = name.contains("0");
 
-                MultipartFile multipartFile = new ImgMultipartFile(tempFile.toFile(), name);
-                productImageService.create(multipartFile, product.getId(), description, isCatalogueImage);
+                MultipartFile multipartFile = new ImgMultipartFile(path.toFile(), filename);
+                productImageService.create(multipartFile, p.getId(), "", isCatalogueImage);
             }
-            Files.deleteIfExists(tempFile);
 
             // Chargement des utilisateurs
             List<User> users = objectMapper.convertValue(rootNode.get("users"), new TypeReference<List<User>>() {
