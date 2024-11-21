@@ -771,6 +771,276 @@
       "productType": "RULES_AND_CODEX",
       "allegianceIndex": 10,
       "imgsPrefix": "codex_necrons"
+    },
+    {
+      "name": "Hexwraith Flame",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1348,
+      "releaseDate": "1993-04-23",
+      "productType": "PAINT",
+      "imgsPrefix": "hexwraith_flame"
+    },
+    {
+      "name": "Magmadroth Flame",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2134,
+      "releaseDate": "1992-04-14",
+      "productType": "PAINT",
+      "imgsPrefix": "magmadroth_flame"
+    },
+    {
+      "name": "Baal red",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 3120,
+      "releaseDate": "1992-07-04",
+      "productType": "PAINT",
+      "imgsPrefix": "baal_red"
+    },
+    {
+      "name": "Doomfire magenta",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1410,
+      "releaseDate": "1991-01-08",
+      "productType": "PAINT",
+      "imgsPrefix": "doomfire_magenta"
+    },
+    {
+      "name": "Dreadful visage",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2134,
+      "releaseDate": "1990-02-14",
+      "productType": "PAINT",
+      "imgsPrefix": "dreadful_visage"
+    },
+    {
+      "name": "Sigvald Burgundye",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1245,
+      "releaseDate": "1992-03-24",
+      "productType": "PAINT",
+      "imgsPrefix": "sigvald_burgundye"
+    },
+    {
+      "name": "Luxion purple",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1867,
+      "releaseDate": "1992-08-21",
+      "productType": "PAINT",
+      "imgsPrefix": "luxion_purple"
+    },
+    {
+      "name": "Stormfiend",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2013,
+      "releaseDate": "1992-07-11",
+      "productType": "PAINT",
+      "imgsPrefix": "stormfiend"
+    },
+    {
+      "name": "Celestium Blue",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1228,
+      "releaseDate": "1993-01-21",
+      "productType": "PAINT",
+      "imgsPrefix": "celestium_blue"
+    },
+    {
+      "name": "Asurmen Blue",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1389,
+      "releaseDate": "1994-01-21",
+      "productType": "PAINT",
+      "imgsPrefix": "asurmen_blue"
+    },
+    {
+      "name": "Pylar glacier",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2011,
+      "releaseDate": "1994-02-14",
+      "productType": "PAINT",
+        "imgsPrefix": "pylar_glacier"
+    },
+    {
+      "name": "Frostheart",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1424,
+      "releaseDate": "1990-01-04",
+      "productType": "PAINT",
+      "imgsPrefix": "frostheart"
+    },
+    {
+      "name": "Briar queen chill",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 978,
+      "releaseDate": "1993-01-29",
+      "productType": "PAINT",
+      "imgsPrefix": "briar_queen_chill"
+    },
+    {
+      "name": "Imperial fist",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1104,
+      "releaseDate": "1997-10-11",
+      "productType": "PAINT",
+      "imgsPrefix": "imperial_fist"
+    },
+    {
+      "name": "Ironjawz Yellow",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2034,
+      "releaseDate": "1990-04-12",
+      "productType": "PAINT",
+      "imgsPrefix": "ironjawz_yellow"
+    },
+    {
+      "name": "Striking scorpion green",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2141,
+      "releaseDate": "1991-10-25",
+      "productType": "PAINT",
+      "imgsPrefix": "striking_scorpion_green"
+    },
+    {
+      "name": "Karandras green",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1024,
+      "releaseDate": "1991-11-24",
+      "productType": "PAINT",
+      "imgsPrefix": "karandras_green"
+    },
+    {
+      "name": "Gutrippa flesh",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1415,
+      "releaseDate": "1993-05-30",
+      "productType": "PAINT",
+      "imgsPrefix": "gutrippa_flesh"
+    },
+    {
+      "name": "Aeldari emerald",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 978,
+      "releaseDate": "1991-12-10",
+      "productType": "PAINT",
+      "imgsPrefix": "aeldari_emerald"
+    },
+    {
+      "name": "Mantis warriors green",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2341,
+      "releaseDate": "1995-04-18",
+      "productType": "PAINT",
+      "imgsPrefix": "mantis_warriors_green"
+    },
+    {
+      "name": "Black legion",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1452,
+      "releaseDate": "1992-03-27",
+      "productType": "PAINT",
+      "imgsPrefix": "black_legion"
+    },
+    {
+      "name": "Garaghak's sewer",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1459,
+      "releaseDate": "1991-05-09",
+      "productType": "PAINT",
+      "imgsPrefix": "garaghak_sewer"
+    },
+    {
+      "name": "Fuegan orange",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2034,
+      "releaseDate": "1995-06-04",
+      "productType": "PAINT",
+      "imgsPrefix": "fuegan_orange"
+    },
+    {
+      "name": "Druchii violet",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1457,
+      "releaseDate": "1992-09-17",
+      "productType": "PAINT",
+      "imgsPrefix": "druchii_violet"
+    },
+    {
+      "name": "Cassandra yellow",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1368,
+      "releaseDate": "199",
+      "productType": "PAINT",
+      "imgsPrefix": "cassandra_yellow"
+    },
+    {
+      "name": "Carroburg crimson",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1244,
+      "releaseDate": "1996-07-14",
+      "productType": "PAINT",
+      "imgsPrefix": "carroburg_crimson"
+    },
+    {
+      "name": "Seraphim sepia",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2106,
+      "releaseDate": "1993-04-19",
+      "productType": "PAINT",
+      "imgsPrefix": "seraphim_sepia"
+    },
+    {
+      "name": "Drakenhof nightshade",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1542,
+      "releaseDate": "1997-06-18",
+      "productType": "PAINT",
+      "imgsPrefix": "darkenhof_nightshade"
+    },
+    {
+      "name": "Athonian camoshade",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1748,
+      "releaseDate": "1993-06-14",
+      "productType": "PAINT",
+      "imgsPrefix": "athonian_camoshade"
+    },
+    {
+      "name": "Agrax earthshade",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2156,
+      "releaseDate": "1993-04-08",
+      "productType": "PAINT",
+      "imgsPrefix": "agrax_earthshade"
     }
   ],
   "users": [
