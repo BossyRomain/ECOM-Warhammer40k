@@ -18,13 +18,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.net.URL;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Component
 public class DatabaseInitializer {
@@ -82,20 +83,41 @@ public class DatabaseInitializer {
             }
 
             // Chargement des images des produits
-            Path productImgsDirPath = Path.of(getClass().getClassLoader().getResource("dev/productImages").toURI());
-            Iterator<Path> paths = Files.list(productImgsDirPath).iterator();
-            while (paths.hasNext()) {
-                Path path = paths.next();
-                String filename = path.getFileName().toString();
-                String name = filename.substring(0, filename.indexOf('.'));
-                String prefix = name.substring(0, name.lastIndexOf('_'));
 
-                Product p = productsImgsPrefixs.get(prefix);
-                boolean isCatalogueImage = name.contains("0");
 
-                MultipartFile multipartFile = new ImgMultipartFile(path.toFile(), filename);
-                productImageService.create(multipartFile, p.getId(), "", isCatalogueImage);
-            }
+            final String dir = "dev/productImages";
+            URL url = getClass().getClassLoader().getResource(dir);
+            Path productImgsDirPath = Path.of(url.toURI());
+            Stream<Path> paths = Files.walk(productImgsDirPath);
+            paths.filter(Files::isRegularFile)
+                .forEach(path -> {
+                    try {
+                        String filename = path.getFileName().toString();
+                        String name = filename.substring(0, filename.indexOf('.'));
+                        String prefix = name.substring(0, name.lastIndexOf('_'));
+                        String extension = filename.substring(filename.indexOf('.'));
+
+                        Product p = productsImgsPrefixs.get(prefix);
+                        boolean isCatalogueImage = name.contains("0");
+
+                        InputStream in = getClass().getClassLoader().getResourceAsStream(dir + "/" + filename);
+                        File tempFile = Files.createTempFile("temp", extension).toFile();
+                        FileOutputStream outputStream = new FileOutputStream(tempFile, false);
+                        byte[] buffer = new byte[8192];
+                        int read = 0;
+                        while((read = in.read(buffer)) != -1) {
+                            outputStream.write(buffer, 0, read);
+                        }
+                        outputStream.close();
+                        in.close();
+
+                        MultipartFile multipartFile = new ImgMultipartFile(tempFile, filename);
+                        productImageService.create(multipartFile, p.getId(), "", isCatalogueImage);
+
+                        tempFile.delete();
+                    } catch (IOException ignore) {
+                    }
+                });
 
             // Chargement des utilisateurs
             List<User> users = objectMapper.convertValue(rootNode.get("users"), new TypeReference<List<User>>() {
