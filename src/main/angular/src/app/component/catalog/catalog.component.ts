@@ -34,7 +34,6 @@ export class CatalogComponent implements OnInit {
         console.error('Erreur lors de la récupération des produits:', error);  // Gestion des erreurs
       }
     );
-    console.log("AAAAAAAAA\nAAAAA\n\nAAAAA\nAAAAA\nAAAAA\nAAAAAAAAAA\nAAAAA\nAAAAA\nAAAAA\nAAAAAAAAAAAAAAAAAAA\nAAAAAA")
   }
 
   loadCatalog(): void {

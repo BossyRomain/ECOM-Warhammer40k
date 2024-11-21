@@ -49,8 +49,36 @@ export class ProductServiceService {
     return this.http.get<ProductCatalog[]>(url).pipe(
       map((response: any) => {
         console.log('Réponse de l\'API:', response);
-        return response;
+        return response.content.map((item: any) => ({
+          id: item.id,
+          name: item.name,
+          stock: item.stock,
+          unitPrice: item.unitPrice,
+          productType: item.productType,
+          catalogueImg: {
+            url: item.catalogueImg.url, 
+            altText: item.catalogueImg.altText
+          }
+        }));
       })
     );
   }
+
+
+  private mapResponseToProductCatalog(response: any): ProductCatalog[] {
+    // Vérifiez si les données existent et effectuez une transformation prudente
+    return response?.content?.map((item: any) => ({
+      id: item.id,
+      name: item.name,
+      stock: item.stock,
+      unitPrice: item.unitPrice,
+      productType: item.productType,
+      catalogueImg: {
+        url: item.catalogueImg.url, // Vérification des sous-propriétés
+        altText: item.catalogueImg.altText
+      }
+    })); // Retourne un tableau vide si le contenu est nul ou indéfini
+  }
+
+
 }
