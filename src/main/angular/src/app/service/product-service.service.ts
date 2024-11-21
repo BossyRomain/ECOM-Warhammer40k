@@ -31,7 +31,7 @@ export class ProductServiceService {
             id:body.id, 
             name:body.name, 
             stock: body.stock, 
-            price: body.price, 
+            price: body.unitPrice, 
             url:body.url, 
             description:body.description, 
             images:array

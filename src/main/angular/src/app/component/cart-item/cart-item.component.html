@@ -1,9 +1,14 @@
 <div class="item-cart" *ngIf="commandLine != undefined; else other_content">
-
-    <img src={{commandLine.product.images[0].url}} />
-    <div class="name">{{commandLine.product.name}}</div>
-    <div class="quantity">{{commandLine.quantity}}</div>
-    <div class="price">{{commandLine.product.price}}</div>
+    <div class="right-block">
+        <img src={{commandLine.product.images[0].url}}/>
+        <div class="name">{{commandLine.product.name}}</div>
+    </div>
+    <div class="left-block">
+        <input class="amount" type="number" value={{commandLine.quantity}} maxlength="3" [min]="0" [step]="1"/>
+        <div>{{commandLine.product.price | number: "1.2-2"}}€</div>
+    </div>
+    
+    
     
 </div>
 <ng-template #other_content>other content here...</ng-template>

@@ -60,9 +60,11 @@ export class ProductSheetComponent implements OnInit {
 
     public getObjectById(id:number): void{
       console.log("Get object " + id);
+      
       this.allImages = [];
       this.productService.getProductById(id).subscribe( 
         value => {
+          console.log(value);
           this.id = value.id;
           this.productName = value.name;
           this.price = value.price;

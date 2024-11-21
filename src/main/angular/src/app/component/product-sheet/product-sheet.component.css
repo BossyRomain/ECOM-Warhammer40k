@@ -3,13 +3,15 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
      /* Full viewport height to center in the middle */
-    
+    margin-bottom: 1vh;
   }
   
   .image-container img {
     /* Scale the image if it's too large */
     height: auto; /* Maintain aspect ratio */
     width: 50%;
+    margin-right: 10px;            /* Espace entre les images */
+    border-radius: 8px;
   }
   
   .description-container{
@@ -54,11 +56,14 @@
   .product-card {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100%;
+    height: 100%;
+    width: 100vw;
+    margin: 5px;
     border: 10px grey;
     border-radius: 10px;
     box-shadow: 0 0 0 3px black;
+    margin-top: 35%;
+    
   }
 
   .image-gallery {
@@ -66,18 +71,16 @@
     justify-content: center; /* Center horizontally */
     align-items: center;
     white-space: nowrap;           /* Garde tout sur une seule ligne */
-    overflow-x: auto;              /* Active le défilement horizontal */
+    overflow-x: scroll;              /* Active le défilement horizontal */
     max-width: 100%;               /* Limite la largeur du conteneur */
-    margin-top: 5%;
-    margin-bottom: 5%;
                      /* Marge interne pour un meilleur style */
   }
   
   .image-gallery img {
             /* Affiche chaque image en ligne */
           /* Limite chaque image à environ 25% de la largeur, en tenant compte de l'espacement */
-    width: 10vh;
-    height: 10vh;           /* Fixe une largeur max pour limiter la taille des images */
+    width: 100px;
+    height: 100px;           /* Fixe une largeur max pour limiter la taille des images */
     margin-right: 10px;            /* Espace entre les images */
     border-radius: 8px;            /* Ajoute des bords arrondis */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère pour l'esthétique */

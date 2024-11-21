@@ -1,4 +1,4 @@
-<div class="product-card">
+<div class="product-card" (click)="detailedProduct(article.id)" >
     <div class="image-container">
       <img class = "productImage" src={{article.catalogueImg.url}} alt="Photo of a Shiba Inu">
       @if(article.stock == 0){
@@ -15,7 +15,7 @@
   
     <div class="price-image-container">
       <span class="product-price"> {{ article.unitPrice}}€</span>
-      <button class="cart-button" onClick="Click()"></button>
+      <button class="cart-button" (click)="addCart(article.id); $event.stopPropagation();"></button>
     </div>
   </div>
   

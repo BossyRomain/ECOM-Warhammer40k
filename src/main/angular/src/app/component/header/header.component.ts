@@ -9,14 +9,25 @@ import { Router } from '@angular/router';
   standalone:true,
   imports:[CommonModule]
 })
+  
+  
 export class HeaderComponent {
-  constructor(private router:Router){}
-  onClick(text:string){
-    let x = parseInt(text);
-    this.router.navigate(['/product', x]);
+  
+  constructor(private router: Router) { }
+  
+  public access_account() {
+    this.router.navigate(["/account"]);
   }
 
-  accesToCart(){
-    this.router.navigate(['/cart', 0])
+  public burger_menu() {
+    this.router.navigate(["/product", 0]);
   }
+
+  public accesToCart() {
+    this.router.navigate(['/cart', 0]);
+  }
+  public search(searchText: string) {
+    
+  }
+
 }

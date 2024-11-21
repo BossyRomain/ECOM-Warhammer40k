@@ -1,25 +1,29 @@
 .item-cart {
     display: flex;
+    justify-content: space-between;
     width: 100vw;
+    background-color: aqua;
 }
 
-.item-cart img {
+.right-block img {
+    display: flex;
     height: 10vw;
     width: 10vw;
 }
 
-.item-cart div.name{
+.right-block div{
     padding-left: 2ch;
 }
 
-.item-cart div.quantity{
+.left-block {
+    display: flex;
     text-align: right;
-    padding-left: 2ch;
+    justify-content: space-between;
 }
 
-.item-cart div.price{
-    text-align: right;
-    padding-left: 2ch;
+.amount {
+    max-height: 1ch;
+    min-height: 1ch;
 }
 
 
