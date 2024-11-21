@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
-import java.net.URL;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.time.LocalDate;
@@ -83,12 +82,8 @@ public class DatabaseInitializer {
             }
 
             // Chargement des images des produits
-
-
             final String dir = "dev/productImages";
-            URL url = getClass().getClassLoader().getResource(dir);
-            Path productImgsDirPath = Path.of(url.toURI());
-            Stream<Path> paths = Files.walk(productImgsDirPath);
+            Stream<Path> paths = Files.walk(Path.of(getClass().getClassLoader().getResource(dir).toURI()));
             paths.filter(Files::isRegularFile)
                 .forEach(path -> {
                     try {
@@ -101,14 +96,7 @@ public class DatabaseInitializer {
                         boolean isCatalogueImage = name.contains("0");
 
                         InputStream in = getClass().getClassLoader().getResourceAsStream(dir + "/" + filename);
-                        File tempFile = Files.createTempFile("temp", extension).toFile();
-                        FileOutputStream outputStream = new FileOutputStream(tempFile, false);
-                        byte[] buffer = new byte[8192];
-                        int read = 0;
-                        while((read = in.read(buffer)) != -1) {
-                            outputStream.write(buffer, 0, read);
-                        }
-                        outputStream.close();
+                        File tempFile = inputStreamToFile(in, extension);
                         in.close();
 
                         MultipartFile multipartFile = new ImgMultipartFile(tempFile, filename);
@@ -166,6 +154,19 @@ public class DatabaseInitializer {
             });
         } catch (IOException e) {
         }
+    }
+
+    private File inputStreamToFile(InputStream inputStream, String extension) throws IOException {
+        File tempFile = Files.createTempFile("temp", extension).toFile();
+        FileOutputStream outputStream = new FileOutputStream(tempFile, false);
+        byte[] buffer = new byte[8192];
+        int read;
+        while((read = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, read);
+        }
+        outputStream.close();
+        inputStream.close();
+        return tempFile;
     }
 
     private static class ImgMultipartFile implements MultipartFile {
