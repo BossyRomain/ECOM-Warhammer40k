@@ -14,6 +14,9 @@ import java.util.List;
 @Transactional
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
+    @Query("SELECT p FROM Product p WHERE lower(p.name) LIKE concat('%', lower(:query), '%')")
+    Page<Product> searchByName(Pageable pageable, String query);
+
     @Query("SELECT p FROM Product p WHERE " +
         "p.unitPrice >= :minPrice AND p.unitPrice <= :maxPrice " +
         "AND (:productTypes IS NULL OR p.productType IN :productTypes) " +

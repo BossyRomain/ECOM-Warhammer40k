@@ -46,6 +46,15 @@ public class ProductController {
         return productService.getAllWithFilters(page, size, minprice, maxprice, productTypes, groups, factions).map(ProductCatalogueDTO::fromProduct);
     }
 
+    @GetMapping("/search")
+    public Page<ProductCatalogueDTO> searchProducts(
+        @RequestParam(name = "page", defaultValue = "0") int page,
+        @RequestParam(name = "size", defaultValue = "10") int size,
+        @RequestParam("query") String query
+    ) {
+        return productService.search(page, size, query).map(ProductCatalogueDTO::fromProduct);
+    }
+
     @GetMapping("")
     public Page<Product> getProducts(
         @RequestParam(name = "page", defaultValue = "0") int page,

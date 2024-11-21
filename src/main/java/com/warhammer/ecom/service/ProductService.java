@@ -19,8 +19,14 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    private final Sort DEFAULT_SORT = Sort.by(Sort.Direction.DESC, "releaseDate");
+
+    public Page<Product> search(int page, int size, String query) {
+        return productRepository.searchByName(PageRequest.of(page, size, DEFAULT_SORT), query);
+    }
+
     public Page<Product> getAllWithFilters(int page, int size, float minPrice, float maxPrice, List<String> productTypes, List<String> groups, List<String> factions) {
-        return productRepository.findFiltered(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "releaseDate")), minPrice, maxPrice, productTypes, groups, factions);
+        return productRepository.findFiltered(PageRequest.of(page, size, DEFAULT_SORT), minPrice, maxPrice, productTypes, groups, factions);
     }
 
     public Page<Product> getAll(int page, int size) {
