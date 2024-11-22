@@ -20,6 +20,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE " +
         "p.unitPrice >= :minPrice AND p.unitPrice <= :maxPrice " +
         "AND (:productTypes IS NULL OR p.productType IN :productTypes) " +
-        "AND (:groups IS NULL OR p.allegiance.group IN :groups OR (:factions IS NOT NULL AND p.allegiance.faction IN :factions))")
-    Page<Product> findFiltered(Pageable pageable, float minPrice, float maxPrice, List<String> productTypes, List<String> groups, List<String> factions);
+        "AND ((:filterGroups = FALSE AND :filterFactions = FALSE) OR " +
+        "(:filterGroups = TRUE AND (p.allegiance.group IN :groups OR (:filterFactions = TRUE AND p.allegiance.faction IN :factions))) OR " +
+        "(:filterFactions = TRUE AND p.allegiance.faction IN :factions)" +
+        ")")
+    Page<Product> findFiltered(Pageable pageable, float minPrice, float maxPrice, List<String> productTypes,
+                               boolean filterGroups, List<String> groups, boolean filterFactions, List<String> factions);
 }

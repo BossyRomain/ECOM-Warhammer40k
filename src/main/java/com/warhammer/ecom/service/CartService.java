@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -23,6 +22,9 @@ public class CartService {
 
     @Autowired
     private CartRepository cartRepository;
+
+    @Autowired
+    private ProductService productService;
 
     @Autowired
     private CommandLineRepository commandLineRepository;
@@ -36,36 +38,60 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
-    public CommandLine addProduct(Client client, Product product) {
+    public CommandLine addProduct(Client client, Product product) throws IllegalArgumentException {
+        return addProduct(client, product, 1);
+    }
+
+    public CommandLine addProduct(Client client, Product product, int quantity) throws IllegalArgumentException {
+        if (quantity > product.getStock()) {
+            throw new IllegalArgumentException("Quantity exceeds stock");
+        } else if (quantity <= 0) {
+            throw new IllegalArgumentException("Quantity must be superior to zero");
+        }
+
+        if (client.getCurrentCart().getCommandLines().stream().anyMatch(cl -> cl.getProduct().equals(product))) {
+            throw new IllegalArgumentException("Product already in the client cart");
+        }
+
         CommandLine commandLine = new CommandLine();
         commandLine.setProduct(product);
         commandLine.setCommand(client.getCurrentCart());
-        commandLine.setQuantity(1);
+        commandLine.setQuantity(quantity);
 
-        return commandLineRepository.save(commandLine);
+        commandLine = commandLineRepository.save(commandLine);
+        client.getCurrentCart().getCommandLines().add(commandLine);
+        return commandLine;
     }
 
     public void setProductQuantity(Client client, Product product, int quantity) throws NoSuchElementException {
-        CommandLine commandLine = commandLineRepository.findByClientAndProduct(client.getId(), product.getId()).orElseThrow(NoSuchElementException::new);
+        CommandLine commandLine = getCommandLine(client, product);
         commandLine.setQuantity(quantity);
-        commandLineRepository.save(commandLine);
     }
 
     public void removeProduct(Client client, Product product) throws NoSuchElementException {
-        CommandLine commandLine = commandLineRepository.findByClientAndProduct(client.getId(), product.getId()).orElseThrow(NoSuchElementException::new);
-
-        Collection<CommandLine> lines = commandLine.getCommand().getCommandLines();
-        lines.remove(commandLine);
-        commandLine.getCommand().setCommandLines(lines);
-        cartRepository.save(commandLine.getCommand());
+        CommandLine commandLine = getCommandLine(client, product);
+        commandLine.getCommand().getCommandLines().remove(commandLine);
         commandLineRepository.delete(commandLine);
     }
 
     public void pay(Client client) throws NoSuchElementException {
         Cart currentCart = client.getCurrentCart();
 
+        // Check products' stocks are enough
+        for (CommandLine commandLine : currentCart.getCommandLines()) {
+            if (commandLine.getQuantity() > commandLine.getProduct().getStock()) {
+                throw new RuntimeException("Not enough stock for this product: " + commandLine.getProduct().getName());
+            }
+        }
+
         cartRepository.pay(currentCart.getId(), Timestamp.valueOf(LocalDate.now().atStartOfDay()));
         cartRepository.save(currentCart);
+
+        for (CommandLine commandLine : currentCart.getCommandLines()) {
+            Product product = commandLine.getProduct();
+            product.setStock(product.getStock() - commandLine.getQuantity());
+            productService.update(product);
+        }
 
         // Create a new unpaid cart
         Cart newCart = new Cart();
@@ -79,5 +105,19 @@ public class CartService {
 
     public List<Cart> getClientCommands(Client client) throws NoSuchElementException {
         return client.getCarts().stream().toList();
+    }
+
+    private CommandLine getCommandLine(Client client, Product product) throws NoSuchElementException {
+        Cart cart = client.getCurrentCart();
+        int i = 0;
+        while (i < cart.getCommandLines().size() && !cart.getCommandLines().get(i).getProduct().equals(product)) {
+            i++;
+        }
+
+        if (i == cart.getCommandLines().size()) {
+            throw new NoSuchElementException();
+        }
+
+        return cart.getCommandLines().get(i);
     }
 }
