@@ -17,7 +17,7 @@ export class ProductServiceService {
   }
 
   private apiUrl = environment.apiUrl;
-
+  private maxPages:number = 0;
   public getProductById(id: number): Observable<Product> {
     console.log(`${this.apiUrl}/api/products/${id}`);
     return this.http.get(`${this.apiUrl}/api/products/${id}`)
@@ -74,6 +74,7 @@ export class ProductServiceService {
     return this.http.get<ProductCatalog[]>(url).pipe(
       map((response: any) => {
         console.log('Réponse de l\'API:', response);
+        this.maxPages= response.totalPages;
         return response.content.map((item: any) => ({
           id: item.id,
           name: item.name,
@@ -103,6 +104,10 @@ export class ProductServiceService {
         altText: item.catalogueImg.altText
       }
     })); // Retourne un tableau vide si le contenu est nul ou indéfini
+  }
+
+  public getMaxPages():number{
+    return this.maxPages;
   }
 
 

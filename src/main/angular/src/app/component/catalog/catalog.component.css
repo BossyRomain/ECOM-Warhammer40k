@@ -1,9 +1,64 @@
 
+.catalog{
+    margin-top:33%;
+    margin-bottom: 10%;
+}
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Crée deux colonnes de même largeur */
-    gap: 20px; /* Espacement entre les éléments */
-    margin-top:33%;
-    margin-bottom: 10%;
-    
+    gap: 20px; /* Espacement entre les éléments */  
+}
+
+
+.pagination {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espacement entre les éléments */
+}
+
+.pagination-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-btn img {
+    width: 20px; 
+    height: auto;
+}
+
+
+.page-input {
+    width: 30px;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.page-input::-webkit-outer-spin-button,
+.page-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.page-input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.page-input::-ms-clear {
+    display: none;
+}
+
+.page-input:focus {
+    outline: none;
+    border-color: #007bff;
 }

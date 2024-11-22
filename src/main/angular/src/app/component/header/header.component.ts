@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CatalogComponent } from '../catalog/catalog.component';
 
 @Component({
@@ -14,7 +14,7 @@ import { CatalogComponent } from '../catalog/catalog.component';
   
 export class HeaderComponent {
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute:ActivatedRoute) { }
   
   public access_account() {
     this.router.navigate(["/account"]);
@@ -28,7 +28,7 @@ export class HeaderComponent {
     this.router.navigate(['/cart', 0]);
   }
   public search(searchText: string) {
-    this.router.navigate(["/catalog/search", searchText]);
+    this.router.navigate(["/catalog/search"], {relativeTo: this.activatedRoute, queryParams: {search:searchText, page:0}, });
     
   }
 

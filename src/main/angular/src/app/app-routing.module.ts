@@ -8,10 +8,10 @@ import { CartComponent } from './component/cart/cart.component';
 
 const routes: Routes = [
   { path: "product/:id", component: ProductSheetComponent },
-  { path: "catalog", component: CatalogComponent },
+  { path: "catalog/:id", component: CatalogComponent },
   { path: "account", component: ConnectionComponent },
   { path: "cart/:id", component: CartComponent },
-  { path: "catalog/search/:query", component: CatalogComponent},
+  { path: "catalog/search", component: CatalogComponent},
   { path: '**', redirectTo: "catalog"}
 ];
 
