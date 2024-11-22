@@ -18,7 +18,6 @@
 .left-block {
     display: flex;
     text-align: right;
-    justify-content: space-between;
 }
 
 .amount {
