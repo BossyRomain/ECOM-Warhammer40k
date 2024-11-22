@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,20 +19,18 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Page<Product> getAllWithFilters(int page, int size, float minPrice, float maxPrice, List<String> productTypes, List<String> factions) {
-        Page<Product> products = productRepository.findFiltered(PageRequest.of(page, size), minPrice, maxPrice, productTypes);
+    private final Sort DEFAULT_SORT = Sort.by(Sort.Direction.DESC, "releaseDate");
 
-//        if (factions != null) {
-//            List<Product> filteredProducts = products.stream()
-//                .filter(product -> {
-//                    String faction = product.getAllegiance() != null ? product.getAllegiance().getFaction().name() : "";
-//                    return product.getAllegiance() != null && factions.contains(product.getAllegiance().getFaction().name());
-//                })
-//                .collect(Collectors.toList());
-//            products = new PageImpl<>(filteredProducts, products.getPageable(), products.getTotalElements());
-//        }
+    public Page<Product> search(int page, int size, String query) {
+        return productRepository.searchByName(PageRequest.of(page, size, DEFAULT_SORT), query);
+    }
 
-        return products;
+    public Page<Product> getAllWithFilters(int page, int size, float minPrice, float maxPrice,
+                                           List<String> productTypes, List<String> groups, List<String> factions) {
+        boolean filterGroups = groups != null;
+        boolean filterFactions = factions != null;
+        return productRepository.findFiltered(PageRequest.of(page, size, DEFAULT_SORT),
+            minPrice, maxPrice, productTypes, filterGroups, groups, filterFactions, factions);
     }
 
     public Page<Product> getAll(int page, int size) {

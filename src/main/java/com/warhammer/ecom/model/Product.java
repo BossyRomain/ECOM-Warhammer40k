@@ -32,7 +32,7 @@ public class Product {
 
     private Timestamp releaseDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "allegiance_id", nullable = true)
     private Allegiance allegiance;
 
@@ -46,4 +46,16 @@ public class Product {
     @JoinColumn(name = "COLOR_FK", nullable = true)
     private Color color;
 
+    public Allegiance getAllegiance() {
+        return allegiance.getFaction() == Faction.NONE || allegiance.getGroup() == Group.NONE ? null : allegiance;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Product) {
+            Product product = (Product) obj;
+            return id.equals(product.getId());
+        }
+        return false;
+    }
 }

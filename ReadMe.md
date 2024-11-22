@@ -16,7 +16,7 @@ Sur Linux:
 
 Sur Windows:
 
-      java --spring.profiles.active=dev --dev.resources=/chemin absolu vers le dossier dev-resources --angular.assets=/chemin absolu vers le dossier assets de l'application angular -jar /chemin/vers/le/jar
+      java --spring.profiles.active=dev --dev.resources=/chemin absoùlu vers le dossier dev-resources --angular.assets=/chemin absolu vers le dossier assets de l'application angular -jar /chemin/vers/le/jar
 
 ### Environnement de production
 

@@ -23,8 +23,8 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Component
 public class DatabaseInitializer {
@@ -73,6 +73,8 @@ public class DatabaseInitializer {
                 Product product = objectMapper.convertValue(productJson, Product.class);
                 if (allegianceIndex > -1) {
                     product.setAllegiance(allegiances.get(allegianceIndex));
+                } else {
+                    product.setAllegiance(allegianceService.getEmptyAllegiance());
                 }
                 product.setImages(new ArrayList<>());
                 products.add(productService.create(product));
@@ -80,20 +82,30 @@ public class DatabaseInitializer {
             }
 
             // Chargement des images des produits
-            Path productImgsDirPath = Path.of(getClass().getClassLoader().getResource("dev/productImages").toURI());
-            Iterator<Path> paths = Files.list(productImgsDirPath).iterator();
-            while (paths.hasNext()) {
-                Path path = paths.next();
-                String filename = path.getFileName().toString();
-                String name = filename.substring(0, filename.indexOf('.'));
-                String prefix = name.substring(0, name.lastIndexOf('_'));
+            final String dir = "dev/productImages";
+            Stream<Path> paths = Files.walk(Path.of(getClass().getClassLoader().getResource(dir).toURI()));
+            paths.filter(Files::isRegularFile)
+                .forEach(path -> {
+                    try {
+                        String filename = path.getFileName().toString();
+                        String name = filename.substring(0, filename.indexOf('.'));
+                        String prefix = name.substring(0, name.lastIndexOf('_'));
+                        String extension = filename.substring(filename.indexOf('.'));
 
-                Product p = productsImgsPrefixs.get(prefix);
-                boolean isCatalogueImage = name.contains("0");
+                        Product p = productsImgsPrefixs.get(prefix);
+                        boolean isCatalogueImage = name.contains("0");
 
-                MultipartFile multipartFile = new ImgMultipartFile(path.toFile(), filename);
-                productImageService.create(multipartFile, p.getId(), "", isCatalogueImage);
-            }
+                        InputStream in = getClass().getClassLoader().getResourceAsStream(dir + "/" + filename);
+                        File tempFile = inputStreamToFile(in, extension);
+                        in.close();
+
+                        MultipartFile multipartFile = new ImgMultipartFile(tempFile, filename);
+                        productImageService.create(multipartFile, p.getId(), "", isCatalogueImage);
+
+                        tempFile.delete();
+                    } catch (IOException ignore) {
+                    }
+                });
 
             // Chargement des utilisateurs
             List<User> users = objectMapper.convertValue(rootNode.get("users"), new TypeReference<List<User>>() {
@@ -142,6 +154,19 @@ public class DatabaseInitializer {
             });
         } catch (IOException e) {
         }
+    }
+
+    private File inputStreamToFile(InputStream inputStream, String extension) throws IOException {
+        File tempFile = Files.createTempFile("temp", extension).toFile();
+        FileOutputStream outputStream = new FileOutputStream(tempFile, false);
+        byte[] buffer = new byte[8192];
+        int read;
+        while((read = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, read);
+        }
+        outputStream.close();
+        inputStream.close();
+        return tempFile;
     }
 
     private static class ImgMultipartFile implements MultipartFile {

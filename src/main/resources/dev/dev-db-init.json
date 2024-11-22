@@ -1,15 +1,15 @@
 {
   "allegiances": [
     {
-      "group": "IMPERIUM",
+      "group": "SPACE_MARINES",
       "faction": "SPACE_MARINES"
     },
     {
-      "group": "IMPERIUM",
+      "group": "SPACE_MARINES",
       "faction": "DARK_ANGELS"
     },
     {
-      "group": "IMPERIUM",
+      "group": "SPACE_MARINES",
       "faction": "BLOOD_ANGELS"
     },
     {
@@ -81,7 +81,7 @@
       "name": "Romain Blood Angels Captain",
       "description": "Blood Angels Captains are mighty warriors, possessed of tactical and strategic genius. In keeping with their Chapter's culture, they go to war clad in finely wrought artificer armour and wielding an array of deadly relic weapons drawn from the Chapter's armoury.\n\nThis multipart plastic kit builds a Captain clad in the distinctive finery of the Blood Angels. The left arm wields a power fist, chainsword, or relic weapon. The right can hold a heavy bolt pistol or inferno pistol. There's an optional cloak, three head options, three sculpted shoulder pad icons, and two different toppers for the backpack. No matter how you've themed the rest of your army, this Captain is sure to look the part leading them.\n\nThis kit contains 29 plastic components, and 1x Citadel 40mm Round Base. This miniature is supplied unassembled and unpainted – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
       "unitPrice": 42.0,
-      "stock": 1,
+      "stock": 115,
       "releaseDate": "2001-10-18",
       "productType": "FIGURINE",
       "allegianceIndex": 2,
@@ -101,7 +101,7 @@
       "name": "Sanguinius, Primarch of the Blood Angels Legion",
       "description": "Often considered to be the greatest of his kin, Sanguinius is a peerless warrior, masterful strategist and beloved hero of the Imperium. Among the primarchs, there were few who would speak ill of him, with even grim figures such as Perturabo and Ferrus Manus offering grudging praise of their winged brother.\n\nMany among that legendary brotherhood were surprised to find that the Emperor named Horus as Warmaster, rather than choosing Sanguinius, and those who survived the Age of Darkness have been known to speculate that this was their father’s great mistake. For even as the wars of the Horus Heresy tore the Imperium apart and set even the noblest of his brothers on dark paths, Sanguinius remained untarnished and resolute, a beacon of hope that outshone even the darkness of that age.\n\nSanguinius is sculpted in the midst of battle, wings spread as he swoops down to deliver a killing blow to an unseen enemy. The model is held aloft by a spire of stone, giving the illusion of flight. Sanguinius' ornately designed armour, and the animal pelt he wears draped over it, provide a variety of textures and designs sure to delight painters, while his face is a mix of majesty and fury that perfectly reflects the duality of the Blood Angels Legion. A choice of weapons – the Blade Encarmine and the Spear of Telesto – allow the model to be customised as you choose.\n\nSanguinius, Primarch of the Blood Angels, is supplied in 26 resin components, including a choice of two weapons and a 40mm gaming base.\n\nRules for using Sanguinius in your games of Warhammer: The Horus Heresy can be found in Liber Astartes – Loyalist Legiones Astartes Army Book. This miniature is supplied unpainted and requires assembly – we recommend using Citadel paints.\n\nThis resin modelling kit is not a toy – it is a collectible item and construction should only be undertaken by expert Warhammer hobbyists aged 15 years and over.",
       "unitPrice": 155.0,
-      "stock": 1,
+      "stock": 26,
       "releaseDate": "2001-08-08",
       "productType": "FIGURINE",
       "allegianceIndex": 2,
@@ -669,6 +669,7 @@
       "stock": 124,
       "releaseDate": "2010-11-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 13,
       "imgsPrefix": "index_chaos_daemons"
     },
     {
@@ -678,6 +679,7 @@
       "stock": 25,
       "releaseDate": "2010-11-21",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 9,
       "imgsPrefix": "index_knight_households"
     },
     {
@@ -687,6 +689,7 @@
       "stock": 134,
       "releaseDate": "2010-04-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 4,
       "imgsPrefix": "index_aeldari"
     },
     {
@@ -696,6 +699,7 @@
       "stock": 154,
       "releaseDate": "2009-11-14",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 6,
       "imgsPrefix": "index_astra_militarum"
     },
     {
@@ -705,6 +709,7 @@
       "stock": 142,
       "releaseDate": "2010-02-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 2,
       "imgsPrefix": "codex_supplement_blood_angels"
     },
     {
@@ -714,6 +719,7 @@
       "stock": 114,
       "releaseDate": "2010-06-14",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 5,
       "imgsPrefix": "codex_chaos_space_marines"
     },
     {
@@ -723,6 +729,7 @@
       "stock": 210,
       "releaseDate": "2010-03-11",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 3,
       "imgsPrefix": "codex_tau_empire"
     },
     {
@@ -732,6 +739,7 @@
       "stock": 131,
       "releaseDate": "2010-03-25",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 11,
       "imgsPrefix": "codex_orks"
     },
     {
@@ -741,6 +749,7 @@
       "stock": 78,
       "releaseDate": "2010-07-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 0,
       "imgsPrefix": "codex_space_marines"
     },
     {
@@ -748,8 +757,9 @@
       "description": "The Tyranids are an all-consuming alien swarm from beyond the known galaxy. Driven by the vast and ineffable intellect of the Hive Mind, their tendrils drive into fresh systems with every passing hour. These single-minded metapredators cannot be reasoned with, bought off, or put to flight. They seek only to strip each new world they encounter, devouring every shred of biomass to feed the relentless advance of the hive fleets and leaving dead, airless husks in their wake.\n\nEndlessly adaptable, the Tyranids possess no mechanical technology. Instead, their weapons and wargear are symbiotic or parasitic organisms, bonded with their wielders and capable of annihilating prey with hails of bio-acid, living projectiles, and ravaging psionic energies. From seething masses of warrior organisms to malevolent leader-beasts and walking battle-tank-sized monsters, the Tyranid swarms are as nightmarish as they are unstoppable.\n\nThis book is an essential guide for anyone who wants to collect Tyranids and unleash the power of the Hive Mind on the tabletop. Inside these pages, you’ll find all the rules you need to play a Tyranids army in games of Warhammer 40,000 – including Crusade and Combat Patrol rules – along with detailed accounts of their rapacious behaviour, divergent hive fleets, horrifying biotechnology, and invasions past and present.\n\nInside this 120-page hardback book, you'll find:\n– In-depth background information exploring the alien nature and murky origins of the Tyranids, from their nightmarish biology to the history of the Tyrannic Wars\n– Stunning artwork highlighting the horrifying variety and vast scope of these ever-evolving xenos swarms\n– 47 datasheets detailing the profiles, wargear, and unique abilities of every Tyranids unit, from swarming Termagants to the mighty Norn Emissary\n– Six themed Detachments for Tyranids armies, such as the Invasion Fleet and Crusher Stampede, each with their own set of special rules\n– Crusade rules for infesting and consuming entire planets in your narrative campaigns, as your army feasts on its victims and develops new adaptations\n– Self-contained Combat Patrol rules and a painting guide, allowing you to play fast-paced games with the Vardenghast Swarm\n– An 'Eavy Metal showcase of superbly-painted Citadel miniatures to inspire you, featuring a variety of Tyranid hive fleet colour schemes\n\nThis book also contains a one-use code to unlock Codex: Tyranids content in Warhammer 40,000: The App.",
       "unitPrice": 37.0,
       "stock": 78,
-      "releaseDate": "2010-04-15",
+      "releaseDate": "2010-04-17",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 7,
       "imgsPrefix": "codex_tyranids"
     },
     {
@@ -757,9 +767,280 @@
       "description": "The Necrons are a deathless species of alien androids who dominated the galaxy in ages past. After millions of years in self-imposed slumber, they are rising from their hidden tomb complexes to march in conquest once more. Clad in self-repairing bodies of living metal, armed with weapons that harness the devastating energies of the cosmos, the Necrons are a terrifying enemy. They are without fear or mercy, soulless mechanoids who advance in eerie lockstep to lay down an annihilating storm.\n\nThese phalanxes are joined by techno-sorcerous war engines, scuttling constructs, and shards of shattered star gods, led to war by undying nobles with wills and bodies of unyielding metal, driven by the absolute conviction that they are the rightful rulers of the galaxy. Ravaged by their long sleep, many Necrons have been reduced to murderous monsters or delusional demigods. Yet their madness only makes them an even greater and more inescapable threat.\n\nCodex: Necrons is an essential guide for anyone who wants to collect Necrons and display the might of their phaeron on the tabletop. In this book you'll find the rules you need to play a Necrons army in games of Warhammer 40,000 – including narrative Crusade campaigns and Combat Patrol skirmishes – as well as detailed background material and stunning art showcasing their ancient origins, impossibly advanced technology, and dynastic courts.\n\nInside this 136-page hardback book, you’ll find:\n– Terrifying background information exploring the awakened Necrons, from their unfathomably ancient history to the structure of the tyrannical dynasties\n– Stunning artwork that brings these undying legions and ancient tomb worlds to life (of a sort)\n– 47 datasheets detailing the profiles, wargear, and unique abilities of every Necrons unit, from mindless Necron Warriors to Imotekh the Stormlord\n– Five themed Detachments for Necrons armies, such as the Annihilation Legion and Canoptek Court, each with their own set of special rules\n– Crusade rules for steadily awakening the systems of your slumbering tomb world, earning ever-greater mechanical powers\n– Self-contained Combat Patrol rules and a painting guide, allowing you to play fast-paced games with Amonhotekh's Guard\n– An 'Eavy Metal showcase of superbly-painted Citadel miniatures to inspire you, featuring a variety of Necron dynasty colour schemes\n\nThis book also contains a one-use code to unlock Codex: Necrons content in Warhammer 40,000: The App.",
       "unitPrice": 37.0,
       "stock": 78,
-      "releaseDate": "2010-04-15",
+      "releaseDate": "2010-01-15",
       "productType": "RULES_AND_CODEX",
+      "allegianceIndex": 10,
       "imgsPrefix": "codex_necrons"
+    },
+    {
+      "name": "Hexwraith Flame",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1348,
+      "releaseDate": "1993-04-23",
+      "productType": "PAINT",
+      "imgsPrefix": "hexwraith_flame"
+    },
+    {
+      "name": "Magmadroth Flame",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2134,
+      "releaseDate": "1992-04-14",
+      "productType": "PAINT",
+      "imgsPrefix": "magmadroth_flame"
+    },
+    {
+      "name": "Baal red",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 3120,
+      "releaseDate": "1992-07-04",
+      "productType": "PAINT",
+      "imgsPrefix": "baal_red"
+    },
+    {
+      "name": "Doomfire magenta",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1410,
+      "releaseDate": "1991-01-08",
+      "productType": "PAINT",
+      "imgsPrefix": "doomfire_magenta"
+    },
+    {
+      "name": "Dreadful visage",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2134,
+      "releaseDate": "1990-02-14",
+      "productType": "PAINT",
+      "imgsPrefix": "dreadful_visage"
+    },
+    {
+      "name": "Sigvald Burgundye",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1245,
+      "releaseDate": "1992-03-24",
+      "productType": "PAINT",
+      "imgsPrefix": "sigvald_burgundye"
+    },
+    {
+      "name": "Luxion purple",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1867,
+      "releaseDate": "1992-08-21",
+      "productType": "PAINT",
+      "imgsPrefix": "luxion_purple"
+    },
+    {
+      "name": "Stormfiend",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2013,
+      "releaseDate": "1992-07-11",
+      "productType": "PAINT",
+      "imgsPrefix": "stormfiend"
+    },
+    {
+      "name": "Celestium Blue",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1228,
+      "releaseDate": "1993-01-21",
+      "productType": "PAINT",
+      "imgsPrefix": "celestium_blue"
+    },
+    {
+      "name": "Asurmen Blue",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1389,
+      "releaseDate": "1994-01-21",
+      "productType": "PAINT",
+      "imgsPrefix": "asurmen_blue"
+    },
+    {
+      "name": "Pylar glacier",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2011,
+      "releaseDate": "1994-02-14",
+      "productType": "PAINT",
+      "imgsPrefix": "pylar_glacier"
+    },
+    {
+      "name": "Frostheart",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1424,
+      "releaseDate": "1990-01-04",
+      "productType": "PAINT",
+      "imgsPrefix": "frostheart"
+    },
+    {
+      "name": "Briar queen chill",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 978,
+      "releaseDate": "1993-01-29",
+      "productType": "PAINT",
+      "imgsPrefix": "briar_queen_chill"
+    },
+    {
+      "name": "Imperial fist",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1104,
+      "releaseDate": "1997-10-11",
+      "productType": "PAINT",
+      "imgsPrefix": "imperial_fist"
+    },
+    {
+      "name": "Ironjawz Yellow",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2034,
+      "releaseDate": "1990-04-12",
+      "productType": "PAINT",
+      "imgsPrefix": "ironjawz_yellow"
+    },
+    {
+      "name": "Striking scorpion green",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2141,
+      "releaseDate": "1991-10-25",
+      "productType": "PAINT",
+      "imgsPrefix": "striking_scorpion_green"
+    },
+    {
+      "name": "Karandras green",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1024,
+      "releaseDate": "1991-11-24",
+      "productType": "PAINT",
+      "imgsPrefix": "karandras_green"
+    },
+    {
+      "name": "Gutrippa flesh",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1415,
+      "releaseDate": "1993-05-30",
+      "productType": "PAINT",
+      "imgsPrefix": "gutrippa_flesh"
+    },
+    {
+      "name": "Aeldari emerald",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 978,
+      "releaseDate": "1991-12-10",
+      "productType": "PAINT",
+      "imgsPrefix": "aeldari_emerald"
+    },
+    {
+      "name": "Mantis warriors green",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2341,
+      "releaseDate": "1995-04-18",
+      "productType": "PAINT",
+      "imgsPrefix": "mantis_warriors_green"
+    },
+    {
+      "name": "Black legion",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1452,
+      "releaseDate": "1992-03-27",
+      "productType": "PAINT",
+      "imgsPrefix": "black_legion"
+    },
+    {
+      "name": "Garaghak's sewer",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1459,
+      "releaseDate": "1991-05-09",
+      "productType": "PAINT",
+      "imgsPrefix": "garaghak_sewer"
+    },
+    {
+      "name": "Fuegan orange",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2034,
+      "releaseDate": "1995-06-04",
+      "productType": "PAINT",
+      "imgsPrefix": "fuegan_orange"
+    },
+    {
+      "name": "Druchii violet",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1457,
+      "releaseDate": "1992-09-17",
+      "productType": "PAINT",
+      "imgsPrefix": "druchii_violet"
+    },
+    {
+      "name": "Cassandra yellow",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1368,
+      "releaseDate": "199",
+      "productType": "PAINT",
+      "imgsPrefix": "cassandra_yellow"
+    },
+    {
+      "name": "Carroburg crimson",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1244,
+      "releaseDate": "1996-07-14",
+      "productType": "PAINT",
+      "imgsPrefix": "carroburg_crimson"
+    },
+    {
+      "name": "Seraphim sepia",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2106,
+      "releaseDate": "1993-04-19",
+      "productType": "PAINT",
+      "imgsPrefix": "seraphim_sepia"
+    },
+    {
+      "name": "Drakenhof nightshade",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1542,
+      "releaseDate": "1997-06-18",
+      "productType": "PAINT",
+      "imgsPrefix": "darkenhof_nightshade"
+    },
+    {
+      "name": "Athonian camoshade",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 1748,
+      "releaseDate": "1993-06-14",
+      "productType": "PAINT",
+      "imgsPrefix": "athonian_camoshade"
+    },
+    {
+      "name": "Agrax earthshade",
+      "description": "Bases, shades, and highlights your models with a single application.\n\nWater-based formula.\n\nPot size: 18ml",
+      "unitPrice": 7.8,
+      "stock": 2156,
+      "releaseDate": "1993-04-08",
+      "productType": "PAINT",
+      "imgsPrefix": "agrax_earthshade"
     }
   ],
   "users": [

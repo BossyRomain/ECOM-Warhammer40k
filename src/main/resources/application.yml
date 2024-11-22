@@ -33,12 +33,12 @@ spring:
       name: user  # Default user name
       password: password  # Default password (for testing only)
 
-  web:
-    cors:
-      allowed-origins: "http://localhost:4200, http://16.171.36.124:4200"
-      allowed-methods: "GET,POST,PUT,DELETE"
-      allowed-headers: "*"
-      allow-credentials: true
+cors:
+  allowed-origins: "http://localhost:4200, http://16.171.36.124:4200"
+  allowed-methods: "GET,POST,PUT,DELETE"
+  allowed-headers: "*"
+  allow-credentials: true
+  max-age: 3600
 
 # Transaction Management
 transaction:

@@ -1,7 +1,17 @@
-<div class="catalog-grid">
-    <app-catalog-item 
-        *ngFor="let product of productList; let idx = index"
-        [article]="product">
-    </app-catalog-item>
+<div class="catalog">
+    <div class="catalog-grid">
+        <app-catalog-item 
+            *ngFor="let product of productList; let idx = index"
+            [article]="product">
+        </app-catalog-item>
+    </div>
+    <div class="pagination">
+        <button class="pagination-btn" (click)="previousPage()">
+            <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/left_arrow_bold.png" alt="b">
+        </button>
+        <input type="number" class="page-input" value="1" (keydown)="onKeyDown($event)" #pageNumber/>
+        <button class="pagination-btn" (click)="nextPage()">
+            <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/right_arrow_bold.png" alt="b">
+        </button>
+    </div>
 </div>
-<div><p>AHHHHHHHHHHHHHHHHHHHHHHHHHHHhhhhhhh</p></div>

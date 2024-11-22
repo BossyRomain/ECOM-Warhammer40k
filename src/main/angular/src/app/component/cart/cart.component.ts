@@ -16,8 +16,10 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 export class CartComponent implements OnInit{
 
   constructor(private route: ActivatedRoute, private cartService:CartServiceService, private clientService:ClientServiceService){}
-  
+  public cart: CommandLine[] = [];
   ngOnInit(): void {
+    console.log(this.cartService.currentCart);
+    this.cart = this.cartService.currentCart;
     if(this.clientService.isConnected()){
       
     }

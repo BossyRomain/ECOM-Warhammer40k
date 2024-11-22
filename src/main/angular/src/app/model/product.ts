@@ -6,6 +6,6 @@ export interface Product {
     stock:number;
     price:number;
     description:string;
-    url:string;
+    mainImage:Image;
     images:Image[];
 }

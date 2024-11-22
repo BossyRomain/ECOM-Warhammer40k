@@ -27,18 +27,32 @@ public class ProductController {
         @RequestParam(name = "size", defaultValue = "10") int size,
         @RequestParam(name = "minprice", defaultValue = "0.0") float minprice,
         @RequestParam(name = "maxprice", defaultValue = "999999.0") float maxprice,
-        @RequestParam(name = "faction", required = false) List<String> factions,
-        @RequestParam(name = "type", required = false) List<String> productTypes
+        @RequestParam(name = "type", required = false) List<String> productTypes,
+        @RequestParam(name = "group", required = false) List<String> groups,
+        @RequestParam(name = "faction", required = false) List<String> factions
     ) {
-        if (factions != null) {
-            factions = factions.stream().map(String::toUpperCase).collect(Collectors.toList());
-        }
-
         if (productTypes != null) {
             productTypes = productTypes.stream().map(String::toUpperCase).collect(Collectors.toList());
         }
 
-        return productService.getAllWithFilters(page, size, minprice, maxprice, productTypes, factions).map(ProductCatalogueDTO::fromProduct);
+        if(groups != null) {
+            groups = groups.stream().map(String::toUpperCase).collect(Collectors.toList());
+        }
+
+        if(factions != null) {
+            factions = factions.stream().map(String::toUpperCase).collect(Collectors.toList());
+        }
+
+        return productService.getAllWithFilters(page, size, minprice, maxprice, productTypes, groups, factions).map(ProductCatalogueDTO::fromProduct);
+    }
+
+    @GetMapping("/search")
+    public Page<ProductCatalogueDTO> searchProducts(
+        @RequestParam(name = "page", defaultValue = "0") int page,
+        @RequestParam(name = "size", defaultValue = "10") int size,
+        @RequestParam("query") String query
+    ) {
+        return productService.search(page, size, query).map(ProductCatalogueDTO::fromProduct);
     }
 
     @GetMapping("")

@@ -6,16 +6,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
-@SequenceGenerator(name="cartIdSeq", initialValue=1, allocationSize=100)
+@SequenceGenerator(name = "cartIdSeq", initialValue = 1, allocationSize = 100)
 @Setter
 @Getter
 public class Cart {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="cartIdSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cartIdSeq")
     private Long id;
 
     @Column(nullable = true)
@@ -29,7 +29,7 @@ public class Cart {
     @JsonIgnore
     private Client client;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "command")
-    private Collection<CommandLine> commandLines;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "command", orphanRemoval = true)
+    private List<CommandLine> commandLines;
 
 }
