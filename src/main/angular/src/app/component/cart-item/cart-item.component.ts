@@ -11,4 +11,8 @@ import { CommandLine } from '../../model/command-line';
 })
 export class CartItemComponent {
   @Input() commandLine?:CommandLine;
+
+  changeValue(){
+    
+  }
 }
