@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: "product/:id", component: ProductSheetComponent },
   { path: "catalog", component: CatalogComponent },
   { path: "account", component: ConnectionComponent },
-  {path:"cart/:id", component:CartComponent},
+  { path: "cart/:id", component: CartComponent },
   { path: '**', redirectTo: "catalog"}
 ];
 

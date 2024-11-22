@@ -14,6 +14,7 @@ body {
   margin: none;
   margin-top: -10px;
   padding-top: 20px;
+  padding-bottom: 10px;
   position: fixed;
   top: 0%;
   z-index: 10;
