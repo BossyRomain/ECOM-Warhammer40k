@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100vw;
-  margin: 5px;
+  width: 100%;
   border: 10px grey;
   border-radius: 10px;
   box-shadow: 0 0 0 3px black;
@@ -27,10 +26,18 @@
     margin-right: 10px;            /* Espace entre les images */
     border-radius: 8px;
   }
+
+  .image-container .main-image{
+    height: auto; /* Maintain aspect ratio */
+    width: 85%;
+    border-radius: 8px;
+  }
   
   .description-container{
     display: flex;
     justify-content: left;
+    margin-left: 2%;
+    margin-right: 2%;
   }
   
   .row-container {

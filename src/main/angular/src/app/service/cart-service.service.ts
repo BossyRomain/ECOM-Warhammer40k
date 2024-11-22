@@ -26,8 +26,8 @@ export class CartServiceService {
       
       this.productService.getProductById(productID).subscribe(
         (data)=>{
-          console.log(
-            {quantity:amount, product:prod}
+          console.log("data: "
+            + data
           );
           console.log(this.currentCart.push({id:productID, quantity:amount, product:data}));
           console.log(this.currentCart);

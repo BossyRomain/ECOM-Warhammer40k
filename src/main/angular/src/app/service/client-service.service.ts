@@ -12,6 +12,8 @@ export class ClientServiceService {
 
   private connected:boolean = false;
 
+  public clientID:number = 0;
+
   public isConnected():boolean{
     return this.connected;
   }

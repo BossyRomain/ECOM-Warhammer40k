@@ -35,7 +35,7 @@ export class ProductServiceService {
             name:body.name, 
             stock: body.stock, 
             price: body.unitPrice, 
-            url:body.url, 
+            mainImage:body.catalogueImg, 
             description:body.description, 
             images:array
           };
@@ -47,6 +47,28 @@ export class ProductServiceService {
 
   public getProductsCatalogue(page: number = 0, size: number = 10): Observable<ProductCatalog[]> {
     const url = `${this.apiUrl}/api/products/catalogue?page=${page}&size=${size}`;
+    console.log(`Appel de l'API : ${url}`);
+    
+    return this.http.get<ProductCatalog[]>(url).pipe(
+      map((response: any) => {
+        console.log('Réponse de l\'API:', response);
+        return response.content.map((item: any) => ({
+          id: item.id,
+          name: item.name,
+          stock: item.stock,
+          unitPrice: item.unitPrice,
+          productType: item.productType,
+          catalogueImg: {
+            url: item.catalogueImg.url, 
+            altText: item.catalogueImg.altText
+          }
+        }));
+      })
+    );
+  }
+
+  public searchProducts( search:string, page: number = 0, size: number = 10): Observable<ProductCatalog[]>{
+    const url = `${this.apiUrl}/api/products/search?page=${page}&size=${size}&query=${search}`;
     console.log(`Appel de l'API : ${url}`);
     
     return this.http.get<ProductCatalog[]>(url).pipe(

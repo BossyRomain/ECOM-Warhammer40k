@@ -6,8 +6,8 @@
     </div> 
 
     <div class="image-gallery" >
-        <div *ngFor="let x of allImages; index as i" >
-            <img src={{x}} (click)="changeIndex(i)"/>
+        <div *ngFor="let x of article?.images; index as i" >
+            <img src={{x.url}} (click)="changeIndex(i)"/>
         </div>
         
     </div>
@@ -15,7 +15,7 @@
     
     <div class="description-container">
         <p>
-            <b>Description:</b> {{ description }}
+            <b>Description:</b> {{ article?.description }}
             
         </p>
     </div>

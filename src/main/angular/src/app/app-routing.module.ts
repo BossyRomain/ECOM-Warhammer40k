@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: "catalog", component: CatalogComponent },
   { path: "account", component: ConnectionComponent },
   { path: "cart/:id", component: CartComponent },
+  { path: "catalog/search/:query", component: CatalogComponent},
   { path: '**', redirectTo: "catalog"}
 ];
 

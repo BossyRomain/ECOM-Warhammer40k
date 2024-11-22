@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CatalogComponent } from '../catalog/catalog.component';
 
 @Component({
   selector: 'app-header',
@@ -27,7 +28,14 @@ export class HeaderComponent {
     this.router.navigate(['/cart', 0]);
   }
   public search(searchText: string) {
+    this.router.navigate(["/catalog/search", searchText]);
     
+  }
+
+  public onEnter(event:KeyboardEvent, searchText:string){
+    if(event.key === "Enter"){
+      this.search(searchText);
+    }
   }
 
 }
