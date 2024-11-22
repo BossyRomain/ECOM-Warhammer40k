@@ -23,9 +23,6 @@ public abstract class ProductImageService {
     public ProductImage create(MultipartFile imgFile, Long productId, String description, boolean isCatalogueImg) throws NoSuchElementException {
         ProductImage productImage = new ProductImage();
         Product product = productService.get(productId);
-        if (product == null) {
-            throw new NoSuchElementException("No product with the id " + productId);
-        }
         productImage.setDescription(description);
         productImage.setProduct(product);
         final String URL = uploadImage(imgFile);
@@ -34,7 +31,6 @@ public abstract class ProductImageService {
 
         if (isCatalogueImg) {
             product.setCatalogueImg(productImage);
-            productService.update(product);
         }
 
         productImage = productImageRepository.save(productImage);
