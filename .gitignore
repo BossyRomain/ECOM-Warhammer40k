@@ -31,6 +31,7 @@ replay_pid*
 **/out-tsc
 **/bazel-out
 **/target
+**/assets/dev/images
 
 # Node
 **/node_modules

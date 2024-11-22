@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ProductCatalog } from '../../model/product-catalog';
 import { ProductServiceService } from '../../service/product-service.service';
 import { CatalogItemComponent } from '../catalog-item/catalog-item.component';
 import { CommonModule } from '@angular/common';
-import { NavigationStart, Router } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -17,23 +17,27 @@ import { NavigationStart, Router } from '@angular/router';
 
 export class CatalogComponent implements OnInit {
   
-  constructor(private productService: ProductServiceService, private router: Router) {
+  constructor(private productService: ProductServiceService, private router: Router, private activatedRoute:ActivatedRoute) {
 
     this.ngOnInit()
   }
-
-  @Input() productList: ProductCatalog[] = [] 
-
+  private numPage:number = 1;
+  @Input() productList: ProductCatalog[] = [];
+  @ViewChild('pageNumber') myInput!: ElementRef<HTMLInputElement>;
+  private search:string = "";
   ngOnInit(): void {
-    this.productService.getProductsCatalogue().subscribe(
-      data => {
-        this.productList = data;  // Remplissage de productList avec les données de l'API
-        console.log('Liste des produits:', this.productList);
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des produits:', error);  // Gestion des erreurs
-      }
-    );
+    console.log("path: " + this.activatedRoute.routeConfig?.path);
+    console.log("route: " + this.activatedRoute.outlet);
+    this.activatedRoute.queryParamMap.subscribe((params)=>{
+      this.search = params.get("search") || "";
+      this.numPage = Number(params.get("page")) || 0;
+      this.myInput.nativeElement.value = `${this.numPage +1}`;
+      console.log("search = " + this.search +  " page = " + this.numPage );
+      this.loadSearch(this.search, this.numPage);
+        
+
+    });
+    
   }
 
   loadCatalog(): void {
@@ -41,6 +45,42 @@ export class CatalogComponent implements OnInit {
       data => this.productList = data,
       error => console.error('Erreur lors du chargement du catalogue :', error)
     );
+  }
+
+
+  public loadSearch(query:string, pageN:number=0){
+    this.productService.searchProducts(query, pageN).subscribe(
+      data => this.productList = data,
+      error => console.error('Erreur lors du chargement du catalogue :', error)
+    );
+  }
+
+  previousPage(): void{
+    //charger page précédente avec la search courante (si y'a une page suivante)
+    if(this.numPage -1  >= 0){
+      this.router.navigate(["/catalog/search"], {relativeTo: this.activatedRoute, queryParams: {search:this.search, page:this.numPage-1} });
+    }
+    
+  }
+
+  nextPage(): void{
+    //charger page suivante avec la search courante (si y'a une page suivante)
+    if(this.numPage +1  < this.productService.getMaxPages()){
+      this.router.navigate(["/catalog/search"], {relativeTo: this.activatedRoute, queryParams: {search:this.search, page:this.numPage+1} });
+    }
+    
+  }
+
+  onKeyDown(event: KeyboardEvent) {
+    const key = event.key;
+    // Si la touche n'est pas un chiffre, un backspace, ou un delete, on empêche la saisie
+    if (!/^\d$/.test(key) && key !== 'Backspace' && key !== 'Delete') {
+      event.preventDefault();
+    }
+    if (key === "Enter") {
+      this.numPage =  Number(this.myInput.nativeElement.value)-1;
+      this.loadSearch(this.search, Number(this.myInput.nativeElement.value)-1);
+    }
   }
 
 }

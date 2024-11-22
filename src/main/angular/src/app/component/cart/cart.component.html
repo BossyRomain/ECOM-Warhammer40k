@@ -1,6 +1,8 @@
-<div>
-    <div *ngFor="let cartItem of getCart()">
+<div class="cart">
+    <div *ngFor="let cartItem of cart">
         <cart-item [commandLine]="cartItem"></cart-item>
     </div>
-
+    <div>
+        <button>Pay</button>
+    </div>
 </div>

@@ -3,6 +3,8 @@ import { Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCatalog } from '../../model/product-catalog';
 import { Router } from '@angular/router';
+import { CartServiceService } from '../../service/cart-service.service';
+import { ClientServiceService } from '../../service/client-service.service';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class CatalogItemComponent {
   
   @Input() article!: ProductCatalog;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cartService: CartServiceService, private clientService:ClientServiceService) { }
 
 
   public detailedProduct(id: number) {
@@ -25,7 +27,8 @@ export class CatalogItemComponent {
   }
 
   public addCart(id: number) {
-    //A faire
+    console.log("add cart from catalogue " + id);
+    this.cartService.addProductToCart(this.clientService.clientID, id, 1)
   }
 
 

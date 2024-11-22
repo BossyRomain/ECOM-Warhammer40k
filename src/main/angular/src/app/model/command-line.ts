@@ -1,7 +1,7 @@
 import { Product } from "./product";
 
 export interface CommandLine {
-    id:number;
+    id?:number;
     quantity:number;
     product:Product;
 }
