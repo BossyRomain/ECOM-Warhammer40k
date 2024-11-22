@@ -56,4 +56,23 @@ export class CatalogComponent implements OnInit {
     );
   }
 
+  previousPage(): void{
+    //charger page précédente avec la search courante (si y'a une page suivante)
+  }
+
+  nextPage(): void{
+    //charger page suivante avec la search courante (si y'a une page suivante)
+  }
+
+  onKeyDown(event: KeyboardEvent) {
+    const key = event.key;
+    // Si la touche n'est pas un chiffre, un backspace, ou un delete, on empêche la saisie
+    if (!/^\d$/.test(key) && key !== 'Backspace' && key !== 'Delete') {
+      event.preventDefault();
+    }
+    if (key === "Enter") {
+      //Charger la page
+    }
+  }
+
 }
