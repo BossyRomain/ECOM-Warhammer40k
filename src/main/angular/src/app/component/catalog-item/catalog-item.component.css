@@ -72,7 +72,10 @@
     top: 0;
     left: 0;
     background-color: #cdfaae; /* Vert pour "en stock" */
-    border: 1px solid #375337;
+    border-top: none; /* Enlève la bordure du haut */
+    border-left: none; /* Enlève la bordure de gauche */
+    border-right: 1px solid #375337; /* Garde la bordure de droite */
+    border-bottom: 1px solid #375337;
     color: #000000;
     padding: 5px;
     font-size: 0.5rem; /* Taille de texte fixe, ajustez selon votre besoin */
