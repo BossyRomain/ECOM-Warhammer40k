@@ -56,7 +56,7 @@ public class ClientService {
     }
 
     public Client update(Client client) throws NoSuchElementException {
-        if(clientRepository.existsById(client.getId())) {
+        if (clientRepository.existsById(client.getId())) {
             return clientRepository.save(client);
         } else {
             throw new NoSuchElementException();
@@ -64,6 +64,6 @@ public class ClientService {
     }
 
     public void delete(Client client) {
-        clientRepository.delete(client);
+        clientRepository.deleteById(client.getId());
     }
 }
