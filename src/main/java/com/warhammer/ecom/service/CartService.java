@@ -6,6 +6,7 @@ import com.warhammer.ecom.model.CommandLine;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.repository.CartRepository;
 import com.warhammer.ecom.repository.CommandLineRepository;
+import com.warhammer.ecom.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class CartService {
 
     @Autowired
     private CommandLineRepository commandLineRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     public Cart create(Client client) {
         Cart cart = new Cart();
@@ -74,23 +78,28 @@ public class CartService {
         commandLineRepository.delete(commandLine);
     }
 
-    public void pay(Client client) throws NoSuchElementException {
+    @Transactional
+    public void pay(Client client) throws RuntimeException, NoSuchElementException {
         Cart currentCart = client.getCurrentCart();
 
         // Check products' stocks are enough
         for (CommandLine commandLine : currentCart.getCommandLines()) {
-            if (commandLine.getQuantity() > commandLine.getProduct().getStock()) {
-                throw new RuntimeException("Not enough stock for this product: " + commandLine.getProduct().getName());
+            Product p = productService.get(commandLine.getProduct().getId());
+            if (commandLine.getQuantity() > p.getStock()) {
+                throw new RuntimeException("Not enough stock for this product: " + p.getName());
             }
         }
 
+        System.out.println("Payement accepted");
         cartRepository.pay(currentCart.getId(), Timestamp.valueOf(LocalDate.now().atStartOfDay()));
         cartRepository.save(currentCart);
 
         for (CommandLine commandLine : currentCart.getCommandLines()) {
             Product product = commandLine.getProduct();
-            product.setStock(product.getStock() - commandLine.getQuantity());
+            int stock = product.getStock() - commandLine.getQuantity();
+            product.setStock(stock);
             productService.update(product);
+//            productRepository.updateStock(product.getId(), stock);
         }
 
         // Create a new unpaid cart
