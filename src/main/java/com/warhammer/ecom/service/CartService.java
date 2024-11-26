@@ -47,6 +47,7 @@ public class CartService {
     }
 
     public CommandLine addProduct(Client client, Product product, int quantity) throws IllegalArgumentException {
+        System.out.println("q: " + quantity);
         if (quantity > product.getStock()) {
             throw new IllegalArgumentException("Quantity exceeds stock");
         } else if (quantity <= 0) {

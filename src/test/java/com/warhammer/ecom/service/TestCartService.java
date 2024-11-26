@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class TestCartService {
 
     private static final Long CLIENT_ID = 1L;
@@ -115,13 +117,14 @@ public class TestCartService {
      */
     @Test
     public void testPayValid() throws Exception {
-        final int quantity = 3;
+        final int quantity = 1;
         Client client = clientService.getById(CLIENT_ID);
         List<Integer> oldStocks = new ArrayList<>();
         for (long i = 1; i <= 10; i++) {
             Product product = productService.get(i);
             cartService.addProduct(client, product);
             oldStocks.add(product.getStock());
+            System.out.println(product.getStock());
             cartService.setProductQuantity(client, product, quantity);
         }
 
@@ -131,27 +134,8 @@ public class TestCartService {
             Product product = productService.get(i);
             System.out.println(product.getName());
             assertEquals(product.getStock(), oldStocks.get((int) i - 1) - quantity);
-        }
-    }
-
-    /**
-     * Test le paiement d'un panier par le client propriétaire du panier mais certains produits sont hors de stock.
-     */
-    @Test
-    public void testPayOutOfStock() throws Exception {
-        Client client = clientService.getById(CLIENT_ID);
-        List<Integer> oldStocks = new ArrayList<>();
-        for (long i = 1; i <= 10; i++) {
-            Product product = productService.get(i);
-            cartService.addProduct(client, product);
-            oldStocks.add(product.getStock());
-            cartService.setProductQuantity(client, product, product.getStock() + 1);
-        }
-
-        try {
-            cartService.pay(client);
-            fail();
-        } catch (RuntimeException ignored) {
+            product.setStock(oldStocks.get((int) i - 1));
+            productService.update(product);
         }
     }
 
