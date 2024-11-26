@@ -1,15 +1,14 @@
-package com.warhammer.ecom.service;
+package com.warhammer.ecom.service.imageshandler;
 
-import jakarta.transaction.Transactional;
+import com.warhammer.ecom.service.S3ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-@Service
 @Profile("prod")
-@Transactional
-public class ProductImageServiceProd extends ProductImageService {
+@Component
+public class ImagesHandlerProd implements ImagesHandler {
 
     @Autowired
     private S3ImageService s3ImageService;
@@ -20,7 +19,7 @@ public class ProductImageServiceProd extends ProductImageService {
     }
 
     @Override
-    protected void deleteImage(String URL) {
+    public void deleteImage(String URL) {
         s3ImageService.delete(URL.substring(URL.lastIndexOf("/") + 1));
     }
 }

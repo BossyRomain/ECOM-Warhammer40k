@@ -22,5 +22,6 @@ public class Allegiance {
     private Group group;
 
     @Enumerated(EnumType.STRING)
+    @Column(unique = true)
     private Faction faction;
 }

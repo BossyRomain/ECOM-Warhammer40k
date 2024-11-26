@@ -189,6 +189,9 @@ public class TestProductConcurrency {
             clientService.delete(client);
         }
         clients.clear();
+
+        product.setStock(stock);
+        productService.update(product);
     }
 
     /**
@@ -197,6 +200,5 @@ public class TestProductConcurrency {
      */
     @Test
     public void testMultipleClientsMultipleProducts() throws InterruptedException {
-
     }
 }
