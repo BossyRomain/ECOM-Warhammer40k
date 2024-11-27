@@ -47,7 +47,6 @@ public class CartService {
     }
 
     public CommandLine addProduct(Client client, Product product, int quantity) throws IllegalArgumentException {
-        System.out.println("q: " + quantity);
         if (quantity > product.getStock()) {
             throw new IllegalArgumentException("Quantity exceeds stock");
         } else if (quantity <= 0) {
@@ -91,7 +90,6 @@ public class CartService {
             }
         }
 
-        System.out.println("Payement accepted");
         cartRepository.pay(currentCart.getId(), Timestamp.valueOf(LocalDate.now().atStartOfDay()));
         cartRepository.save(currentCart);
 
@@ -100,7 +98,6 @@ public class CartService {
             int stock = product.getStock() - commandLine.getQuantity();
             product.setStock(stock);
             productService.update(product);
-//            productRepository.updateStock(product.getId(), stock);
         }
 
         // Create a new unpaid cart

@@ -4,7 +4,6 @@ import com.warhammer.ecom.model.Cart;
 import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.repository.CartRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -36,13 +35,13 @@ public class TestCartService {
     @Autowired
     private CartRepository cartRepository;
 
-    @AfterEach
-    void clearClientCurrentCart() {
-        Client client = clientService.getById(CLIENT_ID);
-        Cart cart = client.getCurrentCart();
-        cart.setCommandLines(new ArrayList<>());
-        cartRepository.save(cart);
-    }
+//    @AfterEach
+//    void clearClientCurrentCart() {
+//        Client client = clientService.getById(CLIENT_ID);
+//        Cart cart = client.getCurrentCart();
+//        cart.setCommandLines(new ArrayList<>());
+//        cartRepository.save(cart);
+//    }
 
     /**
      * Test l'ajout valide d'un produit dans le panier d'un client.

@@ -13,6 +13,7 @@ import jakarta.annotation.PreDestroy;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -55,6 +56,8 @@ public class DatabaseInitializer {
             initUsers();
             initAllegiances();
             initProducts();
+        } catch (DataIntegrityViolationException e) {
+            LoggerFactory.getLogger(DatabaseInitializer.class).warn("The database seem to be already initialized.");
         } catch (Exception e) {
             LoggerFactory.getLogger(DatabaseInitializer.class).error("Error while initializing database");
             e.printStackTrace();
