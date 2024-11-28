@@ -1,8 +1,15 @@
 <div class="cart">
-    <div *ngFor="let cartItem of cart">
-        <cart-item [commandLine]="cartItem"></cart-item>
+    <h1 class = "cart-content">Cart content</h1>
+    
+    <div class="head">
+        <div class="head-left-button">
+            <button>Pay</button>
+        </div>
+        <div class="head-right-price">
+            {{getSum() | number: "1.2-2"}}€
+        </div>
     </div>
-    <div>
-        <button>Pay</button>
+    <div *ngFor="let cartItem of cart; let i = index">
+        <cart-item [commandLine]="cartItem" [index]="i"></cart-item>
     </div>
 </div>

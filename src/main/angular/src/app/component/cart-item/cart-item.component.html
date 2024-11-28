@@ -1,14 +1,29 @@
 <div class="item-cart" *ngIf="commandLine != undefined; else other_content">
     <div class="left-block">
         <img src={{commandLine.product.mainImage.url}}/>
-        <div class="name">{{commandLine.product.name}}</div>
+        
     </div>
     <div class="right-block">
-        <div class="amount">Quantity: {{commandLine.quantity}}</div>
-        <div class="price">Price: {{commandLine.product.price | number: "1.2-2"}}€</div>
+        <div class="name">{{commandLine.product.name}}</div>
+        <div class="values">
+            <div class="amount">
+                <div class="quantity-name">
+                    Qty:
+                </div>
+                <input class="quantity-value" #quantity type="number" value="{{commandLine.quantity}}" [step]="1" (input)="changeAmount(quantity.value)">      
+            </div>
+            <div class="price">
+                {{sumProduct()| number: "1.2-2"}}€
+            </div>
+        </div>
     </div>
     
     
     
+    <div *ngIf="this.deleteEntry" class="toast">
+        La valeur correspond !
+      </div>
 </div>
 <ng-template #other_content>other content here...</ng-template>
+
+

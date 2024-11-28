@@ -1,7 +1,10 @@
 <div class="header">
   <div class="header-container">
       <button class="menu-button"></button>
-      <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k" class="logo">
+      
+      <button (click)="goToMain()" class="logo-button">
+        <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k" class="logo">
+      </button>
       
       <div class="boutontext">
           <button class="account-button" (click)="access_account()"></button>

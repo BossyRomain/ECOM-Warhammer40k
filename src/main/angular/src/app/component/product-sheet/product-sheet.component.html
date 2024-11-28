@@ -5,12 +5,14 @@
         <img class="main-image" src={{mainImg}}/>
     </div> 
 
-    <div class="image-gallery" >
+
+    <div *ngIf="allImages !== null && allImages !== undefined && allImages.length >1; else noImage" class="image-gallery" >
         <div *ngFor="let x of article?.images; index as i" >
             <img src={{x.url}} (click)="changeIndex(i)"/>
         </div>
         
     </div>
+    <ng-template #noImage></ng-template>
         
     
     <div class="description-container">

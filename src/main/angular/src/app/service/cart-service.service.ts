@@ -20,10 +20,15 @@ export class CartServiceService {
 
   public addProductToCart(clientID:number, productID:number, amount:number){
     if(this.clientService.isConnected()){
-      this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts`, productID);
+      this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts`, productID).pipe(
+        map((body:any) => {
+          let line:CommandLine = body;
+          this.currentCart.push(line);
+          return line;
+        })
+      );
+      this.http.put(`${this.apiUrl}/api/clients/${clientID}/carts/${productID}`, amount);
     }else{
-      let prod:Product;
-      
       this.productService.getProductById(productID).subscribe(
         (data)=>{
           console.log("data: "
@@ -31,10 +36,8 @@ export class CartServiceService {
           );
           console.log(this.currentCart.push({id:productID, quantity:amount, product:data}));
           console.log(this.currentCart);
-        });
-      
+      });
     }
-    
   }
 
   public getCartOfClient(clientID: number): Observable<Cart> {
@@ -49,5 +52,15 @@ export class CartServiceService {
         return cart;
       })
     );
+  }
+
+  public updateCart(index:number, newAmount:number): number{
+    if(this.clientService.isConnected()){
+      this.http.put(`${this.apiUrl}/api/clients/${this.clientService.clientID}/carts/${this.currentCart[index].product.id}`, newAmount);
+    }else{
+      this.currentCart[index].quantity =newAmount;
+    }
+    return newAmount;
+      
   }
 }

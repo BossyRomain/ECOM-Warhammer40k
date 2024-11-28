@@ -24,9 +24,9 @@ body {
   width: 100%;
 }
 .header-container {
-  width: 100%;
-  background-color: #333; /* Couleur de fond du bandeau */
+  width: 100%; /* Couleur de fond du bandeau */
   white-space: nowrap; /* Empêche le passage à la ligne */
+  display: flex;
 }
 
 /* Bouton menu à gauche */
@@ -46,7 +46,7 @@ body {
   cursor: pointer;
   vertical-align: middle;
   left:auto;
-
+  flex: 0 1 auto;
 }
 
 .menu-button:hover,
@@ -58,10 +58,11 @@ body {
 /* Logo central */
 .logo {
   float: left;
-  height: 100%; /* Garde une taille réduite pour le logo */
+  height: 90%; /* Garde une taille réduite pour le logo */
   vertical-align: middle;
   margin-left: 10px; /* Espace entre le bouton menu et le logo */
   max-width: 300px;  /* Limite la taille du bouton compte */
+  width: 85%;
   max-height: 50px;
 }
 
@@ -101,6 +102,7 @@ body {
   text-align: center;
   width: 40px;
   margin: 5px;
+  flex: 0 1 auto;
 }
 
 /* Pour le texte sous le bouton */
@@ -162,4 +164,10 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.logo-button {
+  border: none;
+  background-color: #E6E6E6;
+  flex: 1;
 }

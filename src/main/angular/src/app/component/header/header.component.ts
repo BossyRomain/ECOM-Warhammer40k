@@ -32,6 +32,10 @@ export class HeaderComponent {
     
   }
 
+  public goToMain(){
+    this.router.navigate(["/catalog/search"]);
+  }
+
   public onEnter(event:KeyboardEvent, searchText:string){
     if(event.key === "Enter"){
       this.search(searchText);

@@ -1,4 +1,21 @@
 .cart {
     margin-top: 35%;
-    min-height: 100%;
+    min-height: 100vh;
+}
+
+.cart-content {
+    text-align: center;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between; /* Center horizontally */
+    margin-bottom: 3%;
+}
+
+.head-left-button {
+    margin-left: 10%;
+}
+.head-right-price {
+    margin-right: 10%;
 }

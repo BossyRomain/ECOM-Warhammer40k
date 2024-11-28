@@ -29,5 +29,13 @@ export class CartComponent implements OnInit{
     return this.clientService.currentCart;
   } 
 
+  public getSum(): number{
+    let sum = 0;
+    this.cartService.currentCart.forEach((temp) => {
+      sum += temp.product.price * temp.quantity;
+    })
+    return sum;
+  }
+
 
 }

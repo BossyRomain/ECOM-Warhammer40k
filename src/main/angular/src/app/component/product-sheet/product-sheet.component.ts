@@ -25,7 +25,7 @@ export class ProductSheetComponent implements OnInit {
       "https://www.warhammer.com/app/resources/catalog/product/920x950/99120101416_BACaptain01.jpg?fm=webp&w=1200&h=1237",
       "https://www.warhammer.com/app/resources/catalog/product/threeSixty/99120101416_WH40kSMBACaptainOTT1360/01-01.jpg?fm=webp&w=670&h=670",
       "https://www.warhammer.com/app/resources/catalog/product/threeSixty/99120101416_WH40kSMBACaptainOTT2360/01-01.jpg?fm=webp&w=670&h=670",
-      "https://www.warhammer.com/app/resources/catalog/product/920x950/99120101416_BACaptain01.jpg?fm=webp&w=1200&h=1237",
+      "https://www.warhammer.com/app/resources/catalog/product/920x950/99120101416_BACaptain01.jpg?fm=webp&w=1200&h=1237"
     ];
     mainImg?:string = "https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png";
 
@@ -62,8 +62,12 @@ export class ProductSheetComponent implements OnInit {
       this.allImages = [];
       this.productService.getProductById(id).subscribe( 
         value => {
+          this.productName= value.name;
           this.article  = value;
           this.mainImg = this.article.mainImage.url;
+          value.images.forEach((temp)=>{
+            this.allImages.push(temp.url);
+          });
         },
         error => {
           console.log("A problem occured when Accessing to object " + id);
