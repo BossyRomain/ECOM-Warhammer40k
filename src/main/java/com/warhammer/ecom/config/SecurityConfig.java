@@ -40,8 +40,7 @@ public class SecurityConfig {
                 authz.
                     requestMatchers(HttpMethod.POST, "/api/clients/signup", "/api/clients/login").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/products/catalogue", "api/products", "api/products/**").permitAll()
-                    .requestMatchers(HttpMethod.DELETE, "/api/clients/**").hasAuthority(Authority.CLIENT.getAuthority())
-                    .requestMatchers(HttpMethod.GET, "/api/clients/**").hasAuthority(Authority.CLIENT.getAuthority())
+                    .requestMatchers("/api/clients/**").hasAuthority(Authority.CLIENT.getAuthority())
                     .anyRequest().hasAuthority(Authority.ADMIN.getAuthority()));
 
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
