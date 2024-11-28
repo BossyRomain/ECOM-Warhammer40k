@@ -18,6 +18,12 @@ export class CartServiceService {
 
   public currentCart: CommandLine[] = [];
 
+  public numberItemsCart() : number {
+      return this.currentCart.length;
+  }
+
+  
+
   public addProductToCart(clientID:number, productID:number, amount:number){
     if(this.clientService.isConnected()){
       this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts`, productID);

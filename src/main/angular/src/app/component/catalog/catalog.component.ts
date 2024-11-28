@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ProductCatalog } from '../../model/product-catalog';
 import { ProductServiceService } from '../../service/product-service.service';
 import { CatalogItemComponent } from '../catalog-item/catalog-item.component';
@@ -15,7 +15,7 @@ import { ActivatedRoute, NavigationStart, Params, Router } from '@angular/router
   
 
 
-export class CatalogComponent implements OnInit {
+export class CatalogComponent implements OnInit, AfterViewInit{
   
   constructor(private productService: ProductServiceService, private router: Router, private activatedRoute:ActivatedRoute) {
 
@@ -31,13 +31,18 @@ export class CatalogComponent implements OnInit {
     this.activatedRoute.queryParamMap.subscribe((params)=>{
       this.search = params.get("search") || "";
       this.numPage = Number(params.get("page")) || 0;
-      this.myInput.nativeElement.value = `${this.numPage +1}`;
       console.log("search = " + this.search +  " page = " + this.numPage );
       this.loadSearch(this.search, this.numPage);
         
 
     });
     
+  }
+
+  ngAfterViewInit(): void{
+    if (this.myInput) {
+      this.myInput.nativeElement.value = `${this.numPage +1}`;
+    }
   }
 
   loadCatalog(): void {
