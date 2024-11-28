@@ -25,6 +25,9 @@ public class ClientService {
     @Autowired
     private CartService cartService;
 
+    @Autowired
+    private EmailService emailService;
+
     public Client getById(Long clientId) throws NoSuchElementException {
         return clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
     }
@@ -38,6 +41,10 @@ public class ClientService {
     }
 
     public Client create(ClientSignUpDTO clientSignUpDTO) {
+        return create(clientSignUpDTO, true);
+    }
+
+    public Client create(ClientSignUpDTO clientSignUpDTO, boolean sendEmail) {
         User user = userService.create(clientSignUpDTO.getEmail(), clientSignUpDTO.getPassword(), Authority.CLIENT);
 
         Client client = new Client();
@@ -51,6 +58,10 @@ public class ClientService {
 
         Cart cart = cartService.create(client);
         client.setCurrentCart(cart);
+
+        if (sendEmail) {
+            emailService.sendRegisterConfirmation(clientSignUpDTO.getEmail());
+        }
 
         return clientRepository.save(client);
     }

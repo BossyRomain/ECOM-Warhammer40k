@@ -5,15 +5,18 @@
       <button (click)="goToMain()" class="logo-button">
         <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k" class="logo">
       </button>
-      
+      <div class="boutontext">
+        <div class="cart-container">
+          <button class="cart-button" (click)="accesToCart()"></button>
+          <span class="cart-badge">{{ cartItemCount }}</span>
+        </div>
+        <p>&nbsp;&nbsp;&nbsp;Panier</p>
+      </div>
       <div class="boutontext">
           <button class="account-button" (click)="access_account()"></button>
           <p>Compte</p>
       </div>
-      <div class="boutontext">
-          <button class="cart-button" (click)="accesToCart()"></button>
-          <p>&nbsp;&nbsp;&nbsp;Panier</p>
-      </div>
+
   </div>
 
   <div class="search-bar-container">

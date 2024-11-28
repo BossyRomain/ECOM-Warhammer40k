@@ -6,7 +6,6 @@ import com.warhammer.ecom.model.CommandLine;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.repository.CartRepository;
 import com.warhammer.ecom.repository.CommandLineRepository;
-import com.warhammer.ecom.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +17,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-@Transactional
 public class CartService {
 
     @Autowired
@@ -31,8 +29,9 @@ public class CartService {
     private CommandLineRepository commandLineRepository;
 
     @Autowired
-    private ProductRepository productRepository;
+    private EmailService emailService;
 
+    @Transactional
     public Cart create(Client client) {
         Cart cart = new Cart();
         cart.setClient(client);
@@ -82,6 +81,8 @@ public class CartService {
     public void pay(Client client) throws RuntimeException, NoSuchElementException {
         Cart currentCart = client.getCurrentCart();
 
+        // TODO: trier la commande par id de produit croissant
+
         // Check products' stocks are enough
         for (CommandLine commandLine : currentCart.getCommandLines()) {
             Product p = productService.get(commandLine.getProduct().getId());
@@ -99,6 +100,8 @@ public class CartService {
             product.setStock(stock);
             productService.update(product);
         }
+
+        emailService.sendCartPayValidation(client.getUser().getUsername(), currentCart);
 
         // Create a new unpaid cart
         Cart newCart = new Cart();

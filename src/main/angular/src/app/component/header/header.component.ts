@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CatalogComponent } from '../catalog/catalog.component';
+import { CartServiceService } from '../../service/cart-service.service';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,13 @@ import { CatalogComponent } from '../catalog/catalog.component';
   
   
 export class HeaderComponent {
+  cartItemCount: number = 33;
   
-  constructor(private router: Router, private activatedRoute:ActivatedRoute) { }
+  ngOnInit() {
+    
+  }
+  
+  constructor(private router: Router, private activatedRoute:ActivatedRoute, private cartService : CartServiceService) { }
   
   public access_account() {
     this.router.navigate(["/account"]);

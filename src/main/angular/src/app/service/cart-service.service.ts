@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { map, Observable } from 'rxjs';
@@ -18,16 +18,27 @@ export class CartServiceService {
 
   public currentCart: CommandLine[] = [];
 
+  public numberItemsCart() : number {
+      return this.currentCart.length;
+  }
+
+  
+
   public addProductToCart(clientID:number, productID:number, amount:number){
+    console.log("connected? " + this.clientService.isConnected());
     if(this.clientService.isConnected()){
-      this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts`, productID).pipe(
+      console.log("Cart token " + this.clientService.client?.authToken)
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${this.clientService.client?.authToken}`)
+      }
+      this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts`, productID, header).pipe(
         map((body:any) => {
           let line:CommandLine = body;
-          this.currentCart.push(line);
+          console.log("the new line " + line);
           return line;
         })
-      );
-      this.http.put(`${this.apiUrl}/api/clients/${clientID}/carts/${productID}`, amount);
+      ).subscribe((value) => {console.log("pb")})
     }else{
       this.productService.getProductById(productID).subscribe(
         (data)=>{
@@ -63,4 +74,6 @@ export class CartServiceService {
     return newAmount;
       
   }
+
+
 }

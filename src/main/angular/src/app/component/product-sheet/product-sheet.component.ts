@@ -5,6 +5,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { error } from 'console';
 import { CartServiceService } from '../../service/cart-service.service';
 import { Product } from '../../model/product';
+import { ClientServiceService } from '../../service/client-service.service';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class ProductSheetComponent implements OnInit {
     description:string = "Une figurine de puissant capitaine Blood Angels. Il est capable de s'adapter à toutes les situations avec un arsenal varié d'armes et de reliques.";
     numberOfArticle:number = 0;
 
-    constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute, private route:Router, private cartService:CartServiceService) {}
+    constructor(private productService: ProductServiceService, private clientService:ClientServiceService, private activatedRoute: ActivatedRoute, private route:Router, private cartService:CartServiceService) {}
 
     ngOnInit(){
       
@@ -51,7 +52,11 @@ export class ProductSheetComponent implements OnInit {
     public addArticleToCart():void{
       console.log("Achat " + this.numberOfArticle);
       if(this.numberOfArticle != 0 && this.article != undefined){
-        this.cartService.addProductToCart(0, this.article.id, this.numberOfArticle);
+        if(this.clientService.isConnected() && this.clientService.client){
+          console.log("Add product " + this.clientService.client.id + " " + this.article.id +  " " + this.numberOfArticle);
+          this.cartService.addProductToCart(this.clientService.client.id, this.article.id, this.numberOfArticle);
+        }
+        
       }
       
     }
