@@ -28,11 +28,11 @@ export class CartServiceService {
     console.log("connected? " + this.clientService.isConnected());
     if(this.clientService.isConnected()){
       console.log("Cart token " + this.clientService.client?.authToken)
-      var header = {
-        headers: new HttpHeaders()
-          .set('Authorization', `Bearer ${this.clientService.client?.authToken}`)
-      }
-      this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts`, productID, header).pipe(
+      const headers = new HttpHeaders().set(
+        'Authorization', `Bearer ${this.clientService.client?.authToken}`
+      );
+      console.log(headers)
+      this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts/${productID}`, { headers }).pipe(
         map((body:any) => {
           let line:CommandLine = body;
           console.log("the new line " + line);
