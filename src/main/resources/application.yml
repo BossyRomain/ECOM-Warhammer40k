@@ -9,8 +9,8 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb  # In-memory H2 database
     driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    username: bossyr
+    password: bossyr
   h2:
     console:
       enabled: true
@@ -32,6 +32,20 @@ spring:
     user:
       name: user  # Default user name
       password: password  # Default password (for testing only)
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    username: warhammer.ecom@gmail.com
+    password: "ereb qewh ctrn mfbk "
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 cors:
   allowed-origins: "http://localhost:4200, http://16.171.36.124"

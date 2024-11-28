@@ -116,7 +116,7 @@ public class DatabaseInitializer {
         final Random random = new Random();
         for (ClientSignUpDTO client : clients) {
             client.setBirthday(LocalDate.ofEpochDay(d1 + random.nextLong(d2 - d1)));
-            clientService.create(client);
+            clientService.create(client, false);
         }
 
         LoggerFactory.getLogger(DatabaseInitializer.class).info("Users successfully added");
