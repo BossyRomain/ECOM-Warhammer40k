@@ -53,22 +53,13 @@ public class ClientController {
             List.copyOf(userDetails.getAuthorities())
         );
 
-        ClientLoginResponseDTO response = new ClientLoginResponseDTO();
-        response.setId(client.getId());
-        response.setUser(client.getUser());
-        response.setFirstName(client.getFirstName());
-        response.setLastName(client.getLastName());
-        response.setBirthday(client.getBirthday());
-        response.setNewsletter(client.isNewsletter());
-        response.setCurrentCart(client.getCurrentCart());
-        response.setAuthToken(token);
-
-        return ResponseEntity.created(new URI("/api/clients/signup")).body(response);
+        return ResponseEntity.created(new URI("/api/clients/signup"))
+            .body(createLoginResponse(token, client));
     }
 
     @PostMapping("/login")
     public ClientLoginResponseDTO login(@RequestBody ClientLoginDTO clientLoginDTO) {
-        if(!userService.login(clientLoginDTO.getEmail(), clientLoginDTO.getPassword())) {
+        if (!userService.login(clientLoginDTO.getEmail(), clientLoginDTO.getPassword())) {
             throw new AccessDeniedException("Invalid email or password");
         }
 
@@ -82,18 +73,7 @@ public class ClientController {
         );
 
         Client client = clientService.getByEmail(clientLoginDTO.getEmail());
-
-        ClientLoginResponseDTO response = new ClientLoginResponseDTO();
-        response.setId(client.getId());
-        response.setUser(client.getUser());
-        response.setFirstName(client.getFirstName());
-        response.setLastName(client.getLastName());
-        response.setBirthday(client.getBirthday());
-        response.setNewsletter(client.isNewsletter());
-        response.setCurrentCart(client.getCurrentCart());
-        response.setAuthToken(token);
-
-        return response;
+        return createLoginResponse(token, client);
     }
 
     @DeleteMapping("/{clientId}")
@@ -104,5 +84,18 @@ public class ClientController {
         securityService.isAdminOrOwner(clientId, authentication);
         clientService.delete(clientService.getById(clientId));
         return ResponseEntity.noContent().build();
+    }
+    
+    private ClientLoginResponseDTO createLoginResponse(String token, Client client) {
+        ClientLoginResponseDTO response = new ClientLoginResponseDTO();
+        response.setId(client.getId());
+        response.setUser(client.getUser());
+        response.setFirstName(client.getFirstName());
+        response.setLastName(client.getLastName());
+        response.setBirthday(client.getBirthday());
+        response.setNewsletter(client.isNewsletter());
+        response.setCurrentCart(client.getCurrentCart());
+        response.setAuthToken(token);
+        return response;
     }
 }

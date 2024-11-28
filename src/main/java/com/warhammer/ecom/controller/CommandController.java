@@ -2,8 +2,9 @@ package com.warhammer.ecom.controller;
 
 import com.warhammer.ecom.model.Cart;
 import com.warhammer.ecom.service.CartService;
-import com.warhammer.ecom.service.ClientService;
+import com.warhammer.ecom.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +21,14 @@ public class CommandController {
     private CartService cartService;
 
     @Autowired
-    private ClientService clientService;
+    private SecurityService securityService;
 
     @GetMapping("")
-    public List<Cart> getClientCommands(@PathVariable Long clientId) throws AccessDeniedException {
-        return cartService.getClientCommands(clientService.getById(clientId));
+    public List<Cart> getClientCommands(
+        Authentication authentication,
+        @PathVariable Long clientId
+    ) throws AccessDeniedException {
+        securityService.isAdminOrOwner(clientId, authentication);
+        return cartService.getClientCommands(clientId);
     }
 }

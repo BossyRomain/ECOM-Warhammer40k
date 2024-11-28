@@ -38,7 +38,7 @@ public class ProductService {
     }
 
     public Product get(Long id) throws NoSuchElementException {
-        return productRepository.findById(id).orElseThrow(NoSuchElementException::new);
+        return productRepository.findByIdWithLock(id).orElseThrow(NoSuchElementException::new);
     }
 
     public Product create(Product product) {

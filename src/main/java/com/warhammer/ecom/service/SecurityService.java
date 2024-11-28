@@ -3,6 +3,8 @@ package com.warhammer.ecom.service;
 import com.warhammer.ecom.model.Authority;
 import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.model.User;
+import com.warhammer.ecom.repository.ClientRepository;
+import com.warhammer.ecom.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
@@ -14,20 +16,18 @@ import java.util.NoSuchElementException;
 public class SecurityService {
 
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
     @Autowired
-    private ClientService clientService;
+    private ClientRepository clientRepository;
 
     public void isAdminOrOwner(Long clientId, Authentication authentication) throws NoSuchElementException, AccessDeniedException {
-        User requestUser = (User) userService.loadUserByUsername(authentication.getPrincipal().toString());
-        Client client = clientService.getByUserId(requestUser.getId());
+        User requestUser = userRepository.findByUsername(authentication.getPrincipal().toString()).orElseThrow(NoSuchElementException::new);
+        Client client = clientRepository.findByUserId(requestUser.getId()).orElseThrow(NoSuchElementException::new);
 
         boolean isAdmin = requestUser.getAuthority().equals(Authority.ADMIN);
-
         boolean isOwner = client.getId().equals(clientId);
-
-        if(!(isAdmin || isOwner)) {
+        if (!(isAdmin || isOwner)) {
             throw new AccessDeniedException("You do not have permission to access this resource");
         }
     }
