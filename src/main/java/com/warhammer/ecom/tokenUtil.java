@@ -1,4 +1,4 @@
-package com.warhammer.ecom.config;
+package com.warhammer.ecom;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -14,7 +14,7 @@ import java.util.List;
  * Classe regroupant des méthodes utiles pour la gestion des tokens dans l'application.
  */
 @Component
-public class JwtUtil {
+public class tokenUtil {
 
     @Value("${jwt.secret}")
     private String secret;

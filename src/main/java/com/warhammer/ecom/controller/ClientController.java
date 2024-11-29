@@ -1,13 +1,12 @@
 package com.warhammer.ecom.controller;
 
-import com.warhammer.ecom.config.JwtUtil;
 import com.warhammer.ecom.controller.dto.ClientLoginDTO;
 import com.warhammer.ecom.controller.dto.ClientLoginResponseDTO;
 import com.warhammer.ecom.controller.dto.ClientSignUpDTO;
 import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.service.ClientService;
-import com.warhammer.ecom.service.SecurityService;
 import com.warhammer.ecom.service.UserService;
+import com.warhammer.ecom.tokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -35,10 +34,7 @@ public class ClientController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private SecurityService securityService;
-
-    @Autowired
-    private JwtUtil jwtUtil;
+    private tokenUtil tokenUtil;
 
     @PostMapping("/signup")
     public ResponseEntity<ClientLoginResponseDTO> singUp(@RequestBody ClientSignUpDTO clientSignUpDTO) throws URISyntaxException {
@@ -48,7 +44,7 @@ public class ClientController {
             new UsernamePasswordAuthenticationToken(client.getUser().getUsername(), client.getUser().getPassword())
         );
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String token = jwtUtil.generateToken(
+        String token = tokenUtil.generateToken(
             userDetails.getUsername(),
             List.copyOf(userDetails.getAuthorities())
         );
@@ -67,7 +63,7 @@ public class ClientController {
             new UsernamePasswordAuthenticationToken(clientLoginDTO.getEmail(), clientLoginDTO.getPassword())
         );
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String token = jwtUtil.generateToken(
+        String token = tokenUtil.generateToken(
             userDetails.getUsername(),
             List.copyOf(userDetails.getAuthorities())
         );
@@ -77,11 +73,7 @@ public class ClientController {
     }
 
     @DeleteMapping("/{clientId}")
-    public ResponseEntity<Void> deleteClient(
-        Authentication authentication,
-        @PathVariable Long clientId
-    ) {
-        securityService.isAdminOrOwner(clientId, authentication);
+    public ResponseEntity<Void> deleteClient(@PathVariable Long clientId) {
         clientService.delete(clientId);
         return ResponseEntity.noContent().build();
     }
