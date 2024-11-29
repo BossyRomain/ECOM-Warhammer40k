@@ -90,6 +90,7 @@ public class CartService {
     public void setProductQuantity(Long clientId, Long productId, int quantity) throws NoSuchElementException {
         CommandLine commandLine = commandLineRepository.findByClientAndProduct(clientId, productId).orElseThrow(NoSuchElementException::new);
         commandLine.setQuantity(quantity);
+        commandLineRepository.save(commandLine);
     }
 
     public void removeProduct(Long clientId, Long productId) throws NoSuchElementException {
