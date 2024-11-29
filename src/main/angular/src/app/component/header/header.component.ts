@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CatalogComponent } from '../catalog/catalog.component';
 import { CartServiceService } from '../../service/cart-service.service';
+import { ClientServiceService } from '../../service/client-service.service';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,7 @@ export class HeaderComponent {
     
   }
   
-  constructor(private router: Router, private activatedRoute:ActivatedRoute, private cartService : CartServiceService) { }
+  constructor(private router: Router, private activatedRoute:ActivatedRoute, private cartService : CartServiceService, private clientService:ClientServiceService) { }
   
   public access_account() {
     this.router.navigate(["/account"]);
@@ -31,7 +32,12 @@ export class HeaderComponent {
   }
 
   public accesToCart() {
-    this.router.navigate(['/cart', 0]);
+    if(this.clientService.isConnected()){
+      this.router.navigate(['/cart', this.clientService.client?.id])
+    }else{
+      this.router.navigate(['/cart', 0]);
+    }
+    
   }
   public search(searchText: string) {
     this.router.navigate(["/catalog/search"], {relativeTo: this.activatedRoute, queryParams: {search:searchText, page:0}, });

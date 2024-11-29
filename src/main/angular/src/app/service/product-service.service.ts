@@ -6,6 +6,8 @@ import { environment } from '../../environments/environment';
 import { ProductCatalog } from '../model/product-catalog';
 
 import {Image} from '../model/image';
+import { CatalogComponent } from '../component/catalog/catalog.component';
+import { CatalogueImg } from '../model/catalogue-img';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,8 @@ export class ProductServiceService {
 
   private apiUrl = environment.apiUrl;
   private maxPages:number = 0;
+
+
   public getProductById(id: number): Observable<Product> {
     console.log(`${this.apiUrl}/api/products/${id}`);
     return this.http.get(`${this.apiUrl}/api/products/${id}`)
@@ -108,6 +112,27 @@ export class ProductServiceService {
 
   public getMaxPages():number{
     return this.maxPages;
+  }
+
+  public getProductCatalogById(id: number): Observable<ProductCatalog> {
+    console.log(`${this.apiUrl}/api/products/${id}`);
+    return this.http.get(`${this.apiUrl}/api/products/${id}`)
+    .pipe(
+      map((body:any) => 
+        {
+          console.log(body);
+          const product = {
+            catalogueImg:body.catalogueImg,
+            id:body.id, 
+            name:body.name,
+            productType: body.productType,
+            stock: body.stock, 
+            unitPrice: body.unitPrice
+          };
+          return product ;
+        }
+      )      
+    );
   }
 
 

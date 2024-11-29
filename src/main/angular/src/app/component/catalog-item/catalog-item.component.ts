@@ -28,7 +28,12 @@ export class CatalogItemComponent {
 
   public addCart(id: number) {
     console.log("add cart from catalogue " + id);
-    this.cartService.addProductToCart(this.clientService.clientID, id, 1)
+    if(this.clientService.isConnected()&& this.clientService.client){
+      this.cartService.addProductToCart(this.clientService.client.id, id, 1)
+    }else{
+      this.cartService.addProductToCart(0, id, 1)
+    }
+    
   }
 
 

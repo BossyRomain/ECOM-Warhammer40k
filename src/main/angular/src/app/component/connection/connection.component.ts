@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';  // Importation du router d'Angular
 import { FormsModule } from '@angular/forms';  // Importation de FormsModule
 import { ClientServiceService } from '../../service/client-service.service';
+import { CartServiceService } from '../../service/cart-service.service';
 
 @Component({
   selector: 'app-connection',
@@ -17,7 +18,7 @@ export class ConnectionComponent {
   emailError: string = '';  // Message d'erreur pour l'email
   passwordError: string = '';  // Message d'erreur pour le mot de passe
 
-  constructor(private router: Router, private clientService: ClientServiceService ) { }
+  constructor(private router: Router, private cartService:CartServiceService) { }
 
   // Méthode pour vérifier si l'email est valide
   isEmailValid(): boolean {
@@ -60,21 +61,7 @@ export class ConnectionComponent {
     // On valide le formulaire avant de soumettre
     if (this.validateForm()) {
       console.log("Appel au server client pour se connecter");
-      this.clientService.seConnecter(this.email, this.password).subscribe(
-        (client) => { 
-          this.clientService.client = client; 
-          this.router.navigate(["/catalog/search"], { queryParams: { search: "", page: 0 }, });
-          console.log("Voici le client: " + this.clientService.client.id);
-          console.log("token " + this.clientService.client.authToken);
-      },
-        (error) => { this.passwordError = "TEST" ;}
-      );
-      
-
-
-
-
-
+      this.cartService.retrieveClientInfo(this.email, this.password);
     } else {
       // Si le formulaire n'est pas valide, on affiche un message d'erreur général
       console.log("Formulaire invalide");

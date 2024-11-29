@@ -45,7 +45,7 @@ export class ClientServiceService {
             password: response.user.password,
             authority: response.user.authority,
           },
-          cart: response.cart, // Remplir si nécessaire
+          cart: response.currentCart, // Remplir si nécessaire
           firstName: response.firstName,
           lastName: response.lastName,
           birthday: response.birthday,

@@ -15,24 +15,20 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 })
 export class CartComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute, private cartService:CartServiceService, private clientService:ClientServiceService){}
+  constructor(private route: ActivatedRoute, private cartService:CartServiceService, private clientService:ClientServiceService, private activatedRoute:ActivatedRoute){}
   public cart: CommandLine[] = [];
   ngOnInit(): void {
     console.log(this.cartService.currentCart);
     this.cart = this.cartService.currentCart;
-    if(this.clientService.isConnected()){
-      
-    }
+    this.activatedRoute.params.subscribe(
+      (params)=> {this.cart = this.cartService.currentCart;}
+    )
   }
-
-  public getCart():CommandLine[]{
-    return this.clientService.currentCart;
-  } 
 
   public getSum(): number{
     let sum = 0;
     this.cartService.currentCart.forEach((temp) => {
-      sum += temp.product.price * temp.quantity;
+      sum += temp.product.unitPrice * temp.quantity;
     })
     return sum;
   }

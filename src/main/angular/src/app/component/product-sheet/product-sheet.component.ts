@@ -50,12 +50,8 @@ export class ProductSheetComponent implements OnInit {
     }
 
     public addArticleToCart():void{
-      console.log("Achat " + this.numberOfArticle);
       if(this.numberOfArticle != 0 && this.article != undefined){
-        if(this.clientService.isConnected() && this.clientService.client){
-          console.log("Add product " + this.clientService.client.id + " " + this.article.id +  " " + this.numberOfArticle);
-          this.cartService.addProductToCart(this.clientService.client.id, this.article.id, this.numberOfArticle);
-        }
+          this.cartService.addProductToCart(this.clientService.client ? this.clientService.client.id: 0, this.article.id, this.numberOfArticle);
         
       }
       
