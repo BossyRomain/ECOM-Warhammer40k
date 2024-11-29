@@ -21,10 +21,11 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/catalogue")
-    public Page<ProductCatalogueDTO> getProductsCatalogue(
+    @GetMapping("/search")
+    public Page<ProductCatalogueDTO> searchProducts(
         @RequestParam(name = "page", defaultValue = "0") int page,
         @RequestParam(name = "size", defaultValue = "10") int size,
+        @RequestParam(value = "query", required = false) String query,
         @RequestParam(name = "minprice", defaultValue = "0.0") float minprice,
         @RequestParam(name = "maxprice", defaultValue = "999999.0") float maxprice,
         @RequestParam(name = "type", required = false) List<String> productTypes,
@@ -35,24 +36,15 @@ public class ProductController {
             productTypes = productTypes.stream().map(String::toUpperCase).collect(Collectors.toList());
         }
 
-        if(groups != null) {
+        if (groups != null) {
             groups = groups.stream().map(String::toUpperCase).collect(Collectors.toList());
         }
 
-        if(factions != null) {
+        if (factions != null) {
             factions = factions.stream().map(String::toUpperCase).collect(Collectors.toList());
         }
 
-        return productService.getAllWithFilters(page, size, minprice, maxprice, productTypes, groups, factions).map(ProductCatalogueDTO::fromProduct);
-    }
-
-    @GetMapping("/search")
-    public Page<ProductCatalogueDTO> searchProducts(
-        @RequestParam(name = "page", defaultValue = "0") int page,
-        @RequestParam(name = "size", defaultValue = "10") int size,
-        @RequestParam("query") String query
-    ) {
-        return productService.search(page, size, query).map(ProductCatalogueDTO::fromProduct);
+        return productService.search(page, size, query, minprice, maxprice, productTypes, groups, factions).map(ProductCatalogueDTO::fromProduct);
     }
 
     @GetMapping("")

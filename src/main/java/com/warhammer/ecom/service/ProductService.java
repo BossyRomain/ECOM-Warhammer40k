@@ -20,17 +20,12 @@ public class ProductService {
     private ProductRepository productRepository;
 
     private final Sort DEFAULT_SORT = Sort.by(Sort.Direction.DESC, "releaseDate");
-
-    public Page<Product> search(int page, int size, String query) {
-        return productRepository.searchByName(PageRequest.of(page, size, DEFAULT_SORT), query);
-    }
-
-    public Page<Product> getAllWithFilters(int page, int size, float minPrice, float maxPrice,
-                                           List<String> productTypes, List<String> groups, List<String> factions) {
-        boolean filterGroups = groups != null;
-        boolean filterFactions = factions != null;
-        return productRepository.findFiltered(PageRequest.of(page, size, DEFAULT_SORT),
-            minPrice, maxPrice, productTypes, filterGroups, groups, filterFactions, factions);
+    
+    public Page<Product> search(int page, int size, String query,
+                                float minPrice, float maxPrice,
+                                List<String> productTypes, List<String> groups, List<String> factions) {
+        return productRepository.search(PageRequest.of(page, size, DEFAULT_SORT),
+            query, minPrice, maxPrice, productTypes, groups != null, groups, factions != null, factions);
     }
 
     public Page<Product> getAll(int page, int size) {

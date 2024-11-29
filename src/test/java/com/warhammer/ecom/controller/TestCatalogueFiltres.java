@@ -33,7 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class TestCatalogueFiltres {
 
-    private final String CATALOGUE_ROUTE = "/api/products/catalogue";
+    private final String CATALOGUE_ROUTE = "/api/products/search";
 
     @Autowired
     private MockMvc mockMvc;
