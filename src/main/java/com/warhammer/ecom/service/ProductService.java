@@ -20,7 +20,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     private final Sort DEFAULT_SORT = Sort.by(Sort.Direction.DESC, "releaseDate");
-    
+
     public Page<Product> search(int page, int size, String query,
                                 float minPrice, float maxPrice,
                                 List<String> productTypes, List<String> groups, List<String> factions) {
@@ -40,15 +40,7 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public Product update(Product product) throws NoSuchElementException {
-        if (productRepository.existsById(product.getId())) {
-            return productRepository.save(product);
-        } else {
-            throw new NoSuchElementException();
-        }
-    }
-
-    public void delete(Product product) {
-        productRepository.delete(product);
+    public void delete(Long productId) {
+        productRepository.deleteById(productId);
     }
 }

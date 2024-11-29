@@ -10,7 +10,6 @@ import com.warhammer.ecom.model.User;
 import com.warhammer.ecom.repository.AllegianceRepository;
 import com.warhammer.ecom.repository.ProductRepository;
 import com.warhammer.ecom.repository.UserRepository;
-import com.warhammer.ecom.service.AllegianceService;
 import com.warhammer.ecom.service.ClientService;
 import com.warhammer.ecom.service.ProductImageService;
 import jakarta.annotation.PostConstruct;
@@ -39,9 +38,6 @@ public class DatabaseInitializer {
 
     @Autowired
     private ObjectMapper objectMapper;
-
-    @Autowired
-    private AllegianceService allegianceService;
 
     @Autowired
     private ClientService clientService;

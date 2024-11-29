@@ -2,61 +2,33 @@ package com.warhammer.ecom.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "ECOM_USER")
-@SequenceGenerator(name="userIdSeq", initialValue=1, allocationSize=100)
+@SequenceGenerator(name = "userIdSeq", initialValue = 1, allocationSize = 100)
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="userIdSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userIdSeq")
     private Long id;
 
-    @Column(unique=true, nullable=false)
+    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     private Authority authority;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Authority getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(Authority authority) {
-        this.authority = authority;
-    }
 
     @Override
     @JsonIgnore
@@ -85,11 +57,9 @@ public class User implements UserDetails {
     @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        switch (this.authority) {
-            case ADMIN:
-                return List.of(Authority.ADMIN, Authority.CLIENT);
-            default:
-                return List.of(Authority.CLIENT);
-        }
+        return switch (this.authority) {
+            case ADMIN -> List.of(Authority.ADMIN, Authority.CLIENT);
+            default -> List.of(Authority.CLIENT);
+        };
     }
 }

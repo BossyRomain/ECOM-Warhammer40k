@@ -82,10 +82,10 @@ public class ClientController {
         @PathVariable Long clientId
     ) {
         securityService.isAdminOrOwner(clientId, authentication);
-        clientService.delete(clientService.getById(clientId));
+        clientService.delete(clientId);
         return ResponseEntity.noContent().build();
     }
-    
+
     private ClientLoginResponseDTO createLoginResponse(String token, Client client) {
         ClientLoginResponseDTO response = new ClientLoginResponseDTO();
         response.setId(client.getId());

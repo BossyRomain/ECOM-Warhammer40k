@@ -27,7 +27,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Regroupe l'ensemble des tests relatifs à l'accès au catalogue des produits en utilisant les filtres.
+ * Tests des filtres pour la recherche des produits dans le catalogue.
+ * Chaque filtre est testé individuellement.
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc

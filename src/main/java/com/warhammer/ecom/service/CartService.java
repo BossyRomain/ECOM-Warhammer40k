@@ -27,9 +27,6 @@ public class CartService {
     private CartRepository cartRepository;
 
     @Autowired
-    private ProductService productService;
-
-    @Autowired
     private CommandLineRepository commandLineRepository;
 
     @Autowired
