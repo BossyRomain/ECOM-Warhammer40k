@@ -10,7 +10,8 @@ import { CommandLine } from '../../model/command-line';
   imports: [CommonModule]
 })
 export class CartItemComponent {
-  @Input() commandLine?:CommandLine;
+  @Input() commandLine?: CommandLine;
+  
 
   changeValue(){
     

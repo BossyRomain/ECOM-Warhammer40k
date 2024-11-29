@@ -61,16 +61,10 @@ export class ConnectionComponent {
     if (this.validateForm()) {
       console.log("Appel au server client pour se connecter");
       this.clientService.seConnecter(this.email, this.password).subscribe(
-        (client) => { this.clientService.client = client; this.router.navigate(["/catalog/search"], { queryParams: { search: "", page: 0 }, }),console.log("Voici le client: " + this.clientService.client.id);
+        (client) => { this.clientService.client = client; this.router.navigate(["/catalog/search"], { queryParams: { search: "", page: 0 }, });
       },
-        (error) => { this.passwordError = "TEST" ;}
+        (error) => { this.passwordError = "Incorrect login credentials. Please try again" ;}
       );
-      
-
-
-
-
-
     } else {
       // Si le formulaire n'est pas valide, on affiche un message d'erreur général
       console.log("Formulaire invalide");

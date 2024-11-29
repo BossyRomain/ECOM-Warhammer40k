@@ -150,8 +150,8 @@ body {
   background-color: transparent;
 }
 
-/* Bouton "Go" avec image */
-.search-button {
+/* Bouton X */
+.search-clear{
   width: 4vw;
   height: 4vw;
   max-width: 25px;

@@ -44,4 +44,8 @@ export class HeaderComponent {
     }
   }
 
+  clearInput(inputElement: HTMLInputElement): void {
+    inputElement.value = ''; // Réinitialise la valeur du champ
+  }
+
 }

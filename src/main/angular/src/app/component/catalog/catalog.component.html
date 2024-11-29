@@ -10,6 +10,7 @@
             <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/left_arrow_bold.png" alt="b">
         </button>
         <input type="number" class="page-input" value="1" (keydown)="onKeyDown($event)" #pageNumber/>
+        <p>/{{lastPage}}</p>
         <button class="pagination-btn" (click)="nextPage()">
             <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/right_arrow_bold.png" alt="b">
         </button>
