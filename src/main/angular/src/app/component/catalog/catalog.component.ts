@@ -21,6 +21,7 @@ export class CatalogComponent implements OnInit, AfterViewInit{
 
     this.ngOnInit()
   }
+  public lastPage: number = 0;
   private numPage:number = 1;
   @Input() productList: ProductCatalog[] = [];
   @ViewChild('pageNumber') myInput!: ElementRef<HTMLInputElement>;
@@ -45,19 +46,12 @@ export class CatalogComponent implements OnInit, AfterViewInit{
     }
   }
 
-  loadCatalog(): void {
-    this.productService.getProductsCatalogue().subscribe(
-      data => this.productList = data,
-      error => console.error('Erreur lors du chargement du catalogue :', error)
-    );
-  }
-
-
   public loadSearch(query:string, pageN:number=0){
     this.productService.searchProducts(query, pageN).subscribe(
-      data => this.productList = data,
-      error => console.error('Erreur lors du chargement du catalogue :', error)
+      (data) => { this.productList = data, this.lastPage = this.productService.getMaxPages() },
+      (error) => { console.error('Erreur lors du chargement du catalogue :', error) }
     );
+
   }
 
   previousPage(): void{
