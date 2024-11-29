@@ -1,39 +1,37 @@
 <div class="product-card">
 
-    <h2 class="product-name"><b>{{ productName }}</b></h2>
-    <div class="image-container">
-        <img class="main-image" src={{mainImg}}/>
-    </div> 
+  <h2 class="product-name"><b>{{ productName }}</b></h2>
+  <div class="image-container">
+    <img class="main-image" src={{mainImg}}/>
+  </div>
 
-    <div class="image-gallery" >
-        <div *ngFor="let x of article?.images; index as i" >
-            <img src={{x.url}} (click)="changeIndex(i)"/>
-        </div>
-        
+  <div class="image-gallery">
+    <div *ngFor="let x of article?.images; index as i">
+      <img src={{x.url}} (click)="changeIndex(i)"/>
     </div>
-        
-    
-    <div class="description-container">
-        <p>
-            <b>Description:</b> {{ article?.description }}
-            
-        </p>
-    </div>
+
+  </div>
+
+
+  <div class="description-container">
+    <p><b>Description</b></p>
+    <p [innerHTML]="article?.description">
+    </p>
+  </div>
+  <div class="row-container">
     <div class="row-container">
-        <div class="row-container">
-            <input class="element" #inputNumberOfElement type="number" value="0" maxlength="3"  [min]="0" [step]="1" (input)="validateNumber($event)" />
-            <h4 class="price-container"> {{ price | number: '1.2-2'}} €</h4>
-        </div>
-        
-        <button class="add-button" (click)="addArticleToCart()" > 
-            Ajouter au Panier
-        </button>
-        
+      <input class="element" #inputNumberOfElement type="number" value="0" maxlength="3" [min]="0" [step]="1"
+             (input)="validateNumber($event)"/>
+      <h4 class="price-container"> {{ price | number: '1.2-2' }} €</h4>
     </div>
 
-    
-    
-     
+    <button class="add-button" (click)="addArticleToCart()">
+      Ajouter au Panier
+    </button>
+
+  </div>
+
+
 </div>
 
 
