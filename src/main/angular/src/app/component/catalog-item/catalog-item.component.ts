@@ -5,6 +5,7 @@ import { ProductCatalog } from '../../model/product-catalog';
 import { Router } from '@angular/router';
 import { CartServiceService } from '../../service/cart-service.service';
 import { ClientServiceService } from '../../service/client-service.service';
+import { ToastService } from '../../service/toast.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class CatalogItemComponent {
   
   @Input() article!: ProductCatalog;
 
-  constructor(private router: Router, private cartService: CartServiceService, private clientService:ClientServiceService) { }
+  constructor(private router: Router, private cartService: CartServiceService, private clientService:ClientServiceService, private toastService: ToastService) { }
 
 
   public detailedProduct(id: number) {
@@ -33,8 +34,10 @@ export class CatalogItemComponent {
     }else{
       this.cartService.addProductToCart(0, id, 1)
     }
-    
+    this.toastService.showToast("Votre produit a été ajouté au panier");
   }
+
+  
 
 
 }

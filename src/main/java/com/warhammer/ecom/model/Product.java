@@ -41,11 +41,7 @@ public class Product {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private Collection<ProductImage> images;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "COLOR_FK", nullable = true)
-    private Color color;
-
+    
     public Allegiance getAllegiance() {
         return allegiance.getFaction() == Faction.NONE || allegiance.getGroup() == Group.NONE ? null : allegiance;
     }

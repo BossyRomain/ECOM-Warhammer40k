@@ -20,8 +20,9 @@
   </div>
 
   <div class="search-bar-container">
-      <div class="search-icon"></div> <!-- Icône de loupe -->
-      <input #research type="text" class="search-input" placeholder="Rechercher..." (keydown)="onEnter($event,research.value)">
-      <button class="search-button" (click)="search(research.value)"></button> <!-- Bouton "Go" avec image -->
+    <div class="search-icon"></div> <!-- Icône de loupe -->
+    <input #research type="text" class="search-input" placeholder="Rechercher..." (keydown)="onEnter($event,research.value)">
+    <button class="search-clear" (click)="clearInput(research)"></button><!-- Bouton "X"-->
+      
   </div>
 </div>

@@ -8,10 +8,10 @@ import lombok.Setter;
 import java.sql.Timestamp;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @SequenceGenerator(name = "cartIdSeq", initialValue = 1, allocationSize = 100)
-@Setter
-@Getter
 public class Cart {
 
     @Id
@@ -29,7 +29,7 @@ public class Cart {
     @JsonIgnore
     private Client client;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "command", orphanRemoval = true)
+    @OneToMany(mappedBy = "command", fetch = FetchType.EAGER)
     private List<CommandLine> commandLines;
 
 }

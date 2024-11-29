@@ -75,7 +75,7 @@
     "stock": 154,
     "releaseDate": "2012-04-15",
     "productType": "FIGURINE",
-    "faction": "CHAOS_SPACE_MARINES",
+    "faction": "WORLD_EATERS",
     "imgsPrefix": "kharn_the_betrayer"
   },
   {
@@ -982,5 +982,185 @@
     "releaseDate": "1993-04-08",
     "productType": "PAINT",
     "imgsPrefix": "agrax_earthshade"
+  },
+  {
+    "name": "Index: World Eaters",
+    "description": "Fanatical devotees of Khorne the Blood God, the World Eaters Traitor Legion is formed of countless warbands who exist only to slaughter and take skulls in honour of their bloody patron.\n\nThis deck of Index: World Eaters cards will enhance your games from the moment you start playing Warhammer 40,000, giving you hands-on references to all the rules for your faction. The deck includes individual datasheets for every World Eaters unit, detailing their profiles, wargear, options, and special abilities. You'll also find reference cards for the World Eaters army rule – Blessings of Khorne – as well as the Berzerker Warband Detachment, which includes four Enhancements, six Stratagems, and the Relentless Rage rule.\n\nContents:\n- 23x World Eaters Datasheet Cards:\nAngron\nEightbound\nExalted Eightbound\nJakhals\nKhârn the Betrayer\nKhorne Berzerkers\nKhorne Lord of Skulls\nLord Invocatus\nWorld Eaters Chaos Spawn\nWorld Eaters Daemon Prince\nWorld Eaters Daemon Prince with wings\nWorld Eaters Defiler\nWorld Eaters Forgefiend\nWorld Eaters Helbrute\nWorld Eaters Heldrake\nWorld eaters Land Raider\nWorld Eaters Lord on Juggernaut\nWorld Eaters Master of Executions\nWorld Eaters Maulerfiend\nWorld Eaters Predator Annihilator\nWorld Eaters Predator Destructor\nWorld Eaters Rhino\nWorld Eaters Terminator Squad\n\n- 3x World Eaters Index Cards, detailing the faction's army rule and the Berzerker Warband Detachment\n\nAll cards are 190mm x 126mm.",
+    "unitPrice": 19.0,
+    "stock": 1547,
+    "releaseDate": "2001-12-01",
+    "productType": "RULES_AND_CODEX",
+    "faction": "WORLD_EATERS",
+    "imgsPrefix": "index_world_eaters"
+  },
+  {
+    "name": "Combat Patrol: World Eaters",
+    "description": "Scions of their Primarch Angron, Daemon Prince of Khorne, the World Eaters were amongst the most feared of the Space Marines Legions to turn traitor during the brutal civil war known as the Horus Heresy. The World Eaters long held a reputation for wanton savagery, and as they fell to the powers of Chaos, they devolved into warbands of blood-crazed maniacs dedicated to the Taker of Skulls, glorying in violence and slaughter, and with no other purpose than spilling blood in their deity's name.\n\nTake skulls for the Skull Throne with Combat Patrol: World Eaters! This boxed set provides you with all the units you need to start your army or expand an existing collection. The contents have been chosen to provide you with a ferocious core for any World Eaters force, ideal for Combat Patrol-sized games and will also save you money compared to buying the contents individually.\n\nThis set includes the following multipart plastic models:\n– 1x World Eaters Lord on Juggernaut, which can alternatively be built as Lord Invocatus\n– 10x Jakhals\n– 20x Khorne Berzerkers\n– 2x World Eaters Transfer Sheets, each containing 200 transfers\n\nAll models are supplied with their appropriate bases. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.\n\nThe terrain used in images on this page is for illustrative purposes only and is not included.",
+    "unitPrice": 168.0,
+    "stock": 1543,
+    "releaseDate": "2004-07-18",
+    "productType": "FIGURINE",
+    "faction": "WORLD_EATERS",
+    "imgsPrefix": "combat_patrol_world_eaters"
+  },
+  {
+    "name": "Angron, Daemon Primarch of Khorne",
+    "description": "Angron is the Red Angel, Lord of the World Eaters, the Daemon Primarch of Khorne. Raised as a slave in the brutal fighting pits of Nuceria, this maddened demigod sought glorious death in the battles of the Horus Heresy – only to be damned to an eternity of undying rage. For ten thousand years he has savaged the Imperium, fury given immortal form, the butchers of the XII Legion following in his bloody wake. When he steps forth into realspace, Angron is an unstoppable engine of destruction with the strength to tear apart bastions with his bare hands and stop Titans in their tracks. His very presence drives those around him into a frenzy of wrath and fear, as he carves his way through entire armies in a whirlwind of apocalyptic bloodshed.\n\nThis multipart kit builds Angron, Daemon Primarch of Khorne – the eternal master of the World Eaters Legion. This imposing warrior towers head and shoulders above most miniatures on the battlefield, including his own frenzied sons amongst the World Eaters. He's armed with his massive chainaxe, Spinegrinder, and the brutal rune-etched daemon sword known as Samni’arius – both weapons chained to his wrists in true Nucerian style. His warped form is festooned with grisly trophies and World Eaters iconography, with a barbed club-tail whipping behind him, shadowed by a pair of sinister spiked wings. Even his base is littered with skulls, as his hooved feet mount a broken rocky outcrop.\n\nAngron's monstrous visage can be built in a fanged roar or close-mouthed snarl, and he can be assembled with his infernal musculature laid bare, or clad in the twisted Armour of Mars – the same gladiatorial plate that he wore during the Horus Heresy, warped to match his daemonic form. However you build him, the powerful physique, dynamic pose, and sheer size of this fallen Primarch commands immediate attention, making him a truly impressive centrepiece in any World Eaters army and an absolute treat for painters and collectors of all stripes.\n\nThis kit comprises 77 plastic components, and is supplied with a Citadel 100mm Round Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+    "unitPrice": 170.0,
+    "stock": 124,
+    "releaseDate": "2001-05-30",
+    "productType": "FIGURINE",
+    "faction": "WORLD_EATERS",
+    "imgsPrefix": "angron_deamon_primarch"
+  },
+  {
+    "name": "World Eaters Lord on Juggernaut",
+    "description": "Lords of the World Eaters have spent countless mortal lifetimes leading their warriors into bloody battles across the galaxy. Some have achieved such great feats of carnage that the Taker of Skulls has seen fit to reward them with a juggernaut – a savage daemonic steed with brazen skin and molten ichor, capable of crushing all in its path as the two charge into the fray.\n\nThis multipart plastic kit builds a World Eaters Lord on Juggernaut – a deadly killer mounted atop a brass-skinned daemon. This mighty warrior is clad in armour decorated with the symbols of Khorne, with a choice of two different shoulder pads for each arm, and can be built with one of two heads – an ornate crested helm, or a bare head wearing a snarling rebreather. The Lord wields an exalted chainblade in the form of either a vicious chainsword or long-handled chainaxe, and is also armed with a plasma pistol – he can be posed aiming the pistol at his enemies, or clinging to one of his mount's rings. His juggernaut steed is covered in biomechanical detail, and also offers two different head options – one with a sleek bladed crest, the other sporting a jagged horn.\n\nThis kit can alternatively build Lord Invocatus.\n\nThis kit comprises 66 plastic components, and is supplied with a Citadel 90x52mm Oval Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+    "unitPrice": 65.0,
+    "stock": 1678,
+    "releaseDate": "2000-11-24",
+    "productType": "FIGURINE",
+    "faction": "WORLD_EATERS",
+    "imgsPrefix": "world_eaters_lord_juggernaut"
+  },
+  {
+    "name": "Eightbound",
+    "description": "Eightbound are Heretic Astartes possessed by eight separate daemons of Khorne, their swollen forms virtually unrecognisable from the World Eaters they once were. As a result, these warped warriors exhibit unthinkable strength and savagery, far in excess of their mortal brethren. Wielding all manner of enormous chain weapons, a pack of Eightbound are capable of ripping apart almost anything that dares to stand against them.\n\nThis multipart plastic kit builds three Eightbound – shockingly potent demi-daemons fielded by the World Eaters. These monstrous warriors resemble warped, overgrown Khorne Berzerkers, from their exposed muscles and cybernetics to their ornate and twisted armour. Each Eightbound is armed with two eviscerators, massive chain weapons resembling chainswords or chainaxes. You can also build an Eightbound Champion, who can instead be armed with a pair of cleaver-like lacerators, or a two-handed heavy chainglaive.\n\nThe kit is loaded with interchangeable and cosmetic components, including alternate heads, different designs for chest plates, shoulder pads, and power packs, and the option to build your Eightbound with bare torsos. There's enough variety to make each Eightbound pack unique, and fill your bits box with extras. This kit can alternatively build three Exalted Eightbound, an even more heavily-mutated squad of World Eaters.\n\nThis kit comprises 88 plastic components and is supplied with 3x Citadel 40mm Round Bases. Also included is a World Eaters Transfer Sheet, with 200 transfers featuring Khornate symbols, runic tattoos, eight-pointed stars, skulls, and variations on the World Eaters Legion icon. These miniatures are supplied unpainted and require assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+    "unitPrice": 62.5,
+    "stock": 1254,
+    "releaseDate": "2004-06-24",
+    "productType": "FIGURINE",
+    "faction": "WORLD_EATERS",
+    "imgsPrefix": "eightbound"
+  },
+  {
+    "name": "Maulerfiend",
+    "description": "Maulerfiends stalk the battlefield like immense hunting beasts. Given a fitting target, these huge daemon engines thunder forward, even scaling defensive walls in their eagerness to get at the prey. Once amongst the foe, they slaughter anything in reach, rending flesh and steel asunder with mechanical talons and crushing jaws.\n\nThis multipart plastic kit builds a Maulerfiend – a predatory daemon engine built for close assaults. Its monstrous form combines warped metal and twisted flesh, covered with mechanical details such as vents, wires, cables, pistons, and segmented plates. The Maulerfiend tears apart foes with two massive fists, supplemented by a set of lashing metal tendrils that extend from its sides, or a pair of magma cutters that can slice right through enemy armour.\n\nThis kit can alternatively be assembled as a Forgefiend.\n\nThis kit comprises 67 plastic components and comes with a Citadel 120x92mm Oval Base. This miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+    "unitPrice": 84.0,
+    "stock": 3482,
+    "releaseDate": "1997-01-15",
+    "productType": "FIGURINE",
+    "faction": "CHAOS_SPACE_MARINES",
+    "imgsPrefix": "maulerfiend"
+  },
+  {
+    "name": "Helbrute",
+    "description": "Helbrutes are walking engines of destruction, each piloted by a Chaos Space Marine trapped within its plated metal chest, kept alive in a state of agonised insanity. These infernal sarcophagi are fitted with powerful armaments to lay down heavy fire support, or cruel mechanical appendages to hack and crush with enormous strength – all to inflict a portion of their eternal torment on whatever victims they can.\n\nThis multipart plastic kit builds one Helbrute – a warped Dreadnought with a massive array of weapon combinations. The left arm can be equipped with a missile launcher, a writhing power scourge, a massive hammer, or a crushing fist. The right arm can be armed with a plasma cannon, a multi-melta, a twinned lascannon, a twinned heavy bolter, a reaper autocannon, or a fist of its own. Each of the Helbrute's fists can also sport a wrist-mounted combi-bolter or palm-mounted heavy flamer.\n\nThis monstrous box is packed with options for customising your Helbrute. The miniature is poseable at the waist, shoulders, and neck, with six different ball-jointed heads to choose from. You'll also find three sets of horns for the sarcophagus, two shoulder pads for the left arm, and a variety of weapon-pipes to fit different poses.\n\nThis kit comprises 101 plastic components, and comes with a Citadel 60mm Round Base. This miniature is supplied unpainted and requires assembly - we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+    "unitPrice": 62.5,
+    "stock": 1548,
+    "releaseDate": "1999-06-15",
+    "productType": "FIGURINE",
+    "faction": "CHAOS_SPACE_MARINES",
+    "imgsPrefix": "helbrute"
+  },
+  {
+    "name": "Defiler",
+    "description": "Defilers are towering daemon engines that stomp across the battlefield on piston-driven legs, their clanking claws and barbed limbs easily capable of slicing a Space Marine in half. No foe is safe from a Defiler – these abominable constructs spit powerful shells from their monstrous cannons, and trigger an arsenal of heavy weapons on a cruel mechanical whim, inflicting a terrible toll no matter the distance.\n\nThis multipart plastic kit builds one Defiler – a terrifying daemon engine fielded by the Traitor Legions. This vehicle is raised up on six mechanical limbs which can be posed in a variety of ways, including two forelimbs tipped with crushing claws. Its torso is also poseable, and sports a powerful battle cannon as well as a pair of side-mounted weapons – a reaper autocannon on the right, and your choice of havoc launcher, twin heavy flamer, or writhing scourge tentacles on the left.\n\nThis detailed kit offers plenty of cosmetic options, including a choice of three different faceplates for the Defiler's head, as well as a variety of Chaos icons, trophy racks, spikes, and hooks. It also includes a combi-bolter or combi-flamer which can be mounted on the Defiler.\n\nThis miniature is supplied unpainted and requires assembly – we recommend using Citadel Plastic Glue and Citadel Colour paints.",
+    "unitPrice": 84.0,
+    "stock": 1227,
+    "releaseDate": "1995-03-24",
+    "productType": "FIGURINE",
+    "faction": "CHAOS_SPACE_MARINES",
+    "imgsPrefix": "defiler"
+  },
+  {
+    "name": "Index: Death Guard",
+    "description": "The Death Guard are the chosen Legion of the Plague God Nurgle, the diseased scions of the Daemon Primarch Mortarion, and they bring sickness and destruction to all who oppose them.\n\nThis deck of Index: Death Guard cards will enhance your games from the moment you start playing Warhammer 40,000, giving you hands-on references to all the rules for your faction. The deck includes individual datasheets for every Death Guard unit, detailing their profiles, wargear, options, and special abilities. You'll also find reference cards for the Death Guard army rule – Nurgle's Gift – as well as the Plague Company Detachment, which includes four Enhancements, six Stratagems, and the Spread the Sickness rule.\n\nContents:\n- 32x Death Guard Datasheet Cards:\nBiologus Putrifier\nBlightlord Terminators\nDeath Guard Chaos Lord\nDeath Guard Chaos Lord in Terminator Armour\nDeath Guard Chaos Spawn\nDeath Guard Cultists\nDeath Guard Daemon Prince\nDeath Guard Daemon Prince with wings\nDeath Guard Defiler\nDeath Guard Helbrute\nDeath Guard Icon Bearer\nDeath guard Land Raider\nDeath Guard Predator Annihilator\nDeath Guard Predator Destructor\nDeath Guard Rhino\nDeath Guard Sorcerer in Terminator Armour\nDeathshroud Terminators\nFoetid Bloat-Drone\nFoul Blightspawn\nLord of Contagion\nLord of Virulence\nMalignant Plaguecaster\nMiasmic Malignifier\nMortarion\nMyphitic Blight-Haulers\nNoxious Blightbringer\nPlague Marines\nPlague Surgeon\nPlagueburst Crawler\nPoxwalkers\nTallyman\nTyphus\n\n- 3x Death Guard Index Cards, detailing the faction's army rule and the Plague Company Detachment\n\nAll cards are 190mm x 126mm.",
+    "unitPrice": 19.0,
+    "stock": 2145,
+    "releaseDate": "2006-03-17",
+    "productType": "RULES_AND_CODEX",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "index_death_guard"
+  },
+  {
+    "name": "Combat Patrol: Death Guard",
+    "description": "The Death Guard are the greatest champions of the Plague God, Grandfather Nurgle, his favoured spreaders of his bounteous gifts. Look upon them and see the signs: pus seeping from festering wounds that never heal; miasmic smogs of corrosive, stinking gas hanging thickly in the air wherever Nurgle’s chosen tread; the wriggling, lamprey-mouthed tick-leeches that clamp on to their rotting flesh; the droning billions of plague flies that swarm the battlefields they stalk and the ships in which they course through the stars.\n\nCombat Patrol is the smallest sized game, and this Death Guard force is a great way to start – regardless of whether you want to play an open play game, forge a narrative with a Crusade army, or compete in a matched play mission. If this is the beginning of your first-ever Death Guard army or you're looking at adding to an existing force, this box is ideal.\n\nThis 243-piece plastic kit makes the following models:\n\n– 1x Typhus\n– 1x Biologus Putrifier\n– 7x Plague Marines\n– 30x Pox Walkers\n\nIt is supplied with 30 25mm Citadel round bases, 7 32mm Citadel round bases, 1 40mm Citadel round base, and 1 50mm Citadel round base.",
+    "unitPrice": 168.0,
+    "stock": 2141,
+    "releaseDate": "2006-04-14",
+    "productType": "FIGURINE",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "combat_patrol_death_guard"
+  },
+  {
+    "name": "Mortarion, Daemon Primarch of Nurgle",
+    "description": "For ten thousand years Mortarion, Lord of the Death Guard, has crushed his enemies upon the field of battle. Surrounded by chittering Daemon mites, droning flies and noxious plague vapours, Mortarion swoops into battle on vast, creaking wings. the thudding beat of these foul pinions fills the enemy with crawling dread, even as they waft the reek of death across their lines. To even stand in the presence of the Death Lord is lethal, opponents choking and collapsing as they succumb to the myriad plagues that churn the air around him.\n\nThis multi-part plastic kit contains the components necessary to assemble Mortarion, Daemon Primarch of Nurgle. This is a towering model – the word ‘miniature’ barely does it justice, as he looms over the rest of the Death Guard and gives even Bloodthirsters something to look up to! He is clad in baroque power armour known as the Barbaran Plate – this is covered in rust and rot, with skulls, spikes and Nurgle symbolism on each of the chunky components. Mouldering robes, chains and a rotten cowl hang from this armour, partially covering the system of pipes that feed his breathing apparatus – it is safe to assume that this ventilator isn’t delivering fresh and clean air to Mortarion, rather vile spores and disease.\n\nHe is armed with 2 foul weapons: a massive scythe named Silence, a rusting yet razor-sharp blade featuring brutal chain-teeth, stained with the blood of worlds and capable even of hacking a Reaver Titan to pieces; and The Lantern, an ancient energy pistol. There are two modelling options for these weapons – one option features the weapons down by Mortarion’s side, the other features a much more aggressive pose.\n\nMortarion features huge, decaying wings – these are modelled with pockmarks, holes and tears, representing the horror and decay of Nurgle’s hordes. Speaking of Nurgle’s hordes, there are plenty of extras with this kit – 2 Nurgling Drones carrying phosphex bombs hang from the chains on Mortarion’s armour, with a further 3 on the base: 1 carries a Chaos icon, one waves a censer and one carries a tank of unmentionably horrid substances. The base itself is detailed with rocks which themselves are being corrupted by the foul presence of the Daemon Primarch.\n\nMortarion, Daemon Primarch of Nurgle comes as 78 components, and is supplied with a Citadel 100mm Round base.",
+    "unitPrice": 170.0,
+    "stock": 107,
+    "releaseDate": "2005-09-15",
+    "productType": "FIGURINE",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "mortarion_daemon_primarch"
+  },
+  {
+    "name": "Blightlord Terminators",
+    "description": "Blightlord Terminators are relentless and unstoppable, elite Death Guard warriors bound forever to mutated suits of Cataphractii armour. They stalk forward with combi-bolters blazing, mercilessly mowing down rank after rank of the enemy. Plague spewers and blight launchers add to the fusilade, reducing infantry to slop and vehicles to foetid husks of rust and decomposing slag.\n\nThis multipart plastic kit contains the components necessary to assemble a unit of 5 Blightlord Terminators. They can be assembled with a fearsome array of wargear, and the kit includes the following weapon options:\n\n- 4 combi-bolters\n- 3 bubotic axes\n- 3 baleswords\n- 1 reaper autocannon\n- 1 plague spewer\n- 1 blight launcher\n- 1 flail of corruption\n- 1 combi-weapon (with a choice of combi-plasma, combi-flamer or combi-melta)\n\nThe Blightlord Terminators come as 64 components, and are supplied with 5 Citadel 40mm Round bases.",
+    "unitPrice": 62.5,
+    "stock": 2574,
+    "releaseDate": "2006-04-15",
+    "productType": "FIGURINE",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "blightlord_terminators"
+  },
+  {
+    "name": "Myphitic Blight-hauler",
+    "description": "Powering into battle on a trio of articulated track units, the Myphitic Blight-hauler is a light Daemon Engine that provides the Death Guard with heavy firepower wherever it is needed. Resembling a Bloat-drone that has been stripped of its turbines, this strange machine has heavy weapons mounted on its carapace, and its rusting armoured plates can absorb impressive punishment – as can its blubbery exposed flesh-parts, which soak up appalling trauma.\n\nThe Myphitic Blight-hauler is an unpleasant combination of machine and putrid rotting meat. From the front, it resembles some grotesque armoured vehicle, with a curved carapace featuring the symbol of Nurgle and 2 large, covered tracks. Where this differs from an ordinary attack vehicle, however, is the toothed maw at the bottom. From the rear, the horror continues – a third track is visible, along with a mass of flabby flesh, bound into the machine with straps and metal. The Myphitic Blight-hauler is armed with a multi-melta and missile launcher, which are mounted either side of the carapace.\n\nThis plastic kit comes as 13 components, and is supplied with a Citadel 80mm Round base. Rules for this miniature are included in the box.",
+    "unitPrice": 30.0,
+    "stock": 2415,
+    "releaseDate": "2007-04-23",
+    "productType": "FIGURINE",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "myphitic_blight_hauler"
+  },
+  {
+    "name": "Plague Marines",
+    "description": "Bloated with festering corruption, Plague Marines form the mainstay of the Death Guard, and unlike many Traitor Legions their numbers have only swollen as the millennia have passed. Sworn to Nurgle’s service, Plague Marines have disgusting, rotted bodies that stink of decay. The putrescent slime that oozes from their sores corrodes armour boils away skin, yet despite their horrific disfigurements they are fearsome warriors indeed.\n\nThis multi-part plastic kit contains the components necessary to assemble a 7-man squad of Plague Marines. Each is posed dynamically, with the usual Death Guard accoutrements – cracked, rotting armour revealing grasping tentacles, severed heads displayed proudly on belts, backpacks sloshing with unnatural diseases and pipework leading from rebreathers to Nurgle knows what foul concoctions. There’s an Icon of Despair included, so your unit can feature an icon bearer.\n\nThese models feature a wide range of weapons and heads, many of which are designed to fit a specific model – there are 8 boltguns, 4 plague knives, 2 bubotic axes, a blight launcher, a plasma gun, a meltagun, a plaguebelcher, a heavy plaguespewer (with backpack), a mace of contagion, a great plague cleaver, a plague flail, a plasma pistol and a bolt pistol. There are 2 weapon options available for the unit Champion: a specific plaguesword and power fist, and there are a total of 16 bare and helmeted heads. 2 specific arms are included for a model holding a blight grenade, with one hand pulling the pin.\n\nThis kit comes as 146 components, and is supplied with 7 Citadel 32mm Round bases.",
+    "unitPrice": 60.0,
+    "stock": 748,
+    "releaseDate": "2006-07-18",
+    "productType": "FIGURINE",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "plague_marines"
+  },
+  {
+    "name": "Typhus, Herald of the Plague God",
+    "description": "Typhus, Lord of Mortarion’s First Plague Company and Host of the Destroyer Hive, is the most feared of all Plague Fleet commanders. From his ancient ship, the Terminus Est, Typhus spreads contagion and misery across the galaxy. That Typhus has been truly blessed by Nurgle is indisputable. For ten thousand years he has been a blight on Imperial worlds; in the wake of Typhus’ fleet a virulent plague spreads, creating plague zombies whose bites carry the disease to new victims. Billions have died and been returned to undeath, as the proliferating energies of Chaos distort and mutate this disease to ever-more terrifying vectors.\n\nThis multi-part plastic kit contains the components necessary to build Typhus, Herald of Nurgle, Host of the Destroyer Hive. This is an appropriately large model, covered head to toe in rot, pitted Cataphractii armour, skulls, Nurgle icons and spikes – there’s even room for a Nurgling to hitch a ride, clinging to his waist. He holds aloft a master-crafted manreaper, taller even than Typhus himself, which features a host of unpleasant effects of corruption and wear; it’s clearly a blade that has seen a lot of action. The chimney found on his back is belching forth a vile hive swarm with impressive effect – some of the flies bursting forth are the size of a Nurgling. Included is a scenic element to his base, as he stands with a foot resting arrogantly on some toppled Imperial masonry.\n\nThis kit comes as 15 components, and is supplied with a Citadel 50mm Round base.",
+    "unitPrice": 45.0,
+    "stock": 954,
+    "releaseDate": "2006-04-18",
+    "productType": "FIGURINE",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "typhus_herald_of_plague_god"
+  },
+  {
+    "name": "Miasmic Malignifier",
+    "description": "Festooned with swaying plague censers and tainted bells, Miasmic Malignifiers belch thick clouds of miasmal fumes from their rusted chimneys. Sown like spores across target worlds, they are parasites that suck filth from the ground and latch themselves on to local infrastructure, polluting the world on every level.\n\nSpread your toxic presence across every world that your army comes to with the Miasmic Malignifiers. Made up of the main chimney and the smaller pox furnace, it's a great way to bring the blessings/curses (delete as appropriate) of Nurgle to your tabletop. It's also designed to sit neatly atop the Sector Mechanicus Ferratonic Furnace, making a truly immense engine of corruption.\n\nThis 55-piece plastic kit makes one Miasmic Malignifier, a Death Guard-specific piece of terrain for use in games of Warhammer 40,000.",
+    "unitPrice": 65.0,
+    "stock": 2654,
+    "releaseDate": "2007-06-27",
+    "productType": "TERRAIN",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "miasmic_malignifier"
+  },
+  {
+    "name": "Plague Drones of Nurgle",
+    "description": "High-ranking Plaguebearers are known amongst the Daemon legions as Plague Drones, a title that conveys commendable humility. These overseers of Nurgle’s realm ride into realspace mounted upon Rot Flies – colossal daemonic insects whose appearance is so repugnant it scars the mind.\n\nIn a collection of stomach-churning creations, it takes something especially hideous such as the Plague Drones of Nurgle to catch the eye. On each model, a Plaguebearer sits atop an enormous Rot Fly, which features two pairs of large, ragged wings, as well as lumps and boils across its body. There are also exposed innards here and there, and in one of the creature’s bulbous abdomen are the horrific, contorted faces of some poor, partially digested foe. Each of the three Rot Flies is unique, varying in features such as Plague Proboscis, mandibles and stinger. The Plaguebearers also feature an array of disturbing gifts of Nurgle, from their boils, open sores to their exposed entrails. They come with various horns and gesture with bony fingers, and they hold skulls or crude blades.\n\nThis multi-part plastic kit contains 86 components with which to make three Plague Drones of Nurgle.",
+    "unitPrice": 62.5,
+    "stock": 218,
+    "releaseDate": "2006-09-01",
+    "productType": "FIGURINE",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "plague_drones_of_nurgle"
+  },
+  {
+    "name": "Chosen of Mortarion",
+    "description": "Malignant Plaguecasters are living conduits for the Garden of Nurgle's miasmas and maladies, while Noxious Blightbringers sow weakness among the enemy as their cursed bell tolls. The Plague Marine Champion drowns hordes of enemies in noxious slime from his plague spewer and cripples enemy vehicles with his blight launcher.\n\nAdd three Death Guard heroes to your collection with this kit. Malignant Plaguecasters can lead your army to victory supported by the disgusting diseases that following in the wake of the Noxious Blightbringer. The Plague Marine Champion gives you a great option to differentiate your Plague Marines squads. Each model is suitably blessed by Nurgle, meaning that they'll fit in perfectly with the rest of your army and provide a really cool painting project.\n\nThis 20-piece plastic kit makes one Malignant Plaguecaster, one Noxious Blightbringer, and one Plague Marine Plague Champion. It is supplied with one 40mm Citadel round base and two 32mm Citadel round bases.",
+    "unitPrice": 70.0,
+    "stock": 1041,
+    "releaseDate": "2006-03-24",
+    "productType": "FIGURINE",
+    "faction": "DEATH_GUARD",
+    "imgsPrefix": "chosen_of_mortarion"
   }
 ]

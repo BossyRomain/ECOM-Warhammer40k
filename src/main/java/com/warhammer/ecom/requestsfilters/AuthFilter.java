@@ -1,4 +1,4 @@
-package com.warhammer.ecom.config;
+package com.warhammer.ecom.requestsfilters;
 
 import com.warhammer.ecom.service.UserService;
 import jakarta.servlet.FilterChain;
@@ -21,10 +21,10 @@ import java.util.List;
  * Filtre les requêtes HTTP reçues par l'API en fonction des autorisations requises pour les routes.
  */
 @Component
-public class JwtRequestFilter extends OncePerRequestFilter {
+public class AuthFilter extends OncePerRequestFilter {
 
     @Autowired
-    private JwtUtil jwtUtil;
+    private com.warhammer.ecom.tokenUtil tokenUtil;
 
     @Autowired
     private UserService userService;
@@ -33,13 +33,13 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization");
 
-        if(authHeader != null && authHeader.startsWith("Bearer ")) {
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
             try {
                 final String token = authHeader.substring(7);
-                final String username = jwtUtil.extractUsername(token);
-                final List<GrantedAuthority> authorities = List.copyOf(jwtUtil.extractAuthorities(token));
+                final String username = tokenUtil.extractUsername(token);
+                final List<GrantedAuthority> authorities = List.copyOf(tokenUtil.extractAuthorities(token));
 
-                if(jwtUtil.isTokenValid(token) && username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                if (tokenUtil.isTokenValid(token) && username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                     UserDetails userDetails = userService.loadUserByUsername(username);
 
                     UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(

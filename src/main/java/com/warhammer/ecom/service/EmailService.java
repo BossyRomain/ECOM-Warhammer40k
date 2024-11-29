@@ -18,7 +18,7 @@ public class EmailService {
     public void sendRegisterConfirmation(String to) {
         try {
             sendMail(to, "Confirmation of your registration", "Soldier put bayonet!", "Welcome on the great crusade against the xenos.");
-        } catch (MessagingException ignored) {
+        } catch (Exception ignored) {
         }
     }
 
@@ -28,9 +28,8 @@ public class EmailService {
             for (CommandLine commandLine : cart.getCommandLines()) {
                 content.append("* ").append(commandLine.getProduct().getName()).append(" x ").append(commandLine.getQuantity()).append("\n");
             }
-
             sendMail(to, "Confirmation of you cart", "Your have successfully paid your command!", content.toString());
-        } catch (MessagingException ignored) {
+        } catch (Exception ignored) {
         }
     }
 

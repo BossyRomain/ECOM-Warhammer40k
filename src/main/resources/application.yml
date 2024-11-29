@@ -7,7 +7,7 @@ spring:
 
   # Data Source Configuration
   datasource:
-    url: jdbc:h2:mem:testdb  # In-memory H2 database
+    url: jdbc:h2:mem:testdb # In-memory H2 database
     driver-class-name: org.h2.Driver
     username: bossyr
     password: bossyr
@@ -42,11 +42,11 @@ spring:
     properties:
       mail:
         smtp:
+          connectiontimeout: 5000
           auth: true
           starttls:
             enable: true
             required: true
-
 cors:
   allowed-origins: "http://localhost:4200, http://16.171.36.124"
   allowed-methods: "GET,POST,PUT,DELETE"
