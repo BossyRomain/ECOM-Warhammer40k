@@ -1,0 +1,32 @@
+{
+  "clients": [
+    {
+      "email": "alban.fauri@gmail.com",
+      "password": "1234",
+      "firstName": "Alban",
+      "lastName": "Fauri",
+      "newsLetter": false
+    },
+    {
+      "email": "gaetan.combe@gmail.com",
+      "password": "1234",
+      "firstName": "Gaetan",
+      "lastName": "Combe",
+      "newsLetter": false
+    },
+    {
+      "email": "fabien.vial@gmail.com",
+      "password": "1234",
+      "firstName": "Fabien",
+      "lastName": "Vial",
+      "newsLetter": false
+    }
+  ],
+  "admins": [
+    {
+      "username": "bossyr",
+      "password": "1234",
+      "authority": "ADMIN"
+    }
+  ]
+}

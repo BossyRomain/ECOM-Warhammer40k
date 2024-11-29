@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://ecom-warhammer40k.cny8g84ki7rf.eu-north-1.rds.amazonaws.com:5432/ecomWarhammer
+    username: bossyr
+    password: bossyr1810!
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+
+
+cloud:
+  aws:
+    bucket:
+      name: ecom-images-storage
+    region:
+      static: eu-north-1

@@ -1,0 +1,149 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    height: 100%;
+    border-style: solid;
+    border-width: 2px;
+  }
+  
+  
+  .product-name {
+    text-align: center;
+    font-size: 100%; /* Taille fixe en pixels */
+    font-weight: bold;
+  }
+  
+  .product-price {
+    font-size: 16px; /* Taille fixe en pixels */
+    font-weight: bold;
+    color: #000;
+  }
+  
+  /* Bouton invisible pour l'image de panier */
+  .cart-button {
+    width: 40px; /* Taille fixe */
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .cart-button::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier_plus.png'); /* Remplace par l'URL de l'image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .image-container {
+    position: relative;
+    padding: 1%;
+    padding-top: 5%;
+    margin-bottom: -10px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  
+  .price-image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    align-items: center;
+    position: relative;
+    max-width: 400px;
+    padding: 5px;
+    bottom: 0px;
+  }
+  
+.on-stock {
+    position: absolute;
+    width: 40%;
+    height: 7%;
+    top: 0;
+    left: 0;
+    background-color: #cdfaae; /* Vert pour "en stock" */
+    border-top: none; /* Enlève la bordure du haut */
+    border-left: none; /* Enlève la bordure de gauche */
+    border-right: 1px solid #375337; /* Garde la bordure de droite */
+    border-bottom: 1px solid #375337;
+    color: #000000;
+    padding: 5px;
+    font-size: 0.5rem; /* Taille de texte fixe, ajustez selon votre besoin */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+    overflow: hidden; /* Coupe le texte qui dépasse */
+}
+  
+  /* Classe appliquée lorsque le stock est à 0 */
+  .out-of-stock {
+      position: absolute;
+      width: 40%;
+      height: 7%;
+      top: 0;
+      left: 0;
+      background-color: #f36666;
+      border: 1px solid #642525;
+      color: #fff;
+      padding: 5px;
+      font-size: 0.5rem; /* Taille de texte fixe, ajustez selon votre besoin */
+      white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+      overflow: hidden; /* Coupe le texte qui dépasse */
+
+  }
+
+
+
+
+  .toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+  .toast {
+    color: #fff; /* Couleur du texte */
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    background-color: aqua;
+    border: 2px solid #000000;
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInOut 3s forwards;
+
+  
+    /* Rectangle blanc autour du texte */
+    border: 2px solid #fff;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    10%, 90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }

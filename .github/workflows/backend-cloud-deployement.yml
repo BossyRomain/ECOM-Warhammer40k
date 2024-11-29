@@ -1,0 +1,36 @@
+name: Deploy the Spring Boot app in the cloud
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
+
+      - name: Copy jar to EC2
+        run: |
+          echo "${{ secrets.EC2_KEY }}" > key.pem
+          chmod 600 key.pem
+          scp -i key.pem -o StrictHostKeyChecking=no ./target/${{ secrets.APP_JAR_NAME }} ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ secrets.EC2_BACKEND_PATH }}
+
+      - name: Restart Application on EC2
+        run: |
+          ssh -i key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          sudo pkill -f 'java -jar'
+          nohup java -jar -Dspring.profiles.active=prod ${{ secrets.EC2_BACKEND_PATH }}${{ secrets.APP_JAR_NAME }} > ${{ secrets.EC2_BACKEND_PATH }}/app.log 2>&1 &
+          exit
+          EOF

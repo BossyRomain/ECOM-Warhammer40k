@@ -1,0 +1,181 @@
+/* Enlève la marge par défaut et applique box-sizing global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Choix de police générique */
+  line-height: 1.5; /* Améliore la lisibilité */
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.product-card {
+  width: 90%; /* Réduit la largeur à 90% de l'écran */
+  max-width: 600px; /* Limite la largeur à 600px */
+  padding: 5%;
+  background-color: #e6e6e6;
+  height: auto; /* Laisse la hauteur s'adapter au contenu */
+  margin: 20px auto; /* Centrage du card */
+  overflow: scroll;
+}
+
+.product-header {
+  text-align: center;
+}
+
+.product-name {
+  font-size: 6vw; /* Taille de la police flexible en fonction de l'écran */
+  font-weight: bold;
+  margin-bottom: 3%;
+}
+
+.payment-method {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.payment-method h2 {
+  font-size: 4vw; /* Taille de la police relative */
+  margin-bottom: 1%;
+}
+
+.masterCardVisa {
+  width: 30%; /* Réduit la largeur de l'image */
+  height: auto; /* Laisse la hauteur s'adapter à la largeur */
+  margin-top: 2%;
+}
+
+.payment-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -10%;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 8%; /* Espace entre les champs */
+  max-width: 450px; /* Largeur maximale */
+  padding: 10px 10px;
+}
+
+.form-group label {
+  font-size: 4vw; /* Taille de la police relative */
+  font-weight: bold;
+  display: block;
+  margin-bottom: 2%;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 6%;
+  font-size: 4vw;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+.submit-btn {
+  width: 100%;
+  max-width: 450px; /* Largeur maximale du bouton */
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 61%;
+}
+
+.submit-btn input {
+  width: 100%;
+  padding: 6%;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 4vw;
+  cursor: pointer;
+}
+
+.submit-btn input:hover {
+  background-color: #0056b3;
+}
+
+.submit-btn input:active {
+  background-color: #003f7f;
+}
+
+/* Media query pour les écrans larges (tablettes et ordinateurs) */
+@media (min-width: 768px) {
+  .product-name {
+    font-size: 3rem; /* Taille fixe pour écrans plus larges */
+  }
+
+  .payment-method h2 {
+    font-size: 2rem;
+  }
+
+  .masterCardVisa {
+    width: 15%; /* Réduit la taille de l'image pour les grands écrans */
+  }
+
+  .form-group label {
+    font-size: 1.2rem; /* Utilise rem pour un meilleur contrôle de la taille des polices */
+  }
+
+  .form-group input {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+
+  .submit-btn input {
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+
+  .product-card {
+    width: 50%; /* Réduit la largeur de la card à 50% sur les grands écrans */
+    max-width: 600px; /* Garde une largeur maximale */
+  }
+}
+
+/* Media query pour les écrans très larges (grands écrans d'ordinateur) */
+@media (min-width: 1200px) {
+  .product-name {
+    font-size: 2.5rem; /* Taille de texte plus grande pour les grands écrans */
+  }
+
+  .payment-method h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 1.1rem;
+  }
+
+  .form-group input {
+    font-size: 1.1rem;
+  }
+
+  .submit-btn input {
+    font-size: 1.2rem;
+  }
+
+  .product-card {
+    width: 40%; /* Réduit encore la largeur de la card */
+  }
+}
+  /* Style pour les messages d'erreur */
+  .error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+  }
+

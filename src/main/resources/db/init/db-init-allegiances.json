@@ -1,0 +1,66 @@
+[
+  {
+    "group": "SPACE_MARINES",
+    "faction": "SPACE_MARINES"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "DARK_ANGELS"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "BLOOD_ANGELS"
+  },
+  {
+    "group": "XENOS",
+    "faction": "TAU_EMPIRE"
+  },
+  {
+    "group": "XENOS",
+    "faction": "ELDARS"
+  },
+  {
+    "group": "CHAOS",
+    "faction": "CHAOS_SPACE_MARINES"
+  },
+  {
+    "group": "IMPERIUM",
+    "faction": "ASTRA_MILITARUM"
+  },
+  {
+    "group": "XENOS",
+    "faction": "TYRANID"
+  },
+  {
+    "group": "CHAOS",
+    "faction": "CHAOS_KNIGHTS"
+  },
+  {
+    "group": "IMPERIUM",
+    "faction": "IMPERIAL_KNIGHTS"
+  },
+  {
+    "group": "XENOS",
+    "faction": "NECRONS"
+  },
+  {
+    "group": "XENOS",
+    "faction": "ORKS"
+  },
+  {
+    "group": "CHAOS",
+    "faction": "THOUSAND_SONS"
+  },
+  {
+    "group": "CHAOS",
+    "faction": "CHAOS_DAEMONS"
+  },
+  {
+    "group": "CHAOS",
+    "faction": "WORLD_EATERS"
+  },
+  {
+    "group": "CHAOS",
+    "faction": "DEATH_GUARD"
+  }
+]

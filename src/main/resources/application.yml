@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: ecom-warhammer40k
+
+  server:
+    port: 8080
+
+  # Data Source Configuration
+  datasource:
+    url: jdbc:h2:mem:testdb # In-memory H2 database
+    driver-class-name: org.h2.Driver
+    username: bossyr
+    password: bossyr
+  h2:
+    console:
+      enabled: true
+
+  # Entity Scanning and JPA Repository
+  data:
+    jpa:
+      repositories:
+        enabled: true  # Enable JPA repositories
+
+  # Scan Packages for Components and Entities
+  component-scan:
+    base-packages:
+      - com.warhammer.ecom.repository
+      - com.warhammer.ecom.business
+      - com.warhammer.ecom.controller
+
+  security:
+    user:
+      name: user  # Default user name
+      password: password  # Default password (for testing only)
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    username: warhammer.ecom@gmail.com
+    password: "ereb qewh ctrn mfbk "
+    properties:
+      mail:
+        smtp:
+          connectiontimeout: 5000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+cors:
+  allowed-origins: "http://localhost:4200, http://16.171.36.124"
+  allowed-methods: "GET,POST,PUT,DELETE"
+  allowed-headers: "*"
+  allow-credentials: true
+  max-age: 3600
+
+# Transaction Management
+transaction:
+  management:
+    enabled: true
+
+jwt:
+  secret: 1e5g8et58bte84ge4818gb681bte684bet6gZregnetzgebg5
+  expiration: 604800000
