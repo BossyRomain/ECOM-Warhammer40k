@@ -54,5 +54,13 @@
   {
     "group": "CHAOS",
     "faction": "CHAOS_DAEMONS"
+  },
+  {
+    "group": "CHAOS",
+    "faction": "WORLD_EATERS"
+  },
+  {
+    "group": "CHAOS",
+    "faction": "DEATH_GUARD"
   }
 ]
