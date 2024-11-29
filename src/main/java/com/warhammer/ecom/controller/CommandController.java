@@ -2,7 +2,6 @@ package com.warhammer.ecom.controller;
 
 import com.warhammer.ecom.model.Cart;
 import com.warhammer.ecom.service.CartService;
-import com.warhammer.ecom.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,11 +18,8 @@ public class CommandController {
     @Autowired
     private CartService cartService;
 
-    @Autowired
-    private ClientService clientService;
-
     @GetMapping("")
     public List<Cart> getClientCommands(@PathVariable Long clientId) throws AccessDeniedException {
-        return cartService.getClientCommands(clientService.getById(clientId));
+        return cartService.getClientCommands(clientId);
     }
 }

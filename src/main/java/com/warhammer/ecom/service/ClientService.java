@@ -28,14 +28,6 @@ public class ClientService {
     @Autowired
     private EmailService emailService;
 
-    public Client getById(Long clientId) throws NoSuchElementException {
-        return clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
-    }
-
-    public Client getByUserId(Long userId) throws NoSuchElementException {
-        return clientRepository.findByUserId(userId).orElseThrow(NoSuchElementException::new);
-    }
-
     public Client getByEmail(String email) throws NoSuchElementException {
         return clientRepository.findByEmail(email).orElseThrow(NoSuchElementException::new);
     }
@@ -66,15 +58,7 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
-    public Client update(Client client) throws NoSuchElementException {
-        if (clientRepository.existsById(client.getId())) {
-            return clientRepository.save(client);
-        } else {
-            throw new NoSuchElementException();
-        }
-    }
-
-    public void delete(Client client) {
-        clientRepository.deleteById(client.getId());
+    public void delete(Long clientId) {
+        clientRepository.deleteById(clientId);
     }
 }

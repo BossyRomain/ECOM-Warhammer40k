@@ -7,7 +7,11 @@ import com.warhammer.ecom.controller.dto.ClientSignUpDTO;
 import com.warhammer.ecom.model.Allegiance;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.model.User;
-import com.warhammer.ecom.service.*;
+import com.warhammer.ecom.repository.AllegianceRepository;
+import com.warhammer.ecom.repository.ProductRepository;
+import com.warhammer.ecom.repository.UserRepository;
+import com.warhammer.ecom.service.ClientService;
+import com.warhammer.ecom.service.ProductImageService;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.slf4j.LoggerFactory;
@@ -36,19 +40,19 @@ public class DatabaseInitializer {
     private ObjectMapper objectMapper;
 
     @Autowired
-    private AllegianceService allegianceService;
-
-    @Autowired
-    private ProductService productService;
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
     private ClientService clientService;
 
     @Autowired
     private ProductImageService productImageService;
+
+    @Autowired
+    private AllegianceRepository allegianceRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @PostConstruct
     public void initDB() {
@@ -101,11 +105,10 @@ public class DatabaseInitializer {
         inputStream.close();
 
         // Chargement des administrateurs
-        List<User> admins = objectMapper.convertValue(rootNode.get("admins"), new TypeReference<List<User>>() {
-        });
-        for (User admin : admins) {
-            userService.create(admin);
-        }
+        userRepository.saveAll(
+            objectMapper.convertValue(rootNode.get("admins"), new TypeReference<List<User>>() {
+            })
+        );
 
         // Chargement des clients
         List<ClientSignUpDTO> clients = objectMapper.convertValue(rootNode.get("clients"), new TypeReference<List<ClientSignUpDTO>>() {
@@ -132,11 +135,10 @@ public class DatabaseInitializer {
         JsonNode rootNode = objectMapper.readTree(inputStream);
         inputStream.close();
 
-        List<Allegiance> allegiances = objectMapper.convertValue(rootNode, new TypeReference<List<Allegiance>>() {
-        });
-        for (Allegiance allegiance : allegiances) {
-            allegianceService.create(allegiance);
-        }
+        allegianceRepository.saveAll(
+            objectMapper.convertValue(rootNode, new TypeReference<List<Allegiance>>() {
+            })
+        );
 
         LoggerFactory.getLogger(DatabaseInitializer.class).info("Allegiances successfully added");
     }
@@ -151,7 +153,7 @@ public class DatabaseInitializer {
         JsonNode rootNode = objectMapper.readTree(inputStream);
         inputStream.close();
 
-        final List<Allegiance> allegiances = allegianceService.getAll();
+        final List<Allegiance> allegiances = allegianceRepository.findAll();
 
         // Chargement des produits
         Hashtable<String, Product> productsImgsPrefixs = new Hashtable<>();
@@ -163,10 +165,10 @@ public class DatabaseInitializer {
                 Allegiance allegiance = allegiances.stream().filter(a -> a.getFaction().name().equals(faction)).findFirst().orElse(null);
                 product.setAllegiance(allegiance);
             } else {
-                product.setAllegiance(allegianceService.getEmptyAllegiance());
+                product.setAllegiance(null);
             }
             product.setImages(new ArrayList<>());
-            productService.create(product);
+            productRepository.save(product);
             productsImgsPrefixs.put(productJson.get("imgsPrefix").asText(), product);
         }
 

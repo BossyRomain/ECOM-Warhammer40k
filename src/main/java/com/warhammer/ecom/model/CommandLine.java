@@ -17,11 +17,10 @@ public class CommandLine {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "commandLineIdSeq")
     private Long id;
 
-    @Column(updatable = true)
     private int quantity;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "command_id")
+    @ManyToOne()
+    @JoinColumn(name = "command_fk")
     @JsonIgnore
     private Cart command;
 

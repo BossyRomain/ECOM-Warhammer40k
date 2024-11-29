@@ -3,6 +3,7 @@ package com.warhammer.ecom.service;
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.model.ProductImage;
 import com.warhammer.ecom.repository.ProductImageRepository;
+import com.warhammer.ecom.repository.ProductRepository;
 import com.warhammer.ecom.service.imageshandler.ImagesHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class ProductImageService {
     private ProductImageRepository productImageRepository;
 
     @Autowired
-    private ProductService productService;
+    private ProductRepository productRepository;
 
     @Autowired
     private ImagesHandler imagesHandler;
@@ -28,7 +29,7 @@ public class ProductImageService {
 
     public ProductImage create(MultipartFile imgFile, Long productId, String description, boolean isCatalogueImg) throws NoSuchElementException {
         ProductImage productImage = new ProductImage();
-        Product product = productService.get(productId);
+        Product product = productRepository.findById(productId).orElseThrow(NoSuchElementException::new);
         productImage.setDescription(description);
         productImage.setProduct(product);
         final String URL = imagesHandler.uploadImage(imgFile);
@@ -40,7 +41,7 @@ public class ProductImageService {
         }
 
         productImage = productImageRepository.save(productImage);
-        productService.update(product);
+        productRepository.save(product);
         return productImage;
     }
 

@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-//@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"group", "faction"}))
 @SequenceGenerator(name = "allegianceIdSeq", initialValue = 1, allocationSize = 100)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Allegiance {
