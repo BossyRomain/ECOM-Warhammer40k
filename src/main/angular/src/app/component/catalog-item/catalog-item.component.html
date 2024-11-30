@@ -2,9 +2,9 @@
   <div class="image-container">
     <img class="productImage" src={{article.catalogueImg.url}} alt="Photo of a Shiba Inu">
     @if (article.stock == 0) {
-      <p class="out-of-stock">En stock: {{ article.stock }}</p>
+      <p class="out-of-stock stock">Indisponible</p>
     } @else {
-      <p class="on-stock"> En stock: {{ article.stock }}</p>
+      <p class="on-stock stock"> En stock: {{ article.stock }}</p>
     }
   </div>
 

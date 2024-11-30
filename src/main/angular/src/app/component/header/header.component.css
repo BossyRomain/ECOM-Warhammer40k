@@ -9,7 +9,7 @@ body {
 }
 
 
-.header{
+:host {
   background-color: #E6E6E6;
   margin: none;
   margin-top: -10px;
@@ -20,33 +20,28 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   z-index: 10;
-  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  max-height: 20%;
 }
+
 .header-container {
   width: 100%;
-  background-color: #333; /* Couleur de fond du bandeau */
+  /*background-color: #333; !* Couleur de fond du bandeau *!*/
   white-space: nowrap; /* Empêche le passage à la ligne */
+
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 5px;
 }
 
 /* Bouton menu à gauche */
 .menu-button {
-  float: left;
-  margin: 5px;
-  width: 35px;
-  height: 35px;
-
-  max-width: 40px;  /* Limite la taille du bouton compte */
-  max-height: 40px;
-
   background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/menu_burger.png");
-  background-size: cover;
-  background-color: #E5E5E5;
-  border: none;
-  cursor: pointer;
-  vertical-align: middle;
-  left:auto;
-
 }
 
 .menu-button:hover,
@@ -60,32 +55,14 @@ body {
   float: left;
   height: 100%; /* Garde une taille réduite pour le logo */
   vertical-align: middle;
-  margin-left: 10px; /* Espace entre le bouton menu et le logo */
-  max-width: 300px;  /* Limite la taille du bouton compte */
+  margin: 0 auto;
+  max-width: 250px; /* Limite la taille du bouton compte */
   max-height: 50px;
 }
 
-/* Bouton panier, positionné à droite */
-.cart-button {
-  float: right;
-  width: 35px;
-  height: 35px;
-  margin: 5px;
-  vertical-align: middle;
-  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier.png");
-  background-size: cover;
-  background-position: center;
-  background-color: #E6E6E6;
-  border: none;
-  cursor: pointer;
-}
 
 /* Bouton compte, positionné tout à droite */
 .account-button {
-  float: right;
-  margin: 5px;
-  width: 35px;
-  height: 35px;
   background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png");
   background-size: cover;
   background-position: center;
@@ -100,33 +77,27 @@ body {
   float: right;
   text-align: center;
   width: 40px;
-  margin: 5px;
 }
 
 /* Pour le texte sous le bouton */
 .boutontext p {
-  margin-top: 40px;
-  font-size: 6px;
+  margin-top: 3px;
+  font-size: 10px;
   color: rgb(0, 0, 0); /* Couleur du texte (ajustable) */
+  text-align: center;
 }
-
-/* Ajustement des boutons pour rester dans les dimensions définies */
-.cart-button, .account-button {
-  display: block;
-  margin: 0 auto;
-}
-
 
 /* Conteneur de la barre de recherche */
 .search-bar-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  border: 1px solid #ccc;
+  border: 1px solid #222;
   border-radius: 5px;
   background-color: #f9f9f9;
   padding: 5px 10px;
   margin-top: 10px;
-  width: 96%;
+  width: 100%;
 }
 
 /* Icône de loupe */
@@ -151,7 +122,7 @@ body {
 }
 
 /* Bouton X */
-.search-clear{
+.search-clear {
   width: 4vw;
   height: 4vw;
   max-width: 25px;
@@ -167,18 +138,90 @@ body {
 
 /* Cercle rouge pour le nombre d'articles dans le panier */
 .cart-badge {
-  position: absolute; 
-  top: 25px;
-  right: 55px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
   background-color: red;
   color: white;
   font-size: 10px;
-  font-weight: bold;
-  border-radius: 100%;
-  padding: 2px 2px; 
-  min-width: 20px; 
+  font-weight: bolder;
+  border-radius: 50%;
+  padding: 5px;
+  min-width: 20px;
   text-align: center;
   line-height: 1;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.cart-container {
+  position: relative;
+}
+
+.header-btn {
+  --size: 30px;
+  height: var(--size);
+  width: var(--size);
+
+  background-position: center;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+
+  .header-container {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .search-bar-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75%;
+  }
+
+  .search-icon, .search-clear {
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  .search-input {
+    font-size: 2em;
+    height: 45px;
+  }
+
+  .boutontext {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+    width: 60px;
+  }
+
+  .boutontext > p {
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  .logo {
+    max-width: 300px; /* Limite la taille du bouton compte */
+    max-height: 200px;
+  }
+
+  .cart-badge {
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+  }
+
+  .header-container {
+    gap: 10px;
+  }
+
+  .header-btn {
+    --size: 60px;
+  }
+}

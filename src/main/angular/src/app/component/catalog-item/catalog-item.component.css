@@ -69,13 +69,12 @@
   padding: 0px 5%;
 }
 
-.on-stock {
+.stock {
   position: absolute;
-  width: 40%;
-  height: 7%;
   top: 2px;
   left: 2px;
-  background-color: #cdfaae; /* Vert pour "en stock" */
+  aspect-ratio: 7 / 2;
+  width: 40%;
   border-top: none; /* Enlève la bordure du haut */
   border-left: none; /* Enlève la bordure de gauche */
   border-right: 1px solid #375337; /* Garde la bordure de droite */
@@ -93,25 +92,30 @@
   align-items: center;
 }
 
+.on-stock {
+  background-color: #cdfaae; /* Vert pour "en stock" */
+}
+
 /* Classe appliquée lorsque le stock est à 0 */
 .out-of-stock {
-  position: absolute;
-  width: 40%;
-  height: 7%;
-  top: 2px;
-  left: 2px;
+  /*position: absolute;*/
+  /*width: 40%;*/
+  /*height: 7%;*/
+  /*top: 2px;*/
+  /*left: 2px;*/
   background-color: #f36666;
-  border: 1px solid #642525;
+  /*border: 1px solid #642525;*/
   color: #fff;
-  margin: 0;
-  padding: 5px;
-  font-size: 0.5rem; /* Taille de texte fixe, ajustez selon votre besoin */
-  white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
-  overflow: hidden; /* Coupe le texte qui dépasse */
+  font-weight: bolder;
+  /*margin: 0;*/
+  /*padding: 5px;*/
+  /*font-size: 0.7rem; !* Taille de texte fixe, ajustez selon votre besoin *!*/
+  /*white-space: nowrap; !* Empêche le texte de passer à la ligne suivante *!*/
+  /*overflow: hidden; !* Coupe le texte qui dépasse *!*/
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
 }
 
 
@@ -166,7 +170,15 @@
     width: 100px;
   }
 
+  .stock {
+    max-width: 200px;
+  }
+
   .on-stock {
+    font-size: 1.5rem;
+  }
+
+  .out-of-stock {
     font-size: 1.5rem;
   }
 

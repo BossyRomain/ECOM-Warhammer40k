@@ -6,7 +6,7 @@
   border: 10px grey;
   border-radius: 10px;
   box-shadow: 0 0 0 3px black;
-  margin-top: 35%;
+  margin-top: 150px;
   overflow-y: auto;
 }
 
@@ -92,4 +92,15 @@
   margin-right: 10px; /* Espace entre les images */
   border-radius: 8px; /* Ajoute des bords arrondis */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère pour l'esthétique */
+}
+
+@media only screen and (min-width: 600px) {
+  .main-image {
+    max-height: 750px;
+    max-width: 750px;
+  }
+
+  .product-card {
+    margin-top: 210px;
+  }
 }
