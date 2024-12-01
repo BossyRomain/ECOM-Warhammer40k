@@ -1,8 +1,8 @@
-<div class="cart">
-    <div *ngFor="let cartItem of cart">
-        <cart-item [commandLine]="cartItem"></cart-item>
-    </div>
-    <div>
-        <button>Pay</button>
-    </div>
+<h2>Contenu du panier</h2>
+<div class="infos">
+  <button class="pay-btn">Pay</button>
+  <p class="total-cost">Total: xxx€</p>
+</div>
+<div *ngFor="let cartItem of cart" class="cart-items">
+  <cart-item [commandLine]="cartItem"></cart-item>
 </div>

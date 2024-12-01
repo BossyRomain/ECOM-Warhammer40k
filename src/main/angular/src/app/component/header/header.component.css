@@ -10,25 +10,17 @@ body {
 
 
 :host {
+  --header-container-height: 60%;
+
   background-color: #E6E6E6;
-  margin: none;
-  margin-top: -10px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  padding-left: 10px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
 
   display: flex;
   flex-direction: column;
-  max-height: 20%;
+  gap: 3px;
 }
 
 .header-container {
+  height: var(--header-container-height);
   width: 100%;
   /*background-color: #333; !* Couleur de fond du bandeau *!*/
   white-space: nowrap; /* Empêche le passage à la ligne */
@@ -56,8 +48,9 @@ body {
   height: 100%; /* Garde une taille réduite pour le logo */
   vertical-align: middle;
   margin: 0 auto;
-  max-width: 250px; /* Limite la taille du bouton compte */
-  max-height: 50px;
+  max-width: 60%;
+  /*max-width: 250px; !* Limite la taille du bouton compte *!*/
+  /*max-height: 50px;*/
 }
 
 
@@ -74,6 +67,11 @@ body {
 
 /* Conteneur de chaque bouton avec texte */
 .boutontext {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   float: right;
   text-align: center;
   width: 40px;
@@ -81,10 +79,11 @@ body {
 
 /* Pour le texte sous le bouton */
 .boutontext p {
-  margin-top: 3px;
+  margin-top: 2px;
   font-size: 10px;
   color: rgb(0, 0, 0); /* Couleur du texte (ajustable) */
   text-align: center;
+  width: 100%;
 }
 
 /* Conteneur de la barre de recherche */
@@ -96,7 +95,8 @@ body {
   border-radius: 5px;
   background-color: #f9f9f9;
   padding: 5px 10px;
-  margin-top: 10px;
+  margin: 0;
+  height: calc(100% - var(--header-container-height));
   width: 100%;
 }
 
@@ -197,18 +197,13 @@ body {
     display: flex;
     flex-direction: column;
 
-    margin: 0;
+    height: 100%;
     width: 60px;
   }
 
   .boutontext > p {
-    font-size: 0.9em;
+    font-size: 0.8em;
     text-align: center;
-  }
-
-  .logo {
-    max-width: 300px; /* Limite la taille du bouton compte */
-    max-height: 200px;
   }
 
   .cart-badge {
@@ -222,6 +217,6 @@ body {
   }
 
   .header-btn {
-    --size: 60px;
+    --size: 50px;
   }
 }

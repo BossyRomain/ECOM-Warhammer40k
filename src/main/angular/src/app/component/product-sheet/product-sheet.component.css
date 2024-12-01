@@ -1,4 +1,4 @@
-.product-card {
+:host {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -6,7 +6,6 @@
   border: 10px grey;
   border-radius: 10px;
   box-shadow: 0 0 0 3px black;
-  margin-top: 150px;
   overflow-y: auto;
 }
 
@@ -100,7 +99,9 @@
     max-width: 750px;
   }
 
-  .product-card {
-    margin-top: 210px;
+  :host {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
