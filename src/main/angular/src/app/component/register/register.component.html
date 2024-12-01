@@ -1,115 +1,107 @@
-<div class="inscription-card">
-  <div class="inscription-header">
-    <h1 class="inscription-title">Inscription</h1>
+<h1>Inscription</h1>
+
+<div class="form-details">
+  <!-- Nom d'utilisateur -->
+  <div class="form-group">
+    <label for="username">Nom d'utilisateur</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      placeholder="Entrez votre nom d'utilisateur"
+      [(ngModel)]="user.username"
+      required
+      (ngModelChange)="clearError('username')"
+    />
+    <div *ngIf="errors['username']" class="error-message">{{ errors['username'] }}</div>
   </div>
 
-  <div class="form-details">
-    <!-- Nom d'utilisateur -->
-    <div class="form-group">
-      <label for="username">Nom d'utilisateur</label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        placeholder="Entrez votre nom d'utilisateur"
-        [(ngModel)]="user.username"
-        required
-        (ngModelChange)="clearError('username')"
-      />
-      <div *ngIf="errors['username']" class="error-message">{{ errors['username'] }}</div>
-    </div>
-
-    <!-- Prénom -->
-    <div class="form-group">
-      <label for="firstName">Prénom</label>
-      <input
-        type="text"
-        id="firstName"
-        name="firstName"
-        placeholder="Entrez votre prénom"
-        [(ngModel)]="user.firstName"
-        required
-        (ngModelChange)="clearError('firstName')"
-      />
-      <div *ngIf="errors['firstName']" class="error-message">{{ errors['firstName'] }}</div>
-    </div>
-
-    <!-- Adresse e-mail -->
-    <div class="form-group">
-      <label for="email">Adresse e-mail</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Entrez votre e-mail"
-        [(ngModel)]="user.email"
-        required
-        (ngModelChange)="clearError('email')"
-      />
-      <div *ngIf="errors['email']" class="error-message">{{ errors['email'] }}</div>
-    </div>
-
-    <!-- Date de naissance -->
-    <div class="form-group">
-      <label for="dob">Date de naissance</label>
-      <input
-        type="date"
-        id="dob"
-        name="dob"
-        [(ngModel)]="user.dob"
-        required
-        (ngModelChange)="clearError('dob')"
-      />
-      <div *ngIf="errors['dob']" class="error-message">{{ errors['dob'] }}</div>
-    </div>
-
-    <!-- Mot de passe -->
-    <div class="form-group">
-      <label for="password">Mot de passe</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Entrez votre mot de passe"
-        [(ngModel)]="user.password"
-        required
-        (ngModelChange)="clearError('password')"
-      />
-      <div *ngIf="errors['password']" class="error-message">{{ errors['password'] }}</div>
-    </div>
-
-    <!-- Confirmer le mot de passe -->
-    <div class="form-group">
-      <label for="confirmPassword">Confirmer le mot de passe</label>
-      <input
-        type="password"
-        id="confirmPassword"
-        name="confirmPassword"
-        placeholder="Confirmez votre mot de passe"
-        [(ngModel)]="user.confirmPassword"
-        required
-        (ngModelChange)="clearError('confirmPassword')"
-      />
-      <div *ngIf="errors['confirmPassword']" class="error-message">{{ errors['confirmPassword'] }}</div>
-    </div>
-
-    <!-- Newsletter -->
-    <div class="form-group">
-      <label for="newsletter">
-        <input
-          type="checkbox"
-          id="newsletter"
-          name="newsletter"
-          [(ngModel)]="user.newsletter"
-        />
-        Je souhaite recevoir la newsletter
-      </label>
-      <div *ngIf="errors['newsletter']" class="error-message">{{ errors['newsletter'] }}</div>
-    </div>
-
-    <!-- Bouton d'inscription -->
-    <div class="submit-btn">
-      <button (click)="onSubmit()">S'inscrire</button>
-    </div>
+  <!-- Prénom -->
+  <div class="form-group">
+    <label for="firstName">Prénom</label>
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      placeholder="Entrez votre prénom"
+      [(ngModel)]="user.firstName"
+      required
+      (ngModelChange)="clearError('firstName')"
+    />
+    <div *ngIf="errors['firstName']" class="error-message">{{ errors['firstName'] }}</div>
   </div>
+
+  <!-- Adresse e-mail -->
+  <div class="form-group">
+    <label for="email">Adresse e-mail</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Entrez votre e-mail"
+      [(ngModel)]="user.email"
+      required
+      (ngModelChange)="clearError('email')"
+    />
+    <div *ngIf="errors['email']" class="error-message">{{ errors['email'] }}</div>
+  </div>
+
+  <!-- Date de naissance -->
+  <div class="form-group">
+    <label for="dob">Date de naissance</label>
+    <input
+      type="date"
+      id="dob"
+      name="dob"
+      [(ngModel)]="user.dob"
+      required
+      (ngModelChange)="clearError('dob')"
+    />
+    <div *ngIf="errors['dob']" class="error-message">{{ errors['dob'] }}</div>
+  </div>
+
+  <!-- Mot de passe -->
+  <div class="form-group">
+    <label for="password">Mot de passe</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Entrez votre mot de passe"
+      [(ngModel)]="user.password"
+      required
+      (ngModelChange)="clearError('password')"
+    />
+    <div *ngIf="errors['password']" class="error-message">{{ errors['password'] }}</div>
+  </div>
+
+  <!-- Confirmer le mot de passe -->
+  <div class="form-group">
+    <label for="confirmPassword">Confirmer le mot de passe</label>
+    <input
+      type="password"
+      id="confirmPassword"
+      name="confirmPassword"
+      placeholder="Confirmez votre mot de passe"
+      [(ngModel)]="user.confirmPassword"
+      required
+      (ngModelChange)="clearError('confirmPassword')"
+    />
+    <div *ngIf="errors['confirmPassword']" class="error-message">{{ errors['confirmPassword'] }}</div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="form-group newsletter-group">
+    <label for="newsletter">Je souhaite recevoir la newsletter</label>
+    <input
+      type="checkbox"
+      id="newsletter"
+      name="newsletter"
+      [(ngModel)]="user.newsletter"
+    />
+    <div *ngIf="errors['newsletter']" class="error-message">{{ errors['newsletter'] }}</div>
+  </div>
+
+  <!-- Bouton d'inscription -->
+  <button (click)="onSubmit()" class="submit-btn">S'inscrire</button>
 </div>

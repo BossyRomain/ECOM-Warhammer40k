@@ -12,21 +12,19 @@ body {
   background-color: #f4f4f4;
 }
 
-.product-card {
+:host {
   width: 90%; /* Réduit la largeur à 90% de l'écran */
   max-width: 600px; /* Limite la largeur à 600px */
-  padding: 5%;
+  padding: 0;
   background-color: #e6e6e6;
-  height: auto; /* Laisse la hauteur s'adapter au contenu */
-  margin: 20px auto; /* Centrage du card */
+  margin: 0 auto; /* Centrage du card */
   overflow: scroll;
+
+  display: block;
 }
 
-.product-header {
+h1 {
   text-align: center;
-}
-
-.product-name {
   font-size: 6vw; /* Taille de la police flexible en fonction de l'écran */
   font-weight: bold;
   margin-bottom: 3%;
@@ -36,7 +34,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5%;
 }
 
 .payment-method h2 {
@@ -44,22 +41,15 @@ body {
   margin-bottom: 1%;
 }
 
-.masterCardVisa {
-  width: 30%; /* Réduit la largeur de l'image */
-  height: auto; /* Laisse la hauteur s'adapter à la largeur */
-  margin-top: 2%;
-}
-
 .payment-details {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -10%;
 }
 
 .form-group {
   width: 100%;
-  margin-bottom: 8%; /* Espace entre les champs */
+  margin-bottom: 30px; /* Espace entre les champs */
   max-width: 450px; /* Largeur maximale */
   padding: 10px 10px;
 }
@@ -73,7 +63,7 @@ body {
 
 .form-group input {
   width: 100%;
-  padding: 6%;
+  padding: 35px;
   font-size: 4vw;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -89,26 +79,20 @@ body {
   width: 100%;
   max-width: 450px; /* Largeur maximale du bouton */
   text-align: center;
-  margin-top: 5%;
-  margin-bottom: 61%;
-}
-
-.submit-btn input {
-  width: 100%;
-  padding: 6%;
-  background-color: #007BFF;
-  color: white;
   border: none;
   border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
   font-size: 4vw;
   cursor: pointer;
 }
 
-.submit-btn input:hover {
+
+.submit-btn:hover {
   background-color: #0056b3;
 }
 
-.submit-btn input:active {
+.submit-btn:active {
   background-color: #003f7f;
 }
 
@@ -172,10 +156,11 @@ body {
     width: 40%; /* Réduit encore la largeur de la card */
   }
 }
-  /* Style pour les messages d'erreur */
-  .error-message {
-    color: red;
-    font-size: 0.875rem;
-    margin-top: 5px;
-  }
+
+/* Style pour les messages d'erreur */
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
 
