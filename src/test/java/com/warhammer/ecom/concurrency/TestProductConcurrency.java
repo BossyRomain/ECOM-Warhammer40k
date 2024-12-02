@@ -13,9 +13,9 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.concurrent.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
@@ -31,132 +31,165 @@ public class TestProductConcurrency {
     private ProductRepository productRepository;
 
     /**
-     * Plusieurs clients essaient d'acheter l'intégralité du stock d'un produit mais un seul y arrive.
+     * One client try to buy all the stock of one product but another client take one item from the stock before.
      */
     @Test
-    public void testOneBuyAll() throws InterruptedException {
-        final int NB_CLIENTS = 50;
+    public void oneTryToBuyAllInvalid() throws Exception {
+        List<Client> clients = createClients(2);
 
-        List<Client> clients = createClients(NB_CLIENTS);
+        Product product = productRepository.findById(1L).orElseThrow(NoSuchElementException::new);
+        int oldStock = product.getStock();
 
-        Random random = new Random();
-        final Long productId = random.nextLong(1, productRepository.count());
-        final Product product = productRepository.findById(productId).orElseThrow(NoSuchElementException::new);
-        final int stock = product.getStock();
+        cartService.addProduct(clients.get(0).getId(), product.getId(), 1);
+        cartService.addProduct(clients.get(1).getId(), product.getId(), product.getStock());
 
-        for (Client client : clients) {
-            cartService.addProduct(client.getId(), productId, stock);
+        cartService.pay(clients.get(0).getId());
+        try {
+            cartService.pay(clients.get(1).getId());
+            fail();
+        } catch (RuntimeException e) {
         }
 
-        // Création d'un pool de threads
-        ExecutorService executorService = Executors.newFixedThreadPool(NB_CLIENTS);
-
-        // CountDownLatch pour que les threads commencent tous en même temps
-
-        List<Callable<Boolean>> callables = new ArrayList<>();
-        for (Client client : clients) {
-            final Long id = client.getId();
-            Callable<Boolean> callable = () -> {
-                try {
-                    Thread.sleep(random.nextInt(10));
-                    boolean ok = cartService.pay(id);
-                    if (ok) {
-                        System.out.println("Pay works");
-                    } else {
-                        System.out.println("Failed");
-                    }
-                    return ok;
-                } catch (RuntimeException e) {
-                    System.out.println("Out of stock");
-                    return false;
-                } catch (Exception e) {
-                    System.out.println("Failed to pay");
-                    return false;
-                }
-            };
-            callables.add(callable);
-        }
-
-        // Lancement de tout les threads
-        List<Future<Boolean>> results = executorService.invokeAll(callables);
-
-        // Attente de la fin des threads
-        executorService.shutdown();
-        executorService.awaitTermination(30, TimeUnit.SECONDS);
-
-        // Vérifie que le stock du produit est 0
-        Product p = productRepository.findById(productId).orElseThrow(NoSuchElementException::new);
-        assertEquals(0, p.getStock());
-
-        int success = 0;
-        for (Future<Boolean> f : results) {
-            try {
-                success += f.get() ? 1 : 0;
-            } catch (ExecutionException e) {
-            }
-        }
-
-        assertEquals(1, success);
+        product = productRepository.findById(1L).orElseThrow(NoSuchElementException::new);
+        assertEquals(oldStock - 1, product.getStock());
     }
 
     /**
-     * Cinq clients essai d'acheter cinq mêmes produits mais chaque client essaie d'acheter l'intégralité du stock d'un produit.
+     * Plusieurs clients achètent le même ensemble de produits et chaque produit à un stock suffisant pour
+     * que tout les clients puissent réussir leurs achats.
      */
     @Test
-    public void scenario1() throws Exception {
-        final int NB_CLIENTS = 5;
+    public void multipleProductsValid() throws Exception {
+        final int NB_CLIENTS = 20;
+        final int MIN_STOCK = 200;
         List<Client> clients = createClients(NB_CLIENTS);
+        List<Product> products = getProducts(10, MIN_STOCK);
+
+        HashMap<Long, Integer> oldStocks = new HashMap<>();
+        for (Product product : products) {
+            oldStocks.put(product.getId(), product.getStock());
+        }
+
+        HashMap<Long, Integer> askedQuantities = new HashMap<>();
+        Random random = new Random();
+        for (Client client : clients) {
+            for (Product product : products) {
+                int quantity = random.nextInt(1, MIN_STOCK / NB_CLIENTS + 1);
+                cartService.addProduct(client.getId(), product.getId(), quantity);
+
+                if (askedQuantities.containsKey(product.getId())) {
+                    askedQuantities.put(product.getId(), askedQuantities.get(product.getId()) + quantity);
+                } else {
+                    askedQuantities.put(product.getId(), quantity);
+                }
+            }
+        }
+
+        for (Client client : clients) {
+            cartService.pay(client.getId());
+        }
+
+        for (Long productId : oldStocks.keySet()) {
+            Product product = productRepository.findById(productId).orElseThrow(NoSuchElementException::new);
+
+            int expectedStock = oldStocks.get(productId) - askedQuantities.get(productId);
+            assertEquals(expectedStock, product.getStock());
+        }
+    }
+
+    /**
+     * Plusieurs clients achètent le même ensemble de produits mais un des produits est indisponible.
+     */
+    @Test
+    public void oneOutOfStock() throws Exception {
+        final int NB_CLIENTS = 20;
+        final int MIN_STOCK = 200;
+        List<Client> clients = createClients(NB_CLIENTS);
+        List<Product> products = getProducts(10, MIN_STOCK);
+
+        HashMap<Long, Integer> oldStocks = new HashMap<>();
+        for (Product product : products) {
+            oldStocks.put(product.getId(), product.getStock());
+        }
 
         Random random = new Random();
-        Set<Long> ids = new HashSet<>();
-        while (ids.size() < NB_CLIENTS) {
-            ids.add(random.nextLong(1, 30));
-        }
-        List<Long> productsIds = ids.stream().toList();
-
-
-        for (int i = 0; i < NB_CLIENTS; i++) {
-            for (int j = 0; j < productsIds.size(); j++) {
-                Product product = productRepository.findById(productsIds.get(j)).orElseThrow(NoSuchElementException::new);
-                cartService.addProduct(clients.get(i).getId(), productsIds.get(j), i == j ? product.getStock() : random.nextInt(1, product.getStock() / 2));
-            }
-        }
-
-        // Création d'un pool de threads
-        ExecutorService executorService = Executors.newFixedThreadPool(NB_CLIENTS);
-
-        List<Callable<Boolean>> callables = new ArrayList<>();
         for (Client client : clients) {
-            final Long id = client.getId();
-            Callable<Boolean> callable = () -> {
-                try {
-                    Thread.sleep(random.nextInt(10));
-                    return cartService.pay(id);
-                } catch (Exception e) {
-                    return false;
-                }
-            };
-            callables.add(callable);
-        }
-
-        // Lancement de tout les threads
-        List<Future<Boolean>> results = executorService.invokeAll(callables);
-
-        // Attente de la fin des threads
-        executorService.shutdown();
-        executorService.awaitTermination(30, TimeUnit.SECONDS);
-
-        int success = 0;
-        for (Future<Boolean> f : results) {
-            try {
-                success += f.get() ? 1 : 0;
-                System.out.println(f.get());
-            } catch (ExecutionException e) {
-                System.out.println("fail this one");
+            for (Product product : products) {
+                int quantity = random.nextInt(1, MIN_STOCK / NB_CLIENTS + 1);
+                cartService.addProduct(client.getId(), product.getId(), quantity);
             }
         }
 
-        assertEquals(1, success);
+        Product p = products.get(random.nextInt(products.size()));
+        p.setStock(0);
+        productRepository.save(p);
+
+        for (Client client : clients) {
+            try {
+                cartService.pay(client.getId());
+                fail();
+            } catch (RuntimeException e) {
+            }
+        }
+
+        for (Long productId : oldStocks.keySet()) {
+            Product product = productRepository.findById(productId).orElseThrow(NoSuchElementException::new);
+
+            if (p.getId().equals(productId)) {
+                assertEquals(0, product.getStock());
+            } else {
+                assertEquals(oldStocks.get(productId), product.getStock());
+            }
+        }
+    }
+
+    /**
+     * Plusieurs clients achètent le même ensemble de produits mais un des produits à un stock insuffisant.
+     */
+    @Test
+    public void oneNotEnoughStock() throws Exception {
+        Random random = new Random();
+        final int NB_CLIENTS = random.nextInt(20, 100);
+        final int STOCK = 1000 * NB_CLIENTS;
+        List<Client> clients = createClients(NB_CLIENTS);
+        List<Product> products = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Product p = productRepository.findById((long) i + 1).orElseThrow(NoSuchElementException::new);
+            p.setStock(STOCK);
+            productRepository.save(p);
+            products.add(p);
+        }
+
+        int index = random.nextInt(NB_CLIENTS / 2, clients.size());
+        Client firstToFail = clients.get(index);
+
+        int nbExpectedToSucceed = 0;
+        for (Client client : clients) {
+            for (Product product : products) {
+                int quantity;
+                if (client.getId() < firstToFail.getId()) {
+                    quantity = product.getStock() / index;
+                } else {
+                    quantity = product.getStock() / NB_CLIENTS;
+                }
+
+                cartService.addProduct(client.getId(), product.getId(), quantity);
+            }
+
+            if (client.getId() < firstToFail.getId()) {
+                nbExpectedToSucceed++;
+            }
+        }
+
+        int nbSuccess = 0;
+        for (Client client : clients) {
+            try {
+                nbSuccess += cartService.pay(client.getId()) ? 1 : 0;
+            } catch (RuntimeException e) {
+            }
+        }
+
+        assertEquals(nbExpectedToSucceed, nbSuccess);
     }
 
     private List<Client> createClients(final int nbClients) {
@@ -173,5 +206,20 @@ public class TestProductConcurrency {
             clients.add(clientService.create(dto, false));
         }
         return clients;
+    }
+
+    private List<Product> getProducts(int nb, int minStock) throws Exception {
+        List<Product> products = new ArrayList<>();
+
+        long id = 1L;
+        while (products.size() < nb) {
+            Product product = productRepository.findById(id).orElseThrow(NoSuchElementException::new);
+            if (product.getStock() > minStock) {
+                products.add(product);
+            }
+            id++;
+        }
+
+        return products;
     }
 }
