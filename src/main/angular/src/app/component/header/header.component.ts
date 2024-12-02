@@ -45,7 +45,7 @@ export class HeaderComponent {
   }
 
   public goToMain(){
-    this.router.navigate(["/catalog/search"]);
+    this.router.navigate(["/catalog/search"], {relativeTo: this.activatedRoute, queryParams: {search:"", page:0}, });
   }
 
   public onEnter(event:KeyboardEvent, searchText:string){

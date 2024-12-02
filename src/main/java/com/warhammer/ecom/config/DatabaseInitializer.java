@@ -184,7 +184,7 @@ public class DatabaseInitializer {
                     String extension = filename.substring(filename.indexOf('.'));
 
                     Product p = productsImgsPrefixs.get(prefix);
-                    boolean isCatalogueImage = name.contains("0");
+                    boolean isCatalogueImage = name.contains("_0");
 
                     InputStream in = getClass().getClassLoader().getResourceAsStream(dir + "/" + filename);
                     File tempFile = inputStreamToFile(in, extension);

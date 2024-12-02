@@ -1,18 +1,55 @@
-html, body {
-  height: 100%;  /* Assurez-vous que le body prend toute la hauteur de la fenêtre */
-  margin: 0;  /* Éviter les marges par défaut */
-  display: flex;
-  flex-direction: column;
-}
-
 .content {
-  flex: 1;  /* Permet au contenu de prendre toute la place restante */
+  flex: 1; /* Permet au contenu de prendre toute la place restante */
 }
 
-.footer {
+:host {
+  --horizontal-padding: 8px;
+  --header-height: 15vh;
+  --footer-height: 75px;
+  --header-padding-bottom: 15px;
+
+  display: block;
+
+  position: relative;
+  padding: calc(var(--header-height) + 5px) var(--horizontal-padding) calc(var(--footer-height) + 15px);
+}
+
+app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  margin: 0;
+  padding: 5px 10px var(--header-padding-bottom);
+
+  height: calc(var(--header-height) - 5px - var(--header-padding-bottom));
+}
+
+app-footer {
   background-color: black;
   color: white;
   text-align: center;
-  bottom: 0px;
+
+  height: var(--footer-height);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
+@media only screen and (min-width: 600px) {
+
+  :host {
+    --horizontal-padding: 16px;
+    --header-padding-bottom: 20px;
+  }
+
+  app-header {
+    left: calc(var(--horizontal-padding) / 2);
+    right: calc(var(--horizontal-padding) / 2);
+  }
+
+}

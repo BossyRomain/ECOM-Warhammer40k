@@ -11,43 +11,44 @@ import { ClientServiceService } from '../../service/client-service.service';
 @Component({
   selector: 'product-sheet',
   standalone: true,
-  imports: [ CommonModule],
+  imports: [CommonModule],
   templateUrl: './product-sheet.component.html',
   styleUrl: './product-sheet.component.css'
 })
 export class ProductSheetComponent implements OnInit {
-    article?:Product;
-    public id:number = 0;
-    public productName:string = "Capitaine des Blood Angels";
-    public price:number = 34.00;
-    public stock:number = 0;
-    public allImages:string[] = [
-      "https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png",  
-      "https://www.warhammer.com/app/resources/catalog/product/920x950/99120101416_BACaptain01.jpg?fm=webp&w=1200&h=1237",
-      "https://www.warhammer.com/app/resources/catalog/product/threeSixty/99120101416_WH40kSMBACaptainOTT1360/01-01.jpg?fm=webp&w=670&h=670",
-      "https://www.warhammer.com/app/resources/catalog/product/threeSixty/99120101416_WH40kSMBACaptainOTT2360/01-01.jpg?fm=webp&w=670&h=670",
-      "https://www.warhammer.com/app/resources/catalog/product/920x950/99120101416_BACaptain01.jpg?fm=webp&w=1200&h=1237"
-    ];
-    mainImg?:string = "https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png";
+  article?: Product;
+  public id: number = 0;
+  public productName: string = "Capitaine des Blood Angels";
+  public price: number = 34.00;
+  public stock: number = 0;
+  public allImages: string[] = [
+    "https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png",
+    "https://www.warhammer.com/app/resources/catalog/product/920x950/99120101416_BACaptain01.jpg?fm=webp&w=1200&h=1237",
+    "https://www.warhammer.com/app/resources/catalog/product/threeSixty/99120101416_WH40kSMBACaptainOTT1360/01-01.jpg?fm=webp&w=670&h=670",
+    "https://www.warhammer.com/app/resources/catalog/product/threeSixty/99120101416_WH40kSMBACaptainOTT2360/01-01.jpg?fm=webp&w=670&h=670",
+    "https://www.warhammer.com/app/resources/catalog/product/920x950/99120101416_BACaptain01.jpg?fm=webp&w=1200&h=1237",
+  ];
+  mainImg?: string = "https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png";
 
-    description:string = "Une figurine de puissant capitaine Blood Angels. Il est capable de s'adapter à toutes les situations avec un arsenal varié d'armes et de reliques.";
-    numberOfArticle:number = 0;
+  description: string = "Une figurine de puissant capitaine Blood Angels. Il est capable de s'adapter à toutes les situations avec un arsenal varié d'armes et de reliques.";
+  numberOfArticle: number = 0;
 
-    constructor(private productService: ProductServiceService, private clientService:ClientServiceService, private activatedRoute: ActivatedRoute, private route:Router, private cartService:CartServiceService) {}
+  constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute, private route: Router, private cartService: CartServiceService, private clientService:ClientServiceService) {
+  }
 
-    ngOnInit(){
-      
-      this.activatedRoute.params.subscribe((params: Params) => {
-        let userId = params['id'];
-        this.getObjectById(userId);
-        });
-        
-    }
+  ngOnInit() {
 
-    public validateNumber(event: Event):void{
-      const inputValue = (event.target as HTMLInputElement).valueAsNumber;
-      this.numberOfArticle = inputValue;
-    }
+    this.activatedRoute.params.subscribe((params: Params) => {
+      let userId = params['id'];
+      this.getObjectById(userId);
+    });
+
+  }
+
+  public validateNumber(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).valueAsNumber;
+    this.numberOfArticle = inputValue;
+  }
 
     public addArticleToCart():void{
       if(this.numberOfArticle != 0 && this.article != undefined){
@@ -78,8 +79,8 @@ export class ProductSheetComponent implements OnInit {
        
     }
 
-    public changeIndex(id:number){
-      this.mainImg = this.article?.images[id].url;
-    }
+  public changeIndex(id: number) {
+    this.mainImg = this.article?.images[id].url;
+  }
 
 }

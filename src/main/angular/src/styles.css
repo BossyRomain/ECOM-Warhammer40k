@@ -1,4 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%; /* Assurez que le body prend toute la hauteur de la fenêtre */
+}
+
 body {
   background-color: #e6e6e6;
+  margin: 0; /* Éviter les marges par défaut */
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+app-root {
+  flex: 1;
 }

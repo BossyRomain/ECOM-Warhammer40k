@@ -1,28 +1,24 @@
-<div class="header">
-  <div class="header-container">
-      <button class="menu-button"></button>
-      
-      <button (click)="goToMain()" class="logo-button">
-        <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k" class="logo">
-      </button>
-      <div class="boutontext">
-        <div class="cart-container">
-          <button class="cart-button" (click)="accesToCart()"></button>
-          <span class="cart-badge">{{ cartItemCount }}</span>
-        </div>
-        <p>&nbsp;&nbsp;&nbsp;Panier</p>
-      </div>
-      <div class="boutontext">
-          <button class="account-button" (click)="access_account()"></button>
-          <p>Compte</p>
-      </div>
+<div class="header-container">
+  <button class="header-btn menu-button"></button>
+  <button (click)="goToMain()" class="logo-button"><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k"
+       class="logo"></button>
 
+  <div class="boutontext">
+    <button class="header-btn" (click)="accesToCart()"
+            style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier.png');"></button>
+    <span class="cart-badge">{{ cartItemCount }}</span>
+    <p>&nbsp;&nbsp;&nbsp;Panier</p>
   </div>
+  <div class="boutontext">
+    <button class="header-btn" (click)="access_account()"
+            style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png')"></button>
+    <p>Compte</p>
+  </div>
+</div>
 
-  <div class="search-bar-container">
-    <button class="search-button" (click)="search(research.value)"><div class="search-icon"></div></button> <!-- Icône de loupe -->
-    <input #research type="text" class="search-input" placeholder="Rechercher..." (keydown)="onEnter($event,research.value)">
-    <button class="search-clear" (click)="clearInput(research)"></button><!-- Bouton "X"-->
-      
-  </div>
+<div class="search-bar-container">
+  <div class="search-icon"></div> <!-- Icône de loupe -->
+  <input #research type="text" class="search-input" placeholder="Rechercher..."
+         (keydown)="onEnter($event,research.value)">
+  <button class="search-clear" (click)="clearInput(research)"></button><!-- Bouton "X"-->
 </div>

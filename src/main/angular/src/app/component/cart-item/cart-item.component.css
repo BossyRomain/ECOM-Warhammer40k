@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  border: 2px lightgrey solid;
+}
+
 .item-cart {
     display: flex;
     width: 100%;
