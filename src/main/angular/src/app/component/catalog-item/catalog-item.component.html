@@ -14,7 +14,7 @@
     </div>
   
     <div class="price-image-container">
-      <span class="product-price"> {{ article.unitPrice}}€</span>
+      <span class="product-price"> {{ article.unitPrice | number: "1.2-2"}}€</span>
       <button class="cart-button" (click)="addCart(article.id); $event.stopPropagation();"></button>
     </div>
     <div id="toast-container" class="toast-container"></div>

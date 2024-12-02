@@ -3,10 +3,10 @@
     
     <div class="head">
         <div class="head-left-button">
-            <button>Pay</button>
+            <button (click)="pay()">Pay</button>
         </div>
         <div class="head-right-price">
-            {{getSum() | number: "1.2-2"}}€
+            Total to pay: {{getSum() | number: "1.2-2"}}€
         </div>
     </div>
     <div *ngFor="let cartItem of cart; let i = index">

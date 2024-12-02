@@ -15,7 +15,11 @@
 
 .head-left-button {
     margin-left: 10%;
+    height: 20%;
+    width: auto;
 }
 .head-right-price {
     margin-right: 10%;
+    height: 20%;
+    width: auto;
 }

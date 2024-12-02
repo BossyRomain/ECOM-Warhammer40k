@@ -65,7 +65,7 @@ export class CartServiceService {
   public updateCart(index:number, newAmount:number): number{
     if(this.clientService.isConnected() &&  this.clientService.client){
       const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
-      this.http.put(`${this.apiUrl}/api/clients/${this.clientService.client.id}/carts/${this.currentCart[index].product.id}`, { newAmount }, { headers }).subscribe(
+      this.http.put(`${this.apiUrl}/api/clients/${this.clientService.client.id}/carts/${this.currentCart[index].product.id}`, newAmount, { headers }).subscribe(
         (value) => {
           console.log('Everything worked while upgrading');
           console.log(value);

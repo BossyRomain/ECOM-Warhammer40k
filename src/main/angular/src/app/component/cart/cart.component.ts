@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartServiceService } from '../../service/cart-service.service';
 import { CommandLine } from '../../model/command-line';
 import { ClientServiceService } from '../../service/client-service.service';
@@ -15,7 +15,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 })
 export class CartComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute, private cartService:CartServiceService, private clientService:ClientServiceService, private activatedRoute:ActivatedRoute){}
+  constructor(private route: ActivatedRoute, private cartService:CartServiceService, private clientService:ClientServiceService, private activatedRoute:ActivatedRoute, private router:Router){}
   public cart: CommandLine[] = [];
   ngOnInit(): void {
     console.log(this.cartService.currentCart);
@@ -31,6 +31,10 @@ export class CartComponent implements OnInit{
       sum += temp.product.unitPrice * temp.quantity;
     })
     return sum;
+  }
+
+  public pay(){
+    this.router.navigate(["/pay"]);
   }
 
 
