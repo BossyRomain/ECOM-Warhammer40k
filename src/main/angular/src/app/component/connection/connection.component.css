@@ -13,6 +13,7 @@ body {
 }
 
 :host {
+  height: 100%;
   width: 90%; /* Réduit la largeur à 90% de l'écran */
   max-width: 600px; /* Limite la largeur à 600px */
   padding: 0;
@@ -20,14 +21,14 @@ body {
   margin: 0 auto; /* Centrage du card */
   overflow: scroll;
 
-  display: block;
+  display: block
 }
 
 h1 {
   text-align: center;
-  font-size: 6vw; /* Taille de la police flexible en fonction de l'écran */
-  font-weight: bold;
-  margin-bottom: 3%;
+  font-size: 2.5em; /* Taille de la police flexible en fonction de l'écran */
+  font-weight: bolder;
+  margin-bottom: 20px;
 }
 
 .payment-method {
@@ -41,16 +42,15 @@ h1 {
   margin-bottom: 1%;
 }
 
-.payment-details {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .form-group {
-  width: 100%;
+  width: calc(100% - 20px);
   margin-bottom: 30px; /* Espace entre les champs */
-  max-width: 450px; /* Largeur maximale */
   padding: 10px 10px;
 }
 
@@ -63,8 +63,8 @@ h1 {
 
 .form-group input {
   width: 100%;
-  padding: 35px;
-  font-size: 4vw;
+  padding: 20px;
+  font-size: 1.2em;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
@@ -76,14 +76,16 @@ h1 {
 }
 
 .submit-btn {
-  width: 100%;
-  max-width: 450px; /* Largeur maximale du bouton */
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 70%;
   text-align: center;
   border: none;
   border-radius: 5px;
   background-color: #007BFF;
   color: white;
-  font-size: 4vw;
+  font-size: 1em;
+  font-weight: bolder;
   cursor: pointer;
 }
 
@@ -119,19 +121,28 @@ h1 {
     padding: 10px;
   }
 
-  .submit-btn input {
+  .submit-btn {
     font-size: 1.5rem;
     padding: 15px;
-  }
-
-  .product-card {
-    width: 50%; /* Réduit la largeur de la card à 50% sur les grands écrans */
-    max-width: 600px; /* Garde une largeur maximale */
   }
 }
 
 /* Media query pour les écrans très larges (grands écrans d'ordinateur) */
 @media (min-width: 1200px) {
+
+  :host {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 4em;
+  }
+
+  .form {
+    margin: auto;
+    max-width: 500px;
+  }
+
   .product-name {
     font-size: 2.5rem; /* Taille de texte plus grande pour les grands écrans */
   }
@@ -148,12 +159,9 @@ h1 {
     font-size: 1.1rem;
   }
 
-  .submit-btn input {
+  .submit-btn {
     font-size: 1.2rem;
-  }
-
-  .product-card {
-    width: 40%; /* Réduit encore la largeur de la card */
+    max-width: 200px;
   }
 }
 

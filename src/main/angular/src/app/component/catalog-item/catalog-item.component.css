@@ -1,50 +1,45 @@
 :host {
   background-color: white;
+  border: 2px solid black;
+
   position: relative;
 }
 
 .product-card {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-  border-style: solid;
-  border-width: 2px;
+
+  padding: 10px;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
 }
 
 
 .product-name {
+  margin: 10px 0;
   text-align: center;
-  font-size: 100%; /* Taille fixe en pixels */
+  font-size: 1.4rem; /* Taille fixe en pixels */
   font-weight: bold;
 }
 
 .product-price {
-  font-size: 16px; /* Taille fixe en pixels */
+  margin: 0;
+  font-size: 1.3rem; /* Taille fixe en pixels */
   font-weight: bold;
   color: #000;
 }
 
 /* Bouton invisible pour l'image de panier */
 .cart-button {
-  width: 40px; /* Taille fixe */
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-color: transparent;
-  border: none;
-  position: relative;
-  right: 0;
-  cursor: pointer;
-}
-
-.cart-button::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier_plus.png'); /* Remplace par l'URL de l'image */
+  background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier_plus.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  border: none;
+  cursor: pointer;
 }
 
 .image-container {
@@ -62,17 +57,16 @@
 .price-image-container {
   display: flex;
   justify-content: space-between;
-  margin-top: auto;
   align-items: center;
-  position: relative;
+  padding: 0 6%;
+  margin-top: auto;
   max-width: 100%;
-  padding: 0px 5%;
 }
 
 .stock {
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 0;
+  left: 0;
   aspect-ratio: 7 / 2;
   width: 40%;
   border-top: none; /* Enlève la bordure du haut */
@@ -82,7 +76,7 @@
   color: #000000;
   margin: 0;
   padding: 5px;
-  font-size: 0.7rem; /* Taille de texte fixe, ajustez selon votre besoin */
+  font-size: 1.1rem; /* Taille de texte fixe, ajustez selon votre besoin */
   white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
   overflow: hidden; /* Coupe le texte qui dépasse */
   text-align: center;
@@ -98,24 +92,9 @@
 
 /* Classe appliquée lorsque le stock est à 0 */
 .out-of-stock {
-  /*position: absolute;*/
-  /*width: 40%;*/
-  /*height: 7%;*/
-  /*top: 2px;*/
-  /*left: 2px;*/
   background-color: #f36666;
-  /*border: 1px solid #642525;*/
   color: #fff;
   font-weight: bolder;
-  /*margin: 0;*/
-  /*padding: 5px;*/
-  /*font-size: 0.7rem; !* Taille de texte fixe, ajustez selon votre besoin *!*/
-  /*white-space: nowrap; !* Empêche le texte de passer à la ligne suivante *!*/
-  /*overflow: hidden; !* Coupe le texte qui dépasse *!*/
-
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
 }
 
 
@@ -166,8 +145,8 @@
 
 @media only screen and (min-width: 800px) {
   .cart-button {
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
   }
 
   .stock {
@@ -183,11 +162,10 @@
   }
 
   .product-price {
-    font-size: 2em;
+    font-size: 1.75rem;
   }
 
   .product-name {
-    font-size: 2.5em;
-    margin: 10px 0px;
+    font-size: 1.7rem;
   }
 }

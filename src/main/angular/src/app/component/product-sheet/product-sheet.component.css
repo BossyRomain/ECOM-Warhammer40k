@@ -59,6 +59,7 @@
   justify-content: center; /* Center horizontally */
   align-items: center;
   text-align: center;
+  font-weight: bolder;
 }
 
 .add-button {
@@ -71,7 +72,6 @@
   background-color: goldenrod;
 
 }
-
 
 .image-gallery {
   display: flex;

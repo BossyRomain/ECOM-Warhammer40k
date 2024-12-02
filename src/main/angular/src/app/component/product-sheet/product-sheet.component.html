@@ -1,11 +1,11 @@
-<h2 class="product-name"><b>{{ productName }}</b></h2>
+<h2 class="product-name">{{ productName }}</h2>
 <div class="image-container">
-  <img class="main-image" src={{mainImg}}/>
+  <img class="main-image" src='{{mainImg}}'/>
 </div>
 
 <div class="image-gallery">
   <div *ngFor="let x of article?.images; index as i">
-    <img src={{x.url}} (click)="changeIndex(i)"/>
+    <img src='{{x.url}}' (click)="changeIndex(i)"/>
   </div>
 
 </div>

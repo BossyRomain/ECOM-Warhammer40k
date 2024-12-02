@@ -12,11 +12,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.LockTimeoutException;
 import jakarta.persistence.PessimisticLockException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.CannotAcquireLockException;
-import org.springframework.retry.annotation.Backoff;
-import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
@@ -98,12 +94,7 @@ public class CartService {
         commandLineRepository.delete(commandLine);
     }
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
-    @Retryable(
-        value = CannotAcquireLockException.class,
-        maxAttempts = 5,
-        backoff = @Backoff(delay = 1000)
-    )
+    @Transactional
     public boolean pay(Long clientId) throws RuntimeException, NoSuchElementException {
         try {
             Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);

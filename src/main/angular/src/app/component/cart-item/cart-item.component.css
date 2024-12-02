@@ -1,68 +1,49 @@
 :host {
   display: block;
-  border: 2px lightgrey solid;
+  border: 2px solid lightgray;
+
+  background-color: white;
 }
 
 .item-cart {
-    display: flex;
-    width: 100%;
-    border: solid 2px black;
-    margin-bottom: 1%;
-    box-shadow: 1%;
-    border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1%;
+  border-radius: 8px;
 }
 
-
-.left-block {
-    max-width: 70%;
-    display: flex;
-    text-align: center;
-    flex: 0 1 auto;
+.product-img {
+  margin: 0 auto;
+  max-width: 90%;
 }
 
-.left-block img{
-    width: 30vw;
-    height: 30vw;
-    padding: 4%;
-    border-radius: 16px;
-}
-
-.right-block{
-    position: relative;
-    margin-left: 3%;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
+.infos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .name {
-    text-align: center;
-}
-
-.values {
-    bottom: 0;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.amount{
-    display: flex;
-    text-align: center;
-    border: solid 2px black;
-    border-radius: 3px;
-    margin-left: 10%;
+  margin: 0 0 10px;
+  font-weight: bolder;
+  *text-align: center;
 }
 
 .quantity-value {
-    min-width: 3em;
-    max-width: 3em;
+  min-width: 3em;
+  max-width: 3em;
 }
 
-.price{
-    margin-right: 10%;
+.price {
+  margin-left: 10px;
 }
 
+@media only screen and (min-width: 600px) {
 
+  .name {
+    font-size: 1.5em;
+  }
+
+}
