@@ -67,8 +67,4 @@ export class ConnectionComponent {
       console.log("Formulaire invalide");
     }
   }
-
-  onRegister(): void{
-    this.router.navigate(["/register"]);
-  }
 }

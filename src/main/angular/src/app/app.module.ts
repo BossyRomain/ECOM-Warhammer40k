@@ -12,19 +12,25 @@ import {CatalogComponent} from './component/catalog/catalog.component';
 import {BankDetailsComponent} from "./component/bank-details/bank-details.component";
 import {FooterComponent} from "./component/footer/footer.component";
 import {RegisterComponent} from './component/register/register.component';
+import { HistoryComponent } from './component/history/history.component';
+import { HistoryItemComponent } from './component/history-item/history-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
+    HistoryItemComponent,
     AppRoutingModule,
     ProductSheetComponent,
     HeaderComponent,
     CatalogComponent,
     AppRoutingModule,
+    HistoryComponent,
     BankDetailsComponent,
     FooterComponent,
     RegisterComponent,
