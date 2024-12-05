@@ -1,7 +1,9 @@
 package com.warhammer.ecom.controller;
 
+import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.model.CommandLine;
 import com.warhammer.ecom.service.CartService;
+import com.warhammer.ecom.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,9 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private ClientService clientService;
 
     /**
      * Ajoute un produit au panier d'un client
@@ -45,9 +50,15 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/pay")
+    @PostMapping("/pay")
     public ResponseEntity<Void> payCurrentCart(@PathVariable Long clientId) {
-        cartService.pay(clientId);
-        return ResponseEntity.ok().build();
+        Client client = clientService.getById(clientId);
+        boolean success = cartService.pay(client.getCurrentCart());
+        if (success) {
+            cartService.create(client);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

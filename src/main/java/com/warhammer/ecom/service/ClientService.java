@@ -28,6 +28,10 @@ public class ClientService {
     @Autowired
     private EmailService emailService;
 
+    public Client getById(Long clientId) throws NoSuchElementException {
+        return clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
+    }
+
     public Client getByEmail(String email) throws NoSuchElementException {
         return clientRepository.findByEmail(email).orElseThrow(NoSuchElementException::new);
     }

@@ -30,4 +30,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Void> handleDataIntegrityViolationException(DataIntegrityViolationException e) {
         return ResponseEntity.status(409).build();
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleException(Exception e) {
+        return ResponseEntity.status(400).body(e.getMessage());
+    }
 }
