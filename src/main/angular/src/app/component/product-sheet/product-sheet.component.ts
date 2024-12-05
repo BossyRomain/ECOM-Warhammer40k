@@ -1,11 +1,10 @@
-import { Component, input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ProductServiceService } from '../../service/product-service.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { error } from 'console';
-import { CartServiceService } from '../../service/cart-service.service';
-import { Product } from '../../model/product';
-import { ClientServiceService } from '../../service/client-service.service';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ProductServiceService} from '../../service/product-service.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {CartServiceService} from '../../service/cart-service.service';
+import {Product} from '../../model/product';
+import {ClientServiceService} from '../../service/client-service.service';
 
 
 @Component({
@@ -33,7 +32,7 @@ export class ProductSheetComponent implements OnInit {
   description: string = "Une figurine de puissant capitaine Blood Angels. Il est capable de s'adapter à toutes les situations avec un arsenal varié d'armes et de reliques.";
   numberOfArticle: number = 0;
 
-  constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute, private route: Router, private cartService: CartServiceService, private clientService:ClientServiceService) {
+  constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute, private route: Router, private cartService: CartServiceService, private clientService: ClientServiceService) {
   }
 
   ngOnInit() {
@@ -50,34 +49,35 @@ export class ProductSheetComponent implements OnInit {
     this.numberOfArticle = inputValue;
   }
 
-    public addArticleToCart():void{
-      if(this.numberOfArticle != 0 && this.article != undefined){
-          this.cartService.addProductToCart(this.clientService.client ? this.clientService.client.id: 0, this.article.id, this.numberOfArticle);
-        
-      }
-      
+  public addArticleToCart(): void {
+    if (this.numberOfArticle != 0 && this.article != undefined) {
+      this.cartService.addProductToCart(this.clientService.client ? this.clientService.client.id : 0, this.article.id, this.numberOfArticle);
+
     }
 
-    public getObjectById(id:number): void{
-      console.log("Get object " + id);
-      
-      this.allImages = [];
-      this.productService.getProductById(id).subscribe( 
-        value => {
-          this.productName= value.name;
-          this.article  = value;
-          this.mainImg = this.article.mainImage.url;
-          value.images.forEach((temp)=>{
-            this.allImages.push(temp.url);
-          });
-        },
-        error => {
-          console.log("A problem occured when Accessing to object " + id);
-        }
-      );    
-      
-       
-    }
+  }
+
+  public getObjectById(id: number): void {
+    console.log("Get object " + id);
+
+    this.allImages = [];
+    this.productService.getProductById(id).subscribe(
+      value => {
+        this.productName = value.name;
+        this.article = value;
+        this.article.description = this.article?.description.replaceAll("\n", "<br>");
+        this.mainImg = this.article.mainImage.url;
+        value.images.forEach((temp) => {
+          this.allImages.push(temp.url);
+        });
+      },
+      error => {
+        console.log("A problem occured when Accessing to object " + id);
+      }
+    );
+
+
+  }
 
   public changeIndex(id: number) {
     this.mainImg = this.article?.images[id].url;

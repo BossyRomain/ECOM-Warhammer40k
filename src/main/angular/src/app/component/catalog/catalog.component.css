@@ -1,7 +1,7 @@
 .catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Crée deux colonnes de même largeur */
-  gap: 20px; /* Espacement entre les éléments */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 
@@ -58,5 +58,22 @@
   border-color: #007bff;
 }
 
+app-catalog-item {
+  max-width: 100%;
+}
+
 @media only screen and (min-width: 600px) {
+
+  .catalog-grid {
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 95%;
+  }
+
+  app-catalog-item {
+    max-width: 23%;
+  }
 }

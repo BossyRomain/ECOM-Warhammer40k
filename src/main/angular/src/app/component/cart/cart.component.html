@@ -1,15 +1,15 @@
-<div class="cart">
-    <h1 class = "cart-content">Cart content</h1>
-    
-    <div class="head">
-        <div class="head-left-button">
-            <button (click)="pay()">Pay</button>
-        </div>
-        <div class="head-right-price">
-            Total to pay: {{getSum() | number: "1.2-2"}}€
-        </div>
-    </div>
-    <div *ngFor="let cartItem of cart; let i = index">
-        <cart-item [commandLine]="cartItem" [index]="i"></cart-item>
-    </div>
+<h1 class="cart-content">Cart content</h1>
+
+<div class="head">
+  <div class="head-left-button">
+    <button (click)="pay()">Pay</button>
+  </div>
+  <div class="head-right-price">
+    Total to pay: {{ getSum() | number: "1.2-2" }}€
+  </div>
+</div>
+<div class="items">
+  <div *ngFor="let cartItem of cart; let i = index">
+    <cart-item [commandLine]="cartItem" [index]="i"></cart-item>
+  </div>
 </div>
