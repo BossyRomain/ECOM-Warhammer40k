@@ -143,4 +143,11 @@ public class CartService {
         Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
         return client.getCarts().stream().toList();
     }
+
+    public void clear(Long clientId) throws NoSuchElementException {
+        Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
+        client.getCurrentCart().getCommandLines().clear();
+        cartRepository.save(client.getCurrentCart());
+        clientRepository.save(client);
+    }
 }

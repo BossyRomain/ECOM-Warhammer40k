@@ -50,6 +50,12 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/clear")
+    public ResponseEntity<Void> clear(@PathVariable Long clientId) {
+        cartService.clear(clientId);
+        return ResponseEntity.ok().build();
+    }
+
     @PostMapping("/pay")
     public ResponseEntity<Void> payCurrentCart(@PathVariable Long clientId) {
         Client client = clientService.getById(clientId);

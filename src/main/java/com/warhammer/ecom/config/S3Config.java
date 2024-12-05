@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 /***
- * Configuration pour interagir avec le bucket AWS qui stocke les images du site.
+ * Configuration to interact with the AWS bucket used to stock the products' images.
  */
 @Configuration
 public class S3Config {
