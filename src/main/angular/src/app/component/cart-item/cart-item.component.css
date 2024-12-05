@@ -28,7 +28,7 @@
 .name {
   margin: 0 0 10px;
   font-weight: bolder;
-  *text-align: center;
+  text-align: center;
 }
 
 .quantity-value {

@@ -24,7 +24,13 @@ export class HeaderComponent {
   constructor(private router: Router, private activatedRoute:ActivatedRoute, private cartService : CartServiceService, private clientService:ClientServiceService) { }
   
   public access_account() {
-    this.router.navigate(["/account"]);
+    if(this.clientService.isConnected()){
+      this.router.navigate(["/account"]);
+      //this.router.navigate(["/history", this.clientService.client?.id]);
+    }else{
+      this.router.navigate(["/account"]);
+    }
+    
   }
 
   public burger_menu() {

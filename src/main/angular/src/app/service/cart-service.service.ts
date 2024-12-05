@@ -8,6 +8,7 @@ import { ClientServiceService } from './client-service.service';
 import { ProductServiceService } from './product-service.service';
 import { Product } from '../model/product';
 import { Router } from '@angular/router';
+import { cpuUsage } from 'process';
 
 @Injectable({
   providedIn: 'root'
@@ -25,32 +26,39 @@ export class CartServiceService {
 
   public addProductToCart(clientID:number, productID:number, amount:number){
     console.log("connected? " + this.clientService.isConnected());
-    if(clientID != 0 && this.clientService.isConnected()){
-      const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
-      const params = new HttpParams().set("quantity", amount.toString());
-      console.log(headers + "\n" + params);
-      this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts/${productID}`, " ",  { headers, params }, ).pipe(
-        map((body:any) => {
-          let line:CommandLine = body;
-          return line;
-        })
-      ).subscribe(
-        (value) => {
-          console.log(value);
-          this.currentCart.push(value);
-        },
-        (error) => { console.log(error)}
-      )
+    let exist = this.containsElement(productID);
+    console.log("contains product at " + exist);
+    if(exist != -1){ //If the article is already in the cart
+      this.updateCart(exist, this.currentCart[exist].quantity + amount);
     }else{
-      this.productService.getProductCatalogById(productID).subscribe(
-        (data)=>{
-          console.log("data: "
-            + data
-          );
-          console.log(this.currentCart.push({id:data.id, quantity:amount, product:data}));
-          console.log(this.currentCart);
-      });
+      if(clientID != 0 && this.clientService.isConnected()){
+        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
+        const params = new HttpParams().set("quantity", amount.toString());
+        console.log(headers + "\n" + params);
+        this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts/${productID}`, " ",  { headers, params }, ).pipe(
+          map((body:any) => {
+            let line:CommandLine = body;
+            return line;
+          })
+        ).subscribe(
+          (value) => {
+            console.log(value);
+            this.currentCart.push(value);
+          },
+          (error) => { console.log(error)}
+        )
+      }else{
+        this.productService.getProductCatalogById(productID).subscribe(
+          (data)=>{
+            console.log("data: "
+              + data
+            );
+            console.log(this.currentCart.push({id:data.id, quantity:amount, product:data}));
+            console.log(this.currentCart);
+        });
+      }
     }
+    
   }
 
   public getCartOfClient(clientID: number): Observable<any> {
@@ -124,6 +132,22 @@ export class CartServiceService {
         )
     })
   }
+
+  public containsElement(id:number):number{
+    let i = 0;
+    while(i < this.currentCart.length && this.currentCart[i].product.id != id){
+      i++;
+    }
+    if(i >= this.currentCart.length){
+      i = -1;
+    }
+    return i;
+  }
+
+  public getAmountOfProduct(id:number):number{
+    let index = this.containsElement(id);
+    return this.currentCart[index].quantity;
+  } 
 
   
 }

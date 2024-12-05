@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ProductServiceService} from '../../service/product-service.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
@@ -14,7 +14,7 @@ import {ClientServiceService} from '../../service/client-service.service';
   templateUrl: './product-sheet.component.html',
   styleUrl: './product-sheet.component.css'
 })
-export class ProductSheetComponent implements OnInit {
+export class ProductSheetComponent implements OnInit, AfterViewInit {
   article?: Product;
   public id: number = 0;
   public productName: string = "Capitaine des Blood Angels";
@@ -31,8 +31,15 @@ export class ProductSheetComponent implements OnInit {
 
   description: string = "Une figurine de puissant capitaine Blood Angels. Il est capable de s'adapter à toutes les situations avec un arsenal varié d'armes et de reliques.";
   numberOfArticle: number = 0;
-
+  @ViewChild('inputNumberOfElement') numberInput!: ElementRef;
   constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute, private route: Router, private cartService: CartServiceService, private clientService: ClientServiceService) {
+  }
+
+  ngAfterViewInit(): void {
+
+    if(this.article && this.cartService.containsElement(this.article.id)){
+      this.numberInput.nativeElement.value = this.cartService.getAmountOfProduct(this.article.id);
+    }
   }
 
   ngOnInit() {
@@ -40,9 +47,15 @@ export class ProductSheetComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       let userId = params['id'];
       this.getObjectById(userId);
+      if(this.article && this.cartService.containsElement(this.article.id)){
+        this.numberInput.nativeElement.value = this.cartService.getAmountOfProduct(this.article.id);
+      }
+      
     });
 
   }
+
+  
 
   public validateNumber(event: Event): void {
     const inputValue = (event.target as HTMLInputElement).valueAsNumber;

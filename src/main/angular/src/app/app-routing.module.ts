@@ -6,6 +6,8 @@ import { connect } from 'http2';
 import { ConnectionComponent } from './component/connection/connection.component';
 import { CartComponent } from './component/cart/cart.component';
 import { BankDetailsComponent } from './component/bank-details/bank-details.component';
+import { RegisterComponent } from './component/register/register.component';
+import { HistoryComponent } from './component/history/history.component';
 
 const routes: Routes = [
   { path: "product/:id", component: ProductSheetComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: "cart/:id", component: CartComponent },
   { path: "catalog/search", component: CatalogComponent},
   { path: "pay", component: BankDetailsComponent},
+  { path: "register", component:RegisterComponent},
+  { path: "history/:id", component:HistoryComponent},
   { path: '**', redirectTo: "catalog/search"}
 ];
 

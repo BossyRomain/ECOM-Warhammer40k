@@ -3,8 +3,9 @@ import { CommandLine } from '../model/command-line';
 import { environment } from '../../environments/environment';
 import { Observable, catchError, map } from 'rxjs';
 import { Client } from '../model/client';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
+import { Cart } from '../model/cart';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,27 @@ export class ClientServiceService {
         }; // Typecasting en `Client`
       })
     );
+  }
+
+  public getHistory():Observable<Cart[]>{
+    const url = `${this.apiUrl}/api/clients/login`;
+
+    if(this.isConnected() &&  this.client){
+      const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.client.authToken);
+      return this.http.get(`${this.apiUrl}/api/clients/${this.client.id}/commands`, { headers }).pipe(
+        map(
+          (body:any) => {
+            let history:Cart[] = [];
+            body.forEach((element:Cart) => {
+              history.push(element);
+            })
+            return history;
+          }
+        )
+      )
+    }else{
+      return new Observable();
+    }
   }
   
   public disconnect(): void{
