@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { Cart } from '../model/cart';
 import { CommandLine } from '../model/command-line';
 import { ClientServiceService } from './client-service.service';
@@ -20,9 +20,10 @@ export class CartServiceService {
 
   public currentCart: CommandLine[] = [];
   public id:number = 0;
-  public numberItemsCart() : number {
-      return this.currentCart.length;
-  }
+
+  private cartItems = new BehaviorSubject<number>(0); // Contient le nombre d'articles dans le panier
+  cartItems$ = this.cartItems.asObservable(); 
+
 
   public addProductToCart(clientID:number, productID:number, amount:number){
     console.log("connected? " + this.clientService.isConnected());
@@ -44,8 +45,9 @@ export class CartServiceService {
           (value) => {
             console.log(value);
             this.currentCart.push(value);
+            this.updateCartLength();
           },
-          (error) => { console.log(error)}
+          (error) => { console.log("error" + error)}
         )
       }else{
         this.productService.getProductCatalogById(productID).subscribe(
@@ -55,20 +57,27 @@ export class CartServiceService {
             );
             console.log(this.currentCart.push({id:data.id, quantity:amount, product:data}));
             console.log(this.currentCart);
+            this.updateCartLength();
         });
       }
     }
-    
   }
 
   public getCartOfClient(clientID: number): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
     return this.http.get(`${this.apiUrl}/api/clients/${clientID}/commands`, { headers }).pipe(
       map((body: any) => {
-        return body[0];
+        const cart = body[0];
+        this.currentCart = []; // Réinitialise le panier actuel
+        cart.commandLines.forEach((elm: CommandLine) => {
+          this.currentCart.push(elm); // Remplit le panier
+        });
+        this.updateCartLength(); // Correctement mis à jour après la modification
+        return cart;
       })
     );
   }
+  
 
   public updateCart(index:number, newAmount:number): number{
     if(this.clientService.isConnected() &&  this.clientService.client){
@@ -107,6 +116,7 @@ export class CartServiceService {
     }else{
       this.currentCart.splice(index, 1);
     }
+    this.updateCartLength();
   }
 
   public retrieveClientInfo(email:string, password:string){
@@ -130,6 +140,7 @@ export class CartServiceService {
             })
           }
         )
+        this.updateCartLength();
     })
   }
 
@@ -149,5 +160,35 @@ export class CartServiceService {
     return this.currentCart[index].quantity;
   } 
 
+  public getAmountToPay(): number{
+      let sum : number = 0;
+      this.currentCart.forEach((temp) => {
+        sum += temp.product.unitPrice * temp.quantity;
+      })
+      return sum;
+  }
   
+  public payCart(): Observable<number>{
+      if (this.clientService.isConnected() && this.clientService.client) {
+        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
+        return this.http.get<number>(`${this.apiUrl}/pay`, { headers }).pipe(
+          catchError((error: HttpErrorResponse) => {
+            let errorMessage = 'An unexpected error occurred.';
+            if (error.status === 400) {
+              let errorMessage = error.error.message || 'Not enough stock for one or more products.';
+            }
+            return throwError(() => new Error(errorMessage));
+          })
+        );
+      } else {
+        return throwError(() => new Error('User is not authenticated.'));
+      }
+    }
+    
+
+
+  updateCartLength(): void {
+    let length : number = this.currentCart.length
+    this.cartItems.next(length);
+  }
 }

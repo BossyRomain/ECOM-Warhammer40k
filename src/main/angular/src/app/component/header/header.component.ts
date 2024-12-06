@@ -17,8 +17,11 @@ import { ClientServiceService } from '../../service/client-service.service';
 export class HeaderComponent {
   cartItemCount: number = 33;
   
-  ngOnInit() {
-    
+  ngOnInit(): void {
+
+    this.cartService.cartItems$.subscribe(count => { //Abonnement a l'observable pour mettre a jour automatiquement le nombre d'article dans le panier
+      this.cartItemCount = count;
+    });
   }
   
   constructor(private router: Router, private activatedRoute:ActivatedRoute, private cartService : CartServiceService, private clientService:ClientServiceService) { }

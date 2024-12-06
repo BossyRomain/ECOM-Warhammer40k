@@ -122,7 +122,17 @@
   opacity: 0;
   transform: translateY(10px);
   animation: fadeInOut 3s forwards;
+}
 
+  
+  .toast {
+    color: #000000; /* Couleur du texte */
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    background-color: rgb(250, 255, 178);
+    border: 2px solid #000000;
 
   /* Rectangle blanc autour du texte */
   border: 2px solid #fff;

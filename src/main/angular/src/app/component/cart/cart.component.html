@@ -1,5 +1,9 @@
 <h1 class="cart-content">Cart content</h1>
 
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
 <div class="head">
   <div class="head-left-button">
     <button (click)="pay()">Pay</button>
