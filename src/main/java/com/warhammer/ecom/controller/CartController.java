@@ -24,9 +24,6 @@ public class CartController {
     @Autowired
     private ClientService clientService;
 
-    @Autowired
-    private ClientService clientService;
-
     /**
      * Ajoute un produit au panier d'un client
      *
