@@ -172,3 +172,9 @@ h1 {
   margin-top: 5px;
 }
 
+.link {
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+  text-underline-style: none;
+}
