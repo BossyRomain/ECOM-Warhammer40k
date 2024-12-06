@@ -19,7 +19,7 @@ export class CartItemComponent implements OnInit {
   deleteEntry:boolean = false;
   lastValue:string = "0";
   quantity:string = "1";
-  constructor(private cartService:CartServiceService, private router:Router, private clientService:ClientServiceService){
+  constructor(private cartService:CartServiceService, private router:Router, public clientService:ClientServiceService){
 
   }
 

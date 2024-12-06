@@ -1,11 +1,15 @@
 <div class="item-cart" *ngIf="commandLine != undefined; else other_content">
-  <div class="name">{{ commandLine.product.name }}</div>
+  <div class="head-cart-item">
+    <div class="name">{{ commandLine.product.name }}</div>
+    <button class="delete-button" (click)="changeAmount('0')"></button>
+  </div>
+  
   <img src='{{commandLine.product.catalogueImg.url}}' class="product-img"/>
   <div class="infos">
     <input class="quantity-value" #quantity type="number" value="{{commandLine.quantity}}" [min]="1" [step]="1"
            (input)="changeAmount(quantity.value)" required>
     <p class="price"> x
-      {{ sumProduct()| number: "1.2-2" }}€
+      {{ commandLine.product.unitPrice| number: "1.2-2" }}€
     </p>
   </div>
 

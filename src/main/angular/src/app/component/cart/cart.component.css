@@ -11,7 +11,14 @@
 .head-left-button {
   margin-left: 10%;
   height: 20%;
-  width: auto;
+  width: 20%;
+}
+
+.head-left-button button{
+  background-color: goldenrod;
+  border-radius: 10px;
+  width: 100%;
+  font-weight: bold;
 }
 
 .head-right-price {

@@ -22,7 +22,7 @@ export class ClientServiceService {
   private connected:boolean = false;
   public clientID: number = 0;
   public client?: Client;
-
+  private connectFromAnotherPlace: boolean = false;
   
 
   public isConnected():boolean{
@@ -80,5 +80,13 @@ export class ClientServiceService {
   
   public disconnect(): void{
     this.connected = false;
+  }
+
+  public connectFromCart(){
+    this.connectFromAnotherPlace = true;
+  }
+
+  public isConnectingFromAnotherPlace():boolean{
+    return this.connectFromAnotherPlace;
   }
 }

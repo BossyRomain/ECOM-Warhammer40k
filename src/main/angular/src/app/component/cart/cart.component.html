@@ -5,7 +5,7 @@
     <button (click)="pay()">Pay</button>
   </div>
   <div class="head-right-price">
-    Total to pay: {{ getSum() | number: "1.2-2" }}€
+    Total to pay: {{ this.cartService.getSum() | number: "1.2-2" }}€
   </div>
 </div>
 <div class="items">

@@ -29,6 +29,7 @@
   margin: 0 0 10px;
   font-weight: bolder;
   text-align: center;
+  flex: 1;
 }
 
 .quantity-value {
@@ -38,6 +39,28 @@
 
 .price {
   margin-left: 10px;
+}
+
+.head-cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+
+.delete-button {
+  width: 4vw;
+  height: 4vw;
+  max-width: 25px;
+  max-height: 25px;
+  margin-right: 10px;
+  background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/croix.png');
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 600px) {
