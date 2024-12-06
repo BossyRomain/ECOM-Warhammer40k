@@ -65,16 +65,29 @@ export class ConnectionComponent{
     if (this.validateForm()) {
       await this.cartService.retrieveClientInfo(this.email, this.password);
       if(this.clientService.client){
-        let previousCart: CommandLine[] = [];
-        this.cartService.currentCart.forEach((element) => previousCart.push(element));
+        let previousCart: {id:number, qty:number}[] = [];
+        this.cartService.currentCart.forEach((element) => {
+          if(element.id){
+            let elm:{id:number, qty:number} = {id:element.id, qty:element.quantity};
+            console.log(elm);
+            previousCart.push(elm);
+          }
+        });
         let clientId = this.clientService.client.id;
         this.cartService.getCartOfClient(this.clientService.client.id).subscribe(
           (value) => {
             this.cartService.id = value.id;
+
+            console.log("connection component");
             console.log(value);
             this.cartService.currentCart = [];
             value.commandLines.forEach((elm:CommandLine) => {
               this.cartService.currentCart.push(elm);
+            })
+            previousCart.forEach((element) => {
+              console.log(element);
+              this.cartService.addProductToCart(clientId, element.id, element.qty);
+              
             })
             
           },
@@ -82,11 +95,7 @@ export class ConnectionComponent{
             console.error(error);
           }
         );
-        previousCart.forEach((element) => {
-          if(element.id){
-            this.cartService.addProductToCart(clientId, element.id, element.quantity);
-          }
-        })
+        
           
         
         

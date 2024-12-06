@@ -123,7 +123,7 @@ export class CartServiceService {
         }
       );
       this.currentCart.splice(index, 1);
-      this.router.navigate(['/cart', this.clientService.client?.id]);
+      
     }else{
       this.currentCart.splice(index, 1);
     }
@@ -182,6 +182,13 @@ export class CartServiceService {
       }
     }
     
+  public clearCart(){
+    let i = 0;
+    let l = this.currentCart.length;
+    for(; i < l; i++){
+      this.deleteLine(0);
+    }
+  }
 
 
   updateCartLength(): void {

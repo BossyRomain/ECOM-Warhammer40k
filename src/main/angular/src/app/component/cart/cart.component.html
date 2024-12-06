@@ -7,6 +7,7 @@
 <div class="head">
   <div class="head-left-button">
     <button (click)="pay()">Pay</button>
+    <button (click)="this.cartService.clearCart()">Clear Cart</button>
   </div>
   <div class="head-right-price">
     Total to pay: {{ this.cartService.getSum() | number: "1.2-2" }}€

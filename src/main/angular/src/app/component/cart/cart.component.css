@@ -5,27 +5,11 @@
 .head {
   display: flex;
   justify-content: space-between; /* Center horizontally */
-  margin-bottom: 3%;
+
 }
 
-.head-left-button {
-  margin-left: 10%;
-  height: 20%;
-  width: 20%;
-}
 
-.head-left-button button{
-  background-color: goldenrod;
-  border-radius: 10px;
-  width: 100%;
-  font-weight: bold;
-}
 
-.head-right-price {
-  margin-right: 10%;
-  height: 20%;
-  width: auto;
-}
 
 .items {
   display: flex;
@@ -54,9 +38,56 @@ items > * {
 }
 
 @media only screen and (min-width: 600px) {
-
+  .head-left-button {
+    margin-left: 10%;
+    height: 20vw;
+    width: 200px;
+  }
+  
   .items > * {
     max-width: 30%;
   }
 
+  .head-left-button > * {
+    background-color: goldenrod;
+    border-radius: 10px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 3px;
+  }
+
+  .head-right-price {
+    margin-right: 10%;
+    height: 20%;
+    width: auto;
+    font-size: 4vh;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .head-left-button {
+    margin-left: 10%;
+    height: 10vw;
+    width: 30vw;
+    margin-bottom: 4%;
+  }
+  
+
+  .head-left-button > * {
+    background-color: goldenrod;
+    border-radius: 10px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 4vw;
+    margin-bottom: 3px;
+  }
+
+  .head-right-price {
+    margin-right: 10%;
+    height: 20%;
+    width: auto;
+    font-size: 5vw;
+  }
 }

@@ -39,6 +39,7 @@ export class CartItemComponent implements OnInit {
       if(newAmount != "" && Number(newAmount) == 0){
         this.lastValue = newAmount;
         this.cartService.deleteLine(this.index);
+        this.router.navigate(['/cart', this.clientService.client?.id]);
       }else if(newAmount != ""){
         this.lastValue = newAmount;
         this.commandLine.quantity = this.cartService.updateCart(this.index, Number(newAmount));
