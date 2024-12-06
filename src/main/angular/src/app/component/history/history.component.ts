@@ -23,6 +23,8 @@ export class HistoryComponent implements OnInit {
       (params) => {
         this.clientService.getHistory().subscribe(
           (value)=>{
+            console.log("reading history");
+            console.log(value);
             this.carts = value;
           }
         )
