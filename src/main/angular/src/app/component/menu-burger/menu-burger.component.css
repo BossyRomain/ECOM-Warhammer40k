@@ -1,0 +1,125 @@
+/* Style global */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+}
+
+/* Container vide avec hauteur égale à celle de 3 lignes de texte */
+.container {
+  margin-top: 33%; /* Hauteur totale équivalente à trois lignes de texte */
+  /* background-color: #ff0000;  Couleur de fond pour visualiser le container */
+  flex: 1; /* Remplir l'espace restant à droite du sidebar */
+}
+
+/* Style du menu dans la sidebar */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  position: relative;
+  margin-bottom: 10px; /* Espacement entre les éléments de menu */
+}
+
+nav a {
+  display: flex;
+  margin-right: 50%;
+  align-items: center; /* Centrer verticalement le texte et l'icône */
+  padding: 14px 20px;
+  color: white;
+  text-decoration: none;
+  background-color: #333;
+  text-align: left;  /* Alignement à gauche */
+}
+
+nav a:hover {
+  background-color: #575757;
+}
+
+
+/* Style pour l'icône */
+.menu-icon {
+  width: 25%;  /* Largeur de l'icône */
+  height: 25%; /* Hauteur de l'icône */
+  margin-right: 10px; /* Espacement entre l'icône et le texte */
+}
+
+/* Style du sous-menu */
+.sous-menu {
+  display: none;  /* Cacher les sous-menus par défaut */
+  position: absolute;  /* Position absolue par rapport à l'élément parent */
+  background-color: #00fa60;
+  min-width: 200px;
+  padding-left: 20px; /* Indentation des options */
+  left: 50%;  /* Positionner à 50% de la largeur de l'écran */
+  transform: translateX(-50%);  /* Centrer horizontalement */
+  top: 100%; /* Positionner sous l'élément parent */
+  z-index: 100;  /* Assurer que le sous-menu soit au-dessus des autres éléments */
+}
+
+/* Lorsque l'option est ouverte et que le sous-menu imbriqué est visible */
+nav li.opened .sous-menu-imbrique {
+  background-color: #ff0000; /* Fond rouge pour le sous-menu imbriqué */
+  margin-left: 40px; /* Décalage à droite de 20px */
+  padding-left: 10px; /* Facultatif : ajoute un petit padding pour l'esthétique */
+}
+
+/* Afficher le sous-menu quand il est ouvert */
+nav li.opened .sous-menu {
+  left : 50%;
+  display: block;
+  background-color: aqua;
+  border: #333;
+}
+
+/* Style du menu dans la sidebar */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  position: relative;  /* Important pour le sous-menu positionné absolument */
+  margin-bottom: 10px; /* Espacement entre les éléments de menu */
+  transition: margin-bottom 0.3s; /* Ajouter une transition pour un décalage fluide */
+}
+
+nav li.opened {
+  margin-bottom: 44%;  /* Décalage vers le bas du menu parent lorsqu'un sous-menu est ouvert */
+}
+
+nav a {
+  display: block;
+  padding-left: 10px;
+  width: 89%;/* Prend toute la largeur disponible */
+  padding: 10px 20px; /* Augmenter le padding pour un lien plus large */
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  background-color: #ffffff;
+  text-align: left;  /* Alignement à gauche */
+}
+
+
+nav a:hover {
+  background-color: #575757;
+}
+
+/* Pour rendre le texte plus lisible */
+nav a {
+  font-size: 35px;
+}
+
+/* Éviter que le menu soit coupé si beaucoup d'éléments */
+nav li.opened .sous-menu {
+  max-height: calc(100vh - 40px); /* Empêcher que le sous-menu dépasse l'écran */
+  overflow-y: auto;
+}
+
+
+
