@@ -25,7 +25,13 @@ export class HistoryComponent implements OnInit {
           (value)=>{
             console.log("reading history");
             console.log(value);
-            this.carts = value;
+            value.forEach((element) => {
+              if(element.articles){
+                this.carts.push(element);
+              }
+              
+            })
+            
           }
         )
       }
