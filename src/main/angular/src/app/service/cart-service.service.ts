@@ -149,10 +149,8 @@ export class CartServiceService {
   
   public payCart(): Observable<any>{
       if (this.clientService.isConnected() && this.clientService.client) {
-        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client.authToken);
-        console.log(headers);
-        console.log(this.clientService.client.authToken);
-        return this.http.get(`${this.apiUrl}/api/clients/${this.clientService.client.id}/carts/pay`, { headers }).pipe(
+        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
+        return this.http.get<number>(`${this.apiUrl}/api/clients/${this.clientService.client.id}/carts/pay`, { headers }).pipe(
           catchError((error: HttpErrorResponse) => {
             let errorMessage = 'An unexpected error occurred.';
             if (error.status === 400) {
