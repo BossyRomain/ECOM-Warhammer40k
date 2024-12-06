@@ -15,11 +15,23 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 })
 export class CartComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute, private cartService:CartServiceService, private clientService:ClientServiceService, private activatedRoute:ActivatedRoute, private router:Router){}
+  constructor(private route: ActivatedRoute,
+    private cartService: CartServiceService,
+    private clientService: ClientServiceService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
+  
   public cart: CommandLine[] = [];
+  public errorMessage: string | null = null;
+
   ngOnInit(): void {
     console.log(this.cartService.currentCart);
     this.cart = this.cartService.currentCart;
+
+    this.route.queryParams.subscribe(params => {
+      this.errorMessage = params['errorMessage'] || null;
+    });
+
     this.activatedRoute.params.subscribe(
       (params)=> {this.cart = this.cartService.currentCart;}
     )

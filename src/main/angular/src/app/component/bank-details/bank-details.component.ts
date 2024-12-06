@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CartServiceService } from '../../service/cart-service.service';
+import { ClientServiceService } from '../../service/client-service.service';
 
 @Component({
   selector: 'app-bank-details',
@@ -9,7 +12,16 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './bank-details.component.html',
   styleUrl: './bank-details.component.css'
 })
-export class BankDetailsComponent {
+export class BankDetailsComponent implements OnInit {
+
+  prix: number = 0;
+
+  constructor(private router: Router, private cartService: CartServiceService, private clientService : ClientServiceService ) { }
+
+  ngOnInit(): void {
+    this.prix = this.cartService.getAmountToPay();
+  }
+
   cardNumber: string = '';
   cardholderName: string = '';
   expirationDate: string = '';
@@ -113,11 +125,23 @@ export class BankDetailsComponent {
   // Méthode de soumission du formulaire
   onSubmit(): void {
     if (this.validateForm()) {
-      // Si le formulaire est valide, on redirige ou effectue une action
-      console.log("Formulaire validé, paiement effectué.");
+      let clientid: number = this.clientService.clientID;
+      this.cartService.payCart().subscribe({
+        next: () => {
+          console.log("Cart payment successful");
+          this.router.navigate(['/cart/${clientid}']);
+        },
+        error: (err: Error) => {
+          console.error("Error during payment:", err.message);
+          // Navigation vers la page du panier avec un message d'erreur
+          this.router.navigate(['/cart/${clientid}'], {
+            queryParams: { errorMessage: err.message }
+          });
+        }
+      });
     } else {
-      // Si le formulaire est invalide, rien n'est fait, les erreurs sont affichées sous chaque champ
       console.log("Formulaire invalide.");
     }
   }
+  
 }
