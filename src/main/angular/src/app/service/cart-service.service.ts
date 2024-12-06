@@ -33,6 +33,7 @@ export class CartServiceService {
   public addProductToCart(clientID:number, productID:number, amount:number){
     let exist = this.containsElement(productID);
     if(exist != -1){ //If the article is already in the cart
+      console.log("updating object " + productID + " with value " + (this.currentCart[exist].quantity + amount))
       this.updateCart(exist, this.currentCart[exist].quantity + amount);
     }else{
       if(clientID != 0 && this.clientService.isConnected()){
@@ -75,6 +76,9 @@ export class CartServiceService {
     );
   }
   
+  public updateCartWithOldAmount(index:number, newAmount:number, oldAmount:number):number{
+    return this.updateCart(index, newAmount + oldAmount);
+  }
 
   public updateCart(index:number, newAmount:number): number{
     if(this.clientService.isConnected() &&  this.clientService.client){
@@ -83,6 +87,21 @@ export class CartServiceService {
         (value) => {
           console.log('Everything worked while upgrading');
           console.log(value);
+          if(this.clientService.client){
+            this.getCartOfClient(this.clientService.client?.id).subscribe((value) => {
+              this.id = value.id;
+              console.log(value);
+              this.currentCart = [];
+              value.commandLines.forEach((elm:CommandLine) => {
+                this.currentCart.push(elm);
+              })
+              
+            },
+            (error)=>{
+              console.error(error);
+            });
+          }
+          
         },
         (error) => {
           console.log("an error happened when updating cart");
@@ -92,7 +111,6 @@ export class CartServiceService {
       this.currentCart[index].quantity =newAmount;
     }
     return newAmount;
-      
   }
 
   public deleteLine(index:number):void{

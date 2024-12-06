@@ -14,6 +14,6 @@
 </div>
 <div class="items">
   <div *ngFor="let cartItem of cart; let i = index">
-    <cart-item [commandLine]="cartItem" [index]="i"></cart-item>
+    <cart-item [commandLine]="cartItem" [index]="i" [amount]="cartItem.quantity"></cart-item>
   </div>
 </div>

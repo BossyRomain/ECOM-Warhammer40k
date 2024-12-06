@@ -6,7 +6,7 @@
   
   <img src='{{commandLine.product.catalogueImg.url}}' class="product-img"/>
   <div class="infos">
-    <input class="quantity-value" #quantity type="number" value="{{commandLine.quantity}}" [min]="1" [step]="1"
+    <input class="quantity-value" #quantity type="number" value="{{amount}}" [min]="1" [step]="1"
            (input)="changeAmount(quantity.value)" required>
     <p class="price"> x
       {{ commandLine.product.unitPrice| number: "1.2-2" }}€

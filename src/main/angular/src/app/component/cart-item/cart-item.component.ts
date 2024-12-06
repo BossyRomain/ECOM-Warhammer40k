@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 export class CartItemComponent implements OnInit {
   @Input() commandLine?:CommandLine;
   @Input() index?:number;
+  @Input() amount?:number;
 
   deleteEntry:boolean = false;
   lastValue:string = "0";

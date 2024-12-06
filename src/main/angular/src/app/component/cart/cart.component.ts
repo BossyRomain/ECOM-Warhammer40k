@@ -33,7 +33,11 @@ export class CartComponent implements OnInit{
     });
 
     this.activatedRoute.params.subscribe(
-      (params)=> {this.cart = this.cartService.currentCart;}
+      (params)=> {
+        console.log(params['id']);
+        this.cartService.getCartOfClient(params['id']);
+        this.cart = this.cartService.currentCart;
+      }
     )
   }
 
