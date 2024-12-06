@@ -2,6 +2,9 @@ package com.warhammer.ecom.controller;
 
 import com.warhammer.ecom.model.CommandLine;
 import com.warhammer.ecom.service.CartService;
+import com.warhammer.ecom.service.ClientService;
+import com.warhammer.ecom.service.ProductService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,11 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
+    @Autowired
+    private ClientService clientService;
+
+    @Autowired
+    private ProductService productService;
     /**
      * Ajoute un produit au panier d'un client
      *
@@ -27,7 +35,7 @@ public class CartController {
     public ResponseEntity<CommandLine> addProduct(
         @PathVariable("clientId") Long clientId,
         @PathVariable("productId") Long productId,
-        @RequestParam(value = "quantity", defaultValue = "1") int quantity
+        @RequestParam(defaultValue = "1") int quantity
     ) throws URISyntaxException {
         CommandLine commandLine = cartService.addProduct(clientId, productId, quantity);
         return ResponseEntity.created(new URI("/api/clients/" + clientId + "/carts")).body(commandLine);
