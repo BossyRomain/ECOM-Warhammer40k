@@ -1,0 +1,11 @@
+<div class="container"></div>
+<nav>
+  <ul>
+    <li *ngFor="let menu of menus" class="menu" [ngClass]="{'opened': menu.isOpen}">
+      <a href="#">
+        <img src="{{ menu.iconURl }}" alt="Menu Icon" class="menu-icon" /> <!-- Icône à gauche du texte -->
+        {{ menu.name }}
+      </a>
+    </li>
+  </ul>
+</nav>

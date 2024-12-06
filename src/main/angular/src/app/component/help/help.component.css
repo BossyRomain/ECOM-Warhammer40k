@@ -1,0 +1,148 @@
+.rectangle_burger {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/menu_burger.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+.rectangle_help {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/interrogation_point.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+.rectangle_logo {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+.rectangle_panier {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+.rectangle_compte {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+
+.container {
+  margin: 20px;
+}
+
+.img {
+  float: right;
+  margin: 5px;
+  width: 295px;
+  height: 100px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/help.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 3px solid #333;
+}
+
+.img_panier_plus {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier_plus.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+.img_connected {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/account_connected.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+.img_figurines {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/figurines.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+.img_peintures {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/peinture.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+.img_accessoires {
+  float: right;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/accessoires.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #E6E6E6;
+  border: none;
+  border: 1px solid #333;
+}
+
+.row {
+  display: flex;  /* Utilise flexbox pour aligner les éléments sur la même ligne */
+  align-items: center;  /* Aligne verticalement les éléments au centre */
+}
+
+.text {
+  font-size: 11px;  /* Taille de texte */
+  margin-left: 12px;
+}
