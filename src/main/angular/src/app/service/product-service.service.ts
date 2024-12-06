@@ -67,7 +67,7 @@ export class ProductServiceService {
     );
   }
 
-  public searchProducts(search: string, page: number = 0, size: number = 10): Observable<ProductCatalog[]> {
+  public searchProducts(search: string, page: number = 0, size: number = 12): Observable<ProductCatalog[]> {
     const url = `${this.apiUrl}/api/products/search?page=${page}&size=${size}&query=${search}`;
     console.log(`Appel de l'API : ${url}`);
 
