@@ -174,6 +174,7 @@ public class DatabaseInitializer {
             }
             product.setImages(new ArrayList<>());
             productRepository.save(product);
+
             productsImgsPrefixs.put(productJson.get("imgsPrefix").asText(), product);
         }
 

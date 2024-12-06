@@ -1,39 +1,61 @@
-import { Component } from '@angular/core';
-import { Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ProductCatalog } from '../../model/product-catalog';
-import { Router } from '@angular/router';
-import { CartServiceService } from '../../service/cart-service.service';
-import { ClientServiceService } from '../../service/client-service.service';
-import { ProductServiceService } from '../../service/product-service.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ProductCatalog} from '../../model/product-catalog';
+import {Router} from '@angular/router';
+import {CartServiceService} from '../../service/cart-service.service';
+import {ClientServiceService} from '../../service/client-service.service';
+import {ProductServiceService} from '../../service/product-service.service';
 
 
 @Component({
   selector: 'app-catalog-item',
   templateUrl: './catalog-item.component.html',
-  standalone:true,
-  imports:[CommonModule],
+  standalone: true,
+  imports: [CommonModule],
   styleUrl: './catalog-item.component.css',
 })
 
-export class CatalogItemComponent {
-  
+export class CatalogItemComponent implements OnInit {
+
   @Input() article!: ProductCatalog;
   toasts: string[] = [];
 
+  productTypeUrl: string = "";
+
   constructor(private router: Router, private cartService: CartServiceService, private clientService: ClientServiceService, private productSerice: ProductServiceService) {
-    
+  }
+
+  ngOnInit(): void {
+    if (this.article != undefined) {
+      switch (this.article.productType) {
+        case 'FIGURINE':
+          this.productTypeUrl = 'https://ecom-images-storage.s3.eu-north-1.amazonaws.com/figurines.png';
+          break;
+        case 'RULES_AND_CODEX':
+          this.productTypeUrl = 'https://ecom-images-storage.s3.eu-north-1.amazonaws.com/book_light.png';
+          break;
+        case 'DICE':
+          this.productTypeUrl = 'https://ecom-images-storage.s3.eu-north-1.amazonaws.com/dice_light.png';
+          break;
+        case 'TERRAIN':
+          this.productTypeUrl = 'https://ecom-images-storage.s3.eu-north-1.amazonaws.com/decor_light.png';
+          break;
+        case 'PAINT':
+          this.productTypeUrl = 'https://ecom-images-storage.s3.eu-north-1.amazonaws.com/peinture.png';
+          break;
+      }
+    }
   }
 
   public detailedProduct(id: number) {
-    this.router.navigate(["/product", id ]);
+    this.router.navigate(["/product", id]);
   }
 
   public addCart(id: number, name: string) {
     console.log("add cart from catalogue " + id);
-    if(this.clientService.isConnected()&& this.clientService.client){
+    if (this.clientService.isConnected() && this.clientService.client) {
       this.cartService.addProductToCart(this.clientService.client.id, id, 1)
-    }else{
+    } else {
       this.cartService.addProductToCart(0, id, 1)
     }
     this.cartService.updateCartLength();
@@ -42,7 +64,7 @@ export class CatalogItemComponent {
   }
 
   private showToast(message: string): void {
-    
+
     if (this.toasts.length > 0) {
       this.toasts.shift();
     }
@@ -53,8 +75,6 @@ export class CatalogItemComponent {
       this.toasts.shift();
     }, 3000);
   }
-
-  
 
 
 }
