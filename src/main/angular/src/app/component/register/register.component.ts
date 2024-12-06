@@ -1,17 +1,19 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {Component} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {ClientServiceService} from '../../service/client-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  standalone : true,
-  imports : [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   user = {
-    username: '',
+    lastName: '',
     firstName: '',
     email: '',
     dob: '',
@@ -22,7 +24,7 @@ export class RegisterComponent {
 
   // Définir un type flexible pour 'errors' avec une index signature
   errors: { [key: string]: string } = {
-    username: '',
+    lastName: '',
     firstName: '',
     email: '',
     dob: '',
@@ -31,6 +33,8 @@ export class RegisterComponent {
     newsletter: ''
   };
 
+  constructor(private router: Router, private service: ClientServiceService) {
+  }
 
   // Fonction pour réinitialiser les erreurs
   clearError(field: string) {
@@ -43,8 +47,8 @@ export class RegisterComponent {
     console.log(this.user);
 
     // Exemple de validation manuelle :
-    if (!this.user.username) {
-      this.errors['username'] = 'Le nom d\'utilisateur est requis';
+    if (!this.user.lastName) {
+      this.errors['lastName'] = 'Le nom d\'utilisateur est requis';
     }
 
     if (!this.user.email) {
@@ -69,8 +73,12 @@ export class RegisterComponent {
     if (Object.values(this.errors).some(error => error !== '')) {
       return; // Empêcher la soumission si des erreurs existent
     }
+    this.service.inscription(this.user.firstName, this.user.lastName, this.user.email, this.user.password, this.user.dob, this.user.newsletter)
+      .subscribe(
+        (client) => {
+          this.router.navigate(["/catalogue/search"])
+        }
+      );
 
-    // Si tout est valide, procéder à l'envoi ou à l'authentification
-    alert('Inscription réussie !');
   }
 }

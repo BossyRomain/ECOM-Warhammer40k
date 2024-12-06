@@ -1,29 +1,30 @@
-<h1>Inscription</h1>
+<h1>Sign up</h1>
 
+<a href="account" class="link">Login instead</a>
 <div class="form-details">
   <!-- Nom d'utilisateur -->
   <div class="form-group">
-    <label for="username">Nom d'utilisateur</label>
+    <label for="lastName">Last name</label>
     <input
       type="text"
-      id="username"
-      name="username"
-      placeholder="Entrez votre nom d'utilisateur"
-      [(ngModel)]="user.username"
+      id="lastName"
+      name="lastName"
+      placeholder="Enter your last name"
+      [(ngModel)]="user.lastName"
       required
-      (ngModelChange)="clearError('username')"
+      (ngModelChange)="clearError('lastName')"
     />
-    <div *ngIf="errors['username']" class="error-message">{{ errors['username'] }}</div>
+    <div *ngIf="errors['lastName']" class="error-message">{{ errors['lastName'] }}</div>
   </div>
 
   <!-- Prénom -->
   <div class="form-group">
-    <label for="firstName">Prénom</label>
+    <label for="firstName">First name</label>
     <input
       type="text"
       id="firstName"
       name="firstName"
-      placeholder="Entrez votre prénom"
+      placeholder="Enter your first name"
       [(ngModel)]="user.firstName"
       required
       (ngModelChange)="clearError('firstName')"
@@ -33,12 +34,12 @@
 
   <!-- Adresse e-mail -->
   <div class="form-group">
-    <label for="email">Adresse e-mail</label>
+    <label for="email">Email address</label>
     <input
       type="email"
       id="email"
       name="email"
-      placeholder="Entrez votre e-mail"
+      placeholder="Enter your email address"
       [(ngModel)]="user.email"
       required
       (ngModelChange)="clearError('email')"
@@ -48,7 +49,7 @@
 
   <!-- Date de naissance -->
   <div class="form-group">
-    <label for="dob">Date de naissance</label>
+    <label for="dob">Birthdate</label>
     <input
       type="date"
       id="dob"
@@ -62,12 +63,12 @@
 
   <!-- Mot de passe -->
   <div class="form-group">
-    <label for="password">Mot de passe</label>
+    <label for="password">Password</label>
     <input
       type="password"
       id="password"
       name="password"
-      placeholder="Entrez votre mot de passe"
+      placeholder="Enter your password"
       [(ngModel)]="user.password"
       required
       (ngModelChange)="clearError('password')"
@@ -77,12 +78,12 @@
 
   <!-- Confirmer le mot de passe -->
   <div class="form-group">
-    <label for="confirmPassword">Confirmer le mot de passe</label>
+    <label for="confirmPassword">Confirm your password</label>
     <input
       type="password"
       id="confirmPassword"
       name="confirmPassword"
-      placeholder="Confirmez votre mot de passe"
+      placeholder="Confirm your password"
       [(ngModel)]="user.confirmPassword"
       required
       (ngModelChange)="clearError('confirmPassword')"
@@ -92,7 +93,7 @@
 
   <!-- Newsletter -->
   <div class="form-group newsletter-group">
-    <label for="newsletter">Je souhaite recevoir la newsletter</label>
+    <label for="newsletter">I want to receive newsletter</label>
     <input
       type="checkbox"
       id="newsletter"
@@ -103,5 +104,5 @@
   </div>
 
   <!-- Bouton d'inscription -->
-  <button (click)="onSubmit()" class="submit-btn">S'inscrire</button>
+  <button (click)="onSubmit()" class="submit-btn">Submit</button>
 </div>
