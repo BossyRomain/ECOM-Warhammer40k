@@ -8,9 +8,8 @@ import com.warhammer.ecom.repository.CartRepository;
 import com.warhammer.ecom.repository.ClientRepository;
 import com.warhammer.ecom.repository.CommandLineRepository;
 import com.warhammer.ecom.repository.ProductRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.LockTimeoutException;
 import jakarta.persistence.PessimisticLockException;
+import org.hibernate.exception.LockTimeoutException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,22 +39,23 @@ public class CartService {
     @Autowired
     private EmailService emailService;
 
-    @Autowired
-    private EntityManager entityManager;
-
     public Cart create(Client client) {
         Cart cart = new Cart();
         cart.setClient(client);
         cart.setPurchaseDate(null);
         cart.setPaid(false);
         cart.setCommandLines(new ArrayList<>());
-        return cartRepository.save(cart);
+        cart = cartRepository.save(cart);
+        client.setCurrentCart(cart);
+        clientRepository.save(client);
+        return cart;
     }
 
     public CommandLine addProduct(Long clientId, Long productId) throws NoSuchElementException, IllegalArgumentException {
         return addProduct(clientId, productId, 1);
     }
 
+    @Transactional
     public CommandLine addProduct(Long clientId, Long productId, int quantity) throws NoSuchElementException, IllegalArgumentException {
         if (quantity <= 0) {
             throw new IllegalArgumentException("Quantity must be superior to zero");
@@ -79,7 +79,10 @@ public class CartService {
         commandLine.setCommand(currentCart);
 
         commandLine = commandLineRepository.save(commandLine);
-        currentCart.getCommandLines().add(commandLine);
+
+        List<CommandLine> cls = currentCart.getCommandLines();
+        cls.add(commandLine);
+        currentCart.setCommandLines(cls);
         return commandLine;
     }
 
@@ -96,11 +99,13 @@ public class CartService {
 
     @Transactional
     public boolean pay(Long clientId) throws RuntimeException, NoSuchElementException {
-        try {
-            Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
-            Cart currentCart = client.getCurrentCart();
+        return true;
+    }
 
-            List<CommandLine> commandLines = currentCart.getCommandLines();
+    @Transactional
+    public boolean pay(Cart cart) throws RuntimeException, NoSuchElementException {
+        try {
+            List<CommandLine> commandLines = cart.getCommandLines();
             if (commandLines.size() > 1) {
                 commandLines.sort((cl1, cl2) -> {
                     if (cl1.getProduct().getId() < cl2.getProduct().getId()) {
@@ -111,32 +116,22 @@ public class CartService {
                     return 0;
                 });
             } else if (commandLines.isEmpty()) {
-                throw new RuntimeException("No command line found");
+                throw new RuntimeException("The cart is empty");
             }
 
             // Check products' stocks are enough
             for (CommandLine commandLine : commandLines) {
                 Product product = productRepository.findByIdWithLock(commandLine.getProduct().getId()).orElseThrow(NoSuchElementException::new);
                 if (commandLine.getQuantity() > product.getStock()) {
-                    throw new RuntimeException("Not enough stock for this product: " + product.getName());
+                    throw new RuntimeException("Not enough stock for this product: " + product.getId());
                 }
                 int newStock = product.getStock() - commandLine.getQuantity();
                 product.setStock(newStock);
                 productRepository.save(product);
             }
 
-            cartRepository.pay(currentCart.getId(), Timestamp.valueOf(LocalDate.now().atStartOfDay()));
-            cartRepository.save(currentCart);
-
-            // Create a new unpaid cart
-            Cart newCart = new Cart();
-            newCart.setClient(client);
-            newCart.setPaid(false);
-            newCart.setPurchaseDate(null);
-            newCart.setCommandLines(new ArrayList<>());
-            newCart = cartRepository.save(newCart);
-            client.setCurrentCart(newCart);
-            clientRepository.save(client);
+            cartRepository.pay(cart.getId(), Timestamp.valueOf(LocalDate.now().atStartOfDay()));
+            cartRepository.save(cart);
 
             return true;
         } catch (PessimisticLockException | LockTimeoutException e) {
@@ -147,5 +142,12 @@ public class CartService {
     public List<Cart> getClientCommands(Long clientId) throws NoSuchElementException {
         Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
         return client.getCarts().stream().toList();
+    }
+
+    public void clear(Long clientId) throws NoSuchElementException {
+        Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
+        client.getCurrentCart().getCommandLines().clear();
+        cartRepository.save(client.getCurrentCart());
+        clientRepository.save(client);
     }
 }

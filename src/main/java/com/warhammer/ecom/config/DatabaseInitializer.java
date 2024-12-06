@@ -31,6 +31,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
+/**
+ * Component to initialize the database each time the backend starts.
+ */
 @Component
 public class DatabaseInitializer {
 
@@ -69,7 +72,7 @@ public class DatabaseInitializer {
     }
 
     /***
-     * Supprime les fichiers des images des produits du dossier assets de l'application angular.
+     * Remove the files of the products' images from the assets folder of the angular application.
      */
     @PreDestroy
     @Profile("dev")
@@ -80,22 +83,24 @@ public class DatabaseInitializer {
             Files.walkFileTree(directoryPath, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                    Files.delete(file);  // Delete each file
+                    Files.delete(file);
                     return FileVisitResult.CONTINUE;
                 }
 
                 @Override
                 public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                    Files.delete(dir);  // After visiting all files, delete the directory
+                    Files.delete(dir);
                     return FileVisitResult.CONTINUE;
                 }
             });
         } catch (IOException e) {
+            LoggerFactory.getLogger(DatabaseInitializer.class).error("Error while shuting down the database initializer");
+            e.printStackTrace();
         }
     }
 
     /**
-     * Ajoute les administrateurs et les clients dans la BD.
+     * Add the administrators and the clients in the database.
      */
     private void initUsers() throws Exception {
         LoggerFactory.getLogger(DatabaseInitializer.class).info("Start adding the users (clients and admins)");
@@ -126,7 +131,7 @@ public class DatabaseInitializer {
     }
 
     /**
-     * Ajoute les allégeances des produits dans la BD.
+     * Add the allegiances of the products in the database.
      */
     private void initAllegiances() throws Exception {
         LoggerFactory.getLogger(DatabaseInitializer.class).info("Start adding the allegiances");
@@ -144,7 +149,7 @@ public class DatabaseInitializer {
     }
 
     /**
-     * Ajoute les produits et leurs images dans la BD.
+     * Add the products and their images in the database.
      */
     private void initProducts() throws Exception {
         LoggerFactory.getLogger(DatabaseInitializer.class).info("Start adding the products");
@@ -201,6 +206,14 @@ public class DatabaseInitializer {
         LoggerFactory.getLogger(DatabaseInitializer.class).info("Products successfully added");
     }
 
+    /**
+     * Converts an input stream into a file.
+     *
+     * @param inputStream an InputStream
+     * @param extension   a file extension
+     * @return a file with the same content in the input stream
+     * @throws IOException a IOException
+     */
     private File inputStreamToFile(InputStream inputStream, String extension) throws IOException {
         File tempFile = Files.createTempFile("temp", extension).toFile();
         FileOutputStream outputStream = new FileOutputStream(tempFile, false);
@@ -214,6 +227,9 @@ public class DatabaseInitializer {
         return tempFile;
     }
 
+    /**
+     * Converts a file of a product image into a MultipartFile.
+     */
     private static class ImgMultipartFile implements MultipartFile {
 
         private File file;

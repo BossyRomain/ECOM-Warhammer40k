@@ -66,14 +66,10 @@ public class ProductController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Long> createProduct(@RequestBody Product product) {
-        try {
-            Product p = productService.create(product);
-            URI uri = new URI("/api/products/" + p.getId());
-            return ResponseEntity.created(uri).body(p.getId());
-        } catch (URISyntaxException e) {
-            return ResponseEntity.internalServerError().build();
-        }
+    public ResponseEntity<Long> createProduct(@RequestBody Product product) throws URISyntaxException {
+        Product p = productService.create(product);
+        URI uri = new URI("/api/products/" + p.getId());
+        return ResponseEntity.created(uri).body(p.getId());
     }
 
     @DeleteMapping("/{productId}")

@@ -2,7 +2,6 @@ package com.warhammer.ecom.service;
 
 import com.warhammer.ecom.model.Product;
 import com.warhammer.ecom.repository.ProductRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,7 +12,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-@Transactional
 public class ProductService {
 
     @Autowired
@@ -33,7 +31,7 @@ public class ProductService {
     }
 
     public Product get(Long id) throws NoSuchElementException {
-        return productRepository.findByIdWithLock(id).orElseThrow(NoSuchElementException::new);
+        return productRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     public Product create(Product product) {

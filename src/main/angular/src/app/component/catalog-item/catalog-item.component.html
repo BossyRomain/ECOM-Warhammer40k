@@ -1,19 +1,26 @@
-<div class="product-card" (click)="detailedProduct(article.id)">
+<div class="product-card" (click)="detailedProduct(article.id)" >
   <div class="image-container">
-    <img class="productImage" src='{{article.catalogueImg.url}}' alt="Photo of a Shiba Inu">
-    @if (article.stock == 0) {
-      <p class="out-of-stock stock">Indisponible</p>
-    } @else {
+    <img class = "productImage" src={{article.catalogueImg.url}} alt="Photo of a Shiba Inu">
+    @if(article.stock == 0){
+      <p class="out-of-stock stock">En stock: {{ article.stock }}</p>
+    }
+    @else {
       <p class="on-stock stock"> En stock: {{ article.stock }}</p>
     }
   </div>
 
-  <p class="product-name">{{ article.name }}</p>
+  <div class = "test">
+    <b><p class="product-name">{{ article.name }}</p></b>
+  </div>
 
   <div class="price-image-container">
-    <p class="product-price">{{ article.unitPrice }}€</p>
-    <button class="cart-button" (click)="addCart(article.id); $event.stopPropagation();"></button>
+    <span class="product-price"> {{ article.unitPrice}}€</span>
+    <button class="cart-button" (click)="addCart(article.id, article.name); $event.stopPropagation();"></button>
   </div>
-  <div id="toast-container" class="toast-container"></div>
+</div>
+<div id="toast-container" class="toast-container">
+  <div class="toast" *ngFor="let toast of toasts">
+    {{ toast }}
+  </div>
 </div>
 

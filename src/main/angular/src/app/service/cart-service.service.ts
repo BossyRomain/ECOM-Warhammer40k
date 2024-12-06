@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { BehaviorSubject, lastValueFrom, map, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, lastValueFrom, map, Observable, throwError } from 'rxjs';
 import { Cart } from '../model/cart';
 import { CommandLine } from '../model/command-line';
 import { ClientServiceService } from './client-service.service';
@@ -25,9 +25,10 @@ export class CartServiceService {
   public id:number = 0;
 
 
-  public numberItemsCart() : number {
-      return this.currentCart.length;
-  }
+
+  private cartItems = new BehaviorSubject<number>(0); // Contient le nombre d'articles dans le panier
+  cartItems$ = this.cartItems.asObservable(); 
+
 
   public addProductToCart(clientID:number, productID:number, amount:number){
     let exist = this.containsElement(productID);
@@ -45,6 +46,7 @@ export class CartServiceService {
         ).subscribe(
           (value) => {
             this.currentCart.push(value);
+            this.updateCartLength();
           },
           (error) => { console.error("cart service: " + String(error))}
         ) 
@@ -56,17 +58,23 @@ export class CartServiceService {
         
       }
     }
-    
   }
 
   public getCartOfClient(clientID: number): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
     return this.http.get(`${this.apiUrl}/api/clients/${clientID}/commands`, { headers }).pipe(
       map((body: any) => {
-        return body[0];
+        const cart = body[0];
+        this.currentCart = []; // Réinitialise le panier actuel
+        cart.commandLines.forEach((elm: CommandLine) => {
+          this.currentCart.push(elm); // Remplit le panier
+        });
+        this.updateCartLength(); // Correctement mis à jour après la modification
+        return cart;
       })
     );
   }
+  
 
   public updateCart(index:number, newAmount:number): number{
     if(this.clientService.isConnected() &&  this.clientService.client){
@@ -101,6 +109,7 @@ export class CartServiceService {
     }else{
       this.currentCart.splice(index, 1);
     }
+    this.updateCartLength();
   }
 
   public retrieveClientInfo(email:string, password:string):Promise<Client>{
@@ -130,5 +139,37 @@ export class CartServiceService {
     })
     return sum;
   }
+  public getAmountToPay(): number{
+      let sum : number = 0;
+      this.currentCart.forEach((temp) => {
+        sum += temp.product.unitPrice * temp.quantity;
+      })
+      return sum;
+  }
   
+  public payCart(): Observable<any>{
+      if (this.clientService.isConnected() && this.clientService.client) {
+        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client.authToken);
+        console.log(headers);
+        console.log(this.clientService.client.authToken);
+        return this.http.get(`${this.apiUrl}/api/clients/${this.clientService.client.id}/carts/pay`, { headers }).pipe(
+          catchError((error: HttpErrorResponse) => {
+            let errorMessage = 'An unexpected error occurred.';
+            if (error.status === 400) {
+              let errorMessage = error.error.message || 'Not enough stock for one or more products.';
+            }
+            return throwError(() => new Error(errorMessage));
+          })
+        );
+      } else {
+        return throwError(() => new Error('User is not authenticated.'));
+      }
+    }
+    
+
+
+  updateCartLength(): void {
+    let length : number = this.currentCart.length
+    this.cartItems.next(length);
+  }
 }

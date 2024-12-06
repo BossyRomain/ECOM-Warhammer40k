@@ -72,6 +72,11 @@ public class ClientController {
         return createLoginResponse(token, client);
     }
 
+    @PostMapping("")
+    public Client create(@RequestBody ClientSignUpDTO clientSignUpDTO) {
+        return clientService.create(clientSignUpDTO);
+    }
+
     @DeleteMapping("/{clientId}")
     public ResponseEntity<Void> deleteClient(@PathVariable Long clientId) {
         clientService.delete(clientId);

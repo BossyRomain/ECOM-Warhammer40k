@@ -102,3 +102,11 @@ h1 {
   max-height: 15px;
   max-width: 15px;
 }
+
+.link {
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+  text-underline-style: none;
+}
+

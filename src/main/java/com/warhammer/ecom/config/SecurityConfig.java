@@ -21,7 +21,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /***
- * Configuration pour la sécurité de l'application, notament les autorisations requises pour chaque route et chaque type de requête.
+ * Configuration for application's security, especially the authorisations needed for each route and each type of request.
  */
 @Configuration
 @EnableWebSecurity

@@ -19,7 +19,7 @@ public class CommandLine {
 
     private int quantity;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "command_fk")
     @JsonIgnore
     private Cart command;

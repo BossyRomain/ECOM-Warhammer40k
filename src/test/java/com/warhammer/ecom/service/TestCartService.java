@@ -120,7 +120,8 @@ public class TestCartService {
             oldStocks.add(product.getStock());
         }
 
-        cartService.pay(CLIENT_ID);
+        Client client = clientRepository.findById(CLIENT_ID).orElseThrow(NoSuchElementException::new);
+        cartService.pay(client.getCurrentCart());
 
         for (long i = 1; i <= oldStocks.size(); i++) {
             Product product = productRepository.findById(i).orElseThrow(NoSuchElementException::new);

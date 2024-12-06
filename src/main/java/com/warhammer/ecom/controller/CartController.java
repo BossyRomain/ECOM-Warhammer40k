@@ -1,5 +1,6 @@
 package com.warhammer.ecom.controller;
 
+import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.model.CommandLine;
 import com.warhammer.ecom.service.CartService;
 import com.warhammer.ecom.service.ClientService;
@@ -24,7 +25,8 @@ public class CartController {
     private ClientService clientService;
 
     @Autowired
-    private ProductService productService;
+    private ClientService clientService;
+
     /**
      * Ajoute un produit au panier d'un client
      *
@@ -53,9 +55,21 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/pay")
-    public ResponseEntity<Void> payCurrentCart(@PathVariable Long clientId) {
-        cartService.pay(clientId);
+    @PostMapping("/clear")
+    public ResponseEntity<Void> clear(@PathVariable Long clientId) {
+        cartService.clear(clientId);
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/pay")
+    public ResponseEntity<Void> payCurrentCart(@PathVariable Long clientId) {
+        Client client = clientService.getById(clientId);
+        boolean success = cartService.pay(client.getCurrentCart());
+        if (success) {
+            cartService.create(client);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }
