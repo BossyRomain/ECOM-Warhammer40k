@@ -54,7 +54,9 @@ public class CartController {
         try {
             cartService.pay(clientService.getById(clientId).getCurrentCart());
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            String[] arr = e.getMessage().split(" ");
+            String id = arr[arr.length - 1];
+            return ResponseEntity.badRequest().body("{\"msg\": \"" + e.getMessage() + "\", \"id\": " + id + " }");
         }
         cartService.create(clientService.getById(clientId));
         return ResponseEntity.ok().build();
