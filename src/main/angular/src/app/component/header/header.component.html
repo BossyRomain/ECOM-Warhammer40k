@@ -1,5 +1,16 @@
 <div class="header-container">
-  <button class="header-btn menu-button"></button>
+
+  <div class="boutontext">
+    <button class="header-btn" (click)="filter()"
+            style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/menu_burger.png');"></button>
+    <p>&nbsp;</p>
+  </div>
+
+  <div class="boutontext">
+    <button class="header-btn" (click)="help()"
+            style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/interrogation_point.png');"></button>
+    <p>&nbsp;Help</p>
+  </div>
   <button (click)="goToMain()" class="logo-button"><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k"
        class="logo"></button>
 
@@ -11,8 +22,14 @@
   </div>
   <div class="boutontext">
     <button class="header-btn" (click)="access_account()"
-            style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png')"></button>
-    <p>Compte</p>
+            [style.background-image]="isconnected 
+              ? 'url(https://ecom-images-storage.s3.eu-north-1.amazonaws.com/account_connected.png)' 
+              : 'url(https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png)'">
+    </button>
+    <p *ngIf="isconnected; else seConnecterTemplate">Account</p>
+    <ng-template #seConnecterTemplate>
+      <p>sign in</p>
+    </ng-template>
   </div>
 </div>
 

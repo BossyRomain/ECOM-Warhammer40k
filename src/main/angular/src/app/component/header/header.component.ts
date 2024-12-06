@@ -15,13 +15,20 @@ import { ClientServiceService } from '../../service/client-service.service';
   
   
 export class HeaderComponent {
-  cartItemCount: number = 33;
+  cartItemCount: number = 0;
+  isconnected: boolean = false;
   
   ngOnInit(): void {
 
     this.cartService.cartItems$.subscribe(count => { //Abonnement a l'observable pour mettre a jour automatiquement le nombre d'article dans le panier
       this.cartItemCount = count;
     });
+
+    this.clientService.isconnected$.subscribe(value =>{
+      this.isconnected = value;
+      })
+
+
   }
   
   constructor(private router: Router, private activatedRoute:ActivatedRoute, private cartService : CartServiceService, private clientService:ClientServiceService) { }
@@ -34,6 +41,14 @@ export class HeaderComponent {
       this.router.navigate(["/account"]);
     }
     
+  }
+
+  public filter() {
+    //Open Filter menu
+  }
+
+  public help() {
+    // aller sur la page d'aide
   }
 
   public burger_menu() {

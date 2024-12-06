@@ -17,6 +17,7 @@ import { ActivatedRoute, NavigationStart, Params, Router } from '@angular/router
 
 export class CatalogComponent implements OnInit, AfterViewInit {
   
+  
   constructor(private productService: ProductServiceService, private router: Router, private activatedRoute:ActivatedRoute) {
 
     this.ngOnInit()
@@ -48,14 +49,6 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     if (this.myInput) {
       this.myInput.nativeElement.value = `${this.numPage +1}`;
     }
-  }
-
-
-  loadCatalog(): void {
-    this.productService.getProductsCatalogue().subscribe(
-      data => this.productList = data,
-      error => console.error('Erreur lors du chargement du catalogue :', error)
-    );
   }
 
 

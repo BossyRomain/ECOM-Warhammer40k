@@ -25,6 +25,8 @@ export class CartServiceService {
   cartItems$ = this.cartItems.asObservable(); 
 
 
+
+
   public addProductToCart(clientID:number, productID:number, amount:number){
     console.log("connected? " + this.clientService.isConnected());
     let exist = this.containsElement(productID);
