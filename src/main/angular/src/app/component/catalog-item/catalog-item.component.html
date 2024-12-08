@@ -1,17 +1,13 @@
 <div class="product-card" (click)="detailedProduct(article.id)">
-  <div class="image-container">
-    <img class="productImage" src={{article.catalogueImg.url}} alt="Photo of a Shiba Inu">
-    @if (article.stock == 0) {
-      <p class="out-of-stock stock">En stock: {{ article.stock }}</p>
-    } @else {
-      <p class="on-stock stock"> En stock: {{ article.stock }}</p>
-    }
-  </div>
+  <img class="product-img" src='{{article.catalogueImg.url}}' alt="Photo of a Shiba Inu">
+  @if (article.stock == 0) {
+    <p class="out-of-stock stock">Out of stock</p>
+  } @else {
+    <p class="on-stock stock">Stock: {{ article.stock }}</p>
+  }
   <img [src]='this.productTypeUrl' alt="" class="product-type">
 
-  <div class="test">
-    <b><p class="product-name">{{ article.name }}</p></b>
-  </div>
+  <p class="product-name">{{ article.name }}</p>
 
   <div class="price-image-container">
     <span class="product-price"> {{ article.unitPrice }}€</span>

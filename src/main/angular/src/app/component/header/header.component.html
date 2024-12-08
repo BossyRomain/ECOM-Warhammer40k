@@ -1,15 +1,18 @@
 <div class="header-container">
-  <button class="header-btn menu-button"></button>
-  <button (click)="goToMain()" class="logo-button"><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k"
-       class="logo"></button>
+  <button class="header-btn"
+          style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/menu_burger.png');"></button>
+  <button (click)="goToMain()" class="main-logo-btn">
+    <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k"
+         class="main-logo">
+  </button>
 
-  <div class="boutontext">
+  <div class="btn-container">
     <button class="header-btn" (click)="accesToCart()"
             style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier.png');"></button>
-    <span class="cart-badge">{{ cartItemCount }}</span>
+    <span class="cart-articles-badge">{{ cartItemCount }}</span>
     <p>&nbsp;&nbsp;&nbsp;Cart</p>
   </div>
-  <div class="boutontext">
+  <div class="btn-container">
     <button class="header-btn" (click)="access_account()"
             style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png')"></button>
     <p>Account</p>
@@ -20,5 +23,5 @@
   <div class="search-icon"></div> <!-- Icône de loupe -->
   <input #research type="text" class="search-input" placeholder="Search..."
          (keydown)="onEnter($event,research.value)">
-  <button class="search-clear" (click)="clearInput(research)"></button><!-- Bouton "X"-->
+  <button class="search-clear-btn" (click)="clearInput(research)"></button><!-- Bouton "X"-->
 </div>
