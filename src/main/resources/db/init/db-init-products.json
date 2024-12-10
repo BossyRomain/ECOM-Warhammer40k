@@ -1162,5 +1162,23 @@
     "productType": "FIGURINE",
     "faction": "DEATH_GUARD",
     "imgsPrefix": "chosen_of_mortarion"
+  },
+  {
+    "name": "16mm Scatter Dice",
+    "description": "A white 16mm scatter die ideal for use in games of Warhammer: The Horus Heresy, Necromunda, and Adeptus Titanicus.\n\nFeatures five directional arrows and a direct hit marker, which are coloured with black ink on a white dice.",
+    "unitPrice": 1.5,
+    "stock": 1210,
+    "releaseDate": "2004-05-24",
+    "productType": "DICE",
+    "imgsPrefix": "16mm_scatter_dice"
+  },
+  {
+    "name": "Blood Bowl Dice Set",
+    "description": "Blood Bowl is a game of strategy, and lots – and lots – of luck. As a Blood Bowl coach, you’ll be called on to utilise a unique set of dice to resolve various in-game tests like throwing the ball and smashing the opposing team into the dirt. This universal set includes all of the dice you need to play, in an attractive red colour with white markings.\n\nCONTENTS\n– 3 Blood Bowl Block dice\n– 2 6-sided dice\n– 1 8-sided dice\n– 1 16-sided dice",
+    "unitPrice": 20.5,
+    "stock": 975,
+    "releaseDate": "2003-05-17",
+    "productType": "DICE",
+    "imgsPrefix": "blood_bowl_dice_set"
   }
 ]
