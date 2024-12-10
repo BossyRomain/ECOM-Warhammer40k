@@ -58,7 +58,6 @@ export class CatalogItemComponent implements OnInit {
     } else {
       this.cartService.addProductToCart(0, id, 1)
     }
-    this.cartService.updateCartLength();
 
     this.showToast(`${name} a été ajouté au panier`);
   }
