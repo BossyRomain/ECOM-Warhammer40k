@@ -1,3 +1,5 @@
+/* Styles from small smartphones */
+
 :host {
   display: block;
   border: 2px solid lightgray;
@@ -6,11 +8,15 @@
 }
 
 .item-cart {
+  --delete-btn-size: 25px;
+
   display: flex;
   flex-direction: column;
+  height: 100%;
   width: 100%;
   margin-bottom: 1%;
   border-radius: 8px;
+  position: relative;
 }
 
 .product-img {
@@ -26,9 +32,11 @@
 }
 
 .name {
-  margin: 0 0 10px;
+  margin: calc(var(--delete-btn-size) + 5px) 5px 10px;
   font-weight: bolder;
   text-align: center;
+  font-size: 1.2em;
+  flex: 1;
 }
 
 .quantity-value {
@@ -40,7 +48,41 @@
   margin-left: 10px;
 }
 
-@media only screen and (min-width: 600px) {
+.head-cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+.delete-button {
+  width: var(--delete-btn-size);
+  height: var(--delete-btn-size);
+  background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/croix.png');
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/* Styles updates for tablets and larges screens */
+
+@media only screen and (min-width: 768px) {
+
+  .name {
+    font-size: 1.5em;
+  }
+
+}
+
+/* Styles for desktops and larger devices */
+
+@media only screen and (min-width: 1024px) {
 
   .name {
     font-size: 1.5em;

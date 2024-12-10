@@ -1,3 +1,5 @@
+/* Styles from small smartphones */
+
 .content {
   flex: 1; /* Permet au contenu de prendre toute la place restante */
 }
@@ -17,8 +19,8 @@
 app-header {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: calc(var(--horizontal-padding) / 2);
+  right: calc(var(--horizontal-padding) / 2);
   z-index: 10;
 
   margin: 0;
@@ -40,16 +42,24 @@ app-footer {
   right: 0;
 }
 
-@media only screen and (min-width: 600px) {
+/* Styles updates for tablets and larges screens */
+
+@media only screen and (min-width: 768px) {
 
   :host {
     --horizontal-padding: 16px;
     --header-padding-bottom: 20px;
   }
 
-  app-header {
-    left: calc(var(--horizontal-padding) / 2);
-    right: calc(var(--horizontal-padding) / 2);
+}
+
+/* Styles for desktops and larger devices */
+
+@media only screen and (min-width: 1024px) {
+
+  :host {
+    --horizontal-padding: 32px;
+    --header-padding-bottom: 20px;
   }
 
 }

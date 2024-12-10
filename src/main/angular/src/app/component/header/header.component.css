@@ -8,7 +8,9 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Styles from small smartphones */
 
+/* Style for the component's tag */
 :host {
   --header-container-height: 60%;
 
@@ -22,8 +24,6 @@ body {
 .header-container {
   height: var(--header-container-height);
   width: 100%;
-  /*background-color: #333; !* Couleur de fond du bandeau *!*/
-  white-space: nowrap; /* Empêche le passage à la ligne */
 
   display: flex;
   align-items: center;
@@ -31,38 +31,14 @@ body {
   gap: 5px;
 }
 
-/* Bouton menu à gauche */
-.menu-button {
-  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/menu_burger.png");
-}
-
-.menu-button:hover,
-.cart-button:hover,
-.account-button:hover {
-  opacity: 0.5; /* Change l’opacité pour rendre l’image plus pâle */
-}
-
-/* Logo central */
-.logo {
+.main-logo {
   vertical-align: middle;
   margin: 0 auto;
-  max-width: 60%;
+  max-width: 90%;
 }
 
-
-/* Bouton compte, positionné tout à droite */
-.account-button {
-  background-image: url("https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png");
-  background-size: cover;
-  background-position: center;
-  background-color: #E6E6E6;
-  border: none;
-  cursor: pointer;
-}
-
-
-/* Conteneur de chaque bouton avec texte */
-.boutontext {
+/* Container for buttons with text */
+.btn-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -73,16 +49,15 @@ body {
   width: 40px;
 }
 
-/* Pour le texte sous le bouton */
-.boutontext p {
+/* The text in the button container */
+.btn-container p {
   margin-top: 2px;
   font-size: 10px;
-  color: rgb(0, 0, 0); /* Couleur du texte (ajustable) */
+  color: rgb(0, 0, 0);
   text-align: center;
   width: 100%;
 }
 
-/* Conteneur de la barre de recherche */
 .search-bar-container {
   display: flex;
   justify-content: center;
@@ -92,33 +67,30 @@ body {
   background-color: #f9f9f9;
   padding: 5px 10px;
   margin: 0;
-  height: calc(100% - var(--header-container-height));
+  height: calc(100% - var(--header-container-height) - 10px);
   width: 100%;
 }
 
-/* Icône de loupe */
 .search-icon {
   width: 4vw;
   height: 4vw;
-  max-width: 25px;
-  max-height: 25px;
+  max-width: 27px;
+  max-height: 27px;
   background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/loupe.png');
   background-size: cover;
   background-position: center;
 }
 
-/* Champ de recherche */
 .search-input {
   flex: 1;
   border: none;
   outline: none;
   padding: 5px;
-  font-size: 4vw;
+  font-size: 1.2em;
   background-color: transparent;
 }
 
-/* Bouton X */
-.search-clear {
+.search-clear-btn {
   width: 4vw;
   height: 4vw;
   max-width: 25px;
@@ -131,15 +103,13 @@ body {
   cursor: pointer;
 }
 
-.logo-button {
+.main-logo-btn {
   border: none;
-  background-color: #E6E6E6;
   flex: 1;
 }
 
-
-/* Cercle rouge pour le nombre d'articles dans le panier */
-.cart-badge {
+/* Red circle to show the number of articles in the cart */
+.cart-articles-badge {
   position: absolute;
   top: -5px;
   right: -5px;
@@ -157,10 +127,6 @@ body {
   align-items: center;
 }
 
-.cart-container {
-  position: relative;
-}
-
 .header-btn {
   --size: 30px;
   height: var(--size);
@@ -172,7 +138,13 @@ body {
   cursor: pointer;
 }
 
-@media only screen and (min-width: 600px) {
+.header-btn:hover {
+  opacity: 0.5; /* Change l’opacité pour rendre l’image plus pâle */
+}
+
+/* Styles updates for tablets and larges screens */
+
+@media only screen and (min-width: 768px) {
 
   .header-container {
     justify-content: space-between;
@@ -182,10 +154,10 @@ body {
   .search-bar-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 75%;
+    max-height: 30%;
   }
 
-  .search-icon, .search-clear {
+  .search-icon, .search-clear-btn {
     max-width: 40px;
     max-height: 40px;
   }
@@ -195,7 +167,7 @@ body {
     height: 45px;
   }
 
-  .boutontext {
+  .btn-container {
     display: flex;
     flex-direction: column;
 
@@ -203,13 +175,13 @@ body {
     width: 60px;
   }
 
-  .boutontext > p {
-    font-size: 0.8em;
-    text-align: center;
+  .btn-container > p {
+    font-size: 1em;
   }
 
-  .cart-badge {
-    top: 5px;
+  .cart-articles-badge {
+    top: 10px;
+    right: -5px;
     height: 30px;
     width: 30px;
     font-size: 14px;
@@ -220,11 +192,36 @@ body {
   }
 
   .header-btn {
-    --size: 50px;
+    --size: 60px;
   }
 
-  .logo {
-    max-height: 110px;
-    max-width: 30%;
+  .main-logo {
+    max-width: 60%;
+  }
+}
+
+/* Styles for desktops and larger devices */
+
+@media only screen and (min-width: 1024px) {
+
+  .btn-container > p {
+    font-size: 1em;
+  }
+
+  .cart-articles-badge {
+    top: 0;
+    right: -10px;
+  }
+
+  .header-btn {
+    --size: 60px;
+  }
+
+  .main-logo {
+    max-width: 20%;
+  }
+
+  .search-bar-container {
+    max-width: 60%;
   }
 }

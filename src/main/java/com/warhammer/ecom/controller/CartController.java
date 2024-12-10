@@ -31,7 +31,7 @@ public class CartController {
     public ResponseEntity<CommandLine> addProduct(
         @PathVariable("clientId") Long clientId,
         @PathVariable("productId") Long productId,
-        @RequestParam(value = "quantity", defaultValue = "1") int quantity
+        @RequestParam(defaultValue = "1") int quantity
     ) throws URISyntaxException {
         CommandLine commandLine = cartService.addProduct(clientId, productId, quantity);
         return ResponseEntity.created(new URI("/api/clients/" + clientId + "/carts")).body(commandLine);

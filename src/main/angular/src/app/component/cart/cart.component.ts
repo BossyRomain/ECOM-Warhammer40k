@@ -16,7 +16,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 export class CartComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,
-    private cartService: CartServiceService,
+    public cartService: CartServiceService,
     private clientService: ClientServiceService,
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
@@ -33,20 +33,26 @@ export class CartComponent implements OnInit{
     });
 
     this.activatedRoute.params.subscribe(
-      (params)=> {this.cart = this.cartService.currentCart;}
+      (params)=> {
+        console.log(params['id']);
+        this.cartService.getCartOfClient(params['id']);
+        this.cart = this.cartService.currentCart;
+      }
     )
   }
 
-  public getSum(): number{
-    let sum = 0;
-    this.cartService.currentCart.forEach((temp) => {
-      sum += temp.product.unitPrice * temp.quantity;
-    })
-    return sum;
-  }
+
 
   public pay(){
-    this.router.navigate(["/pay"]);
+    if(this.clientService.isConnected()){
+      this.router.navigate(["/pay"]);
+    }else{
+      this.clientService.connectFromCart();
+      console.log("eroor log loglog ");
+      this.router.navigate(["/account"]);
+    
+    }
+    
   }
 
 

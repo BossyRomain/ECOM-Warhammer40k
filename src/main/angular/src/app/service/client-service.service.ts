@@ -21,6 +21,8 @@ export class ClientServiceService {
   private connected: boolean = false;
   public clientID: number = 0;
   public client?: Client;
+  private connectFromAnotherPlace: boolean = false;
+  
 
   private isconnected = new BehaviorSubject<boolean>(false); // Contient le nombre d'articles dans le panier
   isconnected$ = this.isconnected.asObservable(); 
@@ -113,5 +115,13 @@ export class ClientServiceService {
   private isConnect(value: boolean): void {
     this.isconnected.next(value);
     this.connected = value;
+  }
+
+  public connectFromCart(){
+    this.connectFromAnotherPlace = true;
+  }
+
+  public isConnectingFromAnotherPlace():boolean{
+    return this.connectFromAnotherPlace;
   }
 }

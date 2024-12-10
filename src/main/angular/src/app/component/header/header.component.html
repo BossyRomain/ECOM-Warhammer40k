@@ -14,13 +14,13 @@
   <button (click)="goToMain()" class="logo-button"><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k"
        class="logo"></button>
 
-  <div class="boutontext">
+  <div class="btn-container">
     <button class="header-btn" (click)="accesToCart()"
             style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier.png');"></button>
-    <span class="cart-badge">{{ cartItemCount }}</span>
-    <p>&nbsp;&nbsp;&nbsp;Panier</p>
+    <span class="cart-articles-badge">{{ cartItemCount }}</span>
+    <p>&nbsp;&nbsp;&nbsp;Cart</p>
   </div>
-  <div class="boutontext">
+  <div class="btn-container">
     <button class="header-btn" (click)="access_account()"
             [style.background-image]="isconnected 
               ? 'url(https://ecom-images-storage.s3.eu-north-1.amazonaws.com/account_connected.png)' 
@@ -35,7 +35,7 @@
 
 <div class="search-bar-container">
   <div class="search-icon"></div> <!-- Icône de loupe -->
-  <input #research type="text" class="search-input" placeholder="Rechercher..."
+  <input #research type="text" class="search-input" placeholder="Search..."
          (keydown)="onEnter($event,research.value)">
-  <button class="search-clear" (click)="clearInput(research)"></button><!-- Bouton "X"-->
+  <button class="search-clear-btn" (click)="clearInput(research)"></button><!-- Bouton "X"-->
 </div>

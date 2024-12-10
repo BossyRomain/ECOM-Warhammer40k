@@ -15,11 +15,12 @@ import { FormsModule } from '@angular/forms';
 export class CartItemComponent implements OnInit {
   @Input() commandLine?:CommandLine;
   @Input() index?:number;
+  @Input() amount?:number;
 
   deleteEntry:boolean = false;
   lastValue:string = "0";
   quantity:string = "1";
-  constructor(private cartService:CartServiceService, private router:Router, private clientService:ClientServiceService){
+  constructor(private cartService:CartServiceService, private router:Router, public clientService:ClientServiceService){
 
   }
 
@@ -38,6 +39,7 @@ export class CartItemComponent implements OnInit {
       if(newAmount != "" && Number(newAmount) == 0){
         this.lastValue = newAmount;
         this.cartService.deleteLine(this.index);
+        this.router.navigate(['/cart', this.clientService.client?.id]);
       }else if(newAmount != ""){
         this.lastValue = newAmount;
         this.commandLine.quantity = this.cartService.updateCart(this.index, Number(newAmount));

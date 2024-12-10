@@ -35,8 +35,8 @@ export class HeaderComponent {
   
   public access_account() {
     if(this.clientService.isConnected()){
-      this.router.navigate(["/account"]);
-      //this.router.navigate(["/history", this.clientService.client?.id]);
+      //this.router.navigate(["/account"]);
+      this.router.navigate(["/history", this.clientService.client?.id]);
     }else{
       this.router.navigate(["/account"]);
     }

@@ -1,6 +1,6 @@
-<div class="item-cart" *ngIf="cart != undefined; else other_content">
-    <img src='{{cart.articles[0].product.catalogueImg}}' class="product-img"/>
-    <div class="infos">
+<div *ngIf="cart != undefined; else other_content">
+    <img src={{cart.articles[0].product.catalogueImg.url}}>
+    <div>
       <p>
         {{ sumProduct()| number: "1.2-2" }}€
       </p>
