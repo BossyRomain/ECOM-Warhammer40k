@@ -38,7 +38,7 @@ spring:
     port: 587
     protocol: smtp
     username: warhammer.ecom@gmail.com
-    password: "ereb qewh ctrn mfbk "
+    password: "ofth oxkc doeb ouaz"
     properties:
       mail:
         smtp:
@@ -48,7 +48,7 @@ spring:
             enable: true
             required: true
 cors:
-  allowed-origins: "http://localhost:4200, http://localhost:8080,  "
+  allowed-origins: "http://localhost:4200, http://localhost:8080"
   allowed-methods: "GET, POST, PUT, DELETE"
   allowed-headers: "*"
   allow-credentials: true

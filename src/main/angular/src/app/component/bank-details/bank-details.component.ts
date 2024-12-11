@@ -1,14 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CartServiceService } from '../../service/cart-service.service';
-import { ClientServiceService } from '../../service/client-service.service';
+import {CommonModule} from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
+import {CartServiceService} from '../../service/cart-service.service';
+import {ClientServiceService} from '../../service/client-service.service';
 
 @Component({
   selector: 'app-bank-details',
   standalone: true,
-  imports : [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './bank-details.component.html',
   styleUrl: './bank-details.component.css'
 })
@@ -16,7 +16,8 @@ export class BankDetailsComponent implements OnInit {
 
   prix: number = 0;
 
-  constructor(private router: Router, private cartService: CartServiceService, private clientService : ClientServiceService ) { }
+  constructor(private router: Router, private cartService: CartServiceService, private clientService: ClientServiceService) {
+  }
 
   ngOnInit(): void {
     this.prix = this.cartService.getAmountToPay();
@@ -26,11 +27,13 @@ export class BankDetailsComponent implements OnInit {
   cardholderName: string = '';
   expirationDate: string = '';
   cvv: string = '';
+  shipping: string = '';
 
   cardNumberError: string = '';
   cardholderNameError: string = '';
   expirationDateError: string = '';
   cvvError: string = '';
+  shippingError: string = '';
 
   // Méthode de validation pour le numéro de carte
   isCardNumberValid(): boolean {
@@ -66,7 +69,6 @@ export class BankDetailsComponent implements OnInit {
   }
 
 
-
   // Méthode de validation pour le nom sur la carte
   isCardholderNameValid(): boolean {
     return this.cardholderName.trim().length > 0;
@@ -89,7 +91,7 @@ export class BankDetailsComponent implements OnInit {
 
     // Validation du numéro de carte
     if (!this.isCardNumberValid()) {
-      this.cardNumberError = 'Le numéro de carte doit être au format XXXX XXXX XXXX XXXX.';
+      this.cardNumberError = 'The card number must be in format XXXX XXXX XXXX XXXX.';
       valid = false;
     } else {
       this.cardNumberError = '';
@@ -97,7 +99,7 @@ export class BankDetailsComponent implements OnInit {
 
     // Validation du nom sur la carte
     if (!this.isCardholderNameValid()) {
-      this.cardholderNameError = 'Le nom sur la carte est requis.';
+      this.cardholderNameError = 'The card\'s name is required.';
       valid = false;
     } else {
       this.cardholderNameError = '';
@@ -105,7 +107,7 @@ export class BankDetailsComponent implements OnInit {
 
     // Validation de la date d'expiration
     if (!this.isExpirationDateValid()) {
-      this.expirationDateError = 'La date d\'expiration doit être au format MM/AA.';
+      this.expirationDateError = 'The expiration date must be in format MM/AA.';
       valid = false;
     } else {
       this.expirationDateError = '';
@@ -113,10 +115,17 @@ export class BankDetailsComponent implements OnInit {
 
     // Validation du CVV
     if (!this.isCvvValid()) {
-      this.cvvError = 'Le CVV doit comporter exactement 3 chiffres.';
+      this.cvvError = 'The CVV must be 3 digits';
       valid = false;
     } else {
       this.cvvError = '';
+    }
+
+    if (this.shipping == "") {
+      this.shippingError = 'The shipping address must not be empty';
+      valid = false;
+    } else {
+      this.shippingError = '';
     }
 
     return valid;
@@ -126,19 +135,19 @@ export class BankDetailsComponent implements OnInit {
   onSubmit(): void {
     if (this.validateForm()) {
       let clientid: number = this.clientService.clientID;
-      this.cartService.payCart().subscribe({
+      this.cartService.payCart(this.shipping).subscribe({
         next: () => {
           console.log("Cart payment successful");
           this.router.navigate(["/cart", clientid]);
         },
         error: (err: any) => { // Changer Error en any pour accéder aux propriétés "message" et "id"
           console.error("Error during payment:", err.message);
-          
+
           // Navigation vers la page du panier avec deux queryParams
           this.router.navigate(["/cart", clientid], {
-            queryParams: { 
-              errorMessage: err.message, 
-              errorId: err.id 
+            queryParams: {
+              errorMessage: err.message,
+              errorId: err.id
             }
           });
         }
@@ -147,5 +156,5 @@ export class BankDetailsComponent implements OnInit {
       console.log("Formulaire invalide.");
     }
   }
-  
+
 }

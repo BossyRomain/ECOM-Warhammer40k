@@ -22,12 +22,13 @@ public class EmailService {
         }
     }
 
-    public void sendCartPayValidation(String to, Cart cart) {
+    public void sendCartPayValidation(String to, Cart cart, String shippingAddress) {
         try {
             StringBuilder content = new StringBuilder("Your command contain:\n");
             for (CommandLine commandLine : cart.getCommandLines()) {
-                content.append("* ").append(commandLine.getProduct().getName()).append(" x ").append(commandLine.getQuantity()).append("\n");
+                content.append("\n* ").append(commandLine.getProduct().getName()).append(" x ").append(commandLine.getQuantity()).append("\n");
             }
+            content.append("\nShipping address: ").append(shippingAddress);
             sendMail(to, "Confirmation of you cart", "Your have successfully paid your command!", content.toString());
         } catch (Exception ignored) {
         }
