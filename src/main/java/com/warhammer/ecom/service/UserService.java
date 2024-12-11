@@ -5,11 +5,10 @@ import com.warhammer.ecom.model.User;
 import com.warhammer.ecom.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
@@ -21,12 +20,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    private final PasswordEncoder passwordEncoder;
-
-    public UserService(@Lazy PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username).orElse(null);
@@ -34,18 +27,18 @@ public class UserService implements UserDetailsService {
 
     public boolean login(String username, String password) {
         try {
-            String encodedPassword = passwordEncoder.encode(password);
             User user = userRepository.findByUsername(username).orElseThrow(NoSuchElementException::new);
-            return user.getPassword().equals(encodedPassword);
+            return new BCryptPasswordEncoder().matches(password, user.getPassword());
         } catch (NoSuchElementException e) {
             return false;
         }
     }
 
     public User create(String username, String password, Authority authority) {
+        String encodedPassword = new BCryptPasswordEncoder().encode(password);
         User user = new User();
         user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(password));
+        user.setPassword(encodedPassword);
         user.setAuthority(authority);
 
         return userRepository.save(user);

@@ -40,8 +40,9 @@ public class ClientController {
     public ResponseEntity<ClientLoginResponseDTO> singUp(@RequestBody ClientSignUpDTO clientSignUpDTO) throws URISyntaxException {
         Client client = clientService.create(clientSignUpDTO);
 
+
         Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(client.getUser().getUsername(), client.getUser().getPassword())
+            new UsernamePasswordAuthenticationToken(client.getUser().getUsername(), clientSignUpDTO.getPassword())
         );
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String token = tokenUtil.generateToken(
@@ -58,7 +59,7 @@ public class ClientController {
         if (!userService.login(clientLoginDTO.getEmail(), clientLoginDTO.getPassword())) {
             throw new AccessDeniedException("Invalid email or password");
         }
-
+        
         Authentication authentication = authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(clientLoginDTO.getEmail(), clientLoginDTO.getPassword())
         );
