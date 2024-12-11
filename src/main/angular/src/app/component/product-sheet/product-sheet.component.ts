@@ -15,7 +15,7 @@ import {ClientServiceService} from '../../service/client-service.service';
   styleUrl: './product-sheet.component.css'
 })
 export class ProductSheetComponent implements OnInit, AfterViewInit {
-  article?: Product;
+  article!: Product;
   public id: number = 0;
   public productName: string = "Capitaine des Blood Angels";
   public price: number = 34.00;
@@ -34,6 +34,10 @@ export class ProductSheetComponent implements OnInit, AfterViewInit {
 
   toasts: string[] = [];
 
+  public setImages:String[] = []
+  public setIndex:number = 0;
+  public imagesIndex:number = 0;
+  public maxSize:number = 3;
   @ViewChild('inputNumberOfElement') numberInput!: ElementRef;
   constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute, private route: Router, private cartService: CartServiceService, private clientService: ClientServiceService) {
   }
@@ -53,12 +57,42 @@ export class ProductSheetComponent implements OnInit, AfterViewInit {
       if(this.article && this.cartService.containsElement(this.article.id)){
         this.numberInput.nativeElement.value = this.cartService.getAmountOfProduct(this.article.id);
       }
-      
+
     });
 
   }
 
-  
+  public nextImage(){
+    console.log("next: " + this.imagesIndex);
+    if(this.imagesIndex != this.article.images.length -1){
+      this.imagesIndex++;
+      if(this.imagesIndex >= this.maxSize){
+        
+        let i = this.maxSize -1;
+        this.setImages = [];
+        while(i >= 0){
+          this.setImages.push(this.article.images[this.imagesIndex-i].url);
+          i--;
+        }
+      }
+    }
+  }
+
+  public previousImage(){
+    console.log("prev: " + this.imagesIndex);
+    if(this.imagesIndex != 0){
+      this.imagesIndex--;
+      if(this.imagesIndex < this.article.images.length - this.maxSize){
+        
+        let i = this.imagesIndex;
+        this.setImages = [];
+        while(i < this.imagesIndex + this.maxSize){
+          this.setImages.push(this.article.images[i].url);
+          i++;
+        }
+      }
+    }
+  }
 
   public validateNumber(event: Event): void {
     const inputValue = (event.target as HTMLInputElement).valueAsNumber;
@@ -67,8 +101,13 @@ export class ProductSheetComponent implements OnInit, AfterViewInit {
 
   public addArticleToCart(): void {
     if (this.numberOfArticle != 0 && this.article != undefined) {
-      this.cartService.addProductToCart(this.clientService.client ? this.clientService.client.id : 0, this.article.id, this.numberOfArticle);
-      this.showToast(`${this.numberOfArticle} ${this.article.name} ` + (this.numberOfArticle == 1 ? "has" : "have") + ` added to the cart`);
+      if(this.article.stock == 0){
+        this.showToast(`Warning: this article is momentarily not avaible`);
+      }else{
+        this.cartService.addProductToCart(this.clientService.client ? this.clientService.client.id : 0, this.article.id, this.numberOfArticle);
+        this.showToast(`${this.numberOfArticle} ${this.article.name} ` + (this.numberOfArticle == 1 ? "has" : "have") + ` added to the cart`);
+      }
+      
     }
 
   }
@@ -106,6 +145,13 @@ export class ProductSheetComponent implements OnInit, AfterViewInit {
         value.images.forEach((temp) => {
           this.allImages.push(temp.url);
         });
+        let i = 0;
+        while(this.article && i < this.article.images.length && i < this.maxSize){
+          console.log(this.article.images)
+          this.setImages.push(this.article.images[i].url);
+          i++;
+        }
+        this.maxSize = i;
       },
       error => {
         console.log("A problem occured when Accessing to object " + id);

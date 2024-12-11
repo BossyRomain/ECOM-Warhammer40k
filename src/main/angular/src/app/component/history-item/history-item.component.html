@@ -4,9 +4,13 @@
       <div class="title">
         Details:
       </div>
-      <div class="listing" *ngFor="let article of cart.articles">
-        <div class="listing-item">{{article.product.name}} x {{article.quantity}}</div>
+
+      <div class="list">
+        <div class="listing" *ngFor="let article of cart.articles">
+          <div >{{article.product.name}} x {{article.quantity}}</div>
+        </div>
       </div>
+
       <div class="total">
         Total: {{ sumProduct()| number: "1.2-2" }}€
       </div>

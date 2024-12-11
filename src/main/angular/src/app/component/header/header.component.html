@@ -31,7 +31,7 @@
 </div>
 
 <div class="search-bar-container">
-  <div class="search-icon"></div> <!-- Icône de loupe -->
+  <button (click)="search(research.value)" class="search-button"><div class="search-icon"></div></button><!-- Icône de loupe -->
   <input #research type="text" class="search-input" placeholder="Search..."
          (keydown)="onEnter($event,research.value)">
   <button class="search-clear-btn" (click)="clearInput(research)"></button><!-- Bouton "X"-->
