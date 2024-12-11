@@ -10,7 +10,8 @@ import { Cart } from '../../model/cart';
   standalone: true
 })
 export class HistoryItemComponent {
-  @Input() cart?:Cart;
+  @Input() cart!:Cart;
+  @Input() index!:number;
   @Output() click = new EventEmitter<void>();
 
   sumProduct():number {
@@ -19,8 +20,4 @@ export class HistoryItemComponent {
     return sum;
   }
 
-  @HostListener('click')
-  onComponentClick(): void {
-    this.click.emit();
-  }
 }

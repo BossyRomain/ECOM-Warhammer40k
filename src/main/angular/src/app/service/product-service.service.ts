@@ -24,8 +24,6 @@ export class ProductServiceService {
     return this.http.get(`${this.apiUrl}/api/products/${id}`)
       .pipe(
         map((body: any) => {
-            console.log("body");
-            console.log(body);
             let array: Image[] = [];
             body.images.forEach((element: Image) => {
               array.push(element);
@@ -47,11 +45,9 @@ export class ProductServiceService {
 
   public getProductsCatalogue(page: number = 0, size: number = 10): Observable<ProductCatalog[]> {
     const url = `${this.apiUrl}/api/products/catalogue?page=${page}&size=${size}`;
-    console.log(`Appel de l'API : ${url}`);
 
     return this.http.get<ProductCatalog[]>(url).pipe(
       map((response: any) => {
-        console.log('Réponse de l\'API:', response);
         return response.content.map((item: any) => ({
           id: item.id,
           name: item.name,
@@ -69,16 +65,13 @@ export class ProductServiceService {
 
   public searchProducts(search: string, page: number = 0, size: number = 12): Observable<ProductCatalog[]> {
     const url = `${this.apiUrl}/api/products/search?page=${page}&size=${size}&query=${search}`;
-    console.log(`Appel de l'API : ${url}`);
 
     return this.http.get<any>(url, {observe: 'response'}).pipe(
       map((response: HttpResponse<any>) => {
         // Logs pour débogage
-        console.log('Réponse complète:', response);
 
         // Accédez aux headers
         const myHeader = response.headers.get('my-header-name'); // Remplacez par le nom exact du header
-        console.log('Header personnalisé :', myHeader);
 
         // Accédez au corps de la réponse et transformez les données
         this.maxPages = response.body.totalPages; // Exemple d'accès au corps

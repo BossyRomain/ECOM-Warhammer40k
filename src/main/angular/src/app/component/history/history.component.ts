@@ -25,12 +25,15 @@ export class HistoryComponent implements OnInit {
           (value)=>{
             console.log("reading history");
             console.log(value);
-            value.forEach((element) => {
-              if(element.articles){
+            value.forEach((element, index) => {
+              console.log(index);
+              console.log(element);
+              if(element.articles.length != 0 && index < value.length-1){
                 this.carts.push(element);
               }
               
             })
+            console.log(this.carts);
             
           }
         )

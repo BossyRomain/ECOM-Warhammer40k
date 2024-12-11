@@ -1,5 +1,7 @@
+<h1>History</h1>
 <div>
+    <h2>{{carts.length}}</h2>
     <div *ngFor="let cart of carts; let i = index">
-        <history-item [cart]="cart" (click)="onClick(i)"></history-item>
+        <history-item [cart]="cart" [index]="i"></history-item>
     </div>
 </div>

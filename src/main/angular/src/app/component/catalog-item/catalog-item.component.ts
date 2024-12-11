@@ -54,6 +54,7 @@ export class CatalogItemComponent implements OnInit {
   public addCart(id: number, name: string) {
     console.log("add cart from catalogue " + id);
     if (this.clientService.isConnected() && this.clientService.client) {
+      console.log(name);
       this.cartService.addProductToCart(this.clientService.client.id, id, 1)
     } else {
       this.cartService.addProductToCart(0, id, 1)

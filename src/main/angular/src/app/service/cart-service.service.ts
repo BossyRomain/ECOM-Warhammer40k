@@ -23,20 +23,18 @@ export class CartServiceService {
   public currentCart: CommandLine[] = [];
   
   public id:number = 0;
-
-
-
   private cartItems = new BehaviorSubject<number>(0); // Contient le nombre d'articles dans le panier
   cartItems$ = this.cartItems.asObservable(); 
 
 
   public addProductToCart(clientID:number, productID:number, amount:number){
     let exist = this.containsElement(productID);
+    console.log("exits: " + exist);
+    console.log(this.currentCart);
     if(exist != -1){ //If the article is already in the cart
-      console.log("updating object " + productID + " with value " + (this.currentCart[exist].quantity + amount))
       this.updateCart(exist, this.currentCart[exist].quantity + amount);
     }else{
-      if(clientID != 0 && this.clientService.isConnected()){
+      if(this.clientService.client?.id != 0 && this.clientService.isConnected()){
         const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
         const params = new HttpParams().set("quantity", amount.toString());
         this.http.post(`${this.apiUrl}/api/clients/${clientID}/carts/${productID}`, " ",  { headers, params }, ).pipe(
@@ -46,10 +44,11 @@ export class CartServiceService {
           })
         ).subscribe(
           (value) => {
+            console.log(this.currentCart);
             this.currentCart.push(value);
             this.updateCartLength();
           },
-          (error) => { console.error("cart service: " + String(error))}
+          (error) => { console.error("cart service: "); console.log(error); console.log(this.currentCart);}
         ) 
       }else{
         this.productService.getProductCatalogById(productID).subscribe(
@@ -65,11 +64,9 @@ export class CartServiceService {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
     return this.http.get(`${this.apiUrl}/api/clients/${clientID}/commands`, { headers }).pipe(
       map((body: any) => {
-        const cart = body[0];
-        this.currentCart = []; // Réinitialise le panier actuel
-        cart.commandLines.forEach((elm: CommandLine) => {
-          this.currentCart.push(elm); // Remplit le panier
-        });
+        console.log("body is:");
+        console.log(body);
+        let cart = body[body.length -1];
         this.updateCartLength(); // Correctement mis à jour après la modification
         return cart;
       })
@@ -85,8 +82,6 @@ export class CartServiceService {
       const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
       this.http.put(`${this.apiUrl}/api/clients/${this.clientService.client.id}/carts/${this.currentCart[index].product.id}`, newAmount, { headers }).subscribe(
         (value) => {
-          console.log('Everything worked while upgrading');
-          console.log(value);
           if(this.clientService.client){
             this.getCartOfClient(this.clientService.client?.id).subscribe((value) => {
               this.id = value.id;
@@ -95,6 +90,7 @@ export class CartServiceService {
               value.commandLines.forEach((elm:CommandLine) => {
                 this.currentCart.push(elm);
               })
+              
               
             },
             (error)=>{
@@ -118,11 +114,12 @@ export class CartServiceService {
       const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
       this.http.delete(`${this.apiUrl}/api/clients/${this.clientService.client.id}/carts/${this.currentCart[index].product.id}`, { headers }).subscribe(
         (value) => {
+          this.currentCart.splice(index, 1);
         },
         (error) => {
         }
       );
-      this.currentCart.splice(index, 1);
+      
       
     }else{
       this.currentCart.splice(index, 1);
@@ -157,6 +154,7 @@ export class CartServiceService {
     })
     return sum;
   }
+
   public getAmountToPay(): number{
       let sum : number = 0;
       this.currentCart.forEach((temp) => {
@@ -164,7 +162,7 @@ export class CartServiceService {
       })
       return sum;
   }
-  
+
   public payCart(): Observable<any>{
       if (this.clientService.isConnected() && this.clientService.client) {
         const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
@@ -180,18 +178,28 @@ export class CartServiceService {
       } else {
         return throwError(() => new Error('User is not authenticated.'));
       }
-    }
+  }
     
   public clearCart(){
-    let i = 0;
-    let l = this.currentCart.length;
-    for(; i < l; i++){
-      this.deleteLine(0);
+    if(this.clientService.client){
+      this.getCartOfClient(this.clientService.client.id).subscribe(
+        (value) => {
+          this.id = value.id;
+
+          console.log("connection component");
+          console.log(value);
+          this.currentCart = [];
+          value.commandLines.forEach((elm:CommandLine) => {
+            this.currentCart.push(elm);
+          })
+        }
+
+      );
     }
+    
   }
 
-
-  updateCartLength(): void {
+  public updateCartLength(): void {
     let length : number = this.currentCart.length
     this.cartItems.next(length);
   }

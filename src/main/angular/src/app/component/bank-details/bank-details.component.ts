@@ -125,16 +125,16 @@ export class BankDetailsComponent implements OnInit {
   // Méthode de soumission du formulaire
   onSubmit(): void {
     if (this.validateForm()) {
-      let clientid: number = this.clientService.clientID;
       this.cartService.payCart().subscribe({
         next: () => {
           console.log("Cart payment successful");
-          this.router.navigate(['/cart/${clientid}']);
+          this.cartService.clearCart();
+          this.router.navigate(['/cart', this.clientService.client?.id]);
         },
         error: (err: Error) => {
           console.error("Error during payment:", err.message);
           // Navigation vers la page du panier avec un message d'erreur
-          this.router.navigate(['/cart/${clientid}'], {
+          this.router.navigate(['/cart', this.clientService.client?.id], {
             queryParams: { errorMessage: err.message }
           });
         }

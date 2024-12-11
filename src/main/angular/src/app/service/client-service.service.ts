@@ -19,7 +19,6 @@ export class ClientServiceService {
   private apiUrl = environment.apiUrl;
   public currentCart: CommandLine[] = [];
   private connected: boolean = false;
-  public clientID: number = 0;
   public client?: Client;
   private connectFromAnotherPlace: boolean = false;
   
@@ -35,7 +34,6 @@ export class ClientServiceService {
 
     return this.http.post<any>(url, {email, password}).pipe(
       map((response: any) => {
-        console.log("Réponse de l'API reçue");
         this.connected = true;
         return {
           id: response.id,
@@ -92,8 +90,8 @@ export class ClientServiceService {
         map(
           (body: any) => {
             let history: Cart[] = [];
-            body.forEach((element: Cart) => {
-              history.push(element);
+            body.forEach((element:any) => {
+              history.push({id:element.id, articles:element.commandLines});
             })
             return history;
           }

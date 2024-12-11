@@ -1,50 +1,49 @@
-:host {
-    display: block;
-    border: 2px solid lightgray;
+.history-item {
+  display: flex;
+  width: 100%;
+  background-color: red;
+  max-height: 30vw;
+}
+
+.title {
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  flex:1;
+}
+.listing {
+  flex: 0.7; /* Permet à cet élément de prendre tout l'espace disponible */
+  overflow-y: auto; /* Active le défilement vertical si le contenu dépasse */
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  max-height: 10vw;
+}
+
+.listing-item {
+}
+
+.total {
+  bottom: 1;
+  text-align: right;
+  font-size: 2vh;
+
+}
   
-    background-color: white;
-  }
-  
-  .item-cart {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 1%;
-    border-radius: 8px;
-  }
-  
-  .product-img {
-    margin: 0 auto;
-    max-width: 90%;
-  }
-  
-  .infos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-  }
-  
+.history-image {
+  width: 30vw;
+  height: 30vw;
+}
+@media only screen and (min-width: 600px) {
+
   .name {
-    margin: 0 0 10px;
-    font-weight: bolder;
-    text-align: center;
+    font-size: 1.5em;
   }
-  
-  .quantity-value {
-    min-width: 3em;
-    max-width: 3em;
-  }
-  
-  .price {
-    margin-left: 10px;
-  }
-  
-  @media only screen and (min-width: 600px) {
-  
-    .name {
-      font-size: 1.5em;
-    }
-  
-  }
+
+}
   
