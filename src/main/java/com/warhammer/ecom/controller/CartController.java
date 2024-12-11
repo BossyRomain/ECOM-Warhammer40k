@@ -1,5 +1,6 @@
 package com.warhammer.ecom.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.warhammer.ecom.model.Cart;
 import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.model.CommandLine;
@@ -28,6 +29,9 @@ public class CartController {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     /**
      * Ajoute un produit au panier d'un client
@@ -58,15 +62,17 @@ public class CartController {
     }
 
     @GetMapping("/pay")
-    public ResponseEntity<Map<String, Object>> payCurrentCart(@PathVariable Long clientId) {
+    public ResponseEntity<Map<String, Object>> payCurrentCart(
+        @PathVariable Long clientId,
+        @RequestParam(name = "address", defaultValue = "") String shippingAddress
+    ) {
         try {
             Client client = clientService.getById(clientId);
             Cart cart = client.getCurrentCart();
             cartService.pay(cart);
-            emailService.sendCartPayValidation(client.getUser().getUsername(), cart);
+            emailService.sendCartPayValidation(client.getUser().getUsername(), cart, shippingAddress);
         } catch (RuntimeException e) {
             String[] arr = e.getMessage().split(" ");
-            String message = arr[0] + arr[1];
             String id = arr[arr.length - 1];
             Map<String, Object> response = new HashMap<>();
             response.put("message", e.getMessage());
