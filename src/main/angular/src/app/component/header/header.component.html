@@ -1,5 +1,6 @@
 <div class="header-container">
-  <button class="header-btn"
+  <button (click)="filter()"
+          class="header-btn"
           style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/menu_burger.png');"></button>
   <button (click)="goToMain()" class="main-logo-btn">
     <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k"
@@ -19,8 +20,8 @@
   </div>
   <div class="btn-container">
     <button class="header-btn" (click)="access_account()"
-            [style.background-image]="isconnected 
-              ? 'url(https://ecom-images-storage.s3.eu-north-1.amazonaws.com/account_connected.png)' 
+            [style.background-image]="isconnected
+              ? 'url(https://ecom-images-storage.s3.eu-north-1.amazonaws.com/account_connected.png)'
               : 'url(https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png)'">
     </button>
     <p *ngIf="isconnected; else seConnecterTemplate">Account</p>
@@ -30,9 +31,32 @@
   </div>
 </div>
 
-<div class="search-bar-container">
-  <button (click)="search(research.value)" class="search-button"><div class="search-icon"></div></button><!-- Icône de loupe -->
-  <input #research type="text" class="search-input" placeholder="Search..."
-         (keydown)="onEnter($event,research.value)">
-  <button class="search-clear-btn" (click)="clearInput(research)"></button><!-- Bouton "X"-->
+<div class="lower-container">
+  <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/figurines.png" alt="" class="product-type-img">
+  <div class="search-bar-container">
+    <button (click)="search(research.value)" class="search-button"><div class="search-icon"></div></button><!-- Icône de loupe -->
+    <input #research type="text" class="search-input" placeholder="Search..."
+           (keydown)="onEnter($event,research.value)">
+    <button class="search-clear-btn" (click)="clearInput(research)"></button><!-- Bouton "X"-->
+  </div>
+
+  <div class="filters">
+    <div class="close-filters">
+      <button (click)="closeFilters()" class="close-filters-btn">
+        <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/croix.png"/>
+      </button>
+    </div>
+    <div class="filter" (click)="filterSelected(0)">
+      <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/figurines.png"/>
+      <p>Figurines</p>
+    </div>
+    <div class="filter" (click)="filterSelected(1)">
+      <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/peinture.png"/>
+      <p>Paints</p>
+    </div>
+    <div class="filter" (click)="filterSelected(2)">
+      <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/decor_light.png"/>
+      <p>Accessories</p>
+    </div>
+  </div>
 </div>

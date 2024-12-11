@@ -34,7 +34,6 @@
   height: auto;
 }
 
-
 .page-input {
   width: 30px;
   text-align: center;
@@ -66,6 +65,7 @@
 
 app-catalog-item {
   /*width: 100%;*/
+  box-sizing: border-box;
 }
 
 /* Styles updates for tablets and larges screens */

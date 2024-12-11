@@ -27,6 +27,8 @@
 }
 
 .faction {
+  flex: 2;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,6 +45,7 @@
 }
 
 .faction-name {
+  margin: 10px 0 0;
   text-align: center;
 }
 
@@ -90,4 +93,38 @@
 
 /* Styles updates for tablets and larges screens */
 
+@media only screen and (min-width: 768px) {
+
+  .faction-img {
+    max-width: 50vw;
+  }
+
+  .faction-name {
+    font-size: 1.75em;
+  }
+
+  .groups {
+    margin: 0 auto;
+    width: 70%;
+  }
+
+}
+
 /* Styles for desktops and larger devices */
+
+@media only screen and (min-width: 1024px) {
+
+  .faction-img {
+    max-width: 19vw;
+  }
+
+  .faction-name {
+    font-size: 1.75em;
+  }
+
+  .groups {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+}

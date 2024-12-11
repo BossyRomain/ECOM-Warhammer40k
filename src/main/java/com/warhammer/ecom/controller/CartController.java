@@ -1,8 +1,11 @@
 package com.warhammer.ecom.controller;
 
+import com.warhammer.ecom.model.Cart;
+import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.model.CommandLine;
 import com.warhammer.ecom.service.CartService;
 import com.warhammer.ecom.service.ClientService;
+import com.warhammer.ecom.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -22,6 +25,9 @@ public class CartController {
 
     @Autowired
     private ClientService clientService;
+
+    @Autowired
+    private EmailService emailService;
 
     /**
      * Ajoute un produit au panier d'un client
@@ -54,7 +60,10 @@ public class CartController {
     @GetMapping("/pay")
     public ResponseEntity<Map<String, Object>> payCurrentCart(@PathVariable Long clientId) {
         try {
-            cartService.pay(clientService.getById(clientId).getCurrentCart());
+            Client client = clientService.getById(clientId);
+            Cart cart = client.getCurrentCart();
+            cartService.pay(cart);
+            emailService.sendCartPayValidation(client.getUser().getUsername(), cart);
         } catch (RuntimeException e) {
             String[] arr = e.getMessage().split(" ");
             String message = arr[0] + arr[1];

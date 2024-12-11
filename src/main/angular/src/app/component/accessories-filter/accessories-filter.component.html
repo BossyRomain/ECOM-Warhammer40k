@@ -1,0 +1,15 @@
+<div class="categories">
+  <div (click)="selectCategory('dice')" class="category">
+    <img src='{{ getIconImgUrl("dice") }}'/>
+    <p [ngClass]="selectedCategory == 'dice' ? 'selected' : ''">Dices</p>
+  </div>
+  <div (click)="selectCategory('terrain')" class="category">
+    <img src='{{ getIconImgUrl("terrain") }}'/>
+    <p [ngClass]="selectedCategory == 'terrain' ? 'selected' : ''">Terrains</p>
+  </div>
+  <div (click)="selectCategory('rules_and_codex')" class="category">
+    <img src='{{ getIconImgUrl("rules_and_codex") }}'/>
+    <p [ngClass]="selectedCategory == 'rules_and_codex' ? 'selected' : ''">Codex</p>
+  </div>
+</div>
+<app-catalog></app-catalog>
