@@ -72,6 +72,11 @@ public class ClientController {
         return createLoginResponse(token, client);
     }
 
+    @GetMapping("/{clientId}")
+    public Client get(@PathVariable Long clientId) {
+        return clientService.getById(clientId);
+    }
+
     @PostMapping("")
     public Client create(@RequestBody ClientSignUpDTO clientSignUpDTO) {
         return clientService.create(clientSignUpDTO);
