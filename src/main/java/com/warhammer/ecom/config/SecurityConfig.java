@@ -45,6 +45,7 @@ public class SecurityConfig {
                 authz.
                     requestMatchers(HttpMethod.POST, "/api/clients/signup", "/api/clients/login").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/products/catalogue", "api/products", "api/products/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/allegiances/**").permitAll()
                     .requestMatchers("/api/clients/**").authenticated()
                     .anyRequest().hasAuthority(Authority.ADMIN.getAuthority()));
 

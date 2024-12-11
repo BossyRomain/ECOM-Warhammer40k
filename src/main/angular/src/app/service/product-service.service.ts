@@ -13,7 +13,6 @@ import {Image} from '../model/image';
 export class ProductServiceService {
 
   constructor(private http: HttpClient) {
-
   }
 
   private apiUrl = environment.apiUrl;
@@ -67,8 +66,18 @@ export class ProductServiceService {
     );
   }
 
-  public searchProducts(search: string, page: number = 0, size: number = 12): Observable<ProductCatalog[]> {
-    const url = `${this.apiUrl}/api/products/search?page=${page}&size=${size}&query=${search}`;
+  public searchProducts(search: string, faction: string = "", type: string = "", page: number = 0, size: number = 12): Observable<ProductCatalog[]> {
+    let url = `${this.apiUrl}/api/products/search?page=${page}&size=${size}`;
+    if (search != "") {
+      url += `&query=${search}`;
+    }
+    if (faction != "") {
+      url += `&faction=${faction}`;
+    }
+    if (type != "") {
+      url += `&type=${type}`;
+    }
+
     console.log(`Appel de l'API : ${url}`);
 
     return this.http.get<any>(url, {observe: 'response'}).pipe(

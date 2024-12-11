@@ -1,7 +1,35 @@
 [
   {
+    "group": "IMPERIUM",
+    "faction": "ASTRA_MILITARUM"
+  },
+  {
+    "group": "IMPERIUM",
+    "faction": "IMPERIAL_KNIGHTS"
+  },
+  {
+    "group": "IMPERIUM",
+    "faction": "ADEPTA_SORITAS"
+  },
+  {
+    "group": "IMPERIUM",
+    "faction": "ADEPTUS_CUSTODES"
+  },
+  {
+    "group": "IMPERIUM",
+    "faction": "ADEPTUS_MECHANICUS"
+  },
+  {
+    "group": "IMPERIUM",
+    "faction": "IMPERIUM_AGENTS"
+  },
+  {
     "group": "SPACE_MARINES",
-    "faction": "SPACE_MARINES"
+    "faction": "GREY_KNIGHTS"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "ULTRA_MARINES"
   },
   {
     "group": "SPACE_MARINES",
@@ -9,7 +37,35 @@
   },
   {
     "group": "SPACE_MARINES",
-    "faction": "BLOOD_ANGELS"
+    "faction": "BLACK_TEMPLARS"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "DEATH_WATCH"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "IMPERIAL_FISTS"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "IRON_HANDS"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "RAVEN_GUARD"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "SALAMANDERS"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "SPACE_WOLVES"
+  },
+  {
+    "group": "SPACE_MARINES",
+    "faction": "WHITE_SCARS"
   },
   {
     "group": "XENOS",
@@ -20,24 +76,8 @@
     "faction": "ELDARS"
   },
   {
-    "group": "CHAOS",
-    "faction": "CHAOS_SPACE_MARINES"
-  },
-  {
-    "group": "IMPERIUM",
-    "faction": "ASTRA_MILITARUM"
-  },
-  {
     "group": "XENOS",
     "faction": "TYRANID"
-  },
-  {
-    "group": "CHAOS",
-    "faction": "CHAOS_KNIGHTS"
-  },
-  {
-    "group": "IMPERIUM",
-    "faction": "IMPERIAL_KNIGHTS"
   },
   {
     "group": "XENOS",
@@ -46,6 +86,22 @@
   {
     "group": "XENOS",
     "faction": "ORKS"
+  },
+  {
+    "group": "XENOS",
+    "faction": "DRUKHARI"
+  },
+  {
+    "group": "XENOS",
+    "faction": "GENESTEALER_CULTS"
+  },
+  {
+    "group": "XENOS",
+    "faction": "LEAGUES_OF_VOTANN"
+  },
+  {
+    "group": "CHAOS",
+    "faction": "CHAOS_KNIGHTS"
   },
   {
     "group": "CHAOS",
