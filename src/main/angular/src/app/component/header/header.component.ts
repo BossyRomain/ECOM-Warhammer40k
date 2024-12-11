@@ -48,7 +48,7 @@ export class HeaderComponent {
   }
 
   public help() {
-    // aller sur la page d'aide
+    this.router.navigate(["/help"]);
   }
 
   public burger_menu() {
