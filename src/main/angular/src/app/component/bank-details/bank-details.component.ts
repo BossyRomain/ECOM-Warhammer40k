@@ -134,7 +134,7 @@ export class BankDetailsComponent implements OnInit {
   // Méthode de soumission du formulaire
   onSubmit(): void {
     if (this.validateForm()) {
-      let clientid: number = this.clientService.clientID;
+      let clientid: number = this.clientService.client?.id || 0;
       this.cartService.payCart(this.shipping).subscribe({
         next: () => {
           console.log("Cart payment successful");
