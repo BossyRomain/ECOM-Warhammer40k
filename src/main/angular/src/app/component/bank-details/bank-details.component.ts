@@ -138,7 +138,8 @@ export class BankDetailsComponent implements OnInit {
       this.cartService.payCart(this.shipping).subscribe({
         next: () => {
           console.log("Cart payment successful");
-          this.router.navigate(["/cart", clientid]);
+          this.router.navigate(["/cart", clientid], {queryParams:{payement:"done"}});
+          //
         },
         error: (err: any) => { // Changer Error en any pour accéder aux propriétés "message" et "id"
           console.error("Error during payment:", err.message);

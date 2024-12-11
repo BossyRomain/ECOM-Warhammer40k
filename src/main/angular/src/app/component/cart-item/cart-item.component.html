@@ -14,5 +14,9 @@
 
 </div>
 <ng-template #other_content>other content here...</ng-template>
-
+<div id="toast-container" class="toast-container">
+  <div class="toast" *ngFor="let toast of toasts">
+    {{ toast }}
+  </div>
+</div>
 

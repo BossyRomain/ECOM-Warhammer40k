@@ -9,11 +9,23 @@
     <button (click)="pay()">Pay</button>
     <button (click)="this.cartService.clearCart()"  style="background-color: red; color: white">Clear Cart</button>
   </div>
-  <p class="cart-total-price">
-    Total to pay: {{ this.cartService.getSum() | number: "1.2-2" }}€
-  </p>
+  <div class="cart-total-price">
+    Total to pay: <div>{{ this.cartService.getSum() | number: "1.2-2" }}€ </div>
+  </div>
 </div>
 <div class="items">
   <cart-item *ngFor="let cartItem of cart; let i = index" [commandLine]="cartItem" [index]="i"
              [amount]="cartItem.quantity"></cart-item>
 </div>
+<div id="toast-container" class="toast-container">
+  <div class="toast" *ngFor="let toast of toasts">
+    {{ toast }}
+  </div>
+</div>
+
+<div id="toast-container2" class="toast-container2">
+  <div class="toast2" *ngFor="let toast of toasts2">
+    {{ toast }}
+  </div>
+</div>
+

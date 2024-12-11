@@ -23,18 +23,27 @@ export class CartComponent implements OnInit{
   
   public cart: CommandLine[] = [];
   public errorMessage: string | null = null;
-
+  public toasts: string[] = [];
+  public toasts2: string[] = [];
   ngOnInit(): void {
     console.log(this.cartService.currentCart);
     this.cart = this.cartService.currentCart;
 
     this.route.queryParams.subscribe(params => {
       this.errorMessage = params['errorMessage'] || null;
+      if(params['remove']){
+        this.showToast("Your article has been removed")
+      }
+      if(params['payement']){
+        this.showToast("Payment Complete \n An email has been sent to your adress");
+      }
+      
     });
 
     this.activatedRoute.params.subscribe(
       (params)=> {
         if(params['id'] != 0){
+          console.log("params");
           console.log(params['id']);
           this.cartService.getCartOfClient(params['id']).subscribe(
             (value) => {
@@ -70,6 +79,32 @@ export class CartComponent implements OnInit{
     
     }
     
+  }
+
+  private showToast(message: string): void {
+
+    if (this.toasts.length > 0) {
+      this.toasts.shift();
+    }
+    this.toasts.push(message);
+
+    // Supprime le toast après 3 secondes
+    setTimeout(() => {
+      this.toasts.shift();
+    }, 3000);
+  }
+
+  private showToast2(message: string): void {
+
+    if (this.toasts.length > 0) {
+      this.toasts2.shift();
+    }
+    this.toasts2.push(message);
+
+    // Supprime le toast après 3 secondes
+    setTimeout(() => {
+      this.toasts2.shift();
+    }, 3000);
   }
 
 

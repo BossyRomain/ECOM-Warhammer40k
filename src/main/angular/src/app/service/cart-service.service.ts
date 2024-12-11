@@ -70,7 +70,7 @@ export class CartServiceService {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
     return this.http.get(`${this.apiUrl}/api/clients/${clientID}/commands`, {headers}).pipe(
       map((body: any) => {
-        const cart = body[0];
+        const cart = body[body.length-1];
         this.currentCart = []; // Réinitialise le panier actuel
         cart.commandLines.forEach((elm: CommandLine) => {
           this.currentCart.push(elm); // Remplit le panier

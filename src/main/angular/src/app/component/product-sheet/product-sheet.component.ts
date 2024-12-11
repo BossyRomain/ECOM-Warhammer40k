@@ -93,13 +93,13 @@ export class ProductSheetComponent implements OnInit, AfterViewInit {
     this.numberOfArticle = inputValue;
   }
 
-  public addArticleToCart(): void {
-    if (this.numberOfArticle != 0 && this.article != undefined) {
+  public addArticleToCart(amount:string): void {
+    if (Number(amount) != 0 && this.article != undefined) {
       if(this.article.stock == 0){
         this.showToast(`Warning: this article is momentarily not avaible`);
       }else{
-        this.cartService.addProductToCart(this.clientService.client ? this.clientService.client.id : 0, this.article.id, this.numberOfArticle);
-        this.showToast(`${this.numberOfArticle} ${this.article.name} ` + (this.numberOfArticle == 1 ? "has" : "have") + ` added to the cart`);
+        this.cartService.addProductToCart(this.clientService.client ? this.clientService.client.id : 0, this.article.id, Number(amount));
+        this.showToast(`${Number(amount)} ${this.article.name} ` + (Number(amount) == 1 ? "has" : "have") + ` added to the cart`);
       }
       
     }

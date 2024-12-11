@@ -1,12 +1,12 @@
 <div class="product-card">
   <!-- Titre principal -->
   <div class="product-header">
-    <h1 class="product-name">Payer le panier</h1>
+    <h1 class="product-name">Validate shipping</h1>
   </div>
 
   <!-- Moyens de paiement -->
   <div class="payment-method">
-    <h2>Moyens de paiement :</h2>
+    <h2>Payment Methods:</h2>
     <img class="masterCardVisa" src="https://api.adnews.galitt.com/uploads/posts/images/6605906f801c8399626600.jpg"
          alt="MasterCard Visa">
   </div>
@@ -24,8 +24,8 @@
 
     <!-- Nom sur la carte -->
     <div class="form-group">
-      <label for="cardholder-name">Name</label>
-      <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Nom complet" required
+      <label for="cardholder-name">Last Name</label>
+      <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Last Name" required
              [(ngModel)]="cardholderName" (ngModelChange)="cardholderNameError = ''">
       <div *ngIf="cardholderNameError" class="error-message">{{ cardholderNameError }}</div>
     </div>
@@ -57,7 +57,7 @@
 
     <!-- Bouton de paiement -->
     <div class="submit-btn">
-      <input type="button" value="Valider le paiement" (click)="onSubmit()">
+      <input type="button" value="Validate and Pay" (click)="onSubmit()">
     </div>
   </div>
 </div>

@@ -20,6 +20,7 @@ export class CartItemComponent implements OnInit {
   deleteEntry:boolean = false;
   lastValue:string = "0";
   quantity:string = "1";
+  toasts: string[] = [];
   constructor(private cartService:CartServiceService, private router:Router, public clientService:ClientServiceService){
 
   }
@@ -39,7 +40,8 @@ export class CartItemComponent implements OnInit {
       if(newAmount != "" && Number(newAmount) == 0){
         this.lastValue = newAmount;
         this.cartService.deleteLine(this.index);
-        this.router.navigate(['/cart', this.clientService.client?.id]);
+        this.router.navigate(['/cart', this.clientService.client? this.clientService.client?.id : 0], {queryParams: { remove: 'removed' }});
+        
       }else if(newAmount != ""){
         this.lastValue = newAmount;
         this.commandLine.quantity = this.cartService.updateCart(this.index, Number(newAmount));
@@ -61,6 +63,8 @@ export class CartItemComponent implements OnInit {
     return 0;
     
   }
+
+
 
 
 }
