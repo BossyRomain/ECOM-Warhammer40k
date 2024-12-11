@@ -1,6 +1,7 @@
 package com.warhammer.ecom.service;
 
 import com.warhammer.ecom.controller.dto.ClientSignUpDTO;
+import com.warhammer.ecom.controller.dto.ClientUdpateDTO;
 import com.warhammer.ecom.model.Authority;
 import com.warhammer.ecom.model.Cart;
 import com.warhammer.ecom.model.Client;
@@ -60,6 +61,14 @@ public class ClientService {
         }
 
         return clientRepository.save(client);
+    }
+
+    public void update(Long clientId, ClientUdpateDTO clientUdpateDTO) throws NoSuchElementException {
+        Client client = clientRepository.findById(clientId).orElseThrow(NoSuchElementException::new);
+        client.setFirstName(clientUdpateDTO.getFirstName());
+        client.setLastName(clientUdpateDTO.getLastName());
+        client.setBirthday(client.getBirthday());
+        clientRepository.save(client);
     }
 
     public void delete(Long clientId) {
