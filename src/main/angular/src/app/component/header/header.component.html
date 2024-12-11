@@ -31,27 +31,32 @@
   </div>
 </div>
 
-<div class="search-bar-container">
-  <div class="search-icon"></div> <!-- Icône de loupe -->
-  <input #research type="text" class="search-input" placeholder="Search..."
-         (keydown)="onEnter($event,research.value)">
-  <button class="search-clear-btn" (click)="clearInput(research)"></button><!-- Bouton "X"-->
-</div>
+<div class="lower-container">
+  <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/figurines.png" alt="" class="product-type-img">
+  <div class="search-bar-container">
+    <div class="search-icon"></div> <!-- Icône de loupe -->
+    <input #research type="text" class="search-input" placeholder="Search..."
+           (keydown)="onEnter($event,research.value)">
+    <button class="search-clear-btn" (click)="clearInput(research)"></button><!-- Bouton "X"-->
+  </div>
 
-<div class="filters">
-  <div class="close-filters">
-    <button (click)="closeFilters()" class="close-filters-btn">close</button>
-  </div>
-  <div class="filter" (click)="filterSelected(0)">
-    <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/figurines.png"/>
-    <p>Figurines</p>
-  </div>
-  <div class="filter" (click)="filterSelected(0)">
-    <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/peinture.png"/>
-    <p>Paints</p>
-  </div>
-  <div class="filter" (click)="filterSelected(0)">
-    <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/decor_light.png"/>
-    <p>Accessories</p>
+  <div class="filters">
+    <div class="close-filters">
+      <button (click)="closeFilters()" class="close-filters-btn">
+        <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/croix.png"/>
+      </button>
+    </div>
+    <div class="filter" (click)="filterSelected(0)">
+      <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/figurines.png"/>
+      <p>Figurines</p>
+    </div>
+    <div class="filter" (click)="filterSelected(1)">
+      <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/peinture.png"/>
+      <p>Paints</p>
+    </div>
+    <div class="filter" (click)="filterSelected(2)">
+      <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/decor_light.png"/>
+      <p>Accessories</p>
+    </div>
   </div>
 </div>

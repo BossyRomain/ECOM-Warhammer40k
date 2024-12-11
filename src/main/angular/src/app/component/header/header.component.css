@@ -67,8 +67,10 @@ body {
   background-color: #f9f9f9;
   padding: 5px 10px;
   margin: 0;
-  height: calc(100% - var(--header-container-height) - 10px);
-  width: 100%;
+
+  flex: 1;
+  /*height: calc(100% - var(--header-container-height) - 10px);*/
+  /*width: 100%;*/
 }
 
 .search-icon {
@@ -146,7 +148,7 @@ body {
   display: none;
   flex-direction: column;
   gap: 7px;
-  padding: 7px;
+  padding: 10px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -154,7 +156,7 @@ body {
   z-index: 2;
   width: 75%;
 
-  background-color: grey;
+  background-color: #e6e6e6;
 }
 
 .close-filters {
@@ -166,6 +168,10 @@ body {
 
 .close-filters-btn {
   margin-left: auto;
+
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 .filter {
@@ -188,6 +194,19 @@ body {
   max-width: 50px;
 }
 
+.product-type-img {
+  display: none;
+  margin-right: 10px;
+  max-width: 50px;
+}
+
+.lower-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
 /* Styles updates for tablets and larges screens */
 
 @media only screen and (min-width: 768px) {
@@ -195,12 +214,6 @@ body {
   .header-container {
     justify-content: space-between;
     align-items: center;
-  }
-
-  .search-bar-container {
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 30%;
   }
 
   .search-icon, .search-clear-btn {
@@ -244,6 +257,15 @@ body {
   .main-logo {
     max-width: 60%;
   }
+
+  .filters {
+    max-width: 40%;
+  }
+
+  .product-type-img {
+    max-width: 70px;
+  }
+
 }
 
 /* Styles for desktops and larger devices */
@@ -270,4 +292,13 @@ body {
   .search-bar-container {
     max-width: 60%;
   }
+
+  .filters {
+    max-width: 20%;
+  }
+
+  .product-type-img {
+    max-width: 70px;
+  }
+
 }

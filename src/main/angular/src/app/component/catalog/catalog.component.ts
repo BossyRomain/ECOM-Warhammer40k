@@ -66,9 +66,10 @@ export class CatalogComponent implements OnInit, AfterViewInit {
   previousPage(): void {
     //charger page précédente avec la search courante (si y'a une page suivante)
     if (this.numPage - 1 >= 0) {
-      this.router.navigate(["/catalog/search"], {
+      this.router.navigate([], {
         relativeTo: this.activatedRoute,
-        queryParams: {search: this.search, page: this.numPage - 1, faction: this.faction, type: this.type}
+        queryParams: {page: this.numPage - 1},
+        queryParamsHandling: 'merge'
       });
     }
 
@@ -77,9 +78,10 @@ export class CatalogComponent implements OnInit, AfterViewInit {
   nextPage(): void {
     //charger page suivante avec la search courante (si y'a une page suivante)
     if (this.numPage + 1 < this.productService.getMaxPages()) {
-      this.router.navigate(["/catalog/search"], {
+      this.router.navigate([], {
         relativeTo: this.activatedRoute,
-        queryParams: {search: this.search, page: this.numPage + 1}
+        queryParams: {page: this.numPage + 1},
+        queryParamsHandling: 'merge'
       });
     }
 

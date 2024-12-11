@@ -1,0 +1,70 @@
+/* Styles from small smartphones */
+
+app-catalog {
+  display: block;
+  margin-top: 30px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.category {
+  margin: 2px 0 0;
+
+  font-size: 1em;
+  text-align: center;
+}
+
+.category > p {
+  margin: 0;
+}
+
+.category > img {
+  max-width: 50px;
+}
+
+.selected {
+  position: relative;
+}
+
+.selected::before {
+  content: '';
+  height: 2.5px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: #D0A933;
+  text-decoration: underline yellow;
+}
+
+/* Styles updates for tablets and larges screens */
+
+@media only screen and (min-width: 768px) {
+
+  .category > img {
+    max-width: 150px;
+  }
+
+  .category > p {
+    font-size: 1.5em;
+  }
+
+}
+
+/* Styles for desktops and larger devices */
+
+@media only screen and (min-width: 1024px) {
+
+}

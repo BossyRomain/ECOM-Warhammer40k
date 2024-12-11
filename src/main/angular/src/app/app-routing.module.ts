@@ -8,7 +8,8 @@ import {BankDetailsComponent} from './component/bank-details/bank-details.compon
 import {RegisterComponent} from './component/register/register.component';
 import {HistoryComponent} from './component/history/history.component';
 import {FigurineFilterComponent} from './component/figurine-filter/figurine-filter.component';
-import { HelpComponent } from './component/help/help.component';
+import {HelpComponent} from './component/help/help.component';
+import {AccessoriesFilterComponent} from './component/accessories-filter/accessories-filter.component';
 
 const routes: Routes = [
   {path: "product/:id", component: ProductSheetComponent},
@@ -17,9 +18,10 @@ const routes: Routes = [
   {path: "catalog/search", component: CatalogComponent},
   {path: "pay", component: BankDetailsComponent},
   {path: "register", component: RegisterComponent},
-  {path: "history/:id", component:  HistoryComponent },
+  {path: "history/:id", component: HistoryComponent},
   {path: "help", component: HelpComponent},
   {path: "filter/figurines", component: FigurineFilterComponent},
+  {path: "filter/accessories", component: AccessoriesFilterComponent},
   {path: '**', redirectTo: "catalog/search"}
 ];
 

@@ -15,12 +15,14 @@ import {RegisterComponent} from './component/register/register.component';
 import {HistoryComponent} from './component/history/history.component';
 import {HistoryItemComponent} from './component/history-item/history-item.component';
 import {FigurineFilterComponent} from './component/figurine-filter/figurine-filter.component';
+import {AccessoriesFilterComponent} from './component/accessories-filter/accessories-filter.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FigurineFilterComponent,
+    AccessoriesFilterComponent,
   ],
   imports: [
     BrowserModule,
