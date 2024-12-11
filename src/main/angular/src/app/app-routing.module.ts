@@ -8,6 +8,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { BankDetailsComponent } from './component/bank-details/bank-details.component';
 import { RegisterComponent } from './component/register/register.component';
 import { HistoryComponent } from './component/history/history.component';
+import { HelpComponent } from './component/help/help.component';
 
 const routes: Routes = [
   { path: "product/:id", component: ProductSheetComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: "catalog/search", component: CatalogComponent},
   { path: "pay", component: BankDetailsComponent},
   { path: "register", component:RegisterComponent},
-  { path: "history/:id", component:HistoryComponent},
+  { path: "history/:id", component: HistoryComponent },
+  { path: "help", component: HelpComponent},
   { path: '**', redirectTo: "catalog/search"}
 ];
 

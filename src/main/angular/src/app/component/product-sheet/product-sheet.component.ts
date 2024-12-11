@@ -31,6 +31,9 @@ export class ProductSheetComponent implements OnInit, AfterViewInit {
 
   description: string = "Une figurine de puissant capitaine Blood Angels. Il est capable de s'adapter à toutes les situations avec un arsenal varié d'armes et de reliques.";
   numberOfArticle: number = 0;
+
+  toasts: string[] = [];
+
   @ViewChild('inputNumberOfElement') numberInput!: ElementRef;
   constructor(private productService: ProductServiceService, private activatedRoute: ActivatedRoute, private route: Router, private cartService: CartServiceService, private clientService: ClientServiceService) {
   }
@@ -65,10 +68,30 @@ export class ProductSheetComponent implements OnInit, AfterViewInit {
   public addArticleToCart(): void {
     if (this.numberOfArticle != 0 && this.article != undefined) {
       this.cartService.addProductToCart(this.clientService.client ? this.clientService.client.id : 0, this.article.id, this.numberOfArticle);
-
+      this.showToast(`${this.numberOfArticle} ${this.article.name} ` + (this.numberOfArticle == 1 ? "has" : "have") + ` added to the cart`);
     }
 
   }
+
+  private showToast(message: string): void {
+
+    if (this.toasts.length > 0) {
+      this.toasts.shift();
+    }
+    console.log("Ajout du toast");
+    this.toasts.push(message);
+
+    // Supprime le toast après 3 secondes
+    setTimeout(() => {
+      console.log("delete du toast");
+      this.toasts.shift();
+    }, 3000);
+  }
+
+
+  
+  
+
 
   public getObjectById(id: number): void {
     console.log("Get object " + id);
