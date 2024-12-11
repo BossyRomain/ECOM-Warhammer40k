@@ -1,11 +1,20 @@
-<div *ngIf="cart != undefined; else other_content">
-    <img src={{cart.articles[0].product.catalogueImg.url}}>
-    <div>
-      <p>
-        {{ sumProduct()| number: "1.2-2" }}€
-      </p>
+<div class="history-item">
+    <img src={{cart.articles[0].product.catalogueImg.url}} class="history-image">
+    <div class="details">
+      <div class="title">
+        Details:
+      </div>
+
+      <div class="list">
+        <div class="listing" *ngFor="let article of cart.articles">
+          <div >{{article.product.name}} x {{article.quantity}}</div>
+        </div>
+      </div>
+
+      <div class="total">
+        Total: {{ sumProduct()| number: "1.2-2" }}€
+      </div>
     </div>
   
   
 </div>
-<ng-template #other_content>other content here...</ng-template>

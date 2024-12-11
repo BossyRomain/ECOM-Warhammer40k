@@ -34,9 +34,26 @@ export class CartComponent implements OnInit{
 
     this.activatedRoute.params.subscribe(
       (params)=> {
-        console.log(params['id']);
-        this.cartService.getCartOfClient(params['id']);
-        this.cart = this.cartService.currentCart;
+        if(params['id'] != 0){
+          console.log(params['id']);
+          this.cartService.getCartOfClient(params['id']).subscribe(
+            (value) => {
+              this.cartService.id = value.id;
+              console.log(this.cartService.currentCart.length);
+              console.log("connection component");
+              console.log(value);
+              this.cartService.currentCart = [];
+              value.commandLines.forEach((elm:CommandLine) => {
+                this.cartService.currentCart.push(elm);
+              });
+              this.cart = this.cartService.currentCart;
+            }
+  
+          );
+        }else{
+          this.cart = this.cartService.currentCart;
+        }
+        
       }
     )
   }

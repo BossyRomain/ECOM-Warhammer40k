@@ -3,17 +3,21 @@
   <img class="main-image" src='{{mainImg}}'/>
 </div>
 
-<div class="image-gallery">
-  <div *ngFor="let x of article?.images; index as i">
-    <img src='{{x.url}}' (click)="changeIndex(i)"/>
+<div class="pick-image">
+  <button class="change-image" (click)="previousImage()" ><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/left_arrow.png" ></button>
+  <div class="image-gallery">
+    <div *ngFor="let x of setImages; index as i">
+      <img src={{x}} (click)="changeIndex(i)"/>
+    </div>
   </div>
-
+  <button class="change-image" (click)="nextImage()"><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/right_arrow.png" ></button>
 </div>
+
 
 
 <div class="description-container">
   <p><b>Description</b></p>
-  <p [innerHTML]="article?.description">
+  <p [innerHTML]="article.description">
   </p>
 </div>
 <div class="row-container">

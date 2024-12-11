@@ -53,13 +53,22 @@ export class CatalogItemComponent implements OnInit {
 
   public addCart(id: number, name: string) {
     console.log("add cart from catalogue " + id);
-    if (this.clientService.isConnected() && this.clientService.client) {
-      this.cartService.addProductToCart(this.clientService.client.id, id, 1)
-    } else {
-      this.cartService.addProductToCart(0, id, 1)
+    console.log("current stock: " + this.article.stock);
+    if(this.article.stock == 0){
+      console.log(`Warning: this article is momentarily not avaible`);
+      this.showToast(`Warning: this article is momentarily not avaible`);
+    }else{
+      if (this.clientService.isConnected() && this.clientService.client) {
+        console.log(name);
+        this.cartService.addProductToCart(this.clientService.client.id, id, 1)
+      } else {
+        this.cartService.addProductToCart(0, id, 1)
+      }
+      
+  
+      this.showToast(`${name} has been added to the cart`);
     }
-
-    this.showToast(`${name} has been added to the cart`);
+    
   }
 
   private showToast(message: string): void {

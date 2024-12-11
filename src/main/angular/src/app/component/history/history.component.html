@@ -1,5 +1,9 @@
+<h1>History</h1>
 <div>
-    <div *ngFor="let cart of carts; let i = index">
-        <history-item [cart]="cart" (click)="onClick(i)"></history-item>
+    <div *ngIf="carts.length != 0; else noItem;">
+        <div *ngFor="let cart of carts; let i = index">
+            <history-item [cart]="cart" [index]="i"></history-item>
+        </div>
     </div>
+    <ng-template #noItem ><div class="no-cart">No previous cart found</div></ng-template>
 </div>
