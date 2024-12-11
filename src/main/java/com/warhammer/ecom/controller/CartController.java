@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/api/clients/{clientId}/carts")
@@ -50,13 +52,17 @@ public class CartController {
     }
 
     @GetMapping("/pay")
-    public ResponseEntity<String> payCurrentCart(@PathVariable Long clientId) {
+    public ResponseEntity<Map<String, Object>> payCurrentCart(@PathVariable Long clientId) {
         try {
             cartService.pay(clientService.getById(clientId).getCurrentCart());
         } catch (RuntimeException e) {
             String[] arr = e.getMessage().split(" ");
+            String message = arr[0] + arr[1];
             String id = arr[arr.length - 1];
-            return ResponseEntity.badRequest().body("{\"msg\": \"" + e.getMessage() + "\", \"id\": " + id + " }");
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", e.getMessage());
+            response.put("id", id);
+            return ResponseEntity.badRequest().body(response);
         }
         cartService.create(clientService.getById(clientId));
         return ResponseEntity.ok().build();

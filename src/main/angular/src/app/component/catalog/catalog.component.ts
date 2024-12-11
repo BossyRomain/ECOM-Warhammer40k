@@ -51,15 +51,6 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     }
   }
 
-
-  loadCatalog(): void {
-    this.productService.getProductsCatalogue().subscribe(
-      data => this.productList = data,
-      error => console.error('Erreur lors du chargement du catalogue :', error)
-    );
-  }
-
-
   public loadSearch(query: string, pageN: number = 0, faction: string, type: string) {
     this.productService.searchProducts(query, faction, type, pageN).subscribe(
       (data) => {

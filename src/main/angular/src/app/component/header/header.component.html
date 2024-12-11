@@ -5,6 +5,11 @@
     <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/warhammer.png" alt="Logo Warhammer 40k"
          class="main-logo">
   </button>
+  <div class="btn-container">
+    <button class="header-btn" (click)="accesToCart()"
+            style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/interrogation_point.png');"></button>
+    <p>&nbsp;Help</p>
+  </div>
 
   <div class="btn-container">
     <button class="header-btn" (click)="accesToCart()"
@@ -14,8 +19,14 @@
   </div>
   <div class="btn-container">
     <button class="header-btn" (click)="access_account()"
-            style="background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png')"></button>
-    <p>Account</p>
+            [style.background-image]="isconnected 
+              ? 'url(https://ecom-images-storage.s3.eu-north-1.amazonaws.com/account_connected.png)' 
+              : 'url(https://ecom-images-storage.s3.eu-north-1.amazonaws.com/compte.png)'">
+    </button>
+    <p *ngIf="isconnected; else seConnecterTemplate">Account</p>
+    <ng-template #seConnecterTemplate>
+      <p>sign in</p>
+    </ng-template>
   </div>
 </div>
 
