@@ -23,11 +23,16 @@ export class CartServiceService {
   public currentCart: CommandLine[] = [];
   
   public id:number = 0;
-  private cartItems = new BehaviorSubject<number>(0); // Contient le nombre d'articles dans le panier
+
+
+
+  private cartItems = new BehaviorSubject<number>(this.currentCart.length); // Contient le nombre d'articles dans le panier
   cartItems$ = this.cartItems.asObservable(); 
 
 
-  public addProductToCart(clientID:number, productID:number, amount:number){
+
+
+  public addProductToCart(clientID: number, productID: number, amount: number) {
     let exist = this.containsElement(productID);
     console.log("exits: " + exist);
     console.log(this.currentCart);
@@ -47,17 +52,21 @@ export class CartServiceService {
             console.log(this.currentCart);
             this.currentCart.push(value);
             this.updateCartLength();
+            
           },
           (error) => { console.error("cart service: "); console.log(error); console.log(this.currentCart);}
         ) 
       }else{
         this.productService.getProductCatalogById(productID).subscribe(
           (data)=>{
-            this.currentCart.push({id:productID, quantity:amount, product:data});
+            this.currentCart.push({ id: productID, quantity: amount, product: data });
+            this.updateCartLength();
+            
         });
         
       }
     }
+
   }
 
   public getCartOfClient(clientID: number): Observable<any> {
@@ -78,7 +87,8 @@ export class CartServiceService {
   }
 
   public updateCart(index:number, newAmount:number): number{
-    if(this.clientService.isConnected() &&  this.clientService.client){
+    if (this.clientService.isConnected() && this.clientService.client) {
+      console.log("panier taille blabla quand connecte: " + this.currentCart.length);
       const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.clientService.client?.authToken);
       this.http.put(`${this.apiUrl}/api/clients/${this.clientService.client.id}/carts/${this.currentCart[index].product.id}`, newAmount, { headers }).subscribe(
         (value) => {
@@ -90,7 +100,6 @@ export class CartServiceService {
               value.commandLines.forEach((elm:CommandLine) => {
                 this.currentCart.push(elm);
               })
-              
               
             },
             (error)=>{
@@ -104,8 +113,10 @@ export class CartServiceService {
         }
       );
     }else{
-      this.currentCart[index].quantity =newAmount;
+      this.currentCart[index].quantity = newAmount;
+      console.log("panier taille blabla quand pas co: " + this.currentCart.length);
     }
+    
     return newAmount;
   }
 
@@ -120,11 +131,12 @@ export class CartServiceService {
         }
       );
       
+      this.updateCartLength();
       
     }else{
       this.currentCart.splice(index, 1);
+      this.updateCartLength();
     }
-    this.updateCartLength();
   }
 
   public retrieveClientInfo(email:string, password:string):Promise<Client>{
@@ -169,14 +181,16 @@ export class CartServiceService {
         return this.http.get<number>(`${this.apiUrl}/api/clients/${this.clientService.client.id}/carts/pay`, { headers }).pipe(
           catchError((error: HttpErrorResponse) => {
             let errorMessage = 'An unexpected error occurred.';
+            let errorId = 0;
             if (error.status === 400) {
-              let errorMessage = error.error.message || 'Not enough stock for one or more products.';
+              errorMessage = error.error.message;
+              errorId = error.error.id;
             }
-            return throwError(() => new Error(errorMessage));
+            return throwError(() => ({ message: errorMessage, id: errorId }));
           })
         );
       } else {
-        return throwError(() => new Error('User is not authenticated.'));
+        return throwError(() => ({ message: 'User is not authenticated.', id: 0 }));
       }
   }
     

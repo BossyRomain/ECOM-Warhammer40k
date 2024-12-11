@@ -27,7 +27,14 @@
     Ajouter au Panier
   </button>
 
+  <div id="toast-container" class="toast-container">
+    <div class="toast" *ngFor="let toast of toasts">
+      {{ toast }}
+    </div>
+  </div>
+
 </div>
+
 
 
 

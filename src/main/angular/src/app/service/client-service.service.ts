@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {CommandLine} from '../model/command-line';
 import {environment} from '../../environments/environment';
-import {map, Observable} from 'rxjs';
+import {BehaviorSubject, map, Observable} from 'rxjs';
 import {Client} from '../model/client';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Cart} from '../model/cart';
@@ -23,7 +23,11 @@ export class ClientServiceService {
   private connectFromAnotherPlace: boolean = false;
   
 
-  public isConnected():boolean{
+  private isconnected = new BehaviorSubject<boolean>(false); // Contient le nombre d'articles dans le panier
+  isconnected$ = this.isconnected.asObservable(); 
+
+
+  public isConnected(): boolean {
     return this.connected;
   }
 
@@ -34,7 +38,7 @@ export class ClientServiceService {
 
     return this.http.post<any>(url, {email, password}).pipe(
       map((response: any) => {
-        this.connected = true;
+        this.isConnect(true);
         return {
           id: response.id,
           user: {
@@ -61,7 +65,7 @@ export class ClientServiceService {
     return this.http.post<any>(url, {email, password, firstName, lastName, birthday, newsLetter}).pipe(
       map((response: any) => {
         console.log("Réponse de l'API reçue");
-        this.connected = true;
+        this.isConnect(true);
         return {
           id: response.id,
           user: {
@@ -103,7 +107,12 @@ export class ClientServiceService {
   }
 
   public disconnect(): void {
-    this.connected = false;
+    this.isConnect(false);
+  }
+
+  private isConnect(value: boolean): void {
+    this.isconnected.next(value);
+    this.connected = value;
   }
 
   public connectFromCart(){

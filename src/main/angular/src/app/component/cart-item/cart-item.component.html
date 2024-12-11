@@ -1,9 +1,7 @@
 <div class="item-cart" *ngIf="commandLine != undefined; else other_content">
-  <div class="head-cart-item">
-    <div class="name">{{ commandLine.product.name }}</div>
-    <button class="delete-button" (click)="changeAmount('0')"></button>
-  </div>
-  
+  <div class="name">{{ commandLine.product.name }}</div>
+  <button class="delete-button" (click)="changeAmount('0')"></button>
+
   <img src='{{commandLine.product.catalogueImg.url}}' class="product-img"/>
   <div class="infos">
     <input class="quantity-value" #quantity type="number" value="{{amount}}" [min]="1" [step]="1"

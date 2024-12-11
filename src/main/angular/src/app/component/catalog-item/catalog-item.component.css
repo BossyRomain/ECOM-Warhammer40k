@@ -1,38 +1,44 @@
+/* Styles from small smartphones */
+
 :host {
   background-color: white;
   border: 2px solid black;
 
-  position: relative;
+  width: 100%;
 }
 
 .product-card {
+  --card-padding: 10px;
+  --type-icon-size: 40px;
+
   display: flex;
   flex-direction: column;
 
-  padding: 10px;
-  height: calc(100% - 20px);
-  width: calc(100% - 20px);
+  padding: var(--card-padding);
+  position: relative;
+  height: calc(100% - var(--card-padding) * 2);
+  width: calc(100% - var(--card-padding) * 2);
 }
 
 
 .product-name {
   margin: 10px 0;
   text-align: center;
-  font-size: 1.4rem; /* Taille fixe en pixels */
+  font-size: 1em;
   font-weight: bold;
 }
 
 .product-price {
   margin: 0;
-  font-size: 1.3rem; /* Taille fixe en pixels */
+  font-size: 1.2em;
   font-weight: bold;
   color: #000;
 }
 
 /* Bouton invisible pour l'image de panier */
 .cart-button {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   background-color: transparent;
   background-image: url('https://ecom-images-storage.s3.eu-north-1.amazonaws.com/panier_plus.png');
   background-size: contain;
@@ -41,18 +47,6 @@
   border: none;
   cursor: pointer;
 }
-
-.image-container {
-  padding: 1%;
-  padding-top: 5%;
-  margin-bottom: -10px;
-}
-
-.image-container img {
-  width: 100%;
-  height: auto;
-}
-
 
 .price-image-container {
   display: flex;
@@ -64,25 +58,28 @@
 }
 
 .stock {
+  --stock-width: 50%;
+
   position: absolute;
   top: 0;
   left: 0;
   aspect-ratio: 7 / 2;
-  width: 40%;
+  width: calc(var(--stock-width) - 10px);
   border-top: none; /* Enlève la bordure du haut */
   border-left: none; /* Enlève la bordure de gauche */
-  border-right: 1px solid #375337; /* Garde la bordure de droite */
-  border-bottom: 1px solid #375337;
+  border-right: 2px solid #375337; /* Garde la bordure de droite */
+  border-bottom: 2px solid #375337;
   color: #000000;
   margin: 0;
   padding: 5px;
-  font-size: 1.1rem; /* Taille de texte fixe, ajustez selon votre besoin */
+  font-size: 0.8em; /* Taille de texte fixe, ajustez selon votre besoin */
+  font-weight: bolder;
   white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
   overflow: hidden; /* Coupe le texte qui dépasse */
-  text-align: center;
+  text-align: left;
 
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
@@ -97,13 +94,12 @@
   font-weight: bolder;
 }
 
-
 .toast-container {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  z-index: 1000000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -138,13 +134,20 @@
   border: 2px solid #fff;
 }
 
+.product-img {
+  margin-top: calc(var(--type-icon-size) - var(--card-padding));
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
 .product-type {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 5px;
+  right: 5px;
 
-  max-height: 50px;
-  max-width: 50px;
+  max-height: var(--type-icon-size);
+  max-width: var(--type-icon-size);
 }
 
 @keyframes fadeInOut {
@@ -162,34 +165,56 @@
   }
 }
 
-@media only screen and (min-width: 800px) {
+/* Styles updates for tablets and larges screens */
+
+@media only screen and (min-width: 768px) {
+
+  .product-card {
+    --type-icon-size: 65px;
+  }
+
+  .cart-button {
+    height: 45px;
+    width: 45px;
+  }
+
+  .stock {
+    --stock-width: 45%;
+    font-size: 1em;
+  }
+
+  .product-price {
+    font-size: 1.2em;
+  }
+
+  .product-name {
+    font-size: 1.1em;
+  }
+}
+
+/* Styles for desktops and larger devices */
+
+@media only screen and (min-width: 1024px) {
+
+  .product-card {
+    --type-icon-size: 75px;
+  }
+
   .cart-button {
     height: 60px;
     width: 60px;
   }
 
   .stock {
-    max-width: 200px;
-  }
-
-  .on-stock {
-    font-size: 1.5rem;
-  }
-
-  .out-of-stock {
-    font-size: 1.5rem;
+    --stock-width: 40%;
+    font-size: 1.5em;
   }
 
   .product-price {
-    font-size: 1.75rem;
+    font-size: 1.45em;
   }
 
   .product-name {
-    font-size: 1.7rem;
-  }
-
-  .product-type {
-    max-height: 75px;
-    max-width: 75px;
+    font-size: 1.45em;
   }
 }

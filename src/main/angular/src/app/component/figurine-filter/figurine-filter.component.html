@@ -1,0 +1,21 @@
+<div class="groups">
+  <div *ngFor="let group of Object.keys(allegiances)" (click)="selectGroup(group)" class="group">
+    <img src='{{ getGroupImg(group) }}' class="group-img">
+    <p class="group-name" [ngClass]="group == selectedGroup ? 'selected' : ''">{{ getElemName(group) }}</p>
+  </div>
+</div>
+<div class="faction">
+  <div class="faction-choice">
+    <button class="left-btn arrow" (click)="moveLeft()">
+      <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/left_arrow.png"/>
+    </button>
+    <img src='{{ getFactionImg(selectedFaction) }}' alt=""
+         srcset=""
+         (click)="factionSelected()"
+         class="faction-img"/>
+    <button class="right-btn arrow" (click)="moveRight()">
+      <img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/right_arrow.png"/>
+    </button>
+  </div>
+  <p class="faction-name">{{ getElemName(allegiances[selectedGroup][selectedFaction]) }}</p>
+</div>

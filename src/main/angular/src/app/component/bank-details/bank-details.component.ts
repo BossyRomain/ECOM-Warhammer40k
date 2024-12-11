@@ -131,7 +131,7 @@ export class BankDetailsComponent implements OnInit {
           this.cartService.clearCart();
           this.router.navigate(['/cart', this.clientService.client?.id]);
         },
-        error: (err: Error) => {
+        error: (err: any) => { // Changer Error en any pour accéder aux propriétés "message" et "id"
           console.error("Error during payment:", err.message);
           // Navigation vers la page du panier avec un message d'erreur
           this.router.navigate(['/cart', this.clientService.client?.id], {

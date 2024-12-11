@@ -1,9 +1,14 @@
-.catalog-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+/* Styles from small smartphones */
 
+.catalog-grid {
+  --nb-products-per-row: 2;
+  --grid-gap: 20px;
+
+  /*margin: 0 auto;*/
+  display: grid;
+  grid-template-columns: repeat(var(--nb-products-per-row), 1fr);
+  gap: var(--grid-gap);
+}
 
 
 .pagination {
@@ -60,21 +65,25 @@
 }
 
 app-catalog-item {
-  max-width: 100%;
+  /*width: 100%;*/
 }
 
-@media only screen and (min-width: 600px) {
+/* Styles updates for tablets and larges screens */
+
+@media only screen and (min-width: 768px) {
 
   .catalog-grid {
-    margin: 0 auto;
-    flex-direction: row;
-    justify-content: start;
-    flex-wrap: wrap;
-    gap: 30px;
-    width: 95%;
+    --nb-products-per-row: 3;
+    --grid-gap: 30px;
   }
+}
 
-  app-catalog-item {
-    max-width: 23%;
+/* Styles for desktops and larger devices */
+
+@media only screen and (min-width: 1024px) {
+
+  .catalog-grid {
+    --nb-products-per-row: 4;
+    --grid-gap: 30px;
   }
 }

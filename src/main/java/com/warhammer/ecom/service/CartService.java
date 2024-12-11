@@ -123,7 +123,7 @@ public class CartService {
             for (CommandLine commandLine : commandLines) {
                 Product product = productRepository.findByIdWithLock(commandLine.getProduct().getId()).orElseThrow(NoSuchElementException::new);
                 if (commandLine.getQuantity() > product.getStock()) {
-                    throw new RuntimeException("Not enough stock for this product: " + product.getId());
+                    throw new RuntimeException("Not enough stock for this product: " + product.getName() + " " + product.getId());
                 }
                 int newStock = product.getStock() - commandLine.getQuantity();
                 product.setStock(newStock);
