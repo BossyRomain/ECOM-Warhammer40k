@@ -3,6 +3,7 @@ package com.warhammer.ecom.controller;
 import com.warhammer.ecom.controller.dto.ClientLoginDTO;
 import com.warhammer.ecom.controller.dto.ClientLoginResponseDTO;
 import com.warhammer.ecom.controller.dto.ClientSignUpDTO;
+import com.warhammer.ecom.controller.dto.ClientUdpateDTO;
 import com.warhammer.ecom.model.Client;
 import com.warhammer.ecom.service.ClientService;
 import com.warhammer.ecom.service.UserService;
@@ -59,7 +60,7 @@ public class ClientController {
         if (!userService.login(clientLoginDTO.getEmail(), clientLoginDTO.getPassword())) {
             throw new AccessDeniedException("Invalid email or password");
         }
-        
+
         Authentication authentication = authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(clientLoginDTO.getEmail(), clientLoginDTO.getPassword())
         );
@@ -81,6 +82,12 @@ public class ClientController {
     @PostMapping("")
     public Client create(@RequestBody ClientSignUpDTO clientSignUpDTO) {
         return clientService.create(clientSignUpDTO);
+    }
+
+    @PutMapping("/{clientId}")
+    public ResponseEntity<Void> update(@PathVariable Long clientId, @RequestBody ClientUdpateDTO clientUpdateDTO) {
+        clientService.update(clientId, clientUpdateDTO);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{clientId}")
