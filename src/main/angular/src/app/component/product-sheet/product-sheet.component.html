@@ -4,13 +4,13 @@
 </div>
 
 <div class="pick-image">
-  <button class="change-image" (click)="previousImage()" ><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/left_arrow.png" ></button>
+  <button class="change-image" (click)="previousImage()" [disabled]="this.imagesIndex == 0"><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/left_arrow.png" ></button>
   <div class="image-gallery">
     <div *ngFor="let x of setImages; index as i">
-      <img src={{x}} (click)="changeIndex(i)"/>
+      <img src={{x}} (click)="changeIndex(this.imagesIndex + i)"/>
     </div>
   </div>
-  <button class="change-image" (click)="nextImage()"><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/right_arrow.png" ></button>
+  <button class="change-image" (click)="nextImage()" [disabled]="this.imagesIndex >= this.article.images.length - this.maxSize"><img src="https://ecom-images-storage.s3.eu-north-1.amazonaws.com/right_arrow.png" ></button>
 </div>
 
 
@@ -22,7 +22,7 @@
 </div>
 <div class="row-container">
   <div class="row-container">
-    <input class="element" #inputNumberOfElement type="number" value="0" maxlength="3" [min]="0" [step]="1"
+    <input class="element" #inputNumberOfElement type="number" value="1" maxlength="3" [min]="1" [step]="1"
            (input)="validateNumber($event)"/>
     <h4 class="price-container"> {{ price | number: '1.2-2' }} €</h4>
   </div>

@@ -64,17 +64,14 @@ export class ProductSheetComponent implements OnInit, AfterViewInit {
 
   public nextImage(){
     console.log("next: " + this.imagesIndex);
-    if(this.imagesIndex != this.article.images.length -1){
+    if(this.imagesIndex < this.article.images.length - this.maxSize){
       this.imagesIndex++;
-      if(this.imagesIndex >= this.maxSize){
-        
-        let i = this.maxSize -1;
+      let i = 0;
         this.setImages = [];
-        while(i >= 0){
-          this.setImages.push(this.article.images[this.imagesIndex-i].url);
-          i--;
+        while(i <  this.maxSize){
+          this.setImages.push(this.article.images[this.imagesIndex+i].url);
+          i++;
         }
-      }
     }
   }
 
@@ -82,15 +79,12 @@ export class ProductSheetComponent implements OnInit, AfterViewInit {
     console.log("prev: " + this.imagesIndex);
     if(this.imagesIndex != 0){
       this.imagesIndex--;
-      if(this.imagesIndex < this.article.images.length - this.maxSize){
-        
-        let i = this.imagesIndex;
+      let i = this.imagesIndex;
         this.setImages = [];
         while(i < this.imagesIndex + this.maxSize){
           this.setImages.push(this.article.images[i].url);
           i++;
         }
-      }
     }
   }
 

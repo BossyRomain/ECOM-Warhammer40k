@@ -76,6 +76,7 @@ export class RegisterComponent {
     this.service.inscription(this.user.firstName, this.user.lastName, this.user.email, this.user.password, this.user.dob, this.user.newsletter)
       .subscribe(
         (client) => {
+          this.service.client = client;
           this.router.navigate(["/catalogue/search"])
         }
       );
