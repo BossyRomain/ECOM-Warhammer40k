@@ -68,6 +68,7 @@ public class ClientService {
         client.setFirstName(clientUdpateDTO.getFirstName());
         client.setLastName(clientUdpateDTO.getLastName());
         client.setBirthday(client.getBirthday());
+        clientRepository.save(client);
     }
 
     public void delete(Long clientId) {
