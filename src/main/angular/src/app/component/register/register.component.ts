@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+  
 export class RegisterComponent {
   user = {
     lastName: '',

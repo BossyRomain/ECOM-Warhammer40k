@@ -8,8 +8,10 @@ import {BankDetailsComponent} from './component/bank-details/bank-details.compon
 import {RegisterComponent} from './component/register/register.component';
 import {HistoryComponent} from './component/history/history.component';
 import {FigurineFilterComponent} from './component/figurine-filter/figurine-filter.component';
-import {HelpComponent} from './component/help/help.component';
 import {AccessoriesFilterComponent} from './component/accessories-filter/accessories-filter.component';
+import { HelpComponent } from './component/help/help.component';
+import { UpdateUserComponent } from './component/update-user/update-user.component';
+import { ShowUserInformationComponent } from './component/show-user-information/show-user-information.component';
 
 const routes: Routes = [
   {path: "product/:id", component: ProductSheetComponent},
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path: "help", component: HelpComponent},
   {path: "filter/figurines", component: FigurineFilterComponent},
   {path: "filter/accessories", component: AccessoriesFilterComponent},
+  {path: "userInformationModify/:id", component: UpdateUserComponent },
+  {path: "userInformation/:id", component: ShowUserInformationComponent },
   {path: '**', redirectTo: "catalog/search"}
 ];
 

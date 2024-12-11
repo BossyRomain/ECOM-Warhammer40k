@@ -1,0 +1,70 @@
+<h1>Modify your informations</h1>
+
+<div class="form-details">
+  <!-- Nom d'utilisateur -->
+  <div class="form-group">
+    <label for="lastName">Last name</label>
+    <input
+      class="readonly"
+      type="text"
+      id="lastName"
+      name="lastName"
+      placeholder="Enter your last name"
+      [(ngModel)]="user.lastName"
+      required
+      (ngModelChange)="clearError('lastName')"
+    />
+    <div *ngIf="errors['lastName']" class="error-message">{{ errors['lastName'] }}</div>
+  </div>
+
+  <!-- Prénom -->
+  <div class="form-group">
+    <label for="firstName">First name</label>
+    <input
+      class="readonly"
+      type="text"
+      id="firstName"
+      name="firstName"
+      placeholder="Enter your first name"
+      [(ngModel)]="user.firstName"
+      required
+      (ngModelChange)="clearError('firstName')"
+    />
+    <div *ngIf="errors['firstName']" class="error-message">{{ errors['firstName'] }}</div>
+  </div>
+
+  <!-- Date de naissance -->
+  <div class="form-group">
+    <label for="dob">Birthdate</label>
+    <input
+    class="readonly"
+      type="date"
+      id="dob"
+      name="dob"
+      [(ngModel)]="user.dob"
+      required
+      (ngModelChange)="clearError('dob')"
+    />
+    <div *ngIf="errors['dob']" class="error-message">{{ errors['dob'] }}</div>
+  </div>
+
+
+  <!-- Newsletter
+  <div class="form-group newsletter-group">
+    <label for="newsletter">I want to receive newsletter</label>
+    <input
+      type="checkbox"
+      id="newsletter"
+      name="newsletter"
+      [(ngModel)]="user.newsletter"
+    />
+    <div *ngIf="errors['newsletter']" class="error-message">{{ errors['newsletter'] }}</div>
+  </div>
+-->
+  <!-- Bouton d'inscription -->
+  <div class="button-container">
+    <button (click)="modify()" class="submit-btn">Submit</button>
+    <button (click)="cancel()" class="submit-btn cancel">Cancel</button>
+  </div>
+
+</div>

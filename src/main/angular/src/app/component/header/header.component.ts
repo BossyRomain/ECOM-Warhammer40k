@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CartServiceService} from '../../service/cart-service.service';
 import {ClientServiceService} from '../../service/client-service.service';
+import { Client } from '../../model/client';
 
 @Component({
   selector: 'app-header',
@@ -64,10 +65,10 @@ export class HeaderComponent implements OnInit {
   }
 
   public access_account() {
-    if (this.clientService.isConnected()) {
-      //this.router.navigate(["/account"]);
-      this.router.navigate(["/history", this.clientService.client?.id]);
-    } else {
+    if (this.clientService.isConnected() && this.clientService.client != null) {
+      let client: Client = this.clientService.client;
+      this.router.navigate([`/userInformation` ,this.clientService.client?.id]);
+    }else{
       this.router.navigate(["/account"]);
     }
 

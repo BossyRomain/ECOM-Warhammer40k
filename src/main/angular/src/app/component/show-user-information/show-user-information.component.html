@@ -1,0 +1,33 @@
+
+<div>
+
+    <div class= "form-details">
+        <button class="submit-btn" (click)="historique()">History</button>
+    </div>
+
+    <h1>Your user profil</h1>
+    
+    <div class="form-details">
+      <!-- Nom d'utilisateur -->
+      <div class="form-group">
+        <label for="lastName">Lastname</label>
+        <span id="lastName" class="readonly">{{ client.lastName }}</span>
+      </div>
+    
+      <!-- Prénom -->
+      <div class="form-group">
+        <label for="firstName">Firstname</label>
+        <span id="firstName" class="readonly">{{ client.firstName }}</span>
+      </div>
+    
+      <!-- Date de naissance -->
+      <div class="form-group">
+        <label for="dob">Birthday</label>
+        <span id="dob" class="readonly"> {{client.birthday}}</span>
+      </div>
+      <!-- Bouton d'inscription (optionnel) -->
+      <button class="submit-btn" (click)="modify()">Modify informations</button>
+    </div>
+    
+    </div>
+    

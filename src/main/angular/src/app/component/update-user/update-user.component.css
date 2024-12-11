@@ -1,0 +1,113 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f4f4f4;
+}
+
+:host {
+  width: 90%;
+  max-width: 600px;
+  padding: 5%;
+  background-color: #e6e6e6;
+  height: auto;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3%;
+  text-align: center;
+}
+
+.form-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 450px;
+}
+
+.form-group label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.readonly {
+  display: block;
+  font-size: 1.2rem;
+  width: 100%;
+  min-height: 50px;
+  font-weight: bold;
+  background-color: #ffffff; /* Fond blanc */
+  border: 2px solid #ddd; /* Bordure autour du champ */
+  padding: 10px 15px; /* Espace interne */
+  border-radius: 5px; /* Coins légèrement arrondis */
+  color: #000000;
+}
+
+.submit-btn {
+  width: 75%;
+  max-width: 450px;
+  text-align: center;
+  margin: 20px;
+  padding: 12px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor:pointer; /* Curseur de non-cliquable */
+}
+.cancel{
+  background-color: red;
+  margin: 20px;
+}
+.button-container{
+  display: flex;
+
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.submit-btn:active {
+  background-color: #003f7f;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+.newsletter-group {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.newsletter-group label {
+  margin: 0;
+}
+
+#newsletter {
+  margin-left: 20px;
+  max-height: 15px;
+}

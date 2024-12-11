@@ -31,6 +31,7 @@ export class ClientServiceService {
     return this.connected;
   }
 
+
   public seConnecter(email: string, password: string): Observable<Client> {
     const url = `${this.apiUrl}/api/clients/login`;
 
@@ -101,6 +102,35 @@ export class ClientServiceService {
           }
         )
       )
+    } else {
+      return new Observable();
+    }
+  }
+
+  public updateClient(clientId: number, clientUpdateDTO: any): Observable<Client>  {
+    if (this.isConnected() && this.client) {
+      const url = `${this.apiUrl}/api/clients/${clientId}`;
+      const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.client.authToken);
+      return this.http.put<any>(url, clientUpdateDTO, { headers }).pipe(
+        map((response: any) => {
+          console.log("Réponse de l'API reçue");
+          return {
+            id: response.id,
+            user: {
+              id: response.user.id,
+              username: response.user.username,
+              password: response.user.password,
+              authority: response.user.authority,
+            },
+            cart: response.currentCart, // Remplir si nécessaire
+            firstName: response.firstName,
+            lastName: response.lastName,
+            birthday: response.birthday,
+            newsletter: response.newsletter,
+            authToken: response.authToken,
+          }; // Typecasting en `Client`
+        })
+      );
     } else {
       return new Observable();
     }
