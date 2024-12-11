@@ -11,7 +11,12 @@ import java.util.Optional;
 @Repository
 public interface CommandLineRepository extends JpaRepository<CommandLine, Long> {
 
-    @Query("SELECT cl FROM CommandLine cl WHERE cl.product.id = :productId AND cl.command.client.id = :clientId")
+    @Query("""
+        SELECT cl
+        FROM CommandLine cl
+        WHERE cl.product.id = :productId
+            AND cl.command.id = (SELECT c.currentCart.id FROM Client c WHERE c.id = :clientId)
+        """)
     Optional<CommandLine> findByClientAndProduct(Long clientId, Long productId);
 
     @Query("SELECT cl FROM CommandLine cl WHERE cl.command.id = :commandId")
